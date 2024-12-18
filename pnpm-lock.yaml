@@ -12,26 +12,26 @@ importers:
         specifier: 15.1.1
         version: 15.1.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react:
-        specifier: ^19.0.0
+        specifier: 19.0.0
         version: 19.0.0
       react-dom:
-        specifier: ^19.0.0
+        specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
       '@types/node':
-        specifier: ^20
+        specifier: 20.17.10
         version: 20.17.10
       '@types/react':
-        specifier: ^19
+        specifier: 19.0.1
         version: 19.0.1
       '@types/react-dom':
-        specifier: ^19
+        specifier: 19.0.2
         version: 19.0.2(@types/react@19.0.1)
       typescript:
-        specifier: ^5
+        specifier: 5.7.2
         version: 5.7.2
 
 packages:
