@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "check": "biome check",
-    "check:fix" : "biome check --write"
+    "check:fix": "biome check --write"
   },
   "dependencies": {
     "next": "15.1.1",
