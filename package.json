@@ -8,6 +8,7 @@
     "start": "next start",
     "check": "biome check",
     "check:fix": "biome check --write",
+    "prepare": "panda codegen",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
