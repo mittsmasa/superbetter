@@ -4,15 +4,19 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
     "check": "biome check",
     "check:fix": "biome check --write",
+    "drizzle:gen": "drizzle-kit generate",
+    "drizzle:migrate": "drizzle-kit migrate",
+    "drizzle:push": "drizzle-kit push",
+    "dev": "next dev --turbopack",
     "prepare": "panda codegen",
+    "start": "next start",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "1.7.4",
     "dotenv": "16.4.7",
     "drizzle-orm": "0.38.2",
     "mysql2": "3.11.5",
