@@ -13,6 +13,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "1.7.4",
     "dotenv": "16.4.7",
     "drizzle-orm": "0.38.2",
     "mysql2": "3.11.5",
