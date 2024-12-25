@@ -1,22 +1,12 @@
 import {
   boolean,
   int,
-  mysqlSchema,
   primaryKey,
   mysqlTable as table,
   timestamp,
   varchar,
 } from 'drizzle-orm/mysql-core';
-import { drizzle } from 'drizzle-orm/mysql2';
 import type { AdapterAccountType } from 'next-auth/adapters';
-
-const databaseUrl = process.env.DATABASE_URL;
-
-if (!databaseUrl) {
-  throw new Error('DATABASE_URL is not set');
-}
-
-export const db = drizzle(databaseUrl);
 
 export const users = table('user', {
   id: varchar('id', { length: 255 })

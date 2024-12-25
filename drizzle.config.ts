@@ -1,17 +1,16 @@
 import 'dotenv/config';
 import { defineConfig } from 'drizzle-kit';
 
-const databaseUrl = process.env.DATABASE_URL;
-
-if (!databaseUrl) {
-  throw new Error('DATABASE_URL is not set');
-}
-
 export default defineConfig({
   out: './drizzle',
   schema: './db/schema.ts',
   dialect: 'mysql',
   dbCredentials: {
-    url: databaseUrl,
+    host: process.env.DB_HOST ?? 'localhost',
+    port: Number(process.env.DB_PORT ?? 0),
+    user: process.env.DB_USERNAME ?? 'root',
+    password: process.env.DB_PASSWORD ?? 'root',
+    database: process.env.DB_DATABASE ?? 'superbetter',
+    ssl: process.env.DB_TYPE?.toLowerCase() === 'tidb' ? {} : undefined,
   },
 });
