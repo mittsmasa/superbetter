@@ -1,3 +1,5 @@
+import { textStyles } from '@/styles/textStyles';
+import { tokens } from '@/styles/tokens';
 import { defineConfig } from '@pandacss/dev';
 
 export default defineConfig({
@@ -7,7 +9,8 @@ export default defineConfig({
   include: ['./src/**/*.{js,jsx,ts,tsx}'],
   exclude: [],
   theme: {
-    extend: {},
+    tokens,
+    textStyles,
   },
   outdir: 'src/styled-system',
 });
