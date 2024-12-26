@@ -8,6 +8,9 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
+  features: {
+    backgroundsStoryGlobals: true,
+  },
   staticDirs: ['../public', { from: '../public/fonts', to: '/public/fonts' }],
   webpackFinal: async (config) => {
     if (!config.resolve) {
