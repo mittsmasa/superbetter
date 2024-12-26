@@ -1,4 +1,4 @@
-import { SignIn } from '@/components/signin/google';
+import { SignIn } from '@/components/google/signin';
 import { css } from '@/styled-system/css';
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
       <main
         className={css({ color: 'yellow.800', textStyle: 'Heading.primary' })}
       >
-        <SignIn />
+        main
       </main>
     </div>
   );
