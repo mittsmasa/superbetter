@@ -11,7 +11,7 @@ const Login = async ({
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
-        height: 'lvh',
+        height: 'dvh',
         justifyContent: 'center',
         gap: '24px',
       })}
