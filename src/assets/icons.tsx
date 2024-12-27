@@ -1,2 +1,1 @@
-import AbTesting from './pixel-icons/ab-testing.svg';
-export { AbTesting };
+export { default as AbTesting } from './pixel-icons/ab-testing.svg';
