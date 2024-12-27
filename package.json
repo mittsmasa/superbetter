@@ -10,7 +10,7 @@
     "drizzle:gen": "drizzle-kit generate",
     "drizzle:migrate": "drizzle-kit migrate",
     "drizzle:push": "drizzle-kit push",
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "prepare": "panda codegen",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
