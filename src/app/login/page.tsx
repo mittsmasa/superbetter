@@ -1,7 +1,10 @@
 import { SignInButton } from '@/components/google/signin-button';
 import { css } from '@/styled-system/css';
 
-const Login = () => {
+const Login = async ({
+  searchParams,
+}: { searchParams: Promise<{ redirectTo?: string }> }) => {
+  const { redirectTo } = await searchParams;
   return (
     <main
       className={css({
@@ -26,7 +29,7 @@ const Login = () => {
         <br />
         あらたな世界のとびらはここにある
       </p>
-      <SignInButton />
+      <SignInButton redirectTo={redirectTo} />
     </main>
   );
 };
