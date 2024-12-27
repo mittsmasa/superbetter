@@ -27,21 +27,21 @@ export const textStyles = defineTextStyles({
   Body: {
     primary: {
       value: {
-        fontSize: '0.875rem',
+        fontSize: '1rem',
         lineHeight: 1.15,
         fontWeight: 'normal',
       },
     },
     secondary: {
       value: {
-        fontSize: '0.75rem',
+        fontSize: '0.875rem',
         lineHeight: 1.15,
         fontWeight: 'normal',
       },
     },
     tertiary: {
       value: {
-        fontSize: '0.625rem',
+        fontSize: '0.75rem',
         lineHeight: 1.15,
         fontWeight: 'normal',
       },
