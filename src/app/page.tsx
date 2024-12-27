@@ -1,4 +1,4 @@
-import { SignIn } from '@/components/google/signin';
+import { SignInButton } from '@/components/google/signin-button';
 import { css } from '@/styled-system/css';
 
 export default function Home() {

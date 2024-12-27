@@ -1,6 +1,7 @@
 import { signIn } from '@/auth';
+import { Button } from '../button';
 
-export const SignIn = () => {
+export const SignInButton = () => {
   return (
     <form
       action={async () => {
@@ -8,7 +9,7 @@ export const SignIn = () => {
         await signIn('google');
       }}
     >
-      <button type="submit">Sign in with Google</button>
+      <Button type="submit">Googleでサインイン</Button>
     </form>
   );
 };
