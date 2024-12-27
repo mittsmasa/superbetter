@@ -7,7 +7,10 @@ const PUBLIC_PATHS = ['/login'];
 
 export default auth((req) => {
   if (!req.auth && !PUBLIC_PATHS.includes(req.nextUrl.pathname)) {
-    const newUrl = new URL('/login', req.nextUrl.origin);
+    const searchParams = new URLSearchParams({
+      redirectTo: req.nextUrl.pathname,
+    });
+    const newUrl = new URL(`/login?${searchParams}`, req.nextUrl.origin);
     return Response.redirect(newUrl);
   }
 });

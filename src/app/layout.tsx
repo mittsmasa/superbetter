@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { pixelMPlus } from '@/fonts';
+import { css } from '@/styled-system/css';
 
 export const metadata: Metadata = {
   title: 'Super Better',
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={pixelMPlus.className}>
-      <body>{children}</body>
+      <body className={css({ backgroundColor: 'black', color: 'white' })}>
+        {children}
+      </body>
     </html>
   );
 }
