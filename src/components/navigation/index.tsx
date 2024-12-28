@@ -1,8 +1,13 @@
+'use client';
+
 import { Android, Calendar, Human, ScriptText, Zap } from '@/assets/icons';
 import { css } from '@/styled-system/css';
+import { usePathname, useRouter } from 'next/navigation';
 import { IconButton } from './icon-button';
 
 export const FooterNavigation = () => {
+  const pathname = usePathname();
+  const router = useRouter();
   return (
     <div
       className={css({
@@ -13,19 +18,39 @@ export const FooterNavigation = () => {
         padding: '4px 12px',
       })}
     >
-      <IconButton type="button" active>
+      <IconButton
+        type="button"
+        active={pathname === '/'}
+        onClick={() => router.push('/')}
+      >
         <Calendar />
       </IconButton>
-      <IconButton type="button">
+      <IconButton
+        type="button"
+        active={pathname === '/powerups'}
+        onClick={() => router.push('/powerups')}
+      >
         <Zap />
       </IconButton>
-      <IconButton type="button">
+      <IconButton
+        type="button"
+        active={pathname === '/quests'}
+        onClick={() => router.push('/quests')}
+      >
         <ScriptText />
       </IconButton>
-      <IconButton type="button">
+      <IconButton
+        type="button"
+        active={pathname === '/villains'}
+        onClick={() => router.push('/villains')}
+      >
         <Android />
       </IconButton>
-      <IconButton type="button">
+      <IconButton
+        type="button"
+        active={pathname === '/me'}
+        onClick={() => router.push('/me')}
+      >
         <Human />
       </IconButton>
     </div>

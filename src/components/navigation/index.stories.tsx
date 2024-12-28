@@ -10,7 +10,11 @@ export default meta;
 type Story = StoryObj<typeof FooterNavigation>;
 
 export const Default = {
-  args: {
-    // Add default props here
+  parameters: {
+    nextjs: {
+      navigation: {
+        pathname: '/me',
+      },
+    },
   },
 } satisfies Story;
