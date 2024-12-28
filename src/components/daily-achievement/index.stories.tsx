@@ -29,3 +29,9 @@ export const Upcoming = {
     status: 'upcoming',
   },
 } satisfies Story;
+
+export const Today = {
+  args: {
+    status: 'today',
+  },
+} satisfies Story;

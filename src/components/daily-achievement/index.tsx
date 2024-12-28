@@ -1,4 +1,32 @@
-import { css } from '@/styled-system/css';
+import { cva } from '@/styled-system/css';
+
+const wrapper = cva({
+  base: {
+    alignItems: 'center',
+    backgroundColor: 'black',
+    color: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    width: '[30px]',
+  },
+  variants: {
+    status: {
+      upcoming: {
+        color: 'gray.300',
+      },
+      achieved: {
+        color: 'black',
+        backgroundColor: 'white',
+      },
+      'not-achieved': {},
+      today: {
+        boxShadow:
+          '-2px 0 0 0 currentColor, 2px 0 0 0 currentColor, 0 -2px 0 0 currentColor, 0 2px 0 0 currentColor',
+      },
+    },
+  },
+});
 
 export const DailyAchievement = ({
   datetime,
@@ -11,16 +39,7 @@ export const DailyAchievement = ({
     datetime,
   );
   return (
-    <div
-      className={css({
-        alignItems: 'center',
-        color: 'white',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        width: '[30px]',
-      })}
-    >
+    <div className={wrapper({ status })}>
       <p>{date}</p>
       <p>{datetime.getDate()}</p>
     </div>
