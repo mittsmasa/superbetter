@@ -27,6 +27,9 @@ const preview: Preview = {
         light: { name: 'Light', value: '#F7F9F2' },
       },
     },
+    nextjs: {
+      appDirectory: true,
+    },
   },
   initialGlobals: {
     backgrounds: { value: 'dark' },
