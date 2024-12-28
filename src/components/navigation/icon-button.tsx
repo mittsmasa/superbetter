@@ -13,7 +13,7 @@ export const IconButton = ({
 >) => {
   const [tap, setTap] = useState(false);
   return (
-    <div className={css({ width: '[fit-content]', padding: '2px' })}>
+    <div className={css({ width: '[28px]', height: '[28px]', padding: '2px' })}>
       <button
         {...props}
         onTouchStart={() => setTap(true)}
