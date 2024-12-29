@@ -1,4 +1,5 @@
 import { cva } from '@/styled-system/css';
+import { PixelBorder } from '../pixel-border';
 
 const wrapper = cva({
   base: {
@@ -20,10 +21,7 @@ const wrapper = cva({
         backgroundColor: 'white',
       },
       'not-achieved': {},
-      today: {
-        boxShadow:
-          '-2px 0 0 0 currentColor, 2px 0 0 0 currentColor, 0 -2px 0 0 currentColor, 0 2px 0 0 currentColor',
-      },
+      today: {},
     },
   },
 });
@@ -39,9 +37,11 @@ export const DailyAchievement = ({
     datetime,
   );
   return (
-    <div className={wrapper({ status })}>
-      <p>{date}</p>
-      <p>{datetime.getDate()}</p>
-    </div>
+    <PixelBorder hidden={status !== 'today'} color="colors.white">
+      <div className={wrapper({ status })}>
+        <p>{date}</p>
+        <p>{datetime.getDate()}</p>
+      </div>
+    </PixelBorder>
   );
 };

@@ -12,6 +12,7 @@ const meta = {
   ],
   args: {
     children: 'PixelBorder',
+    color: 'colors.white',
   },
 } satisfies Meta<typeof PixelBorder>;
 
