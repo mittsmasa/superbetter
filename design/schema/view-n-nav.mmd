@@ -1,0 +1,24 @@
+stateDiagram-v2
+  state "ユーザー\nSingle" as user
+  state "ミッション\nCollection" as missions
+  state "ミッション\nSingle" as mission
+  state "クエスト\nCollection" as quests
+  state "クエスト\nSingle" as quest
+  state "パワーアップアイテム\nCollection" as powerups
+  state "パワーアップアイテム\nSingle" as powerup
+  state "悪者との戦い\nCollection" as villains
+  state "悪者との戦い\nSingle" as villain
+  state "エピックウィン\nSingle" as epic
+  
+  missions --> mission
+  mission --> missions
+  mission --> quests
+  mission --> powerups
+  mission --> villains
+  mission --> epic
+  quests --> quest
+  quest --> quests
+  powerups --> powerup
+  powerup --> powerups
+  villains --> villain
+  villain --> villains
