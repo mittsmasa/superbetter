@@ -11,7 +11,10 @@ const config: StorybookConfig = {
   features: {
     backgroundsStoryGlobals: true,
   },
-  staticDirs: ['../public', { from: '../public/fonts', to: '/public/fonts' }],
+  staticDirs: [
+    '../src/public',
+    { from: '../src/public/fonts', to: '/src/public/fonts' },
+  ],
   webpackFinal: async (config) => {
     // For path alias
     if (!config.resolve) {
