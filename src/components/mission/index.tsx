@@ -64,19 +64,28 @@ const Item = ({
     case 'quest':
       return (
         <ScriptText
-          className={css({ color: completed ? 'cyan.500' : 'gray.500' })}
+          className={css({
+            color: completed ? 'cyan.500' : 'gray.500',
+            transition: '[color 0.8s ease-in-out]',
+          })}
         />
       );
     case 'powerup':
       return (
         <Zap
-          className={css({ color: completed ? 'yellow.300' : 'gray.500' })}
+          className={css({
+            color: completed ? 'yellow.300' : 'gray.500',
+            transition: '[color 0.8s ease-in-out]',
+          })}
         />
       );
     case 'villain':
       return (
         <Android
-          className={css({ color: completed ? 'purple.600' : 'gray.500' })}
+          className={css({
+            color: completed ? 'purple.600' : 'gray.500',
+            transition: '[color 0.8s ease-in-out]',
+          })}
         />
       );
     default:
