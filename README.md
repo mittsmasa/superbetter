@@ -4,7 +4,7 @@
 収益化のつもりはないですが、サーバーの維持が難しくなったら考えます
 
 
-## Endpoint
+## Env
 https://superbetter.vercel.app/
 
 ### Font
