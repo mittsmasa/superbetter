@@ -117,5 +117,5 @@ export const missionConditions = table('missionCondition', {
   updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().onUpdateNow(),
 });
 
-type MissionItem = 'quest' | 'powerup' | 'villain' | 'epicwin';
-type MissionCondition = 'any' | 'specific';
+export type MissionItem = 'quest' | 'powerup' | 'villain' | 'epicwin';
+export type MissionCondition = 'any' | 'specific';
