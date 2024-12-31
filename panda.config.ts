@@ -8,6 +8,14 @@ export default defineConfig({
   preflight: true,
   include: ['./src/**/*.{js,jsx,ts,tsx}'],
   exclude: [],
+  globalCss: {
+    body: {
+      color: 'white',
+    },
+    '*': {
+      boxSizing: 'border-box',
+    },
+  },
   theme: {
     tokens,
     textStyles,
