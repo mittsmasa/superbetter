@@ -1,17 +1,13 @@
 import { Android, ScriptText, Zap } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import Link from 'next/link';
-import type { MissionItem } from '../../../db/schema/superbetter';
+import type { MissionItem as MissionItemType } from '../../../db/schema/superbetter';
 import { PixelBorder } from '../pixel-border';
 
 type MissionProps = {
   id: string;
   title: string;
-  items: {
-    id: string;
-    missionItemType: MissionItem;
-    completed: boolean;
-  }[];
+  items: MissionItemProps[];
 };
 
 export const Mission = ({ id, title, items }: MissionProps) => {
@@ -29,37 +25,46 @@ export const Mission = ({ id, title, items }: MissionProps) => {
         })}
       >
         <p>{title}</p>
-        <div
-          className={css({
-            alignItems: 'center',
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '12px',
-            overflowX: 'auto',
-          })}
-        >
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={css({
-                height: '[24px]',
-                width: '[24px]',
-                flexShrink: 0,
-              })}
-            >
-              <Item key={index} {...item} />
-            </div>
-          ))}
-        </div>
+        <MissionItemList items={items} />
       </Link>
     </PixelBorder>
   );
 };
 
-const Item = ({
-  missionItemType,
-  completed,
-}: MissionProps['items'][number]) => {
+const MissionItemList = (props: { items: MissionItemProps[] }) => {
+  return (
+    <div
+      className={css({
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '12px',
+        overflowX: 'auto',
+      })}
+    >
+      {props.items.map((item, index) => (
+        <div
+          key={index}
+          className={css({
+            height: '[24px]',
+            width: '[24px]',
+            flexShrink: 0,
+          })}
+        >
+          <MissionItem key={index} {...item} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+type MissionItemProps = {
+  id: string;
+  missionItemType: MissionItemType;
+  completed: boolean;
+};
+
+const MissionItem = ({ missionItemType, completed }: MissionItemProps) => {
   switch (missionItemType) {
     case 'quest':
       return (
