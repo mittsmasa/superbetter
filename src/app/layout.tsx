@@ -16,9 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={pixelMPlus.className}>
-      <body className={css({ backgroundColor: 'black', color: 'white' })}>
-        {children}
-      </body>
+      <body className={css({ padding: '8px 12px' })}>{children}</body>
     </html>
   );
 }
