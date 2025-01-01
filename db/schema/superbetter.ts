@@ -7,6 +7,7 @@ import {
   timestamp,
   varchar,
 } from 'drizzle-orm/mysql-core';
+import type { MissionCondition, MissionItem } from '../../types/mission';
 import { users } from './auth';
 
 export const userProfile = table('userProfile', {
@@ -116,6 +117,3 @@ export const missionConditions = table('missionCondition', {
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
   updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().onUpdateNow(),
 });
-
-export type MissionItem = 'quest' | 'powerup' | 'villain' | 'epicwin';
-export type MissionCondition = 'any' | 'specific';

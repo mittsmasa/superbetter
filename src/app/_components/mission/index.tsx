@@ -1,8 +1,8 @@
 import { Android, ScriptText, Zap } from '@/assets/icons';
+import { PixelBorder } from '@/components/pixel-border';
 import { css } from '@/styled-system/css';
 import Link from 'next/link';
-import type { MissionItem as MissionItemType } from '../../../../db/schema/superbetter';
-import { PixelBorder } from '../../../components/pixel-border';
+import type { MissionItem as MissionItemType } from '../../../../types/mission';
 
 type MissionProps = {
   id: string;
