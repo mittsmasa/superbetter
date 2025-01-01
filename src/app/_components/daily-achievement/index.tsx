@@ -1,5 +1,5 @@
 import { cva } from '@/styled-system/css';
-import { PixelBorder } from '../pixel-border';
+import { PixelBorder } from '../../../components/pixel-border';
 
 const wrapper = cva({
   base: {

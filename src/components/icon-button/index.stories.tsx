@@ -1,7 +1,7 @@
 import { AbTesting } from '@/assets/icons';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { IconButton } from './icon-button';
+import { IconButton } from '.';
 
 const meta = {
   component: IconButton,
