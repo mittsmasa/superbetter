@@ -26,9 +26,7 @@ export const PixelBorder = ({
       style={style}
       className={css(
         {
-          alignItems: 'center',
           display: 'flex',
-          justifyContent: 'center',
           margin: 'var(--pixel-border-width)',
           width,
           height,
