@@ -1,7 +1,9 @@
 import { AddBox } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
-import { css } from '@/styled-system/css';
+import { css, cx } from '@/styled-system/css';
+import { pixelBorder } from '@/styled-system/patterns';
+import Link from 'next/link';
 
 const Page = () => {
   return (
@@ -11,14 +13,16 @@ const Page = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        padding: '8px 12px',
       })}
     >
       <div
         className={css({
-          py: '8px',
+          backgroundColor: 'black',
           display: 'flex',
           justifyContent: 'space-between',
+          padding: '8px',
+          position: 'sticky',
+          top: 0,
         })}
       >
         <h1 className={css({ textStyle: 'Heading.primary' })}>
@@ -30,8 +34,29 @@ const Page = () => {
       </div>
       <div
         className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          padding: '8px',
+          textStyle: 'Body.secondary',
+        })}
+      >
+        <Quest />
+        <Quest />
+        <Quest />
+        <Quest />
+        <Quest />
+        <Quest />
+        <Quest />
+        <Quest />
+        <Quest />
+      </div>
+      <div
+        className={css({
+          backgroundColor: 'black',
           position: 'sticky',
-          bottom: '8px',
+          bottom: 0,
+          padding: '8px',
         })}
       >
         <FooterNavigation />
@@ -39,5 +64,33 @@ const Page = () => {
     </main>
   );
 };
+
+const Quest = () => (
+  <Link
+    href="/powerups/1"
+    className={cx(
+      pixelBorder({ borderWidth: 1 }),
+      css({
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        padding: '4px',
+      }),
+    )}
+  >
+    <p>パワーブレスする</p>
+    <p
+      className={css({
+        color: 'gray.200',
+        textStyle: 'Body.tertiary',
+        lineClamp: 3,
+      })}
+    >
+      パワーブレスというのは8カウントで吸って4カウントで吐くやつのことです。すごく長い文章をいれても途中で
+      Truncate
+      されることを想定しています。まぁこれだけかければあまり省略されることはないとおもうけど
+    </p>
+  </Link>
+);
 
 export default Page;
