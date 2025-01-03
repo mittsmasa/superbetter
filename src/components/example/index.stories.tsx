@@ -6,9 +6,6 @@ import { ExampleButton } from '.';
 
 const meta = {
   component: ExampleButton,
-  parameters: {
-    layout: 'centered',
-  },
   args: {
     onClick: fn(),
     children: 'ボタン',

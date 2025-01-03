@@ -4,9 +4,6 @@ import { Button } from '.';
 
 const meta = {
   component: Button,
-  parameters: {
-    layout: 'centered',
-  },
   args: {
     type: 'button',
     children: 'ボタン',
