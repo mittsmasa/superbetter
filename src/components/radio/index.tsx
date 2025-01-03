@@ -7,20 +7,23 @@ export const Radio = ({
   ...props
 }: { label: string } & Pick<
   InputHTMLAttributes<HTMLInputElement>,
-  'name' | 'value' | 'onChange'
+  'name' | 'value'
 >) => {
   return (
-    <PixelBorder width="[100%]">
+    <PixelBorder width="[100%]" borderWidth={1}>
       <label
         className={css({
-          position: 'relative',
+          display: 'flex',
           width: '[100%]',
         })}
       >
         <input
           {...props}
           type="radio"
-          className={cx('peer', css({ opacity: 0, position: 'absolute' }))}
+          className={cx(
+            'peer',
+            css({ opacity: 0, width: '[0px]', height: '[0px]' }),
+          )}
         />
         <span
           className={css({
