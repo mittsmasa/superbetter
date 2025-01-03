@@ -1,6 +1,35 @@
+## ページ
+
+以下のようなスタイルでページを定義する
+
+```typescript
+import { css } from '@/styled-system/css';
+import { use } from 'react';
+
+const Page = (props: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) => {
+  const params = use(props.params);
+  const searchParams = use(props.searchParams);
+  return (
+    <main className={css({ textStyle: 'Body.primary' })}>
+      <h1 className={css({ textStyle: 'Heading.primary' })}>
+        Mission: {params.id}
+      </h1>
+      {/* Add more content here */}
+    </main>
+  );
+};
+
+export default Page;
+```
+
 ## コンポーネント
+
 以下のようなスタイルでコンポーネントを定義する
-```tsx
+
+```typescript
 import { css } from '@/styled-system/css';
 import type { PropsWithChildren } from 'react';
 
@@ -22,9 +51,10 @@ export const ExampleButton = ({
 ```
 
 ## ストーリー
+
 以下のようなスタイルでストーリーを定義
 
-```tsx
+```typescript
 import { css } from '@/styled-system/css';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';

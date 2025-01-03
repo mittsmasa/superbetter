@@ -10,6 +10,7 @@ export default defineConfig({
   exclude: [],
   globalCss: {
     body: {
+      backgroundColor: 'black',
       color: 'white',
     },
     '*': {

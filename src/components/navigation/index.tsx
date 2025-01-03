@@ -3,7 +3,7 @@
 import { Android, Calendar, Human, ScriptText, Zap } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import { usePathname, useRouter } from 'next/navigation';
-import { IconButton } from './icon-button';
+import { IconButton } from '../icon-button';
 
 export const FooterNavigation = () => {
   const pathname = usePathname();
