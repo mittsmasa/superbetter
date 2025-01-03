@@ -1,5 +1,5 @@
-import { PixelBorder } from '@/components/pixel-border';
-import { css } from '@/styled-system/css';
+import { css, cx } from '@/styled-system/css';
+import { pixelBorder } from '@/styled-system/patterns';
 import Link from 'next/link';
 import { MissionEntities, type MissionEntity } from './entitity';
 
@@ -13,21 +13,22 @@ export const Mission = ({
   items: MissionEntity[];
 }) => {
   return (
-    <PixelBorder width="[100%]">
-      <Link
-        href={`/missions/${id}`}
-        className={css({
+    <Link
+      href={`/missions/${id}`}
+      className={cx(
+        pixelBorder({}),
+        css({
           textStyle: 'Body.secondary',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
           padding: '[8px]',
           width: '[100%]',
-        })}
-      >
-        <p>{title}</p>
-        <MissionEntities items={items} />
-      </Link>
-    </PixelBorder>
+        }),
+      )}
+    >
+      <p>{title}</p>
+      <MissionEntities items={items} />
+    </Link>
   );
 };

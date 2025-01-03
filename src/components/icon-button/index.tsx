@@ -1,8 +1,9 @@
 'use client';
 
-import { css } from '@/styled-system/css';
-import { type ComponentProps, useState } from 'react';
-import { PixelBorder } from '../pixel-border';
+import { useTapFeeling } from '@/hooks/feeling';
+import { css, cx } from '@/styled-system/css';
+import { pixelBorder } from '@/styled-system/patterns';
+import type { ComponentProps } from 'react';
 
 export const IconButton = ({
   active,
@@ -12,15 +13,17 @@ export const IconButton = ({
   ComponentProps<'button'>,
   'disabled' | 'type' | 'onClick' | 'children'
 >) => {
-  const [tap, setTap] = useState(false);
+  const feeling = useTapFeeling();
   return (
-    <PixelBorder hidden={!active} color="colors.white">
-      <button
-        {...props}
-        onTouchStart={() => setTap(true)}
-        onTouchEnd={() => setTap(false)}
-        onTouchCancel={() => setTap(false)}
-        className={css(
+    <button
+      {...feeling.props}
+      {...props}
+      className={cx(
+        active &&
+          pixelBorder({
+            ...(props.disabled ? { borderColor: 'gray.400' } : {}),
+          }),
+        css(
           {
             color: 'white',
             cursor: 'pointer',
@@ -30,11 +33,11 @@ export const IconButton = ({
               cursor: 'unset',
             },
           },
-          tap && !props.disabled && { transform: 'scale(0.95)' },
-        )}
-      >
-        {children}
-      </button>
-    </PixelBorder>
+          !props.disabled && feeling.cssRaw,
+        ),
+      )}
+    >
+      {children}
+    </button>
   );
 };

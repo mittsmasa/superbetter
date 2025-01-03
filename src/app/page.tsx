@@ -62,7 +62,9 @@ export default function Home() {
           },
         ]}
       />
-      <FooterNavigation />
+      <div className={css({ position: 'sticky' })}>
+        <FooterNavigation />
+      </div>
     </main>
   );
 }
