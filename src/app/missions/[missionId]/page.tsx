@@ -1,11 +1,12 @@
 import { MissionEntities } from '@/app/_components/mission/entitity';
 import { Default } from '@/app/_components/mission/index.stories';
-import { AddBox, ChevlonLeft, Zap } from '@/assets/icons';
+import { AddBox, Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { IconButton } from '@/components/icon-button';
 import { Radio } from '@/components/radio';
 import { css } from '@/styled-system/css';
 import { use } from 'react';
+import { Header } from './_components/header';
 
 const Page = (props: {
   params: Promise<{ missionId: string }>;
@@ -32,20 +33,7 @@ const Page = (props: {
           top: 0,
         })}
       >
-        <div
-          className={css({
-            alignItems: 'center',
-            display: 'flex',
-            gap: '8px',
-            py: '8px',
-          })}
-        >
-          <IconButton>
-            <ChevlonLeft
-              className={css({ width: '[24px]', height: '[24px]' })}
-            />
-          </IconButton>
-        </div>
+        <Header />
         <div
           className={css({
             display: 'flex',
