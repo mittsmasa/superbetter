@@ -16,7 +16,6 @@ const pixelBorder = definePattern({
     return {
       '--pixel-border-width': `${borderWidth}px`,
       '--pixel-border-color': borderColor,
-      margin: 'var(--pixel-border-width)',
       boxShadow:
         'calc(-1 * var(--pixel-border-width)) 0 0 0 var(--pixel-border-color), var(--pixel-border-width) 0 0 0 var(--pixel-border-color), 0 calc(-1 * var(--pixel-border-width)) 0 0 var(--pixel-border-color), 0 var(--pixel-border-width) 0 0 var(--pixel-border-color)',
     };
