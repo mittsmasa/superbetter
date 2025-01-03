@@ -11,7 +11,7 @@ export default function Home() {
         flexDirection: 'column',
         padding: '8px 12px',
         justifyContent: 'space-between',
-        height: '[100vh]',
+        height: '[100%]',
       })}
     >
       <div
