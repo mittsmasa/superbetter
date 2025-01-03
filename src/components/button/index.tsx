@@ -1,7 +1,8 @@
 'use client';
 
+import { useTapFeeling } from '@/hooks/feeling';
 import { css } from '@/styled-system/css';
-import { type ComponentProps, useState } from 'react';
+import type { ComponentProps } from 'react';
 
 export const Button = ({
   children,
@@ -10,12 +11,10 @@ export const Button = ({
   ComponentProps<'button'>,
   'disabled' | 'type' | 'onClick' | 'children'
 >) => {
-  const [tap, setTap] = useState(false);
+  const feeling = useTapFeeling();
   return (
     <button
-      onTouchStart={() => setTap(true)}
-      onTouchEnd={() => setTap(false)}
-      onTouchCancel={() => setTap(false)}
+      {...feeling.props}
       {...props}
       className={css(
         {
@@ -29,7 +28,7 @@ export const Button = ({
             cursor: 'unset',
           },
         },
-        tap && !props.disabled && { transform: 'scale(0.95)' },
+        !props.disabled && feeling.cssRaw,
       )}
     >
       {children}
