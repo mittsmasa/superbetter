@@ -1,5 +1,5 @@
-import { cva } from '@/styled-system/css';
-import { PixelBorder } from '../../../components/pixel-border';
+import { cva, cx } from '@/styled-system/css';
+import { pixelBorder } from '@/styled-system/patterns';
 
 const wrapper = cva({
   base: {
@@ -37,11 +37,11 @@ export const DailyAchievement = ({
     datetime,
   );
   return (
-    <PixelBorder hidden={status !== 'today'} color="colors.white">
-      <div className={wrapper({ status })}>
-        <p>{date}</p>
-        <p>{datetime.getDate()}</p>
-      </div>
-    </PixelBorder>
+    <div
+      className={cx(wrapper({ status }), status === 'today' && pixelBorder({}))}
+    >
+      <p>{date}</p>
+      <p>{datetime.getDate()}</p>
+    </div>
   );
 };

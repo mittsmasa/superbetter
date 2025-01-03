@@ -9,7 +9,6 @@ export default function Home() {
       className={css({
         display: 'flex',
         flexDirection: 'column',
-        padding: '8px 12px',
         justifyContent: 'space-between',
         height: '[100%]',
       })}
@@ -18,6 +17,7 @@ export default function Home() {
         className={css({
           display: 'flex',
           justifyContent: 'space-between',
+          padding: '8px',
         })}
       >
         <DailyAchievement datetime={new Date(2024, 1, 1)} status="achieved" />
@@ -31,38 +31,42 @@ export default function Home() {
         <DailyAchievement datetime={new Date(2024, 1, 6)} status="today" />
         <DailyAchievement datetime={new Date(2024, 1, 7)} status="upcoming" />
       </div>
-      <Mission
-        id="3"
-        title="デイリーミッション"
-        items={[
-          {
-            id: '1',
-            missionItemType: 'powerup',
-            completed: true,
-          },
-          {
-            id: '2',
-            missionItemType: 'powerup',
-            completed: false,
-          },
-          {
-            id: '3',
-            missionItemType: 'powerup',
-            completed: false,
-          },
-          {
-            id: '4',
-            missionItemType: 'quest',
-            completed: true,
-          },
-          {
-            id: '5',
-            missionItemType: 'villain',
-            completed: true,
-          },
-        ]}
-      />
-      <FooterNavigation />
+      <div className={css({ display: 'flex', gap: '8px', padding: '8px' })}>
+        <Mission
+          id="3"
+          title="デイリーミッション"
+          items={[
+            {
+              id: '1',
+              missionItemType: 'powerup',
+              completed: true,
+            },
+            {
+              id: '2',
+              missionItemType: 'powerup',
+              completed: false,
+            },
+            {
+              id: '3',
+              missionItemType: 'powerup',
+              completed: false,
+            },
+            {
+              id: '4',
+              missionItemType: 'quest',
+              completed: true,
+            },
+            {
+              id: '5',
+              missionItemType: 'villain',
+              completed: true,
+            },
+          ]}
+        />
+      </div>
+      <div className={css({ position: 'sticky', bottom: 0, padding: '8px' })}>
+        <FooterNavigation />
+      </div>
     </main>
   );
 }

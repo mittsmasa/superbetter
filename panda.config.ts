@@ -1,4 +1,5 @@
-import { textStyles } from '@/styles/textStyles';
+import * as patterns from '@/styles/patterns';
+import { textStyles } from '@/styles/text-styles';
 import { tokens } from '@/styles/tokens';
 import { defineConfig } from '@pandacss/dev';
 
@@ -21,5 +22,6 @@ export default defineConfig({
     tokens,
     textStyles,
   },
+  patterns,
   outdir: 'src/styled-system',
 });

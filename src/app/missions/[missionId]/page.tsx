@@ -20,7 +20,6 @@ const Page = (props: {
         gap: '16px',
         height: '[100%]',
         overflow: 'auto',
-        padding: '0px 12px',
       })}
     >
       <div
