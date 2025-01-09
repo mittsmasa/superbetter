@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "groupName": "all-dependencies"
+    },
+    {
+      "matchPackageNames": ["@storybook/*"],
+      "groupName": "storybook"
+    },
+    {
+      "matchPackageNames": [
+        "next",
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom"
+      ],
+      "groupName": "nextjs"
+    }
+  ],
+  "rangeStrategy": "bump"
+}
