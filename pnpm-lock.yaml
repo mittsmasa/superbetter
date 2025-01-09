@@ -19,16 +19,16 @@ importers:
         version: 16.4.7
       drizzle-orm:
         specifier: 0.38.2
-        version: 0.38.2(@tidbcloud/serverless@0.2.0)(@types/react@19.0.1)(mysql2@3.12.0)(react@19.0.0)
+        version: 0.38.2(@tidbcloud/serverless@0.2.0)(@types/react@19.0.4)(mysql2@3.12.0)(react@19.0.0)
       mysql2:
         specifier: 3.12.0
         version: 3.12.0
       next:
-        specifier: 15.1.1
-        version: 15.1.1(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: 15.1.4
+        version: 15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       next-auth:
         specifier: 5.0.0-beta.25
-        version: 5.0.0-beta.25(next@15.1.1(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
+        version: 5.0.0-beta.25(next@15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -44,7 +44,7 @@ importers:
         version: 0.49.0(typescript@5.7.2)
       '@storybook/addon-essentials':
         specifier: 8.4.7
-        version: 8.4.7(@types/react@19.0.1)(storybook@8.4.7(prettier@3.2.5))
+        version: 8.4.7(@types/react@19.0.4)(storybook@8.4.7(prettier@3.2.5))
       '@storybook/addon-interactions':
         specifier: 8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@3.2.5))
@@ -53,7 +53,7 @@ importers:
         version: 8.4.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@3.2.5))
       '@storybook/nextjs':
         specifier: 8.4.7
-        version: 8.4.7(esbuild@0.23.1)(next@15.1.1(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@3.2.5))(type-fest@2.19.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)(webpack@5.97.1(esbuild@0.23.1))
+        version: 8.4.7(esbuild@0.23.1)(next@15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@3.2.5))(type-fest@2.19.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)(webpack@5.97.1(esbuild@0.23.1))
       '@storybook/react':
         specifier: 8.4.7
         version: 8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@3.2.5)))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@3.2.5))(typescript@5.7.2)
@@ -67,11 +67,11 @@ importers:
         specifier: 20.17.10
         version: 20.17.10
       '@types/react':
-        specifier: 19.0.1
-        version: 19.0.1
+        specifier: 19.0.4
+        version: 19.0.4
       '@types/react-dom':
         specifier: 19.0.2
-        version: 19.0.2(@types/react@19.0.1)
+        version: 19.0.2(@types/react@19.0.4)
       drizzle-kit:
         specifier: 0.30.1
         version: 0.30.1
@@ -1460,53 +1460,53 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@next/env@15.1.1':
-    resolution: {integrity: sha512-ldU8IpUqxa87LsWyMh8eIqAzejt8+ZuEsdtCV+fpDog++cBO5b/PWaI7wQQwun8LKJeFFpnY4kv/6r+/dCON6A==}
+  '@next/env@15.1.4':
+    resolution: {integrity: sha512-2fZ5YZjedi5AGaeoaC0B20zGntEHRhi2SdWcu61i48BllODcAmmtj8n7YarSPt4DaTsJaBFdxQAVEVzgmx2Zpw==}
 
-  '@next/swc-darwin-arm64@15.1.1':
-    resolution: {integrity: sha512-pq7Hzu0KaaH6UYcCQ22mOuj2mWCD6iqGvYprp/Ep1EcCxbdNOSS+8EJADFbPHsaXLkaonIJ8lTKBGWXaFxkeNQ==}
+  '@next/swc-darwin-arm64@15.1.4':
+    resolution: {integrity: sha512-wBEMBs+np+R5ozN1F8Y8d/Dycns2COhRnkxRc+rvnbXke5uZBHkUGFgWxfTXn5rx7OLijuUhyfB+gC/ap58dDw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@15.1.1':
-    resolution: {integrity: sha512-h567/b/AHAnMpaJ1D3l3jKLrzNOgN9bmDSRd+Gb0hXTkLZh8mE0Kd9MbIw39QeTZQJ3192uFRFWlDjWiifwVhQ==}
+  '@next/swc-darwin-x64@15.1.4':
+    resolution: {integrity: sha512-7sgf5rM7Z81V9w48F02Zz6DgEJulavC0jadab4ZsJ+K2sxMNK0/BtF8J8J3CxnsJN3DGcIdC260wEKssKTukUw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@15.1.1':
-    resolution: {integrity: sha512-I5Q6M3T9jzTUM2JlwTBy/VBSX+YCDvPLnSaJX5wE5GEPeaJkipMkvTA9+IiFK5PG5ljXTqVFVUj5BSHiYLCpoQ==}
+  '@next/swc-linux-arm64-gnu@15.1.4':
+    resolution: {integrity: sha512-JaZlIMNaJenfd55kjaLWMfok+vWBlcRxqnRoZrhFQrhM1uAehP3R0+Aoe+bZOogqlZvAz53nY/k3ZyuKDtT2zQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-arm64-musl@15.1.1':
-    resolution: {integrity: sha512-4cPMSYmyXlOAk8U04ouEACEGnOwYM9uJOXZnm9GBXIKRbNEvBOH9OePhHiDWqOws6iaHvGayaKr+76LmM41yJA==}
+  '@next/swc-linux-arm64-musl@15.1.4':
+    resolution: {integrity: sha512-7EBBjNoyTO2ipMDgCiORpwwOf5tIueFntKjcN3NK+GAQD7OzFJe84p7a2eQUeWdpzZvhVXuAtIen8QcH71ZCOQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@15.1.1':
-    resolution: {integrity: sha512-KgIiKDdV35KwL9TrTxPFGsPb3J5RuDpw828z3MwMQbWaOmpp/T4MeWQCwo+J2aOxsyAcfsNE334kaWXCb6YTTA==}
+  '@next/swc-linux-x64-gnu@15.1.4':
+    resolution: {integrity: sha512-9TGEgOycqZFuADyFqwmK/9g6S0FYZ3tphR4ebcmCwhL8Y12FW8pIBKJvSwV+UBjMkokstGNH+9F8F031JZKpHw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-linux-x64-musl@15.1.1':
-    resolution: {integrity: sha512-aHP/29x8loFhB3WuW2YaWaYFJN389t6/SBsug19aNwH+PRLzDEQfCvtuP6NxRCido9OAoExd+ZuYJKF9my1Kpg==}
+  '@next/swc-linux-x64-musl@15.1.4':
+    resolution: {integrity: sha512-0578bLRVDJOh+LdIoKvgNDz77+Bd85c5JrFgnlbI1SM3WmEQvsjxTA8ATu9Z9FCiIS/AliVAW2DV/BDwpXbtiQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@15.1.1':
-    resolution: {integrity: sha512-klbzXYwqHMwiucNFF0tWiWJyPb45MBX1q/ATmxrMjEYgA+V/0OXc9KmNVRIn6G/ab0ASUk4uWqxik5m6wvm1sg==}
+  '@next/swc-win32-arm64-msvc@15.1.4':
+    resolution: {integrity: sha512-JgFCiV4libQavwII+kncMCl30st0JVxpPOtzWcAI2jtum4HjYaclobKhj+JsRu5tFqMtA5CJIa0MvYyuu9xjjQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@15.1.1':
-    resolution: {integrity: sha512-V5fm4aULqHSlMQt3U1rWAWuwJTFsb6Yh4P8p1kQFoayAF9jAQtjBvHku4zCdrtQuw9u9crPC0FNML00kN4WGhA==}
+  '@next/swc-win32-x64-msvc@15.1.4':
+    resolution: {integrity: sha512-xxsJy9wzq7FR5SqPCUqdgSXiNXrMuidgckBa8nH9HtjjxsilgcN6VgXF6tZ3uEWuVEadotQJI8/9EQ6guTC4Yw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -1956,8 +1956,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@19.0.1':
-    resolution: {integrity: sha512-YW6614BDhqbpR5KtUYzTA+zlA7nayzJRA9ljz9CQoxthR0sDisYZLuvSMsil36t4EH/uAt8T52Xb4sVw17G+SQ==}
+  '@types/react@19.0.4':
+    resolution: {integrity: sha512-3O4QisJDYr1uTUMZHA2YswiQZRq+Pd8D+GdVFYikTutYsTz+QZgWkAPnP7rx9txoI6EXKcPiluMqWPFV3tT9Wg==}
 
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
@@ -3489,8 +3489,8 @@ packages:
       nodemailer:
         optional: true
 
-  next@15.1.1:
-    resolution: {integrity: sha512-SBZlcvdIxajw8//H3uOR1G3iu3jxsra/77m2ulRIxi3m89p+s3ACsoOXR49JEAbaun/DVoRJ9cPKq8eF/oNB5g==}
+  next@15.1.4:
+    resolution: {integrity: sha512-mTaq9dwaSuwwOrcu3ebjDYObekkxRnXpuVL21zotM8qE2W0HBOdVIdg2Li9QjMEZrj73LN96LcWcz62V19FjAg==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
     hasBin: true
     peerDependencies:
@@ -5658,36 +5658,36 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@mdx-js/react@3.1.0(@types/react@19.0.1)(react@18.3.1)':
+  '@mdx-js/react@3.1.0(@types/react@19.0.4)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 19.0.1
+      '@types/react': 19.0.4
       react: 18.3.1
 
-  '@next/env@15.1.1': {}
+  '@next/env@15.1.4': {}
 
-  '@next/swc-darwin-arm64@15.1.1':
+  '@next/swc-darwin-arm64@15.1.4':
     optional: true
 
-  '@next/swc-darwin-x64@15.1.1':
+  '@next/swc-darwin-x64@15.1.4':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@15.1.1':
+  '@next/swc-linux-arm64-gnu@15.1.4':
     optional: true
 
-  '@next/swc-linux-arm64-musl@15.1.1':
+  '@next/swc-linux-arm64-musl@15.1.4':
     optional: true
 
-  '@next/swc-linux-x64-gnu@15.1.1':
+  '@next/swc-linux-x64-gnu@15.1.4':
     optional: true
 
-  '@next/swc-linux-x64-musl@15.1.1':
+  '@next/swc-linux-x64-musl@15.1.4':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@15.1.1':
+  '@next/swc-win32-arm64-msvc@15.1.4':
     optional: true
 
-  '@next/swc-win32-x64-msvc@15.1.1':
+  '@next/swc-win32-x64-msvc@15.1.4':
     optional: true
 
   '@nodelib/fs.scandir@2.1.5':
@@ -5902,9 +5902,9 @@ snapshots:
       storybook: 8.4.7(prettier@3.2.5)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.4.7(@types/react@19.0.1)(storybook@8.4.7(prettier@3.2.5))':
+  '@storybook/addon-docs@8.4.7(@types/react@19.0.4)(storybook@8.4.7(prettier@3.2.5))':
     dependencies:
-      '@mdx-js/react': 3.1.0(@types/react@19.0.1)(react@18.3.1)
+      '@mdx-js/react': 3.1.0(@types/react@19.0.4)(react@18.3.1)
       '@storybook/blocks': 8.4.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.7(prettier@3.2.5))
       '@storybook/csf-plugin': 8.4.7(storybook@8.4.7(prettier@3.2.5))
       '@storybook/react-dom-shim': 8.4.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.7(prettier@3.2.5))
@@ -5915,12 +5915,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.4.7(@types/react@19.0.1)(storybook@8.4.7(prettier@3.2.5))':
+  '@storybook/addon-essentials@8.4.7(@types/react@19.0.4)(storybook@8.4.7(prettier@3.2.5))':
     dependencies:
       '@storybook/addon-actions': 8.4.7(storybook@8.4.7(prettier@3.2.5))
       '@storybook/addon-backgrounds': 8.4.7(storybook@8.4.7(prettier@3.2.5))
       '@storybook/addon-controls': 8.4.7(storybook@8.4.7(prettier@3.2.5))
-      '@storybook/addon-docs': 8.4.7(@types/react@19.0.1)(storybook@8.4.7(prettier@3.2.5))
+      '@storybook/addon-docs': 8.4.7(@types/react@19.0.4)(storybook@8.4.7(prettier@3.2.5))
       '@storybook/addon-highlight': 8.4.7(storybook@8.4.7(prettier@3.2.5))
       '@storybook/addon-measure': 8.4.7(storybook@8.4.7(prettier@3.2.5))
       '@storybook/addon-outline': 8.4.7(storybook@8.4.7(prettier@3.2.5))
@@ -6084,7 +6084,7 @@ snapshots:
     dependencies:
       storybook: 8.4.7(prettier@3.2.5)
 
-  '@storybook/nextjs@8.4.7(esbuild@0.23.1)(next@15.1.1(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@3.2.5))(type-fest@2.19.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)(webpack@5.97.1(esbuild@0.23.1))':
+  '@storybook/nextjs@8.4.7(esbuild@0.23.1)(next@15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(storybook@8.4.7(prettier@3.2.5))(type-fest@2.19.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)(webpack@5.97.1(esbuild@0.23.1))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.26.0)
@@ -6111,7 +6111,7 @@ snapshots:
       find-up: 5.0.0
       image-size: 1.2.0
       loader-utils: 3.3.1
-      next: 15.1.1(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      next: 15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       node-polyfill-webpack-plugin: 2.0.1(webpack@5.97.1(esbuild@0.23.1))
       pnp-webpack-plugin: 1.7.0(typescript@5.7.2)
       postcss: 8.4.49
@@ -6431,11 +6431,11 @@ snapshots:
 
   '@types/parse-json@4.0.2': {}
 
-  '@types/react-dom@19.0.2(@types/react@19.0.1)':
+  '@types/react-dom@19.0.2(@types/react@19.0.4)':
     dependencies:
-      '@types/react': 19.0.1
+      '@types/react': 19.0.4
 
-  '@types/react@19.0.1':
+  '@types/react@19.0.4':
     dependencies:
       csstype: 3.1.3
 
@@ -7195,10 +7195,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.38.2(@tidbcloud/serverless@0.2.0)(@types/react@19.0.1)(mysql2@3.12.0)(react@19.0.0):
+  drizzle-orm@0.38.2(@tidbcloud/serverless@0.2.0)(@types/react@19.0.4)(mysql2@3.12.0)(react@19.0.0):
     optionalDependencies:
       '@tidbcloud/serverless': 0.2.0
-      '@types/react': 19.0.1
+      '@types/react': 19.0.4
       mysql2: 3.12.0
       react: 19.0.0
 
@@ -8006,15 +8006,15 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-auth@5.0.0-beta.25(next@15.1.1(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0):
+  next-auth@5.0.0-beta.25(next@15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0):
     dependencies:
       '@auth/core': 0.37.2
-      next: 15.1.1(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      next: 15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
 
-  next@15.1.1(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  next@15.1.4(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
-      '@next/env': 15.1.1
+      '@next/env': 15.1.4
       '@swc/counter': 0.1.3
       '@swc/helpers': 0.5.15
       busboy: 1.6.0
@@ -8024,14 +8024,14 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       styled-jsx: 5.1.6(@babel/core@7.26.0)(react@19.0.0)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 15.1.1
-      '@next/swc-darwin-x64': 15.1.1
-      '@next/swc-linux-arm64-gnu': 15.1.1
-      '@next/swc-linux-arm64-musl': 15.1.1
-      '@next/swc-linux-x64-gnu': 15.1.1
-      '@next/swc-linux-x64-musl': 15.1.1
-      '@next/swc-win32-arm64-msvc': 15.1.1
-      '@next/swc-win32-x64-msvc': 15.1.1
+      '@next/swc-darwin-arm64': 15.1.4
+      '@next/swc-darwin-x64': 15.1.4
+      '@next/swc-linux-arm64-gnu': 15.1.4
+      '@next/swc-linux-arm64-musl': 15.1.4
+      '@next/swc-linux-x64-gnu': 15.1.4
+      '@next/swc-linux-x64-musl': 15.1.4
+      '@next/swc-win32-arm64-msvc': 15.1.4
+      '@next/swc-win32-x64-msvc': 15.1.4
       sharp: 0.33.5
     transitivePeerDependencies:
       - '@babel/core'
