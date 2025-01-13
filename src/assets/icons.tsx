@@ -8,6 +8,8 @@ export { default as Android } from './pixel-icons/android.svg';
 export { default as Calendar } from './pixel-icons/calendar.svg';
 export { default as ChevlonLeft } from './pixel-icons/chevron-left.svg';
 export { default as Close } from './pixel-icons/close.svg';
+export { default as Edit } from './pixel-icons/edit.svg';
 export { default as Human } from './pixel-icons/human.svg';
 export { default as ScriptText } from './pixel-icons/script-text.svg';
+export { default as Trash } from './pixel-icons/trash.svg';
 export { default as Zap } from './pixel-icons/zap.svg';

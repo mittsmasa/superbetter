@@ -3,9 +3,7 @@ import { Header } from '.';
 
 const meta = {
   component: Header,
-  args: {
-    title: 'Mission Header',
-  },
+  args: {},
 } satisfies Meta<typeof Header>;
 
 export default meta;
