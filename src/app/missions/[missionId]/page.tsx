@@ -3,10 +3,11 @@ import { Default } from '@/app/_components/mission/index.stories';
 import { AddBox, Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { IconButton } from '@/components/icon-button';
+import { FooterNavigation } from '@/components/navigation';
 import { Radio } from '@/components/radio';
 import { css } from '@/styled-system/css';
 import { use } from 'react';
-import { Header } from './_components/header';
+import { Header } from '../../_components/header';
 
 const Page = (props: {
   params: Promise<{ missionId: string }>;
@@ -17,74 +18,80 @@ const Page = (props: {
       className={css({
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
         gap: '16px',
         height: '[100%]',
         overflow: 'auto',
       })}
     >
-      <div
-        className={css({
-          backgroundColor: 'black',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '16px',
-          position: 'sticky',
-          top: 0,
-        })}
-      >
-        <Header />
+      <div>
         <div
           className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            px: '8px',
-          })}
-        >
-          <h1 className={css({ textStyle: 'Heading.primary' })}>
-            デイリーミッション
-          </h1>
-          <p
-            className={css({
-              textAlign: 'center',
-              textStyle: 'Body.secondary',
-            })}
-          >
-            秘宝を使い、挑戦を受け、悪を討て <br />
-            小さな積み重ねが、英雄への道となる
-          </p>
-          <MissionEntities items={[...Default.args.items]} />
-        </div>
-      </div>
-      <form
-        action={async (a) => {
-          'use server';
-          const val = a.get('powerup');
-          console.log(val?.valueOf());
-        }}
-      >
-        <div
-          className={css({
+            backgroundColor: 'black',
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
+            position: 'sticky',
+            top: 0,
           })}
         >
-          <EntityList />
+          <Header />
           <div
             className={css({
-              backgroundColor: 'black',
-              bottom: 0,
               display: 'flex',
-              justifyContent: 'center',
-              position: 'sticky',
-              py: '8px',
+              flexDirection: 'column',
+              gap: '12px',
+              px: '8px',
             })}
           >
-            <Button type="submit">つかう / いどむ / たたかう</Button>
+            <h1 className={css({ textStyle: 'Heading.primary' })}>
+              デイリーミッション
+            </h1>
+            <p
+              className={css({
+                textAlign: 'center',
+                textStyle: 'Body.secondary',
+              })}
+            >
+              秘宝を使い、挑戦を受け、悪を討て <br />
+              小さな積み重ねが、英雄への道となる
+            </p>
+            <MissionEntities items={[...Default.args.items]} />
           </div>
         </div>
-      </form>
+        <form
+          action={async (a) => {
+            'use server';
+            const val = a.get('powerup');
+            console.log(val?.valueOf());
+          }}
+        >
+          <div
+            className={css({
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px',
+            })}
+          >
+            <EntityList />
+            <div
+              className={css({
+                backgroundColor: 'black',
+                bottom: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                position: 'sticky',
+                py: '8px',
+              })}
+            >
+              <Button type="submit">つかう / いどむ / たたかう</Button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div className={css({ position: 'sticky', bottom: 0, padding: '8px' })}>
+        <FooterNavigation />
+      </div>
     </main>
   );
 };
