@@ -1,9 +1,9 @@
 import { AddBox } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
+import { MotionLink } from '@/components/motion-link';
 import { FooterNavigation } from '@/components/navigation';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
-import Link from 'next/link';
 
 const Page = () => {
   return (
@@ -66,7 +66,7 @@ const Page = () => {
 };
 
 const Quest = () => (
-  <Link
+  <MotionLink
     href="/powerups/1"
     className={cx(
       pixelBorder({ borderWidth: 1 }),
@@ -90,7 +90,7 @@ const Quest = () => (
       Truncate
       されることを想定しています。まぁこれだけかければあまり省略されることはないとおもうけど
     </p>
-  </Link>
+  </MotionLink>
 );
 
 export default Page;
