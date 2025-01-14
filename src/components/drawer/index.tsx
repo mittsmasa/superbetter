@@ -28,8 +28,7 @@ export const Drawer = ({
         maxHeight: '[100dvh]',
         width: '[100%]',
         height: '[80%]',
-        margin: 'auto',
-        bottom: 0,
+        margin: '[auto auto 0]',
         _backdrop: {
           backgroundColor: 'black',
           opacity: 0.5,
@@ -40,6 +39,7 @@ export const Drawer = ({
         className={css({
           display: 'flex',
           flexDirection: 'column',
+          height: '[100%]',
         })}
       >
         <div
