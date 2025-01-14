@@ -1,8 +1,14 @@
+'use client';
+
 import { Header } from '@/app/_components/header';
 import { Edit, Trash } from '@/assets/icons';
 import { Button } from '@/components/button';
+import { Drawer } from '@/components/drawer';
 import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
+import { TextArea } from '@/components/text-area';
+import { TextInput } from '@/components/text-input';
+import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import { use } from 'react';
 
@@ -11,6 +17,7 @@ const Page = (props: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
   const { id: powerupId } = use(props.params);
+  const { ref, show, close } = useDialog();
   return (
     <main
       className={css({
@@ -32,7 +39,7 @@ const Page = (props: {
         <Header
           rightSlot={
             <div className={css({ display: 'flex', gap: '8px' })}>
-              <IconButton>
+              <IconButton onClick={show}>
                 <Edit className={css({ width: '[24px]', height: '[24px]' })} />
               </IconButton>
               <IconButton>
@@ -72,6 +79,62 @@ const Page = (props: {
         </div>
         <FooterNavigation />
       </div>
+      <Drawer
+        ref={ref}
+        onClose={close}
+        bodySlot={
+          <div
+            className={css({
+              display: 'flex',
+              flexDirection: 'column',
+              height: '[100%]',
+              padding: '12px 8px',
+            })}
+          >
+            <form
+              action={async (f) => {
+                console.log(f.get('item-name'));
+                console.log(f.get('item-desc'));
+                close();
+              }}
+              className={css({
+                display: 'flex',
+                flexDirection: 'column',
+                height: '[100%]',
+                justifyContent: 'space-between',
+                gap: '16px',
+              })}
+            >
+              <div
+                className={css({
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '12px',
+                })}
+              >
+                <TextInput
+                  required
+                  label="アイテムめい *"
+                  defaultValue="hoge"
+                  name="item-name"
+                />
+                <TextArea
+                  label="せつめい"
+                  defaultValue="fuga"
+                  name="item-desc"
+                />
+              </div>
+              <div
+                className={css({ display: 'flex', justifyContent: 'center' })}
+              >
+                <Button type="submit">
+                  <div className={css({ width: '[230px]' })}>かくてい</div>
+                </Button>
+              </div>
+            </form>
+          </div>
+        }
+      />
     </main>
   );
 };
