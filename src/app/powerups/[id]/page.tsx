@@ -6,6 +6,7 @@ import { Button } from '@/components/button';
 import { Drawer } from '@/components/drawer';
 import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
+import { TextInput } from '@/components/text-input';
 import { useDialog } from '@/hooks/dialog';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
@@ -139,38 +140,6 @@ const Page = (props: {
 };
 
 export default Page;
-
-const TextInput = ({
-  label,
-  ...props
-}: { label?: string } & Omit<
-  ComponentProps<'input'>,
-  'type' | 'className'
->) => {
-  const id = useId();
-  return (
-    <div
-      className={css({
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '4px',
-      })}
-    >
-      <label htmlFor={id} className={css({ textStyle: 'Body.tertiary' })}>
-        {label}
-      </label>
-      <input
-        {...props}
-        type="text"
-        id={id}
-        className={cx(
-          pixelBorder({}),
-          css({ padding: '4px', textStyle: 'Body.primary' }),
-        )}
-      />
-    </div>
-  );
-};
 
 const TextArea = ({
   label,
