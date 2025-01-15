@@ -116,7 +116,7 @@ const Page = (props: {
             <Button>
               <div className={css({ width: '[100px]' })}>さくじょ</div>
             </Button>
-            <Button onClick={deleteConfirm.close}>
+            <Button onClick={deleteConfirm.close} variant="secondary">
               <div className={css({ width: '[100px]' })}>キャンセル</div>
             </Button>
           </div>

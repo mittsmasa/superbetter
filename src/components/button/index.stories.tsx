@@ -20,3 +20,11 @@ export const Default = {} satisfies Story;
 export const Disabled = {
   args: { disabled: true },
 } satisfies Story;
+
+export const Secondary = {
+  args: { variant: 'secondary' },
+} satisfies Story;
+
+export const SecondaryDisabled = {
+  args: { variant: 'secondary', disabled: true },
+} satisfies Story;
