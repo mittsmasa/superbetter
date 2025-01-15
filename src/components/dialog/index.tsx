@@ -4,11 +4,9 @@ import type { PropsWithChildren, RefObject } from 'react';
 
 export const Dialog = ({
   ref,
-  onClose,
   children,
 }: PropsWithChildren<{
   ref: RefObject<HTMLDialogElement | null>;
-  onClose: () => void;
 }>) => {
   return (
     // close on click backdrop
@@ -19,10 +17,9 @@ export const Dialog = ({
         css({
           backgroundColor: 'black',
           color: 'white',
-          maxHeight: '[100dvh]',
           width: '[100%]',
           margin: 'auto',
-          bottom: 0,
+          padding: '4px',
           _backdrop: {
             backgroundColor: 'black',
             opacity: 0.5,

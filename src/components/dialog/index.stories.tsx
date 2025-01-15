@@ -1,14 +1,12 @@
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import { Dialog } from '.';
 
 const meta = {
   component: Dialog,
   args: {
     ref: { current: null },
-    onClose: fn(),
     children: 'ダイアログのなかみ',
   },
 } satisfies Meta<typeof Dialog>;
@@ -25,7 +23,7 @@ export const Default = {
         <button type="button" onClick={show}>
           開く
         </button>
-        <Dialog ref={ref} onClose={close}>
+        <Dialog ref={ref}>
           <h1>タイトル</h1>
           <div className={css({ display: 'flex' })}>
             <button type="button" onClick={close}>
