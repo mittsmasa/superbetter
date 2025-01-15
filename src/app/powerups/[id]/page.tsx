@@ -3,6 +3,7 @@
 import { Header } from '@/app/_components/header';
 import { Edit, Trash } from '@/assets/icons';
 import { Button } from '@/components/button';
+import { Dialog } from '@/components/dialog';
 import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
 import { useDialog } from '@/hooks/dialog';
@@ -15,7 +16,8 @@ const Page = (props: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
   const { id: powerupId } = use(props.params);
-  const { ref, show, close } = useDialog();
+  const editDrawer = useDialog();
+  const deleteConfirm = useDialog();
   return (
     <main
       className={css({
@@ -37,10 +39,10 @@ const Page = (props: {
         <Header
           rightSlot={
             <div className={css({ display: 'flex', gap: '8px' })}>
-              <IconButton onClick={show}>
+              <IconButton onClick={editDrawer.show}>
                 <Edit className={css({ width: '[24px]', height: '[24px]' })} />
               </IconButton>
-              <IconButton>
+              <IconButton onClick={deleteConfirm.show}>
                 <Trash className={css({ width: '[24px]', height: '[24px]' })} />
               </IconButton>
             </div>
@@ -80,9 +82,46 @@ const Page = (props: {
       <EditPowerupDrawer
         itemName="あいてむのなまえ"
         itemDesc="あいてむのせつめい"
-        ref={ref}
-        onClose={close}
+        ref={editDrawer.ref}
+        onClose={editDrawer.close}
       />
+      <Dialog ref={deleteConfirm.ref}>
+        <div
+          className={css({
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '24px',
+          })}
+        >
+          <div>
+            <p className={css({ textAlign: 'center', lineClamp: 3 })}>
+              パワーブレスするあああああああああああああああああああああああああああaaaaaaああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+            </p>
+            <p
+              className={css({
+                textAlign: 'center',
+                textStyle: 'Body.secondary',
+              })}
+            >
+              を削除しますか
+            </p>
+          </div>
+          <div
+            className={css({
+              display: 'flex',
+              gap: '8px',
+              justifyContent: 'center',
+            })}
+          >
+            <Button>
+              <div className={css({ width: '[100px]' })}>さくじょ</div>
+            </Button>
+            <Button onClick={deleteConfirm.close}>
+              <div className={css({ width: '[100px]' })}>キャンセル</div>
+            </Button>
+          </div>
+        </div>
+      </Dialog>
     </main>
   );
 };
