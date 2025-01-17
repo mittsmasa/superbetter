@@ -1,19 +1,16 @@
 import { Close } from '@/assets/icons';
 import { css } from '@/styled-system/css';
-import type { ReactNode, RefObject } from 'react';
+import type { PropsWithChildren, RefObject } from 'react';
 import { IconButton } from '../icon-button';
 
 export const Drawer = ({
   onClose,
-  bodySlot: body,
-  footerSlot: footer,
+  children,
   ref,
-}: {
+}: PropsWithChildren<{
   onClose: () => void;
-  bodySlot: ReactNode;
-  footerSlot?: ReactNode;
   ref: RefObject<HTMLDialogElement | null>;
-}) => {
+}>) => {
   return (
     // TODO: animation
     // TODO: close on click backdrop
@@ -57,13 +54,8 @@ export const Drawer = ({
           </IconButton>
         </div>
         <div className={css({ flex: '1', minHeight: '[0]', padding: '12px' })}>
-          {body}
+          {children}
         </div>
-        {footer && (
-          <div className={css({ py: '12px', position: 'sticky', bottom: 0 })}>
-            {footer}
-          </div>
-        )}
       </div>
     </dialog>
   );

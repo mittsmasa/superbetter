@@ -70,87 +70,83 @@ const Page = () => {
       >
         <FooterNavigation />
       </div>
-      <Drawer
-        ref={addDialog.ref}
-        onClose={addDialog.close}
-        bodySlot={
-          <form
-            action={async (f) => {
-              console.log(f.get('item-name'));
-              console.log(f.get('item-desc'));
-              addDialog.close();
-            }}
+      <Drawer ref={addDialog.ref} onClose={addDialog.close}>
+        <form
+          action={async (f) => {
+            console.log(f.get('item-name'));
+            console.log(f.get('item-desc'));
+            addDialog.close();
+          }}
+          className={css({
+            display: 'flex',
+            flexDirection: 'column',
+            height: '[100%]',
+            gap: '16px',
+          })}
+        >
+          <div
             className={css({
               display: 'flex',
               flexDirection: 'column',
-              height: '[100%]',
-              gap: '16px',
+              gap: '12px',
             })}
           >
+            <h1>パワーアップアイテムをみつけよ</h1>
             <div
               className={css({
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '12px',
+                textStyle: 'Body.tertiary',
+                textAlign: 'center',
               })}
             >
-              <h1>パワーアップアイテムをみつけよ</h1>
-              <div
-                className={css({
-                  textStyle: 'Body.tertiary',
-                  textAlign: 'center',
-                })}
-              >
-                <p>すぐにちょっときぶんがよくなる秘宝をみつけよ</p>
-                <p>これが英雄のつかれた心をいやすであろう</p>
-              </div>
-              <MissionEntities
-                items={[
-                  {
-                    id: 'powerup',
-                    missionItemType: 'powerup',
-                    completed: true,
-                  },
-                ]}
-              />
+              <p>すぐにちょっときぶんがよくなる秘宝をみつけよ</p>
+              <p>これが英雄のつかれた心をいやすであろう</p>
             </div>
-            <div
-              className={css({
-                display: 'flex',
-                flex: '1',
-                flexDirection: 'column',
-                gap: '12px',
-                minHeight: '[0px]',
-                overflow: 'auto',
-                padding: '12px 8px',
-              })}
-            >
-              <TextInput
-                required
-                label="アイテムめい *"
-                placeholder="アイテムめい"
-                name="item-name"
-              />
-              <TextArea
-                label="せつめい"
-                placeholder="せつめい"
-                name="item-desc"
-              />
-            </div>
-            <div
-              className={css({
-                display: 'flex',
-                justifyContent: 'center',
-                padding: '24px',
-              })}
-            >
-              <Button type="submit">
-                <div className={css({ width: '[230px]' })}>かくてい</div>
-              </Button>
-            </div>
-          </form>
-        }
-      />
+            <MissionEntities
+              items={[
+                {
+                  id: 'powerup',
+                  missionItemType: 'powerup',
+                  completed: true,
+                },
+              ]}
+            />
+          </div>
+          <div
+            className={css({
+              display: 'flex',
+              flex: '1',
+              flexDirection: 'column',
+              gap: '12px',
+              minHeight: '[0px]',
+              overflow: 'auto',
+              padding: '12px 8px',
+            })}
+          >
+            <TextInput
+              required
+              label="アイテムめい *"
+              placeholder="アイテムめい"
+              name="item-name"
+            />
+            <TextArea
+              label="せつめい"
+              placeholder="せつめい"
+              name="item-desc"
+            />
+          </div>
+          <div
+            className={css({
+              display: 'flex',
+              justifyContent: 'center',
+              padding: '24px',
+            })}
+          >
+            <Button type="submit">
+              <div className={css({ width: '[230px]' })}>かくてい</div>
+            </Button>
+          </div>
+        </form>
+      </Drawer>
     </main>
   );
 };

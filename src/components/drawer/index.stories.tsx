@@ -19,18 +19,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    bodySlot: (
+    children: (
       <div
         className={css({
           height: '[100dvh]', // スクロロールが必要なくらい長く
         })}
       >
         ここがボディ
-      </div>
-    ),
-    footerSlot: (
-      <div>
-        <p>ここがフッター</p>
       </div>
     ),
   },

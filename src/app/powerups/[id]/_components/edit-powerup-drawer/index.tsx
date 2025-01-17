@@ -16,64 +16,60 @@ export const EditPowerupDrawer = ({
   itemDesc: string;
 } & Pick<ComponentProps<typeof Drawer>, 'ref' | 'onClose'>) => {
   return (
-    <Drawer
-      ref={ref}
-      onClose={onClose}
-      bodySlot={
-        <div
+    <Drawer ref={ref} onClose={onClose}>
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          height: '[100%]',
+        })}
+      >
+        <form
+          action={async (f) => {
+            console.log(f.get('item-name'));
+            console.log(f.get('item-desc'));
+            onClose();
+          }}
           className={css({
             display: 'flex',
             flexDirection: 'column',
             height: '[100%]',
+            justifyContent: 'space-between',
+            gap: '16px',
           })}
         >
-          <form
-            action={async (f) => {
-              console.log(f.get('item-name'));
-              console.log(f.get('item-desc'));
-              onClose();
-            }}
+          <div
             className={css({
               display: 'flex',
               flexDirection: 'column',
-              height: '[100%]',
-              justifyContent: 'space-between',
-              gap: '16px',
+              gap: '12px',
             })}
           >
-            <div
-              className={css({
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '12px',
-              })}
-            >
-              <TextInput
-                required
-                label="アイテムめい *"
-                defaultValue={itemName}
-                name="item-name"
-              />
-              <TextArea
-                label="せつめい"
-                defaultValue={itemDesc}
-                name="item-desc"
-              />
-            </div>
-            <div
-              className={css({
-                display: 'flex',
-                justifyContent: 'center',
-                py: '24px',
-              })}
-            >
-              <Button type="submit">
-                <div className={css({ width: '[230px]' })}>かくてい</div>
-              </Button>
-            </div>
-          </form>
-        </div>
-      }
-    />
+            <TextInput
+              required
+              label="アイテムめい *"
+              defaultValue={itemName}
+              name="item-name"
+            />
+            <TextArea
+              label="せつめい"
+              defaultValue={itemDesc}
+              name="item-desc"
+            />
+          </div>
+          <div
+            className={css({
+              display: 'flex',
+              justifyContent: 'center',
+              py: '24px',
+            })}
+          >
+            <Button type="submit">
+              <div className={css({ width: '[230px]' })}>かくてい</div>
+            </Button>
+          </div>
+        </form>
+      </div>
+    </Drawer>
   );
 };
