@@ -9,6 +9,7 @@ export const TextArea = ({
   ComponentProps<'textarea'>,
   'type' | 'className'
 >) => {
+  const { rows = 5 } = props;
   const id = useId();
   return (
     <div
@@ -23,6 +24,7 @@ export const TextArea = ({
       </label>
       <textarea
         {...props}
+        rows={rows}
         id={id}
         className={cx(
           pixelBorder({}),

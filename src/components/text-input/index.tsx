@@ -23,6 +23,7 @@ export const TextInput = ({
       </label>
       <input
         {...props}
+        autoComplete="off"
         type="text"
         id={id}
         className={cx(
