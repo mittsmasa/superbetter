@@ -70,7 +70,7 @@ const Page = (props: {
             width: '[100%]',
             display: 'flex',
             justifyContent: 'center',
-            py: '8px',
+            py: '24px',
           })}
         >
           <Button>

@@ -25,7 +25,6 @@ export const EditPowerupDrawer = ({
             display: 'flex',
             flexDirection: 'column',
             height: '[100%]',
-            padding: '12px 8px',
           })}
         >
           <form
@@ -61,7 +60,13 @@ export const EditPowerupDrawer = ({
                 name="item-desc"
               />
             </div>
-            <div className={css({ display: 'flex', justifyContent: 'center' })}>
+            <div
+              className={css({
+                display: 'flex',
+                justifyContent: 'center',
+                py: '24px',
+              })}
+            >
               <Button type="submit">
                 <div className={css({ width: '[230px]' })}>かくてい</div>
               </Button>

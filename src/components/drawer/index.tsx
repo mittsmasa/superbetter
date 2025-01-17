@@ -56,7 +56,9 @@ export const Drawer = ({
             <Close className={css({ width: '[24px]', height: '[24px]' })} />
           </IconButton>
         </div>
-        <div className={css({ flex: '1', minHeight: '[0]' })}>{body}</div>
+        <div className={css({ flex: '1', minHeight: '[0]', padding: '12px' })}>
+          {body}
+        </div>
         {footer && (
           <div className={css({ py: '12px', position: 'sticky', bottom: 0 })}>
             {footer}
