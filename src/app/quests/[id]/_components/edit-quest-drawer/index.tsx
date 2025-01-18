@@ -47,7 +47,7 @@ export const EditQuestDrawer = ({
           >
             <TextInput
               required
-              label="アイテムめい *"
+              label="クエストのなまえ *"
               defaultValue={itemName}
               name="item-name"
             />

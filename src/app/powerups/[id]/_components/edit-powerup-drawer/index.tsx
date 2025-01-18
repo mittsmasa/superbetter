@@ -47,7 +47,7 @@ export const EditPowerupDrawer = ({
           >
             <TextInput
               required
-              label="アイテムめい *"
+              label="アイテムのなまえ *"
               defaultValue={itemName}
               name="item-name"
             />
