@@ -53,8 +53,8 @@ const Page = (props: {
                 textStyle: 'Body.secondary',
               })}
             >
-              秘宝を使い、挑戦を受け、悪を討て <br />
-              小さな積み重ねが、英雄への道となる
+              パワーアップアイテムを使い、クエストを受け、ヴィランを討て <br />
+              日々の積み重ねが、強靭な精神をつくるのだ
             </p>
             <MissionEntities items={[...Default.args.items]} />
           </div>
@@ -84,7 +84,7 @@ const Page = (props: {
                 py: '8px',
               })}
             >
-              <Button type="submit">つかう / いどむ / たたかう</Button>
+              <Button type="submit">つかった / いどんだ / たたかった</Button>
             </div>
           </div>
         </form>

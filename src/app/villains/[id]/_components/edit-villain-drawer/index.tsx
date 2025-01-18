@@ -6,7 +6,7 @@ import { TextInput } from '@/components/text-input';
 import { css } from '@/styled-system/css';
 import type { ComponentProps } from 'react';
 
-export const EditQuestDrawer = ({
+export const EditVillainDrawer = ({
   itemName,
   itemDesc,
   ref,
@@ -47,7 +47,7 @@ export const EditQuestDrawer = ({
           >
             <TextInput
               required
-              label="クエストのなまえ *"
+              label="ヴィランのなまえ *"
               defaultValue={itemName}
               name="item-name"
             />
