@@ -1,15 +1,41 @@
 'use client';
 
 import { useTapFeeling } from '@/hooks/feeling';
-import { css, cx } from '@/styled-system/css';
+import { css, cva, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
 import type { ComponentProps } from 'react';
 
+const button = cva({
+  base: {
+    color: 'white',
+    cursor: 'pointer',
+    _disabled: {
+      color: 'gray.200',
+      cursor: 'unset',
+    },
+  },
+  defaultVariants: { size: 'md' },
+  variants: {
+    size: {
+      sm: {
+        width: '[20px]',
+      },
+      md: {
+        width: '[24px]',
+      },
+      lg: {
+        width: '[28px]',
+      },
+    },
+  },
+});
+
 export const IconButton = ({
   active,
+  size,
   children,
   ...props
-}: { active?: boolean } & Pick<
+}: { active?: boolean; size?: 'sm' | 'md' | 'lg' } & Pick<
   ComponentProps<'button'>,
   'disabled' | 'type' | 'onClick' | 'children'
 >) => {
@@ -23,18 +49,7 @@ export const IconButton = ({
           pixelBorder({
             ...(props.disabled ? { borderColor: 'gray.400' } : {}),
           }),
-        css(
-          {
-            color: 'white',
-            cursor: 'pointer',
-            width: '[24px]',
-            _disabled: {
-              color: 'gray.200',
-              cursor: 'unset',
-            },
-          },
-          !props.disabled && feeling.cssRaw,
-        ),
+        css(button.raw({ size }), !props.disabled && feeling.cssRaw),
       )}
     >
       {children}

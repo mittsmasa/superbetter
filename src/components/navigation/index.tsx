@@ -20,6 +20,7 @@ export const FooterNavigation = () => {
     >
       <IconButton
         type="button"
+        size="lg"
         active={pathname === '/'}
         onClick={() => router.push('/')}
       >
@@ -27,6 +28,7 @@ export const FooterNavigation = () => {
       </IconButton>
       <IconButton
         type="button"
+        size="lg"
         active={pathname === '/powerups'}
         onClick={() => router.push('/powerups')}
       >
@@ -34,6 +36,7 @@ export const FooterNavigation = () => {
       </IconButton>
       <IconButton
         type="button"
+        size="lg"
         active={pathname === '/quests'}
         onClick={() => router.push('/quests')}
       >
@@ -41,6 +44,7 @@ export const FooterNavigation = () => {
       </IconButton>
       <IconButton
         type="button"
+        size="lg"
         active={pathname === '/villains'}
         onClick={() => router.push('/villains')}
       >
@@ -48,6 +52,7 @@ export const FooterNavigation = () => {
       </IconButton>
       <IconButton
         type="button"
+        size="lg"
         active={pathname === '/me'}
         onClick={() => router.push('/me')}
       >

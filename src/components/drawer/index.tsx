@@ -24,7 +24,7 @@ export const Drawer = ({
         maxWidth: '[100dvw]',
         maxHeight: '[100dvh]',
         width: '[100%]',
-        height: '[80%]',
+        height: '[90%]',
         margin: '[auto auto 0]',
         _backdrop: {
           backgroundColor: 'black',
