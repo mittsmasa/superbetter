@@ -34,9 +34,7 @@ const Page = () => {
             top: 0,
           })}
         >
-          <h1 className={css({ textStyle: 'Heading.primary' })}>
-            パワーアップアイテム
-          </h1>
+          <h1 className={css({ textStyle: 'Heading.primary' })}>クエスト</h1>
           <IconButton onClick={addDialog.show}>
             <AddBox className={css({ width: '[24px]', height: '[24px]' })} />
           </IconButton>
@@ -50,15 +48,15 @@ const Page = () => {
             textStyle: 'Body.secondary',
           })}
         >
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
+          <QuestLink />
+          <QuestLink />
+          <QuestLink />
+          <QuestLink />
+          <QuestLink />
+          <QuestLink />
+          <QuestLink />
+          <QuestLink />
+          <QuestLink />
         </div>
       </div>
       <div
@@ -92,21 +90,21 @@ const Page = () => {
               gap: '12px',
             })}
           >
-            <h1>パワーアップアイテムをみつけよ</h1>
+            <h1>クエストをみつけよ</h1>
             <div
               className={css({
                 textStyle: 'Body.tertiary',
                 textAlign: 'center',
               })}
             >
-              <p>すぐにちょっときぶんがよくなる秘宝をみつけよ</p>
-              <p>これが英雄のつかれた心をいやすであろう</p>
+              <p>勇者よ、クエストを見つけ出し、成し遂げよ</p>
+              <p>日々の小さな行動が、やがて大いなる目標への道となるであろう</p>
             </div>
             <MissionEntities
               items={[
                 {
-                  id: 'powerup',
-                  missionItemType: 'powerup',
+                  id: 'quest',
+                  missionItemType: 'quest',
                   completed: true,
                 },
               ]}
@@ -152,12 +150,6 @@ const Page = () => {
   );
 };
 
-const PowerupLink = () => (
-  <EntityLink
-    href="/powerups/1"
-    title="パワーブレスする"
-    description="パワーブレスというのは8カウントで吸って4カウントで吐くやつのことです。すごく長い文章をいれても途中で Truncate されることを想定しています。まぁこれだけかければあまり省略されることはないとおもうけど"
-  />
-);
+const QuestLink = () => <EntityLink href="/quests/1" title="朝さんぽする" />;
 
 export default Page;
