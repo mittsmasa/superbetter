@@ -1,6 +1,5 @@
 'use client';
 
-import { DeleteConfirmDialog } from '@/app/_components/delete-confirm-dialog';
 import { Header } from '@/app/_components/header';
 import { Edit, Trash } from '@/assets/icons';
 import { Button } from '@/components/button';
@@ -9,13 +8,14 @@ import { FooterNavigation } from '@/components/navigation';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import { use } from 'react';
-import { EditPowerupDrawer } from './_components/edit-powerup-drawer';
+import { DeleteConfirmDialog } from '../../_components/delete-confirm-dialog';
+import { EditQuestDrawer } from './_components/edit-quest-drawer';
 
 const Page = (props: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  const { id: powerupId } = use(props.params);
+  const { id: questId } = use(props.params);
   const editDrawer = useDialog();
   const deleteConfirm = useDialog();
   return (
@@ -56,11 +56,9 @@ const Page = (props: {
             px: '12px',
           })}
         >
-          <h1 className={css({ textStyle: 'Body.primary' })}>
-            パワーブレスする
-          </h1>
+          <h1 className={css({ textStyle: 'Body.primary' })}>朝さんぽする</h1>
           <p className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}>
-            パワーアップアイテムを使って、パワーブレスをする
+            あいてむのせつめい
           </p>
         </div>
       </div>
@@ -74,12 +72,12 @@ const Page = (props: {
           })}
         >
           <Button>
-            <div className={css({ width: '[230px]' })}>つかった！</div>
+            <div className={css({ width: '[230px]' })}>たっせいした！</div>
           </Button>
         </div>
         <FooterNavigation />
       </div>
-      <EditPowerupDrawer
+      <EditQuestDrawer
         itemName="あいてむのなまえ"
         itemDesc="あいてむのせつめい"
         ref={editDrawer.ref}
@@ -87,8 +85,11 @@ const Page = (props: {
       />
       <DeleteConfirmDialog
         dialog={deleteConfirm}
-        itemName="パワーブレスする"
-        onDelete={deleteConfirm.close}
+        itemName="あいてむのなまえ"
+        onDelete={() => {
+          console.log('delete');
+          deleteConfirm.close();
+        }}
       />
     </main>
   );
