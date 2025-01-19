@@ -31,7 +31,10 @@ export const quests = table('quest', {
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().onUpdateNow(),
+  updatedAt: timestamp('updatedAt', { mode: 'date' })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const powerups = table('powerup', {
@@ -46,7 +49,10 @@ export const powerups = table('powerup', {
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().onUpdateNow(),
+  updatedAt: timestamp('updatedAt', { mode: 'date' })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const villains = table('villain', {
@@ -61,7 +67,10 @@ export const villains = table('villain', {
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().onUpdateNow(),
+  updatedAt: timestamp('updatedAt', { mode: 'date' })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const epicwins = table('epicwin', {
@@ -76,7 +85,10 @@ export const epicwins = table('epicwin', {
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().onUpdateNow(),
+  updatedAt: timestamp('updatedAt', { mode: 'date' })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const missions = table('mission', {
@@ -92,7 +104,10 @@ export const missions = table('mission', {
   completed: boolean('completed').notNull().default(false),
   deadline: timestamp('deadline', { mode: 'date' }),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().onUpdateNow(),
+  updatedAt: timestamp('updatedAt', { mode: 'date' })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 export const missionConditions = table('missionCondition', {
@@ -115,5 +130,8 @@ export const missionConditions = table('missionCondition', {
   itemId: varchar('itemId', { length: 255 }),
   completed: boolean('completed').notNull().default(false),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' }).notNull().onUpdateNow(),
+  updatedAt: timestamp('updatedAt', { mode: 'date' })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
