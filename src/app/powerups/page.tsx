@@ -11,6 +11,7 @@ import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import { EntityLink } from '../_components/entity-link';
 import { MissionEntities } from '../_components/mission/entitity';
+import { postPowerup } from './_actions/post-powerup';
 
 const Page = () => {
   const addDialog = useDialog();
@@ -74,9 +75,16 @@ const Page = () => {
       <Drawer ref={addDialog.ref} onClose={addDialog.close}>
         <form
           action={async (f) => {
-            console.log(f.get('item-name'));
-            console.log(f.get('item-desc'));
-            addDialog.close();
+            // TODO: zod でバリデーション
+            // TODO: snackbar or toast でエラー通知
+            const name = f.get('item-name') as string | null;
+            const description = f.get('item-desc') as string | null;
+            const res = await postPowerup({ name: name ?? '', description });
+            if (res.type === 'ok') {
+              addDialog.close();
+              return;
+            }
+            alert('エラーがおきました');
           }}
           className={css({
             display: 'flex',
