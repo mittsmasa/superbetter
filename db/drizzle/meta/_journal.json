@@ -15,6 +15,13 @@
       "when": 1735625408375,
       "tag": "0001_fixed_smiling_tiger",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1737285895844,
+      "tag": "0002_furry_rockslide",
+      "breakpoints": true
     }
   ]
 }
