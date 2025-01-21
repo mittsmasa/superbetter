@@ -1,23 +1,23 @@
-'use client';
-
-import { DeleteConfirmDialog } from '@/app/_components/delete-confirm-dialog';
 import { Header } from '@/app/_components/header';
-import { Edit, Trash } from '@/assets/icons';
 import { Button } from '@/components/button';
-import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
-import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import { use } from 'react';
-import { EditPowerupDrawer } from './_components/edit-powerup-drawer';
+import { getPowerup } from '../_actions/get-powerup';
+import { DeleteConfirmButton } from './_components/delete-confirm-button';
+import { EditPowerupButton } from './_components/edit-powerup-button';
 
 const Page = (props: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
   const { id: powerupId } = use(props.params);
-  const editDrawer = useDialog();
-  const deleteConfirm = useDialog();
+  const powerup = use(getPowerup(powerupId));
+
+  if (powerup.type === 'error') {
+    throw new Error(powerup.error.message);
+  }
+
   return (
     <main
       className={css({
@@ -39,12 +39,16 @@ const Page = (props: {
         <Header
           rightSlot={
             <div className={css({ display: 'flex', gap: '8px' })}>
-              <IconButton onClick={editDrawer.show}>
-                <Edit className={css({ width: '[24px]', height: '[24px]' })} />
-              </IconButton>
-              <IconButton onClick={deleteConfirm.show}>
-                <Trash className={css({ width: '[24px]', height: '[24px]' })} />
-              </IconButton>
+              <EditPowerupButton
+                id={powerup.data.id}
+                name={powerup.data.title}
+                description={powerup.data.description}
+              />
+
+              <DeleteConfirmButton
+                id={powerup.data.id}
+                name={powerup.data.title}
+              />
             </div>
           }
         />
@@ -57,11 +61,15 @@ const Page = (props: {
           })}
         >
           <h1 className={css({ textStyle: 'Body.primary' })}>
-            パワーブレスする
+            {powerup.data.title}
           </h1>
-          <p className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}>
-            パワーアップアイテムを使って、パワーブレスをする
-          </p>
+          {powerup.data.description && (
+            <p
+              className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}
+            >
+              {powerup.data.description}
+            </p>
+          )}
         </div>
       </div>
       <div className={css({ position: 'sticky', bottom: 0 })}>
@@ -79,17 +87,6 @@ const Page = (props: {
         </div>
         <FooterNavigation />
       </div>
-      <EditPowerupDrawer
-        itemName="あいてむのなまえ"
-        itemDesc="あいてむのせつめい"
-        ref={editDrawer.ref}
-        onClose={editDrawer.close}
-      />
-      <DeleteConfirmDialog
-        dialog={deleteConfirm}
-        itemName="パワーブレスする"
-        onDelete={deleteConfirm.close}
-      />
     </main>
   );
 };

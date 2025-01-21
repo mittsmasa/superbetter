@@ -55,6 +55,20 @@ export const powerups = table('powerup', {
     .$onUpdate(() => new Date()),
 });
 
+export const powerupHistories = table('powerupHistory', {
+  id: varchar('id', { length: 255 })
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  questId: varchar('questId', { length: 255 })
+    .notNull()
+    .references(() => quests.id, { onDelete: 'cascade' }),
+  createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
+  updatedAt: timestamp('updatedAt', { mode: 'date' })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
+});
+
 export const villains = table('villain', {
   id: varchar('id', { length: 255 })
     .primaryKey()

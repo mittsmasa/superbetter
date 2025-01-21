@@ -10,7 +10,7 @@ export const EntityLink = ({
 }: {
   href: ComponentProps<typeof MotionLink>['href'];
   title: string;
-  description?: string;
+  description?: string | null;
 }) => {
   return (
     <MotionLink href={href} className={cx(pixelBorder({ borderWidth: 1 }))}>

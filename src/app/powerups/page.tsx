@@ -1,20 +1,15 @@
-'use client';
-
-import { AddBox } from '@/assets/icons';
-import { Button } from '@/components/button';
-import { Drawer } from '@/components/drawer';
-import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
-import { TextArea } from '@/components/text-area';
-import { TextInput } from '@/components/text-input';
-import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
+import { use } from 'react';
 import { EntityLink } from '../_components/entity-link';
-import { MissionEntities } from '../_components/mission/entitity';
-import { postPowerup } from './_actions/post-powerup';
+import { getPowerups } from './_actions/get-powerup';
+import { AddPowerupButton } from './_components/add-powerup-button';
 
 const Page = () => {
-  const addDialog = useDialog();
+  const powerups = use(getPowerups());
+  if (powerups.type === 'error') {
+    throw new Error(powerups.error.message);
+  }
   return (
     <main
       className={css({
@@ -38,9 +33,7 @@ const Page = () => {
           <h1 className={css({ textStyle: 'Heading.primary' })}>
             パワーアップアイテム
           </h1>
-          <IconButton onClick={addDialog.show}>
-            <AddBox className={css({ width: '[24px]', height: '[24px]' })} />
-          </IconButton>
+          <AddPowerupButton />
         </div>
         <div
           className={css({
@@ -51,15 +44,14 @@ const Page = () => {
             textStyle: 'Body.secondary',
           })}
         >
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
+          {powerups.data.map((p) => (
+            <EntityLink
+              key={p.id}
+              href={`/powerups/${p.id}`}
+              title={p.title}
+              description={p.description}
+            />
+          ))}
         </div>
       </div>
       <div
@@ -72,100 +64,8 @@ const Page = () => {
       >
         <FooterNavigation />
       </div>
-      <Drawer ref={addDialog.ref} onClose={addDialog.close}>
-        <form
-          action={async (f) => {
-            // TODO: zod でバリデーション
-            // TODO: snackbar or toast でエラー通知
-            const name = f.get('item-name') as string | null;
-            const description = f.get('item-desc') as string | null;
-            const res = await postPowerup({ name: name ?? '', description });
-            if (res.type === 'ok') {
-              addDialog.close();
-              return;
-            }
-            alert('エラーがおきました');
-          }}
-          className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            height: '[100%]',
-            gap: '16px',
-          })}
-        >
-          <div
-            className={css({
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px',
-            })}
-          >
-            <h1>パワーアップアイテムをみつけよ</h1>
-            <div
-              className={css({
-                textStyle: 'Body.tertiary',
-                textAlign: 'center',
-              })}
-            >
-              <p>すぐにちょっときぶんがよくなる秘宝をみつけよ</p>
-              <p>これが英雄のつかれた心をいやすであろう</p>
-            </div>
-            <MissionEntities
-              items={[
-                {
-                  id: 'powerup',
-                  missionItemType: 'powerup',
-                  completed: true,
-                },
-              ]}
-            />
-          </div>
-          <div
-            className={css({
-              display: 'flex',
-              flex: '1',
-              flexDirection: 'column',
-              gap: '12px',
-              minHeight: '[0px]',
-              overflow: 'auto',
-              padding: '12px 8px',
-            })}
-          >
-            <TextInput
-              required
-              label="アイテムめい *"
-              placeholder="アイテムめい"
-              name="item-name"
-            />
-            <TextArea
-              label="せつめい"
-              placeholder="せつめい"
-              name="item-desc"
-            />
-          </div>
-          <div
-            className={css({
-              display: 'flex',
-              justifyContent: 'center',
-              padding: '24px',
-            })}
-          >
-            <Button type="submit">
-              <div className={css({ width: '[230px]' })}>ついか！</div>
-            </Button>
-          </div>
-        </form>
-      </Drawer>
     </main>
   );
 };
-
-const PowerupLink = () => (
-  <EntityLink
-    href="/powerups/1"
-    title="パワーブレスする"
-    description="パワーブレスというのは8カウントで吸って4カウントで吐くやつのことです。すごく長い文章をいれても途中で Truncate されることを想定しています。まぁこれだけかければあまり省略されることはないとおもうけど"
-  />
-);
 
 export default Page;
