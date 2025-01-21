@@ -23,3 +23,33 @@ export const getPowerups = async (): Promise<
     };
   }
 };
+
+export const getPowerup = async (
+  powerupId: string,
+): Promise<
+  Result<
+    typeof powerups.$inferSelect,
+    { type: 'not-found' | 'unknown'; message: string }
+  >
+> => {
+  const user = await getUser();
+  try {
+    const pup = await db.query.powerups.findFirst({
+      where: (powerup) => eq(powerup.id, powerupId),
+    });
+
+    if (!pup) {
+      return {
+        type: 'error',
+        error: { type: 'not-found', message: 'specific id not found.' },
+      };
+    }
+    return { type: 'ok', data: pup };
+  } catch (e) {
+    console.error(e);
+    return {
+      type: 'error',
+      error: { type: 'unknown', message: 'unknown error' },
+    };
+  }
+};

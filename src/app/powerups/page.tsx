@@ -1,9 +1,15 @@
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
+import { use } from 'react';
 import { EntityLink } from '../_components/entity-link';
+import { getPowerups } from './_actions/get-powerup';
 import { AddPowerupButton } from './_components/add-powerup-button';
 
 const Page = () => {
+  const powerups = use(getPowerups());
+  if (powerups.type === 'error') {
+    throw new Error(powerups.error.message);
+  }
   return (
     <main
       className={css({
@@ -38,15 +44,14 @@ const Page = () => {
             textStyle: 'Body.secondary',
           })}
         >
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
-          <PowerupLink />
+          {powerups.data.map((p) => (
+            <EntityLink
+              key={p.id}
+              href={`/powerups/${p.id}`}
+              title={p.title}
+              description={p.description}
+            />
+          ))}
         </div>
       </div>
       <div
@@ -59,17 +64,8 @@ const Page = () => {
       >
         <FooterNavigation />
       </div>
-      {/* <AddPowerupButton /> */}
     </main>
   );
 };
-
-const PowerupLink = () => (
-  <EntityLink
-    href="/powerups/1"
-    title="パワーブレスする"
-    description="パワーブレスというのは8カウントで吸って4カウントで吐くやつのことです。すごく長い文章をいれても途中で Truncate されることを想定しています。まぁこれだけかければあまり省略されることはないとおもうけど"
-  />
-);
 
 export default Page;
