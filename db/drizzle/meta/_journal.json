@@ -29,6 +29,20 @@
       "when": 1737449038772,
       "tag": "0003_busy_purple_man",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1737546682211,
+      "tag": "0004_blue_black_bird",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1737546781750,
+      "tag": "0005_brown_hobgoblin",
+      "breakpoints": true
     }
   ]
 }
