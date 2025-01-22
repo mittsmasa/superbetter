@@ -1,11 +1,11 @@
 import { Header } from '@/app/_components/header';
-import { Button } from '@/components/button';
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
 import { use } from 'react';
 import { getPowerup } from '../_actions/get-powerup';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';
 import { EditPowerupButton } from './_components/edit-powerup-button';
+import { ExecuteButton } from './_components/execute-button';
 
 const Page = (props: {
   params: Promise<{ id: string }>;
@@ -81,9 +81,7 @@ const Page = (props: {
             py: '24px',
           })}
         >
-          <Button>
-            <div className={css({ width: '[230px]' })}>つかった！</div>
-          </Button>
+          <ExecuteButton powerupId={powerupId} />
         </div>
         <FooterNavigation />
       </div>

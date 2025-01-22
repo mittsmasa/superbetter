@@ -59,9 +59,9 @@ export const powerupHistories = table('powerupHistory', {
   id: varchar('id', { length: 255 })
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
-  questId: varchar('questId', { length: 255 })
+  powerupId: varchar('powerupId', { length: 255 })
     .notNull()
-    .references(() => quests.id, { onDelete: 'cascade' }),
+    .references(() => powerups.id, { onDelete: 'cascade' }),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
   updatedAt: timestamp('updatedAt', { mode: 'date' })
     .notNull()
