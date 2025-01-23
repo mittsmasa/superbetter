@@ -32,7 +32,6 @@ export const postPowerupHistory = async (
         .where(eq(powerups.id, pup.id));
 
       // update mission condition
-      // TODO: move to another function
       await updateMissionConditions({
         transaction: tx,
         userId: user.id,
