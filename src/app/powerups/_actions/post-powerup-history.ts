@@ -2,6 +2,7 @@
 
 import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
+import { updateMissionConditions } from '@/app/_utils/sql/mission';
 import { and, eq, sql } from 'drizzle-orm';
 import { db } from '../../../../db/client';
 import { powerupHistories, powerups } from '../../../../db/schema/superbetter';
@@ -21,14 +22,22 @@ export const postPowerupHistory = async (
         tx.rollback();
         return;
       }
-      const [{ id: historyId }] = await db
+      const [{ id: historyId }] = await tx
         .insert(powerupHistories)
         .values({ powerupId: pup.id })
         .$returningId();
-      await db
+      await tx
         .update(powerups)
         .set({ count: sql`${powerups.count} + 1` })
         .where(eq(powerups.id, pup.id));
+
+      // update mission condition
+      await updateMissionConditions({
+        transaction: tx,
+        userId: user.id,
+        itemType: 'powerup',
+        itemId: powerupId,
+      });
       return historyId;
     });
     if (!historyId) {

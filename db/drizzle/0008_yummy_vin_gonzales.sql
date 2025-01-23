@@ -1,0 +1,1 @@
+ALTER TABLE `missionCondition` MODIFY COLUMN `itemType` enum('quest','powerup','villain','epicwin') NOT NULL;

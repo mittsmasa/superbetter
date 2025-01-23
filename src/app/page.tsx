@@ -1,9 +1,15 @@
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
+import { use } from 'react';
+import { getMissions } from './_actions/get-mission';
 import { DailyAchievement } from './_components/daily-achievement';
 import { Mission } from './_components/mission';
 
 export default function Home() {
+  const missions = use(getMissions());
+  if (missions.type === 'error') {
+    throw new Error(missions.error.message);
+  }
   return (
     <main
       className={css({
@@ -32,37 +38,18 @@ export default function Home() {
         <DailyAchievement datetime={new Date(2024, 1, 7)} status="upcoming" />
       </div>
       <div className={css({ display: 'flex', gap: '8px', padding: '8px' })}>
-        <Mission
-          id="3"
-          title="デイリーミッション"
-          items={[
-            {
-              id: '1',
-              missionItemType: 'powerup',
-              completed: true,
-            },
-            {
-              id: '2',
-              missionItemType: 'powerup',
-              completed: false,
-            },
-            {
-              id: '3',
-              missionItemType: 'powerup',
-              completed: false,
-            },
-            {
-              id: '4',
-              missionItemType: 'quest',
-              completed: true,
-            },
-            {
-              id: '5',
-              missionItemType: 'villain',
-              completed: true,
-            },
-          ]}
-        />
+        {missions.data.map((m) => (
+          <Mission
+            key={m.id}
+            id={m.id}
+            title={m.title}
+            items={m.missionConditions.map((mc) => ({
+              id: mc.id,
+              missionItemType: mc.itemType,
+              completed: mc.completed,
+            }))}
+          />
+        ))}
       </div>
       <div className={css({ position: 'sticky', bottom: 0, padding: '8px' })}>
         <FooterNavigation />
