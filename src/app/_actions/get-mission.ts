@@ -2,19 +2,56 @@
 
 import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
-import { eq } from 'drizzle-orm';
+import { and, desc, eq, gt } from 'drizzle-orm';
 import { db } from '../../../db/client';
-import type { missions } from '../../../db/schema/superbetter';
+import { missionConditions, missions } from '../../../db/schema/superbetter';
 
 export const getMissions = async (): Promise<
-  Result<(typeof missions.$inferSelect)[], { type: 'unknown'; message: string }>
+  Result<
+    (typeof missions.$inferSelect & {
+      missionConditions: (typeof missionConditions.$inferSelect)[];
+    })[],
+    { type: 'unknown'; message: string }
+  >
 > => {
   const user = await getUser();
   try {
-    const missions = await db.query.missions.findMany({
-      where: (mission) => eq(mission.userId, user.id),
-    });
-    return { type: 'ok', data: missions };
+    const rows = await db
+      .select()
+      .from(missions)
+      .where(
+        and(eq(missions.userId, user.id), gt(missions.deadline, new Date())),
+      )
+      .innerJoin(
+        missionConditions,
+        eq(missions.id, missionConditions.missionId),
+      )
+      .orderBy(desc(missionConditions.itemType));
+
+    const data = Object.values(
+      rows.reduce<
+        Record<
+          string,
+          typeof missions.$inferSelect & {
+            missionConditions: (typeof missionConditions.$inferSelect)[];
+          }
+        >
+      >((acc, row) => {
+        const mission = row.mission;
+        const missionCondition = row.missionCondition;
+
+        if (!acc[mission.id]) {
+          acc[mission.id] = {
+            ...mission,
+            missionConditions: [],
+          };
+        }
+        acc[mission.id].missionConditions.push(missionCondition);
+        return acc;
+      }, {}),
+    );
+
+    return { type: 'ok', data };
   } catch (e) {
     console.error(e);
     return {
