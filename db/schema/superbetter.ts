@@ -138,7 +138,7 @@ export const missionConditions = table('missionCondition', {
     'powerup',
     'villain',
     'epicwin',
-  ] as const satisfies MissionItem[]),
+  ] as const satisfies MissionItem[]).notNull(),
   itemId: varchar('itemId', { length: 255 }),
   completed: boolean('completed').notNull().default(false),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),

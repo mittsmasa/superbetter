@@ -2,14 +2,10 @@
 
 import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
-import { and, eq, gt, inArray, or, sql } from 'drizzle-orm';
+import { updateMissionConditions } from '@/app/_utils/sql/mission';
+import { and, eq, sql } from 'drizzle-orm';
 import { db } from '../../../../db/client';
-import {
-  missionConditions,
-  missions,
-  powerupHistories,
-  powerups,
-} from '../../../../db/schema/superbetter';
+import { powerupHistories, powerups } from '../../../../db/schema/superbetter';
 
 export const postPowerupHistory = async (
   powerupId: string,
@@ -37,37 +33,12 @@ export const postPowerupHistory = async (
 
       // update mission condition
       // TODO: move to another function
-      const tragetMissons = await tx
-        .select()
-        .from(missions)
-        .where(
-          and(
-            gt(missions.deadline, new Date()),
-            eq(missions.userId, user.id),
-            eq(missionConditions.itemType, 'powerup'),
-            or(
-              eq(missionConditions.conditionType, 'any'),
-              and(
-                eq(missionConditions.conditionType, 'specific'),
-                eq(missionConditions.itemId, powerupId),
-              ),
-            ),
-          ),
-        )
-        .innerJoin(
-          missionConditions,
-          eq(missions.id, missionConditions.missionId),
-        );
-
-      await tx
-        .update(missionConditions)
-        .set({ completed: true })
-        .where(
-          inArray(
-            missionConditions.id,
-            tragetMissons.map((m) => m.missionCondition.id),
-          ),
-        );
+      await updateMissionConditions({
+        transaction: tx,
+        userId: user.id,
+        itemType: 'powerup',
+        itemId: powerupId,
+      });
       return historyId;
     });
     if (!historyId) {
