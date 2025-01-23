@@ -114,8 +114,6 @@ export const missions = table('mission', {
   userId: varchar('userId', { length: 255 })
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
-  count: int('count').notNull().default(0),
-  completed: boolean('completed').notNull().default(false),
   deadline: timestamp('deadline', { mode: 'date' }),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
   updatedAt: timestamp('updatedAt', { mode: 'date' })
