@@ -2,6 +2,23 @@ import { Android, ScriptText, Zap } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import type { MissionItem } from '../../../../../types/mission';
 
+const MISSION_ITEM_ORDER = [
+  'powerup',
+  'quest',
+  'villain',
+  'epicwin',
+] as const satisfies MissionItem[];
+
+const sortMissionEntities = ():
+  | ((a: MissionEntity, b: MissionEntity) => number)
+  | undefined => {
+  return (a, b) => {
+    const typeA = MISSION_ITEM_ORDER.indexOf(a.missionItemType);
+    const typeB = MISSION_ITEM_ORDER.indexOf(b.missionItemType);
+    return typeA - typeB;
+  };
+};
+
 export const MissionEntities = (props: { items: MissionEntity[] }) => {
   return (
     <div
@@ -13,7 +30,7 @@ export const MissionEntities = (props: { items: MissionEntity[] }) => {
         overflowX: 'auto',
       })}
     >
-      {props.items.map((item, index) => (
+      {props.items.sort(sortMissionEntities()).map((item, index) => (
         <div
           key={index}
           className={css({
