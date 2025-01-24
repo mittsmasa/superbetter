@@ -3,8 +3,8 @@
 import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
 import { eq } from 'drizzle-orm';
-import { db } from '../../../../db/client';
-import type { powerups } from '../../../../db/schema/superbetter';
+import { db } from '../../../db/client';
+import type { powerups } from '../../../db/schema/superbetter';
 
 export const getPowerups = async (): Promise<
   Result<(typeof powerups.$inferSelect)[], { type: 'unknown'; message: string }>
