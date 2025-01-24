@@ -1,11 +1,12 @@
 import { getMission } from '@/app/_actions/get-mission';
+import { getPowerups } from '@/app/_actions/get-powerup';
 import { MissionEntities } from '@/app/_components/mission/entitity';
-import { AddBox, Zap } from '@/assets/icons';
+import { Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
-import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
 import { Radio } from '@/components/radio';
 import { css } from '@/styled-system/css';
+import Link from 'next/link';
 import { use } from 'react';
 import { Header } from '../../_components/header';
 
@@ -118,51 +119,66 @@ const Page = (props: {
 
 export default Page;
 
-const EntityList = () => (
-  <div
-    className={css({
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '4px',
-      px: '8px',
-    })}
-  >
-    <div
-      className={css({
-        display: 'flex',
-        justifyContent: 'space-between',
-      })}
-    >
-      <div
-        className={css({
-          alignItems: 'center',
-          display: 'flex',
-          gap: '8px',
-        })}
-      >
-        <Zap className={css({ width: '[24px]', height: '[24px]' })} />
-        <p
-          className={css({
-            textStyle: 'Body.secondary',
-          })}
-        >
-          パワーアップアイテム
-        </p>
-      </div>
-      <IconButton type="button">
-        <AddBox className={css({ width: '[24px]', height: '[24px]' })} />
-      </IconButton>
-    </div>
+const EntityList = () => {
+  const LIMIT = 3;
+  const powerups = use(getPowerups({ limit: LIMIT }));
+  if (powerups.type === 'error') {
+    throw new Error(powerups.error.message);
+  }
+  const showMore = powerups.data.count > LIMIT;
+  return (
     <div
       className={css({
         display: 'flex',
         flexDirection: 'column',
-        gap: '8px',
+        gap: '4px',
+        px: '8px',
       })}
     >
-      <Radio label="アイテム1" name="powerup" value="item1" />
-      <Radio label="アイテム2" name="powerup" value="item2" />
-      <Radio label="アイテム3" name="powerup" value="item3" />
+      <div
+        className={css({
+          display: 'flex',
+          justifyContent: 'space-between',
+        })}
+      >
+        <div
+          className={css({
+            alignItems: 'center',
+            display: 'flex',
+            gap: '8px',
+          })}
+        >
+          <Zap className={css({ width: '[24px]', height: '[24px]' })} />
+          <p
+            className={css({
+              textStyle: 'Body.secondary',
+            })}
+          >
+            パワーアップアイテム
+          </p>
+        </div>
+      </div>
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+        })}
+      >
+        {powerups.data.records.map((p) => (
+          <Radio key={p.id} name="powerup" value={p.id} label={p.title} />
+        ))}
+      </div>
+      {showMore && (
+        <div className={css({ textAlign: 'center' })}>
+          <Link
+            href="/powerups"
+            className={css({ padding: '12px', textStyle: 'Body.secondary' })}
+          >
+            もっとみる
+          </Link>
+        </div>
+      )}
     </div>
-  </div>
-);
+  );
+};

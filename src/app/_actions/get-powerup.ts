@@ -4,10 +4,13 @@ import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
 import { eq } from 'drizzle-orm';
 import { db } from '../../../db/client';
-import type { powerups } from '../../../db/schema/superbetter';
+import { powerups } from '../../../db/schema/superbetter';
 
 export const getPowerups = async (ops?: { limit: number }): Promise<
-  Result<(typeof powerups.$inferSelect)[], { type: 'unknown'; message: string }>
+  Result<
+    { records: (typeof powerups.$inferSelect)[]; count: number },
+    { type: 'unknown'; message: string }
+  >
 > => {
   const user = await getUser();
   try {
@@ -15,7 +18,8 @@ export const getPowerups = async (ops?: { limit: number }): Promise<
       where: (powerup) => eq(powerup.userId, user.id),
       limit: ops?.limit,
     });
-    return { type: 'ok', data: pups };
+    const pupCount = await db.$count(powerups);
+    return { type: 'ok', data: { records: pups, count: pupCount } };
   } catch (e) {
     console.error(e);
     return {
