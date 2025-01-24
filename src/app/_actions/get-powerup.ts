@@ -6,13 +6,14 @@ import { eq } from 'drizzle-orm';
 import { db } from '../../../db/client';
 import type { powerups } from '../../../db/schema/superbetter';
 
-export const getPowerups = async (): Promise<
+export const getPowerups = async (ops?: { limit: number }): Promise<
   Result<(typeof powerups.$inferSelect)[], { type: 'unknown'; message: string }>
 > => {
   const user = await getUser();
   try {
     const pups = await db.query.powerups.findMany({
       where: (powerup) => eq(powerup.userId, user.id),
+      limit: ops?.limit,
     });
     return { type: 'ok', data: pups };
   } catch (e) {
