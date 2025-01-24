@@ -1,8 +1,8 @@
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
 import { use } from 'react';
+import { getPowerups } from '../_actions/get-powerup';
 import { EntityLink } from '../_components/entity-link';
-import { getPowerups } from './_actions/get-powerup';
 import { AddPowerupButton } from './_components/add-powerup-button';
 
 const Page = () => {
@@ -44,7 +44,7 @@ const Page = () => {
             textStyle: 'Body.secondary',
           })}
         >
-          {powerups.data.map((p) => (
+          {powerups.data.records.map((p) => (
             <EntityLink
               key={p.id}
               href={`/powerups/${p.id}`}

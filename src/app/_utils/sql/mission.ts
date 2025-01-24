@@ -1,4 +1,4 @@
-import { and, eq, gt, inArray, or } from 'drizzle-orm';
+import { and, eq, gt, inArray, or, sql } from 'drizzle-orm';
 import type { db } from '../../../../db/client';
 import { missionConditions, missions } from '../../../../db/schema/superbetter';
 
@@ -14,12 +14,20 @@ export const updateMissionConditions = async ({
   itemId?: string;
 }) => {
   const tragetMissons = await tx
-    .select()
+    .select({
+      mission: missions,
+      missionConditionId: sql`ANY_VALUE(missionCondition.id)`
+        .mapWith(missionConditions.id)
+        .as('missionConditionId'),
+      maxCreatedAt: sql`MAX(missionCondition.createdAt)`.as('maxCreatedAt'),
+    })
     .from(missions)
+    .innerJoin(missionConditions, eq(missions.id, missionConditions.missionId))
     .where(
       and(
         gt(missions.deadline, new Date()),
         eq(missions.userId, userId),
+        eq(missionConditions.completed, false),
         eq(missionConditions.itemType, itemType),
         or(
           eq(missionConditions.conditionType, 'any'),
@@ -30,7 +38,7 @@ export const updateMissionConditions = async ({
         ),
       ),
     )
-    .innerJoin(missionConditions, eq(missions.id, missionConditions.missionId));
+    .groupBy(missionConditions.missionId);
 
   await tx
     .update(missionConditions)
@@ -38,7 +46,7 @@ export const updateMissionConditions = async ({
     .where(
       inArray(
         missionConditions.id,
-        tragetMissons.map((m) => m.missionCondition.id),
+        tragetMissons.map((m) => m.missionConditionId),
       ),
     );
 };

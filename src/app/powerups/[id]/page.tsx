@@ -2,7 +2,7 @@ import { Header } from '@/app/_components/header';
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
 import { use } from 'react';
-import { getPowerup } from '../_actions/get-powerup';
+import { getPowerup } from '../../_actions/get-powerup';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';
 import { EditPowerupButton } from './_components/edit-powerup-button';
 import { ExecuteButton } from './_components/execute-button';

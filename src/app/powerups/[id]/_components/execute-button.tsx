@@ -1,9 +1,9 @@
 'use client';
 
+import { postPowerupHistory } from '@/app/_actions/post-powerup-history';
 import { Button } from '@/components/button';
 import { css } from '@/styled-system/css';
 import { useTransition } from 'react';
-import { postPowerupHistory } from '../../_actions/post-powerup-history';
 
 export const ExecuteButton = ({ powerupId }: { powerupId: string }) => {
   const [isPending, startTransition] = useTransition();

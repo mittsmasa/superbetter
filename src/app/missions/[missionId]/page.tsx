@@ -1,18 +1,26 @@
+import { getMission } from '@/app/_actions/get-mission';
+import { getPowerups } from '@/app/_actions/get-powerup';
+import { postPowerupHistory } from '@/app/_actions/post-powerup-history';
 import { MissionEntities } from '@/app/_components/mission/entitity';
-import { Default } from '@/app/_components/mission/index.stories';
-import { AddBox, Zap } from '@/assets/icons';
+import { Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
-import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
 import { Radio } from '@/components/radio';
 import { css } from '@/styled-system/css';
+import { revalidatePath } from 'next/cache';
+import Link from 'next/link';
 import { use } from 'react';
 import { Header } from '../../_components/header';
+import { getEntity, getEntityValue } from './_utils/converter';
 
 const Page = (props: {
   params: Promise<{ missionId: string }>;
 }) => {
-  const params = use(props.params);
+  const { missionId } = use(props.params);
+  const mission = use(getMission(missionId));
+  if (mission.type === 'error') {
+    throw new Error(mission.error.message);
+  }
   return (
     <main
       className={css({
@@ -24,7 +32,13 @@ const Page = (props: {
         overflow: 'auto',
       })}
     >
-      <div>
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+        })}
+      >
         <div
           className={css({
             backgroundColor: 'black',
@@ -45,25 +59,39 @@ const Page = (props: {
             })}
           >
             <h1 className={css({ textStyle: 'Heading.primary' })}>
-              デイリーミッション
+              {mission.data.title}
             </h1>
-            <p
-              className={css({
-                textAlign: 'center',
-                textStyle: 'Body.secondary',
-              })}
-            >
-              パワーアップアイテムを使い、クエストを受け、ヴィランを討て <br />
-              日々の積み重ねが、強靭な精神をつくるのだ
-            </p>
-            <MissionEntities items={[...Default.args.items]} />
+            <div>
+              {mission.data.description?.split('\n').map((line, i) => (
+                <p
+                  key={i}
+                  className={css({
+                    textAlign: 'center',
+                    textStyle: 'Body.secondary',
+                  })}
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+            <MissionEntities
+              items={mission.data.missionConditions.map((mc) => ({
+                id: mc.id,
+                missionItemType: mc.itemType,
+                completed: mc.completed,
+              }))}
+            />
           </div>
         </div>
         <form
           action={async (a) => {
             'use server';
-            const val = a.get('powerup');
-            console.log(val?.valueOf());
+            const val = a.get('entity') as string;
+            const entity = getEntity(val);
+            if (entity.type === 'powerup') {
+              await postPowerupHistory(entity.id);
+            }
+            revalidatePath('/missions/[missionId]', 'page');
           }}
         >
           <div
@@ -98,51 +126,71 @@ const Page = (props: {
 
 export default Page;
 
-const EntityList = () => (
-  <div
-    className={css({
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '4px',
-      px: '8px',
-    })}
-  >
-    <div
-      className={css({
-        display: 'flex',
-        justifyContent: 'space-between',
-      })}
-    >
-      <div
-        className={css({
-          alignItems: 'center',
-          display: 'flex',
-          gap: '8px',
-        })}
-      >
-        <Zap className={css({ width: '[24px]', height: '[24px]' })} />
-        <p
-          className={css({
-            textStyle: 'Body.secondary',
-          })}
-        >
-          パワーアップアイテム
-        </p>
-      </div>
-      <IconButton type="button">
-        <AddBox className={css({ width: '[24px]', height: '[24px]' })} />
-      </IconButton>
-    </div>
+const EntityList = () => {
+  const LIMIT = 3;
+  const powerups = use(getPowerups({ limit: LIMIT }));
+  if (powerups.type === 'error') {
+    throw new Error(powerups.error.message);
+  }
+  const showMore = powerups.data.count > LIMIT;
+  return (
     <div
       className={css({
         display: 'flex',
         flexDirection: 'column',
-        gap: '8px',
+        gap: '4px',
+        px: '8px',
       })}
     >
-      <Radio label="アイテム1" name="powerup" value="item1" />
-      <Radio label="アイテム2" name="powerup" value="item2" />
-      <Radio label="アイテム3" name="powerup" value="item3" />
+      <div
+        className={css({
+          display: 'flex',
+          justifyContent: 'space-between',
+        })}
+      >
+        <div
+          className={css({
+            alignItems: 'center',
+            display: 'flex',
+            gap: '8px',
+          })}
+        >
+          <Zap className={css({ width: '[24px]', height: '[24px]' })} />
+          <p
+            className={css({
+              textStyle: 'Body.secondary',
+            })}
+          >
+            パワーアップアイテム
+          </p>
+        </div>
+      </div>
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+        })}
+      >
+        {powerups.data.records.map((p) => (
+          <Radio
+            key={p.id}
+            name="entity"
+            value={getEntityValue({ type: 'powerup', id: p.id })}
+            label={p.title}
+          />
+        ))}
+      </div>
+      {showMore && (
+        <div className={css({ textAlign: 'center' })}>
+          <Link
+            href="/powerups"
+            className={css({ padding: '12px', textStyle: 'Body.secondary' })}
+          >
+            もっとみる
+          </Link>
+        </div>
+      )}
     </div>
-  </div>
-);
+  );
+};
