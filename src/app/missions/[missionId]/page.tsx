@@ -1,5 +1,5 @@
+import { getMission } from '@/app/_actions/get-mission';
 import { MissionEntities } from '@/app/_components/mission/entitity';
-import { Default } from '@/app/_components/mission/index.stories';
 import { AddBox, Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { IconButton } from '@/components/icon-button';
@@ -12,7 +12,11 @@ import { Header } from '../../_components/header';
 const Page = (props: {
   params: Promise<{ missionId: string }>;
 }) => {
-  const params = use(props.params);
+  const { missionId } = use(props.params);
+  const mission = use(getMission(missionId));
+  if (mission.type === 'error') {
+    throw new Error(mission.error.message);
+  }
   return (
     <main
       className={css({
@@ -24,7 +28,13 @@ const Page = (props: {
         overflow: 'auto',
       })}
     >
-      <div>
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px',
+        })}
+      >
         <div
           className={css({
             backgroundColor: 'black',
@@ -45,18 +55,28 @@ const Page = (props: {
             })}
           >
             <h1 className={css({ textStyle: 'Heading.primary' })}>
-              デイリーミッション
+              {mission.data.title}
             </h1>
-            <p
-              className={css({
-                textAlign: 'center',
-                textStyle: 'Body.secondary',
-              })}
-            >
-              パワーアップアイテムを使い、クエストを受け、ヴィランを討て <br />
-              日々の積み重ねが、強靭な精神をつくるのだ
-            </p>
-            <MissionEntities items={[...Default.args.items]} />
+            <div>
+              {mission.data.description?.split('\n').map((line, i) => (
+                <p
+                  key={i}
+                  className={css({
+                    textAlign: 'center',
+                    textStyle: 'Body.secondary',
+                  })}
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+            <MissionEntities
+              items={mission.data.missionConditions.map((mc) => ({
+                id: mc.id,
+                missionItemType: mc.itemType,
+                completed: mc.completed,
+              }))}
+            />
           </div>
         </div>
         <form

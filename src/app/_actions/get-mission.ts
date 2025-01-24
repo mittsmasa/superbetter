@@ -65,23 +65,63 @@ export const getMission = async (
   missionId: string,
 ): Promise<
   Result<
-    typeof missions.$inferSelect,
+    typeof missions.$inferSelect & {
+      missionConditions: (typeof missionConditions.$inferSelect)[];
+    },
     { type: 'not-found' | 'unknown'; message: string }
   >
 > => {
   const user = await getUser();
   try {
-    const mission = await db.query.missions.findFirst({
-      where: (mission) => eq(mission.id, missionId),
-    });
+    const rows = await db
+      .select()
+      .from(missions)
+      .where(and(eq(missions.id, missionId), eq(missions.userId, user.id)))
+      .innerJoin(
+        missionConditions,
+        eq(missions.id, missionConditions.missionId),
+      );
 
-    if (!mission) {
+    if (rows.length === 0) {
       return {
         type: 'error',
-        error: { type: 'not-found', message: 'specific id not found.' },
+        error: { type: 'not-found', message: 'missions not found' },
       };
     }
-    return { type: 'ok', data: mission };
+
+    const data = Object.values(
+      rows.reduce<
+        Record<
+          string,
+          typeof missions.$inferSelect & {
+            missionConditions: (typeof missionConditions.$inferSelect)[];
+          }
+        >
+      >((acc, row) => {
+        const mission = row.mission;
+        const missionCondition = row.missionCondition;
+
+        if (!acc[mission.id]) {
+          acc[mission.id] = {
+            ...mission,
+            missionConditions: [],
+          };
+        }
+        acc[mission.id].missionConditions.push(missionCondition);
+        return acc;
+      }, {}),
+    ).at(0);
+
+    if (!data) {
+      return {
+        type: 'error',
+        error: { type: 'not-found', message: 'data not found' },
+      };
+    }
+    return {
+      type: 'ok',
+      data,
+    };
   } catch (e) {
     console.error(e);
     return {
