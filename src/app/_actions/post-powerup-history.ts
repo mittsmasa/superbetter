@@ -4,8 +4,8 @@ import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
 import { updateMissionConditions } from '@/app/_utils/sql/mission';
 import { and, eq, sql } from 'drizzle-orm';
-import { db } from '../../../../db/client';
-import { powerupHistories, powerups } from '../../../../db/schema/superbetter';
+import { db } from '../../../db/client';
+import { powerupHistories, powerups } from '../../../db/schema/superbetter';
 
 export const postPowerupHistory = async (
   powerupId: string,

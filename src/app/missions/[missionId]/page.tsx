@@ -1,14 +1,17 @@
 import { getMission } from '@/app/_actions/get-mission';
 import { getPowerups } from '@/app/_actions/get-powerup';
+import { postPowerupHistory } from '@/app/_actions/post-powerup-history';
 import { MissionEntities } from '@/app/_components/mission/entitity';
 import { Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { FooterNavigation } from '@/components/navigation';
 import { Radio } from '@/components/radio';
 import { css } from '@/styled-system/css';
+import { revalidatePath } from 'next/cache';
 import Link from 'next/link';
 import { use } from 'react';
 import { Header } from '../../_components/header';
+import { getEntity, getEntityValue } from './_utils/converter';
 
 const Page = (props: {
   params: Promise<{ missionId: string }>;
@@ -83,8 +86,12 @@ const Page = (props: {
         <form
           action={async (a) => {
             'use server';
-            const val = a.get('powerup');
-            console.log(val?.valueOf());
+            const val = a.get('entity') as string;
+            const entity = getEntity(val);
+            if (entity.type === 'powerup') {
+              await postPowerupHistory(entity.id);
+            }
+            revalidatePath('/missions/[missionId]', 'page');
           }}
         >
           <div
@@ -166,7 +173,12 @@ const EntityList = () => {
         })}
       >
         {powerups.data.records.map((p) => (
-          <Radio key={p.id} name="powerup" value={p.id} label={p.title} />
+          <Radio
+            key={p.id}
+            name="entity"
+            value={getEntityValue({ type: 'powerup', id: p.id })}
+            label={p.title}
+          />
         ))}
       </div>
       {showMore && (
