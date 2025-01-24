@@ -11,9 +11,6 @@ importers:
       '@auth/drizzle-adapter':
         specifier: 1.7.4
         version: 1.7.4
-      '@tidbcloud/serverless':
-        specifier: 0.2.0
-        version: 0.2.0
       dotenv:
         specifier: 16.4.7
         version: 16.4.7
@@ -6399,7 +6396,8 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.0
 
-  '@tidbcloud/serverless@0.2.0': {}
+  '@tidbcloud/serverless@0.2.0':
+    optional: true
 
   '@trysound/sax@0.2.0': {}
 
