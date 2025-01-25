@@ -12,7 +12,7 @@ export const DeleteConfirmDialog = ({
 }: {
   dialog: ReturnType<typeof useDialog>;
   itemName: string;
-  onDelete: (id: string) => void;
+  onDelete: () => void;
 }) => {
   return (
     <Dialog ref={dialog.ref}>
@@ -43,7 +43,7 @@ export const DeleteConfirmDialog = ({
             justifyContent: 'center',
           })}
         >
-          <Button onClick={() => onDelete('id')}>
+          <Button onClick={() => onDelete()}>
             <div className={css({ width: '[100px]' })}>さくじょ</div>
           </Button>
           <Button onClick={dialog.close} variant="secondary">
