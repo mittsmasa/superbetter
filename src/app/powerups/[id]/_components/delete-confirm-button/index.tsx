@@ -5,9 +5,12 @@ import { Trash } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
+import { useRouter } from 'next/navigation';
+import { deletePowerup } from '../../_actions/delete-powerup';
 
 export const DeleteConfirmButton = (props: { id: string; name: string }) => {
   const deleteConfirm = useDialog();
+  const router = useRouter();
   return (
     <>
       <IconButton onClick={deleteConfirm.show}>
@@ -16,7 +19,12 @@ export const DeleteConfirmButton = (props: { id: string; name: string }) => {
       <DeleteConfirmDialog
         dialog={deleteConfirm}
         itemName={props.name}
-        onDelete={() => {
+        onDelete={async () => {
+          const res = await deletePowerup({ id: props.id });
+          if (res.type === 'error') {
+            throw new Error(res.error.message);
+          }
+          router.push('/powerups');
           deleteConfirm.close();
         }}
       />
