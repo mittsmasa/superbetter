@@ -1,0 +1,1 @@
+ALTER TABLE `mission` ADD `type` enum('system-daily','system-weekly','system-monthly','user-defined') NOT NULL;
