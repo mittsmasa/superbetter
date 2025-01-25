@@ -1,4 +1,4 @@
-import type { MissionItem } from '../../../../../types/mission';
+import type { MissionItem } from '@/db/types/mission';
 
 export const getEntity = (value: string) => {
   const [itemType, id] = value.split('.');

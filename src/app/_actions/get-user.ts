@@ -1,6 +1,6 @@
 import { auth } from '@/auth';
+import { db } from '@/db/client';
 import { redirect } from 'next/navigation';
-import { db } from '../../../db/client';
 
 export const getUser = async () => {
   const session = await auth();

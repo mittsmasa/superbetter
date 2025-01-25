@@ -2,9 +2,9 @@
 
 import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
+import { db } from '@/db/client';
+import { missionConditions, missions } from '@/db/schema/superbetter';
 import { and, desc, eq, gt } from 'drizzle-orm';
-import { db } from '../../../db/client';
-import { missionConditions, missions } from '../../../db/schema/superbetter';
 
 export const getMissions = async (): Promise<
   Result<

@@ -7,7 +7,7 @@ import {
   timestamp,
   varchar,
 } from 'drizzle-orm/mysql-core';
-import type { MissionCondition, MissionItem } from '../../types/mission';
+import type { MissionCondition, MissionItem } from '../types/mission';
 import { users } from './auth';
 
 export const userProfile = table('userProfile', {

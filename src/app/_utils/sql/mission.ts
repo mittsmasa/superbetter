@@ -1,6 +1,6 @@
+import type { db } from '@/db/client';
+import { missionConditions, missions } from '@/db/schema/superbetter';
 import { and, eq, gt, inArray, or, sql } from 'drizzle-orm';
-import type { db } from '../../../../db/client';
-import { missionConditions, missions } from '../../../../db/schema/superbetter';
 
 export const updateMissionConditions = async ({
   transaction: tx,
