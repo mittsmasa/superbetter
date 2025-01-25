@@ -5,6 +5,7 @@ import type { Result } from '@/app/_actions/types/result';
 import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
 import { and, desc, eq, gt } from 'drizzle-orm';
+import { createDailyMission } from './create-daily-mission';
 
 export const getMissions = async (): Promise<
   Result<
@@ -15,6 +16,7 @@ export const getMissions = async (): Promise<
   >
 > => {
   const user = await getUser();
+  await createDailyMission();
   try {
     const rows = await db
       .select()
