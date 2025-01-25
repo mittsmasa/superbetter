@@ -2,9 +2,9 @@
 
 import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
+import { db } from '@/db/client';
+import { powerups } from '@/db/schema/superbetter';
 import { eq } from 'drizzle-orm';
-import { db } from '../../../db/client';
-import { powerups } from '../../../db/schema/superbetter';
 
 export const getPowerups = async (ops?: { limit: number }): Promise<
   Result<

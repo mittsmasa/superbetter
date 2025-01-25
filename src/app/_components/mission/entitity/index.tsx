@@ -1,6 +1,6 @@
 import { Android, ScriptText, Zap } from '@/assets/icons';
+import type { MissionItem } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
-import type { MissionItem } from '../../../../../types/mission';
 
 const MISSION_ITEM_ORDER = [
   'powerup',

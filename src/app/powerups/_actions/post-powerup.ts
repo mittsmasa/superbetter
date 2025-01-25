@@ -2,9 +2,9 @@
 
 import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
+import { db } from '@/db/client';
+import { powerups } from '@/db/schema/superbetter';
 import { revalidatePath } from 'next/cache';
-import { db } from '../../../../db/client';
-import { powerups } from '../../../../db/schema/superbetter';
 
 export const postPowerup = async (args: {
   name: string;
