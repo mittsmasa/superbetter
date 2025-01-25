@@ -114,6 +114,12 @@ export const missions = table('mission', {
   userId: varchar('userId', { length: 255 })
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
+  type: enumField('type', [
+    'system-daily',
+    'system-weekly',
+    'system-monthly',
+    'user-defined',
+  ] as const).notNull(),
   deadline: timestamp('deadline', { mode: 'date' }),
   createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
   updatedAt: timestamp('updatedAt', { mode: 'date' })

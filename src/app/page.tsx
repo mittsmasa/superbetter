@@ -37,7 +37,14 @@ export default function Home() {
         <DailyAchievement datetime={new Date(2024, 1, 6)} status="today" />
         <DailyAchievement datetime={new Date(2024, 1, 7)} status="upcoming" />
       </div>
-      <div className={css({ display: 'flex', gap: '8px', padding: '8px' })}>
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          padding: '8px',
+        })}
+      >
         {missions.data.map((m) => (
           <Mission
             key={m.id}

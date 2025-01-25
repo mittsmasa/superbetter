@@ -2,8 +2,8 @@ import 'dotenv/config';
 import { defineConfig } from 'drizzle-kit';
 
 export default defineConfig({
-  out: './db/drizzle',
-  schema: './db/schema/*',
+  out: './src/db/drizzle',
+  schema: './src/db/schema/*',
   dialect: 'mysql',
   dbCredentials: {
     host: process.env.DB_HOST ?? 'localhost',
