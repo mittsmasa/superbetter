@@ -12,6 +12,7 @@
     "drizzle:push": "drizzle-kit push",
     "drizzle:studio": "drizzle-kit studio",
     "dev": "next dev",
+    "dev:utc": "TZ='Etc/UTC' next dev",
     "prepare": "panda codegen",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
@@ -20,8 +21,8 @@
   },
   "dependencies": {
     "@auth/drizzle-adapter": "1.7.4",
+    "@date-fns/tz": "1.2.0",
     "date-fns": "4.1.0",
-    "date-fns-tz": "3.2.0",
     "dotenv": "16.4.7",
     "drizzle-orm": "0.38.4",
     "mysql2": "3.12.0",
