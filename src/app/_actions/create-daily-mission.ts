@@ -2,8 +2,8 @@
 
 import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
+import { TZDate } from '@date-fns/tz';
 import { addDays, endOfDay, startOfDay } from 'date-fns';
-import { toZonedTime } from 'date-fns-tz';
 import { and, between, eq } from 'drizzle-orm';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
@@ -17,13 +17,12 @@ export const createDailyMission = async (): Promise<
 > => {
   const user = await getUser();
 
-  const now = new Date();
+  const now = new TZDate(new Date(), 'Asia/Tokyo');
   // NOTE: ユーザーごとのタイムゾーンを使うように修正
-  const jstDate = toZonedTime(now, 'Asia/Tokyo');
-  const todayStart = startOfDay(jstDate);
-  const tomorrowStart = addDays(todayStart, 1);
-  const todayEnd = endOfDay(todayStart);
-
+  const todayStart = new Date(startOfDay(now));
+  const tomorrowStart = new Date(addDays(todayStart, 1));
+  const todayEnd = new Date(endOfDay(now));
+  console.log('now', now);
   console.log('todayStart', todayStart);
   console.log('tomorrowStart', tomorrowStart);
   console.log('todayEnd', todayEnd);

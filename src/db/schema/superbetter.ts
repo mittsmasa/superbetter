@@ -1,10 +1,10 @@
 import {
   boolean,
+  datetime,
   mysqlEnum as enumField,
   int,
   mysqlTable as table,
   text,
-  timestamp,
   varchar,
 } from 'drizzle-orm/mysql-core';
 import type { MissionCondition, MissionItem } from '../types/mission';
@@ -30,10 +30,12 @@ export const quests = table('quest', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
-  createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date' })
     .notNull()
-    .defaultNow()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date' })
+    .notNull()
+    .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
 });
 
@@ -48,10 +50,12 @@ export const powerups = table('powerup', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
-  createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date' })
     .notNull()
-    .defaultNow()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date' })
+    .notNull()
+    .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
 });
 
@@ -62,10 +66,12 @@ export const powerupHistories = table('powerupHistory', {
   powerupId: varchar('powerupId', { length: 255 })
     .notNull()
     .references(() => powerups.id, { onDelete: 'cascade' }),
-  createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date' })
     .notNull()
-    .defaultNow()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date' })
+    .notNull()
+    .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
 });
 
@@ -80,10 +86,12 @@ export const villains = table('villain', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
-  createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date' })
     .notNull()
-    .defaultNow()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date' })
+    .notNull()
+    .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
 });
 
@@ -98,10 +106,12 @@ export const epicwins = table('epicwin', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
-  createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date' })
     .notNull()
-    .defaultNow()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date' })
+    .notNull()
+    .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
 });
 
@@ -120,11 +130,13 @@ export const missions = table('mission', {
     'system-monthly',
     'user-defined',
   ] as const).notNull(),
-  deadline: timestamp('deadline', { mode: 'date' }),
-  createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' })
+  deadline: datetime('deadline', { mode: 'date' }),
+  createdAt: datetime('createdAt', { mode: 'date' })
     .notNull()
-    .defaultNow()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date' })
+    .notNull()
+    .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
 });
 
@@ -147,9 +159,11 @@ export const missionConditions = table('missionCondition', {
   ] as const satisfies MissionItem[]).notNull(),
   itemId: varchar('itemId', { length: 255 }),
   completed: boolean('completed').notNull().default(false),
-  createdAt: timestamp('createdAt', { mode: 'date' }).notNull().defaultNow(),
-  updatedAt: timestamp('updatedAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date' })
     .notNull()
-    .defaultNow()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date' })
+    .notNull()
+    .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
 });
