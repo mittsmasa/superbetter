@@ -20,9 +20,9 @@ export const createDailyMission = async (): Promise<
   const now = new Date();
   // NOTE: ユーザーごとのタイムゾーンを使うように修正
   const jstDate = toZonedTime(now, 'Asia/Tokyo');
-  const todayStart = startOfDay(jstDate);
-  const tomorrowStart = addDays(todayStart, 1);
-  const todayEnd = endOfDay(todayStart);
+  const todayStart = toZonedTime(startOfDay(jstDate), 'UTC');
+  const tomorrowStart = toZonedTime(addDays(todayStart, 1), 'UTC');
+  const todayEnd = toZonedTime(endOfDay(todayStart), 'UTC');
 
   console.log('todayStart', todayStart);
   console.log('tomorrowStart', tomorrowStart);
