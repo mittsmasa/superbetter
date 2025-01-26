@@ -15,6 +15,7 @@ export const getMissions = async (): Promise<
     { type: 'unknown'; message: string }
   >
 > => {
+  console.log('getMissions');
   const user = await getUser();
   await createDailyMission();
   try {

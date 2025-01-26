@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@auth/drizzle-adapter": "1.7.4",
-    "@formkit/tempo": "0.1.2",
+    "date-fns": "4.1.0",
+    "date-fns-tz": "3.2.0",
     "dotenv": "16.4.7",
     "drizzle-orm": "0.38.4",
     "mysql2": "3.12.0",
