@@ -11,6 +11,9 @@ importers:
       '@auth/drizzle-adapter':
         specifier: 1.7.4
         version: 1.7.4
+      '@formkit/tempo':
+        specifier: 0.1.2
+        version: 0.1.2
       dotenv:
         specifier: 16.4.7
         version: 16.4.7
@@ -1324,6 +1327,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@formkit/tempo@0.1.2':
+    resolution: {integrity: sha512-jNPPbjL8oj7hK3eHX++CwbR6X4GKQt+x00/q4yeXkwynXHGKL27dylYhpEgwrmediPP4y7s0XtN1if/M/JYujg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -5590,6 +5596,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.23.1':
     optional: true
+
+  '@formkit/tempo@0.1.2': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
