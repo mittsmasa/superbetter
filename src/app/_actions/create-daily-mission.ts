@@ -2,6 +2,7 @@
 
 import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
+import { tzDate } from '@formkit/tempo';
 import { and, between, eq } from 'drizzle-orm';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
@@ -15,9 +16,10 @@ export const createDailyMission = async (): Promise<
 > => {
   const user = await getUser();
   try {
-    const now = new Date();
-    const todayStart = getTodaysStart(now);
-    const tomorrowStart = getTomorrowsStart(now);
+    // NOTE: 将来的にはユーザーごとにタイムゾーンを持たせてそれに基づいて計算する
+    const tzNow = tzDate(new Date(), 'Asia/Tokyo');
+    const todayStart = getTodaysStart(tzNow);
+    const tomorrowStart = getTomorrowsStart(tzNow);
     const mission = await db.query.missions.findFirst({
       where: (mission) =>
         and(
@@ -38,7 +40,7 @@ export const createDailyMission = async (): Promise<
           description:
             '秘宝を使い、挑戦を受け、悪を討て\n小さな積み重ねが、真の英雄への道となる',
           type: 'system-daily',
-          deadline: getTodaysEnd(now),
+          deadline: getTodaysEnd(tzNow),
         })
         .$returningId();
       await tx.insert(missionConditions).values([
