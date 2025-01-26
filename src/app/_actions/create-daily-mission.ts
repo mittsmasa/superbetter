@@ -2,8 +2,9 @@
 
 import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
-import { addDay } from '@formkit/tempo';
+import { addDay, offset, removeOffset } from '@formkit/tempo';
 import { and, between, eq } from 'drizzle-orm';
+import { getTodaysEnd, getTodaysStart } from '../_utils/date/get-date';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
 
@@ -11,16 +12,22 @@ import type { Result } from './types/result';
  * 今日期限のデイリーミッションが存在するかどうかを確認します
  * 存在しなければ作成する
  */
-export const createDailyMission = async ({
-  now,
-  todayStart,
-  todayEnd,
-}: { now: Date; todayStart: Date; todayEnd: Date }): Promise<
+export const createDailyMission = async (): Promise<
   Result<undefined, { type: 'unknown'; message: string }>
 > => {
   const user = await getUser();
-  const tomorrowStart = addDay(todayStart, 1);
-  console.log([todayStart, todayEnd, tomorrowStart].join('\n'));
+
+  const now = new Date();
+  const offsetToTokyo = offset(now, 'Asia/Tokyo');
+  const tzNow = removeOffset(now, offsetToTokyo);
+  const todayStart = getTodaysStart(tzNow);
+  const tomorrowStart = addDay(todayStart);
+  const todayEnd = getTodaysEnd(tzNow);
+
+  console.log('todayStart', todayStart);
+  console.log('tomorrowStart', tomorrowStart);
+  console.log('todayEnd', todayEnd);
+
   try {
     const mission = await db.query.missions.findFirst({
       where: (mission) =>
