@@ -7,9 +7,7 @@ import { missionConditions, missions } from '@/db/schema/superbetter';
 import { and, desc, eq, gt } from 'drizzle-orm';
 import { createDailyMission } from './create-daily-mission';
 
-export const getMissions = async (
-  args: Parameters<typeof createDailyMission>['0'],
-): Promise<
+export const getMissions = async (): Promise<
   Result<
     (typeof missions.$inferSelect & {
       missionConditions: (typeof missionConditions.$inferSelect)[];
@@ -18,7 +16,7 @@ export const getMissions = async (
   >
 > => {
   const user = await getUser();
-  await createDailyMission(args);
+  await createDailyMission();
   try {
     const rows = await db
       .select()

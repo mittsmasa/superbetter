@@ -4,17 +4,10 @@ import { use } from 'react';
 import { getMissions } from './_actions/get-mission';
 import { DailyAchievement } from './_components/daily-achievement';
 import { Mission } from './_components/mission';
-import { getTodaysEnd, getTodaysStart } from './_utils/date/get-date';
 
 export default function Home() {
   const now = new Date();
-  const missions = use(
-    getMissions({
-      now: now,
-      todayStart: getTodaysStart(now),
-      todayEnd: getTodaysEnd(now),
-    }),
-  );
+  const missions = use(getMissions());
   if (missions.type === 'error') {
     throw new Error(missions.error.message);
   }
