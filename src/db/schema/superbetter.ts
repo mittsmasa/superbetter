@@ -30,10 +30,10 @@ export const quests = table('quest', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
-  createdAt: datetime('createdAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
-  updatedAt: datetime('updatedAt', { mode: 'date' })
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
@@ -50,10 +50,10 @@ export const powerups = table('powerup', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
-  createdAt: datetime('createdAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
-  updatedAt: datetime('updatedAt', { mode: 'date' })
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
@@ -66,10 +66,10 @@ export const powerupHistories = table('powerupHistory', {
   powerupId: varchar('powerupId', { length: 255 })
     .notNull()
     .references(() => powerups.id, { onDelete: 'cascade' }),
-  createdAt: datetime('createdAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
-  updatedAt: datetime('updatedAt', { mode: 'date' })
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
@@ -86,10 +86,10 @@ export const villains = table('villain', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
-  createdAt: datetime('createdAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
-  updatedAt: datetime('updatedAt', { mode: 'date' })
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
@@ -106,10 +106,10 @@ export const epicwins = table('epicwin', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
-  createdAt: datetime('createdAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
-  updatedAt: datetime('updatedAt', { mode: 'date' })
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
@@ -130,11 +130,11 @@ export const missions = table('mission', {
     'system-monthly',
     'user-defined',
   ] as const).notNull(),
-  deadline: datetime('deadline', { mode: 'date' }),
-  createdAt: datetime('createdAt', { mode: 'date' })
+  deadline: datetime('deadline', { mode: 'date', fsp: 3 }),
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
-  updatedAt: datetime('updatedAt', { mode: 'date' })
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
@@ -159,10 +159,10 @@ export const missionConditions = table('missionCondition', {
   ] as const satisfies MissionItem[]).notNull(),
   itemId: varchar('itemId', { length: 255 }),
   completed: boolean('completed').notNull().default(false),
-  createdAt: datetime('createdAt', { mode: 'date' })
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
-  updatedAt: datetime('updatedAt', { mode: 'date' })
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
