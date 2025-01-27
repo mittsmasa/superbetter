@@ -1,4 +1,5 @@
 'use client';
+import { editPowerup } from '@/app/powerups/_actions/edit-powerup';
 import { Edit } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { Drawer } from '@/components/drawer';
@@ -33,9 +34,18 @@ export const EditPowerupButton = ({
         >
           <form
             action={async (f) => {
-              console.log(f.get('item-name'));
-              console.log(f.get('item-desc'));
-              dialog.close();
+              const name = f.get('item-name') as string;
+              const description = f.get('item-desc') as string | null;
+              const { type } = await editPowerup({
+                powerupId: id,
+                name,
+                description,
+              });
+              if (type === 'ok') {
+                dialog.close();
+                return;
+              }
+              alert('エラーがおきました');
             }}
             className={css({
               display: 'flex',
