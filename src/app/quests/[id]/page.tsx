@@ -1,22 +1,22 @@
-'use client';
-
+import { getQuest } from '@/app/_actions/get-quest';
 import { Header } from '@/app/_components/header';
-import { Edit, Trash } from '@/assets/icons';
-import { Button } from '@/components/button';
-import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
-import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
-import { DeleteConfirmDialog } from '../../_components/delete-confirm-dialog';
-import { EditQuestDrawer } from './_components/edit-quest-drawer';
+import { DeleteConfirmButton } from './_components/delete-confirm-button';
+import { EditQuestButton } from './_components/edit-quest-button';
+import { ExecuteButton } from './_components/execute-button';
 
 const Page = async (props: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
   const { id: questId } = await props.params;
-  const editDrawer = useDialog();
-  const deleteConfirm = useDialog();
+  const quest = await getQuest(questId);
+
+  if (quest.type === 'error') {
+    throw new Error(quest.error.message);
+  }
+
   return (
     <main
       className={css({
@@ -38,12 +38,12 @@ const Page = async (props: {
         <Header
           rightSlot={
             <div className={css({ display: 'flex', gap: '8px' })}>
-              <IconButton onClick={editDrawer.show}>
-                <Edit className={css({ width: '[24px]', height: '[24px]' })} />
-              </IconButton>
-              <IconButton onClick={deleteConfirm.show}>
-                <Trash className={css({ width: '[24px]', height: '[24px]' })} />
-              </IconButton>
+              <EditQuestButton
+                id={quest.data.id}
+                name={quest.data.title}
+                description={quest.data.description}
+              />
+              <DeleteConfirmButton id={quest.data.id} name={quest.data.title} />
             </div>
           }
         />
@@ -55,10 +55,16 @@ const Page = async (props: {
             px: '12px',
           })}
         >
-          <h1 className={css({ textStyle: 'Body.primary' })}>朝さんぽする</h1>
-          <p className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}>
-            あいてむのせつめい
-          </p>
+          <h1 className={css({ textStyle: 'Body.primary' })}>
+            {quest.data.title}
+          </h1>
+          {quest.data.description && (
+            <p
+              className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}
+            >
+              {quest.data.description}
+            </p>
+          )}
         </div>
       </div>
       <div className={css({ position: 'sticky', bottom: 0 })}>
@@ -70,26 +76,10 @@ const Page = async (props: {
             py: '24px',
           })}
         >
-          <Button>
-            <div className={css({ width: '[230px]' })}>たっせいした！</div>
-          </Button>
+          <ExecuteButton questId={questId} />
         </div>
         <FooterNavigation />
       </div>
-      <EditQuestDrawer
-        itemName="あいてむのなまえ"
-        itemDesc="あいてむのせつめい"
-        ref={editDrawer.ref}
-        onClose={editDrawer.close}
-      />
-      <DeleteConfirmDialog
-        dialog={deleteConfirm}
-        itemName="あいてむのなまえ"
-        onDelete={() => {
-          console.log('delete');
-          deleteConfirm.close();
-        }}
-      />
     </main>
   );
 };
