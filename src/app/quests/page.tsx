@@ -1,19 +1,14 @@
-'use client';
-
-import { AddBox } from '@/assets/icons';
-import { Button } from '@/components/button';
-import { Drawer } from '@/components/drawer';
-import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
-import { TextArea } from '@/components/text-area';
-import { TextInput } from '@/components/text-input';
-import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
+import { getQuests } from '../_actions/get-quest';
 import { EntityLink } from '../_components/entity-link';
-import { MissionEntities } from '../_components/mission/entitity';
+import { AddQuestButton } from './_components/add-quest-button';
 
-const Page = () => {
-  const addDialog = useDialog();
+const Page = async () => {
+  const quests = await getQuests();
+  if (quests.type === 'error') {
+    throw new Error(quests.error.message);
+  }
   return (
     <main
       className={css({
@@ -35,9 +30,7 @@ const Page = () => {
           })}
         >
           <h1 className={css({ textStyle: 'Heading.primary' })}>クエスト</h1>
-          <IconButton onClick={addDialog.show}>
-            <AddBox className={css({ width: '[24px]', height: '[24px]' })} />
-          </IconButton>
+          <AddQuestButton />
         </div>
         <div
           className={css({
@@ -48,15 +41,14 @@ const Page = () => {
             textStyle: 'Body.secondary',
           })}
         >
-          <QuestLink />
-          <QuestLink />
-          <QuestLink />
-          <QuestLink />
-          <QuestLink />
-          <QuestLink />
-          <QuestLink />
-          <QuestLink />
-          <QuestLink />
+          {quests.data.records.map((q) => (
+            <EntityLink
+              key={q.id}
+              href={`/quests/${q.id}`}
+              title={q.title}
+              description={q.description}
+            />
+          ))}
         </div>
       </div>
       <div
@@ -69,83 +61,6 @@ const Page = () => {
       >
         <FooterNavigation />
       </div>
-      <Drawer ref={addDialog.ref} onClose={addDialog.close}>
-        <form
-          action={async (f) => {
-            console.log(f.get('item-name'));
-            console.log(f.get('item-desc'));
-            addDialog.close();
-          }}
-          className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            height: '[100%]',
-            gap: '16px',
-          })}
-        >
-          <div
-            className={css({
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px',
-            })}
-          >
-            <h1>クエストをみつけよ</h1>
-            <div
-              className={css({
-                textStyle: 'Body.tertiary',
-                textAlign: 'center',
-              })}
-            >
-              <p>勇者よ、クエストを見つけ出し、成し遂げよ</p>
-              <p>日々の小さな行動が、やがて大いなる目標への道となるであろう</p>
-            </div>
-            <MissionEntities
-              items={[
-                {
-                  id: 'quest',
-                  missionItemType: 'quest',
-                  completed: true,
-                },
-              ]}
-            />
-          </div>
-          <div
-            className={css({
-              display: 'flex',
-              flex: '1',
-              flexDirection: 'column',
-              gap: '12px',
-              minHeight: '[0px]',
-              overflow: 'auto',
-              padding: '12px 8px',
-            })}
-          >
-            <TextInput
-              required
-              label="アイテムめい *"
-              placeholder="アイテムめい"
-              name="item-name"
-            />
-            <TextArea
-              label="せつめい"
-              placeholder="せつめい"
-              name="item-desc"
-            />
-          </div>
-          <div
-            className={css({
-              display: 'flex',
-              justifyContent: 'center',
-              padding: '24px',
-            })}
-          >
-            <Button type="submit">
-              <div className={css({ width: '[230px]' })}>ついか！</div>
-            </Button>
-          </div>
-        </form>
-      </Drawer>
     </main>
   );
 };

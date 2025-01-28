@@ -39,6 +39,22 @@ export const quests = table('quest', {
     .$onUpdate(() => new Date()),
 });
 
+export const questHistories = table('questHistory', {
+  id: varchar('id', { length: 255 })
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  questId: varchar('questId', { length: 255 })
+    .notNull()
+    .references(() => quests.id, { onDelete: 'cascade' }),
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .$defaultFn(() => new Date())
+    .$onUpdate(() => new Date()),
+});
+
 export const powerups = table('powerup', {
   id: varchar('id', { length: 255 })
     .primaryKey()
