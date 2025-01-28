@@ -111,6 +111,22 @@ export const villains = table('villain', {
     .$onUpdate(() => new Date()),
 });
 
+export const villainHistories = table('villainHistory', {
+  id: varchar('id', { length: 255 })
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  villainId: varchar('villainId', { length: 255 })
+    .notNull()
+    .references(() => villains.id, { onDelete: 'cascade' }),
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .$defaultFn(() => new Date())
+    .$onUpdate(() => new Date()),
+});
+
 export const epicwins = table('epicwin', {
   id: varchar('id', { length: 255 })
     .primaryKey()
