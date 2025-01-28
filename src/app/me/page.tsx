@@ -2,14 +2,13 @@ import { signOut } from '@/auth';
 import { Button } from '@/components/button';
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
-import { use } from 'react';
 
-const Page = (props: {
+const Page = async (props: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  const params = use(props.params);
-  const searchParams = use(props.searchParams);
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   return (
     <main
       className={css({

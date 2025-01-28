@@ -1,12 +1,11 @@
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
-import { use } from 'react';
 import { getPowerups } from '../_actions/get-powerup';
 import { EntityLink } from '../_components/entity-link';
 import { AddPowerupButton } from './_components/add-powerup-button';
 
-const Page = () => {
-  const powerups = use(getPowerups());
+const Page = async () => {
+  const powerups = await getPowerups();
   if (powerups.type === 'error') {
     throw new Error(powerups.error.message);
   }

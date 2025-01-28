@@ -1,13 +1,12 @@
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
-import { use } from 'react';
 import { getMissions } from './_actions/get-mission';
 import { DailyAchievement } from './_components/daily-achievement';
 import { Mission } from './_components/mission';
 
-export default function Home() {
+export default async function Home() {
   const now = new Date();
-  const missions = use(getMissions());
+  const missions = await getMissions();
   if (missions.type === 'error') {
     throw new Error(missions.error.message);
   }
