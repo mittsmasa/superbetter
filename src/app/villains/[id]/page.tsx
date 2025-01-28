@@ -1,22 +1,22 @@
-'use client';
-
+import { getVillain } from '@/app/_actions/get-villain';
 import { Header } from '@/app/_components/header';
-import { Edit, Trash } from '@/assets/icons';
-import { Button } from '@/components/button';
-import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
-import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
-import { DeleteConfirmDialog } from '../../_components/delete-confirm-dialog';
-import { EditVillainDrawer } from './_components/edit-villain-drawer';
+import { DeleteConfirmButton } from './_components/delete-confirm-button';
+import { EditVillainButton } from './_components/edit-villain-button';
+import { ExecuteButton } from './_components/execute-button';
 
 const Page = async (props: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
   const { id: villainId } = await props.params;
-  const editDrawer = useDialog();
-  const deleteConfirm = useDialog();
+  const villain = await getVillain(villainId);
+
+  if (villain.type === 'error') {
+    throw new Error(villain.error.message);
+  }
+
   return (
     <main
       className={css({
@@ -38,12 +38,15 @@ const Page = async (props: {
         <Header
           rightSlot={
             <div className={css({ display: 'flex', gap: '8px' })}>
-              <IconButton onClick={editDrawer.show}>
-                <Edit className={css({ width: '[24px]', height: '[24px]' })} />
-              </IconButton>
-              <IconButton onClick={deleteConfirm.show}>
-                <Trash className={css({ width: '[24px]', height: '[24px]' })} />
-              </IconButton>
+              <EditVillainButton
+                id={villain.data.id}
+                name={villain.data.title}
+                description={villain.data.description}
+              />
+              <DeleteConfirmButton
+                id={villain.data.id}
+                name={villain.data.title}
+              />
             </div>
           }
         />
@@ -56,11 +59,15 @@ const Page = async (props: {
           })}
         >
           <h1 className={css({ textStyle: 'Body.primary' })}>
-            シゴトへの憂うつなきもち
+            {villain.data.title}
           </h1>
-          <p className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}>
-            あいてむのせつめい
-          </p>
+          {villain.data.description && (
+            <p
+              className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}
+            >
+              {villain.data.description}
+            </p>
+          )}
         </div>
       </div>
       <div className={css({ position: 'sticky', bottom: 0 })}>
@@ -72,26 +79,10 @@ const Page = async (props: {
             py: '24px',
           })}
         >
-          <Button>
-            <div className={css({ width: '[230px]' })}>たたかった！</div>
-          </Button>
+          <ExecuteButton villainId={villainId} />
         </div>
         <FooterNavigation />
       </div>
-      <EditVillainDrawer
-        itemName="あいてむのなまえ"
-        itemDesc="あいてむのせつめい"
-        ref={editDrawer.ref}
-        onClose={editDrawer.close}
-      />
-      <DeleteConfirmDialog
-        dialog={deleteConfirm}
-        itemName="あいてむのなまえ"
-        onDelete={() => {
-          console.log('delete');
-          deleteConfirm.close();
-        }}
-      />
     </main>
   );
 };
