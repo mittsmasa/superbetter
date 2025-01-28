@@ -1,4 +1,4 @@
-'use server';
+import 'server-only';
 
 import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';

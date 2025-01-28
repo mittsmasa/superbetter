@@ -10,8 +10,8 @@ const Page = (props: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  const params = use(props.params);
-  const searchParams = use(props.searchParams);
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   return (
     <main className={css({ textStyle: 'Body.primary' })}>
       <h1 className={css({ textStyle: 'Heading.primary' })}>

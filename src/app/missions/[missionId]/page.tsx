@@ -9,15 +9,14 @@ import { Radio } from '@/components/radio';
 import { css } from '@/styled-system/css';
 import { revalidatePath } from 'next/cache';
 import Link from 'next/link';
-import { use } from 'react';
 import { Header } from '../../_components/header';
 import { getEntity, getEntityValue } from './_utils/converter';
 
-const Page = (props: {
+const Page = async (props: {
   params: Promise<{ missionId: string }>;
 }) => {
-  const { missionId } = use(props.params);
-  const mission = use(getMission(missionId));
+  const { missionId } = await props.params;
+  const mission = await getMission(missionId);
   if (mission.type === 'error') {
     throw new Error(mission.error.message);
   }
@@ -126,9 +125,9 @@ const Page = (props: {
 
 export default Page;
 
-const EntityList = () => {
+const EntityList = async () => {
   const LIMIT = 3;
-  const powerups = use(getPowerups({ limit: LIMIT }));
+  const powerups = await getPowerups({ limit: LIMIT });
   if (powerups.type === 'error') {
     throw new Error(powerups.error.message);
   }

@@ -7,15 +7,14 @@ import { IconButton } from '@/components/icon-button';
 import { FooterNavigation } from '@/components/navigation';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
-import { use } from 'react';
 import { DeleteConfirmDialog } from '../../_components/delete-confirm-dialog';
 import { EditVillainDrawer } from './_components/edit-villain-drawer';
 
-const Page = (props: {
+const Page = async (props: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) => {
-  const { id: villainId } = use(props.params);
+  const { id: villainId } = await props.params;
   const editDrawer = useDialog();
   const deleteConfirm = useDialog();
   return (
