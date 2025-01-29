@@ -6,15 +6,12 @@ import * as sbSchema from './schema/superbetter';
 
 const schema = { ...authScehma, ...sbSchema };
 
-const createDrizzle = async () => {
-  const client = await mysqlConnect({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    ssl: process.env.DB_TYPE?.toLowerCase() === 'tidb' ? {} : undefined,
-  });
-  return mysql(client, { schema, mode: 'default' });
-};
+const client = await mysqlConnect({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  ssl: process.env.DB_TYPE?.toLowerCase() === 'tidb' ? {} : undefined,
+});
 
-export const db = await createDrizzle();
+export const db = mysql(client, { schema, mode: 'default' });
