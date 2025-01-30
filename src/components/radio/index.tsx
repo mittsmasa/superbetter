@@ -7,7 +7,7 @@ export const Radio = ({
   ...props
 }: { label: string } & Pick<
   InputHTMLAttributes<HTMLInputElement>,
-  'name' | 'value'
+  'name' | 'value' | 'required'
 >) => {
   return (
     <label

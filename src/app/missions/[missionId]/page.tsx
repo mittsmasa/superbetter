@@ -85,7 +85,10 @@ const Page = async (props: {
         <form
           action={async (a) => {
             'use server';
-            const val = a.get('entity') as string;
+            const val = a.get('entity') as string | null;
+            if (!val) {
+              return;
+            }
             const entity = getEntity(val);
             if (entity.type === 'powerup') {
               await postPowerupHistory(entity.id);
@@ -126,7 +129,7 @@ const Page = async (props: {
 export default Page;
 
 const EntityList = async () => {
-  const LIMIT = 3;
+  const LIMIT = 5;
   const powerups = await getPowerups({ limit: LIMIT });
   if (powerups.type === 'error') {
     throw new Error(powerups.error.message);
@@ -173,6 +176,7 @@ const EntityList = async () => {
       >
         {powerups.data.records.map((p) => (
           <Radio
+            required
             key={p.id}
             name="entity"
             value={getEntityValue({ type: 'powerup', id: p.id })}

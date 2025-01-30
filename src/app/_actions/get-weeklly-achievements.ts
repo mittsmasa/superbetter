@@ -61,7 +61,6 @@ export const getWeeklyAchievements = async (): Promise<
       }, {}),
     );
 
-    console.log(missionWithConditions);
     const weekelyAchievements: WeekelyAchievements = Array.from({
       length: 7,
     })
