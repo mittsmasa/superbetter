@@ -14,7 +14,7 @@ const wrapper = cva({
   },
   variants: {
     status: {
-      upcoming: {
+      'no-data': {
         color: 'gray.300',
       },
       achieved: {

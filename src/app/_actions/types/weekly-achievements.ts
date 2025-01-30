@@ -1,6 +1,6 @@
 export type DailyAchievements = {
   datetime: Date;
-  status: 'upcoming' | 'achieved' | 'not-achieved';
+  status: 'no-data' | 'achieved' | 'not-achieved';
   isToday?: boolean;
 };
 
