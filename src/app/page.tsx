@@ -1,11 +1,31 @@
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
 import { getMissions } from './_actions/get-mission';
+import { getWeeklyAchievements } from './_actions/get-weeklly-achievements';
 import { DailyAchievement } from './_components/daily-achievement';
 import { Mission } from './_components/mission';
 
+const WeeklyAchievement = async () => {
+  const achievements = await getWeeklyAchievements();
+  if (achievements.type === 'error') {
+    throw new Error(achievements.error.message);
+  }
+  return (
+    <div
+      className={css({
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: '8px',
+      })}
+    >
+      {achievements.data.map((a) => (
+        <DailyAchievement key={a.datetime.toString()} {...a} />
+      ))}
+    </div>
+  );
+};
+
 export default async function Home() {
-  const now = new Date();
   const missions = await getMissions();
   if (missions.type === 'error') {
     throw new Error(missions.error.message);
@@ -19,24 +39,7 @@ export default async function Home() {
         height: '[100%]',
       })}
     >
-      <div
-        className={css({
-          display: 'flex',
-          justifyContent: 'space-between',
-          padding: '8px',
-        })}
-      >
-        <DailyAchievement datetime={new Date(2024, 1, 1)} status="achieved" />
-        <DailyAchievement datetime={new Date(2024, 1, 2)} status="achieved" />
-        <DailyAchievement datetime={new Date(2024, 1, 3)} status="achieved" />
-        <DailyAchievement
-          datetime={new Date(2024, 1, 4)}
-          status="not-achieved"
-        />
-        <DailyAchievement datetime={new Date(2024, 1, 5)} status="achieved" />
-        <DailyAchievement datetime={new Date(2024, 1, 6)} status="today" />
-        <DailyAchievement datetime={new Date(2024, 1, 7)} status="upcoming" />
-      </div>
+      <WeeklyAchievement />
       <div
         className={css({
           display: 'flex',

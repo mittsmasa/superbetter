@@ -22,10 +22,6 @@ export const createDailyMission = async (): Promise<
   const todayStart = new Date(startOfDay(now));
   const tomorrowStart = new Date(addDays(todayStart, 1));
   const todayEnd = new Date(endOfDay(now));
-  console.log('now', now);
-  console.log('todayStart', todayStart);
-  console.log('tomorrowStart', tomorrowStart);
-  console.log('todayEnd', todayEnd);
 
   try {
     const mission = await db.query.missions.findFirst({

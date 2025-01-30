@@ -32,6 +32,7 @@ export const Upcoming = {
 
 export const Today = {
   args: {
-    status: 'today',
+    status: 'achieved',
+    isToday: true,
   },
 } satisfies Story;
