@@ -69,15 +69,13 @@ export const getWeeklyAchievements = async (): Promise<
         const datetime = addDays(mondayStart, i);
         return {
           datetime,
-          status: 'upcoming',
+          status: 'no-data',
         } as const satisfies DailyAchievements;
       })
       .map((achievement) => {
         const isToday =
           now.getMonth() === achievement.datetime.getMonth() &&
           now.getDate() === achievement.datetime.getDate();
-        // isToday でも isPast になりうる
-        const isPast = achievement.datetime < now;
 
         const mission = missionWithConditions.find(
           (mwc) =>

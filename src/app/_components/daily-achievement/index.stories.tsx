@@ -24,9 +24,9 @@ export const Achieved = {
   },
 } satisfies Story;
 
-export const Upcoming = {
+export const NoData = {
   args: {
-    status: 'upcoming',
+    status: 'no-data',
   },
 } satisfies Story;
 
