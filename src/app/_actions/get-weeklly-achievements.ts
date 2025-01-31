@@ -4,7 +4,7 @@ import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
 import { TZDate } from '@date-fns/tz';
 import { addDays, endOfDay, getDay, startOfDay } from 'date-fns';
-import { and, between, desc, eq } from 'drizzle-orm';
+import { and, asc, between, desc, eq } from 'drizzle-orm';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
 import type {
@@ -18,7 +18,7 @@ export const getWeeklyAchievements = async (): Promise<
   // NOTE: ユーザーごとのタイムゾーンを使うように修正
   const now = new TZDate(new Date(), 'Asia/Tokyo');
   const mondayStart = new Date(startOfDay(addDays(now, -getDay(now) + 1)));
-  const sundayEnd = new Date(endOfDay(addDays(mondayStart, 6)));
+  const sundayEnd = new Date(endOfDay(addDays(now, -getDay(now) + 7)));
 
   const user = await getUser();
   try {
@@ -36,7 +36,7 @@ export const getWeeklyAchievements = async (): Promise<
         missionConditions,
         eq(missions.id, missionConditions.missionId),
       )
-      .orderBy(desc(missionConditions.itemType));
+      .orderBy(desc(missionConditions.itemType), asc(missions.deadline));
 
     const missionWithConditions = Object.values(
       rows.reduce<
@@ -60,6 +60,11 @@ export const getWeeklyAchievements = async (): Promise<
         return acc;
       }, {}),
     );
+    const dateFormatter = new Intl.DateTimeFormat('en-US', {
+      month: 'numeric',
+      day: 'numeric',
+      timeZone: 'Asia/Tokyo',
+    });
 
     const weekelyAchievements: WeekelyAchievements = Array.from({
       length: 7,
@@ -73,14 +78,15 @@ export const getWeeklyAchievements = async (): Promise<
       })
       .map((achievement) => {
         const isToday =
-          now.getMonth() === achievement.datetime.getMonth() &&
-          now.getDate() === achievement.datetime.getDate();
+          dateFormatter.format(achievement.datetime) ===
+          dateFormatter.format(now);
 
-        const mission = missionWithConditions.find(
-          (mwc) =>
-            mwc.deadline?.getDate() === achievement.datetime.getDate() &&
-            mwc.deadline?.getMonth() === achievement.datetime.getMonth(),
-        );
+        const mission = missionWithConditions.find((mwc) => {
+          return (
+            dateFormatter.format(mwc.deadline ?? Date.UTC(0)) ===
+            dateFormatter.format(achievement.datetime)
+          );
+        });
         if (!mission) {
           return achievement;
         }

@@ -32,13 +32,20 @@ export const DailyAchievement = ({
   status,
   isToday,
 }: DailyAchievements) => {
-  const date = new Intl.DateTimeFormat('ja-JP', { weekday: 'short' }).format(
-    datetime,
-  );
+  const day = new Intl.DateTimeFormat('ja-JP', {
+    weekday: 'short',
+    timeZone: 'Asia/Tokyo',
+  }).format(datetime);
+
+  const date = new Intl.DateTimeFormat('en-US', {
+    day: 'numeric',
+    timeZone: 'Asia/Tokyo',
+  }).format(datetime);
+
   return (
     <div className={cx(wrapper({ status }), isToday && pixelBorder({}))}>
+      <p>{day}</p>
       <p>{date}</p>
-      <p>{datetime.getDate()}</p>
     </div>
   );
 };
