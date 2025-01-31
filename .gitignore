@@ -133,3 +133,7 @@ dist
 styled-system
 styled-system-studio
 *storybook.log
+
+# Serwist
+src/public/sw*
+src/public/swe-worker*

@@ -22,6 +22,7 @@
   "dependencies": {
     "@auth/drizzle-adapter": "1.7.4",
     "@date-fns/tz": "1.2.0",
+    "@serwist/next": "9.0.11",
     "date-fns": "4.1.0",
     "dotenv": "16.4.7",
     "drizzle-orm": "0.39.1",
@@ -47,6 +48,7 @@
     "@types/react-dom": "19.0.3",
     "drizzle-kit": "0.30.4",
     "lefthook": "1.10.10",
+    "serwist": "9.0.11",
     "storybook": "8.5.2",
     "tsx": "4.19.2",
     "typescript": "5.7.3"
