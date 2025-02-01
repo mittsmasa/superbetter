@@ -8,6 +8,7 @@ import { TextArea } from '@/components/text-area';
 import { TextInput } from '@/components/text-input';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
+import { useTransition } from 'react';
 
 export const EditPowerupButton = ({
   id,
@@ -19,6 +20,7 @@ export const EditPowerupButton = ({
   description: string | null;
 }) => {
   const dialog = useDialog();
+  const [isPending, startTransition] = useTransition();
   return (
     <>
       <IconButton onClick={dialog.show}>
@@ -36,16 +38,18 @@ export const EditPowerupButton = ({
             action={async (f) => {
               const name = f.get('item-name') as string;
               const description = f.get('item-desc') as string | null;
-              const { type } = await editPowerup({
-                powerupId: id,
-                name,
-                description,
+              startTransition(async () => {
+                const { type } = await editPowerup({
+                  powerupId: id,
+                  name,
+                  description,
+                });
+                if (type === 'ok') {
+                  dialog.close();
+                  return;
+                }
+                alert('エラーがおきました');
               });
-              if (type === 'ok') {
-                dialog.close();
-                return;
-              }
-              alert('エラーがおきました');
             }}
             className={css({
               display: 'flex',
@@ -81,7 +85,7 @@ export const EditPowerupButton = ({
                 py: '24px',
               })}
             >
-              <Button type="submit">
+              <Button type="submit" disabled={isPending}>
                 <div className={css({ width: '[230px]' })}>かくてい</div>
               </Button>
             </div>
