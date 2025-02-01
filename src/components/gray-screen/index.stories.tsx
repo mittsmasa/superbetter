@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { GlassScreen } from '.';
+import { GlassScreen, useGlassScreen } from '.';
 
 const meta = {
   component: GlassScreen,
@@ -21,3 +21,17 @@ export const Default = {
     </>
   ),
 } satisfies Story;
+
+export const WithHook = {
+  render: () => {
+    const { Component, setShow } = useGlassScreen();
+    return (
+      <>
+        <Component />
+        <button type="button" onClick={() => setShow((prev) => !prev)}>
+          Click me
+        </button>
+      </>
+    );
+  },
+};

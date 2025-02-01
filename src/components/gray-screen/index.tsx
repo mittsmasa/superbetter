@@ -1,4 +1,5 @@
 import { css } from '@/styled-system/css';
+import { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 export const GlassScreen = () => {
@@ -20,3 +21,9 @@ const Screen = () => (
     })}
   />
 );
+
+export const useGlassScreen = () => {
+  const [show, setShow] = useState(false);
+  const Component = useCallback(() => <>{show && <GlassScreen />}</>, [show]);
+  return { Component, setShow };
+};
