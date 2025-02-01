@@ -15,7 +15,7 @@ const Screen = () => (
       width: '[100dvw]',
       height: '[100dvh]',
       backgroundColor: 'black',
-      opacity: 0.5,
+      opacity: 0.1,
       pointerEvents: 'none',
       zIndex: 10,
     })}
