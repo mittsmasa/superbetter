@@ -3,6 +3,7 @@
 import { Android, Calendar, Human, ScriptText, Zap } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import { usePathname, useRouter } from 'next/navigation';
+import type { ComponentProps, PropsWithChildren } from 'react';
 import { IconButton } from '../icon-button';
 
 export const FooterNavigation = () => {
@@ -15,49 +16,77 @@ export const FooterNavigation = () => {
         backgroundColor: 'black',
         display: 'flex',
         justifyContent: 'space-between',
-        padding: '4px 12px',
+        padding: '4px 8px',
       })}
     >
-      <IconButton
+      <IconButtonWithLabel
         type="button"
-        size="lg"
+        label="ミッション"
+        size="xl"
         active={pathname === '/' || pathname.startsWith('/missions')}
         onClick={() => router.push('/')}
       >
-        <Calendar />
-      </IconButton>
-      <IconButton
+        <Calendar className={css({ width: '[24px]' })} />
+      </IconButtonWithLabel>
+      <IconButtonWithLabel
         type="button"
-        size="lg"
+        label="アイテム"
+        size="xl"
         active={pathname.startsWith('/powerups')}
         onClick={() => router.push('/powerups')}
       >
-        <Zap />
-      </IconButton>
-      <IconButton
+        <Zap className={css({ width: '[24px]' })} />
+      </IconButtonWithLabel>
+      <IconButtonWithLabel
         type="button"
-        size="lg"
+        label="クエスト"
+        size="xl"
         active={pathname.startsWith('/quests')}
         onClick={() => router.push('/quests')}
       >
-        <ScriptText />
-      </IconButton>
-      <IconButton
+        <ScriptText className={css({ width: '[24px]' })} />
+      </IconButtonWithLabel>
+      <IconButtonWithLabel
         type="button"
-        size="lg"
+        label="ヴィラン"
+        size="xl"
         active={pathname.startsWith('/villains')}
         onClick={() => router.push('/villains')}
       >
-        <Android />
-      </IconButton>
-      <IconButton
+        <Android className={css({ width: '[24px]' })} />
+      </IconButtonWithLabel>
+      <IconButtonWithLabel
         type="button"
-        size="lg"
+        label="マイページ"
+        size="xl"
         active={pathname.startsWith('/me')}
         onClick={() => router.push('/me')}
       >
-        <Human />
-      </IconButton>
+        <Human className={css({ width: '[24px]' })} />
+      </IconButtonWithLabel>
+    </div>
+  );
+};
+
+const IconButtonWithLabel = ({
+  children,
+  label,
+  ...rest
+}: PropsWithChildren<ComponentProps<typeof IconButton>> & {
+  label: string;
+}) => {
+  return (
+    <div
+      className={css({
+        alignItems: 'center',
+        display: 'flex',
+        flex: '1',
+        flexDirection: 'column',
+        gap: '8px',
+      })}
+    >
+      <IconButton {...rest}>{children}</IconButton>
+      <span className={css({ textStyle: 'Body.tertiary' })}>{label}</span>
     </div>
   );
 };
