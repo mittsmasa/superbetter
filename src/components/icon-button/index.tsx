@@ -9,6 +9,9 @@ const button = cva({
   base: {
     color: 'white',
     cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     _disabled: {
       color: 'gray.200',
       cursor: 'unset',
@@ -19,12 +22,19 @@ const button = cva({
     size: {
       sm: {
         width: '[20px]',
+        height: '[20px]',
       },
       md: {
         width: '[24px]',
+        height: '[24px]',
       },
       lg: {
         width: '[28px]',
+        height: '[28px]',
+      },
+      xl: {
+        width: '[32px]',
+        height: '[32px]',
       },
     },
   },
@@ -35,9 +45,9 @@ export const IconButton = ({
   size,
   children,
   ...props
-}: { active?: boolean; size?: 'sm' | 'md' | 'lg' } & Pick<
+}: { active?: boolean; size?: 'sm' | 'md' | 'lg' | 'xl' } & Pick<
   ComponentProps<'button'>,
-  'disabled' | 'type' | 'onClick' | 'children'
+  'disabled' | 'type' | 'onClick' | 'children' | 'id'
 >) => {
   const feeling = useTapFeeling();
   return (
