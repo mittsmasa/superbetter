@@ -21,7 +21,7 @@ export const FooterNavigation = () => {
       <IconButton
         type="button"
         size="lg"
-        active={pathname === '/'}
+        active={pathname === '/' || pathname.startsWith('/missions')}
         onClick={() => router.push('/')}
       >
         <Calendar />
@@ -29,7 +29,7 @@ export const FooterNavigation = () => {
       <IconButton
         type="button"
         size="lg"
-        active={pathname === '/powerups'}
+        active={pathname.startsWith('/powerups')}
         onClick={() => router.push('/powerups')}
       >
         <Zap />
@@ -37,7 +37,7 @@ export const FooterNavigation = () => {
       <IconButton
         type="button"
         size="lg"
-        active={pathname === '/quests'}
+        active={pathname.startsWith('/quests')}
         onClick={() => router.push('/quests')}
       >
         <ScriptText />
@@ -45,7 +45,7 @@ export const FooterNavigation = () => {
       <IconButton
         type="button"
         size="lg"
-        active={pathname === '/villains'}
+        active={pathname.startsWith('/villains')}
         onClick={() => router.push('/villains')}
       >
         <Android />
@@ -53,7 +53,7 @@ export const FooterNavigation = () => {
       <IconButton
         type="button"
         size="lg"
-        active={pathname === '/me'}
+        active={pathname.startsWith('/me')}
         onClick={() => router.push('/me')}
       >
         <Human />
