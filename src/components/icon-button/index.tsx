@@ -47,7 +47,7 @@ export const IconButton = ({
   ...props
 }: { active?: boolean; size?: 'sm' | 'md' | 'lg' | 'xl' } & Pick<
   ComponentProps<'button'>,
-  'disabled' | 'type' | 'onClick' | 'children'
+  'disabled' | 'type' | 'onClick' | 'children' | 'id'
 >) => {
   const feeling = useTapFeeling();
   return (

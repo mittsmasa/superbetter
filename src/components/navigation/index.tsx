@@ -3,7 +3,7 @@
 import { Android, Calendar, Human, ScriptText, Zap } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import { usePathname, useRouter } from 'next/navigation';
-import type { ComponentProps, PropsWithChildren } from 'react';
+import { type ComponentProps, type PropsWithChildren, useId } from 'react';
 import { IconButton } from '../icon-button';
 
 export const FooterNavigation = () => {
@@ -75,6 +75,7 @@ const IconButtonWithLabel = ({
 }: PropsWithChildren<ComponentProps<typeof IconButton>> & {
   label: string;
 }) => {
+  const id = useId();
   return (
     <div
       className={css({
@@ -85,8 +86,12 @@ const IconButtonWithLabel = ({
         gap: '8px',
       })}
     >
-      <IconButton {...rest}>{children}</IconButton>
-      <span className={css({ textStyle: 'Body.tertiary' })}>{label}</span>
+      <IconButton {...rest} id={id}>
+        {children}
+      </IconButton>
+      <label htmlFor={id} className={css({ textStyle: 'Body.tertiary' })}>
+        {label}
+      </label>
     </div>
   );
 };
