@@ -1,5 +1,5 @@
 import { Android, ScriptText, Zap } from '@/assets/icons';
-import type { MissionItem } from '@/db/types/mission';
+import type { AdventureItem } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 
 const MISSION_ITEM_ORDER = [
@@ -7,14 +7,14 @@ const MISSION_ITEM_ORDER = [
   'quest',
   'villain',
   'epicwin',
-] as const satisfies MissionItem[];
+] as const satisfies AdventureItem[];
 
 const sortMissionEntities = ():
   | ((a: MissionEntity, b: MissionEntity) => number)
   | undefined => {
   return (a, b) => {
-    const typeA = MISSION_ITEM_ORDER.indexOf(a.missionItemType);
-    const typeB = MISSION_ITEM_ORDER.indexOf(b.missionItemType);
+    const typeA = MISSION_ITEM_ORDER.indexOf(a.itemType);
+    const typeB = MISSION_ITEM_ORDER.indexOf(b.itemType);
     return typeA - typeB;
   };
 };
@@ -48,12 +48,13 @@ export const MissionEntities = (props: { items: MissionEntity[] }) => {
 
 export type MissionEntity = {
   id: string;
-  missionItemType: MissionItem;
+  itemType: AdventureItem;
   completed: boolean;
 };
 
-const MissionEntity = ({ missionItemType, completed }: MissionEntity) => {
-  switch (missionItemType) {
+const MissionEntity = ({ itemType, completed }: MissionEntity) => {
+  console.log('missionItemType', itemType);
+  switch (itemType) {
     case 'quest':
       return (
         <ScriptText

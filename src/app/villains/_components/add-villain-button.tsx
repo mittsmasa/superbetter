@@ -60,7 +60,7 @@ export const AddVillainButton = () => {
               items={[
                 {
                   id: 'villain',
-                  missionItemType: 'villain',
+                  itemType: 'villain',
                   completed: true,
                 },
               ]}

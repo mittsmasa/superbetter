@@ -60,7 +60,7 @@ export const AddPowerupButton = () => {
               items={[
                 {
                   id: 'powerup',
-                  missionItemType: 'powerup',
+                  itemType: 'powerup',
                   completed: true,
                 },
               ]}
