@@ -1,2 +1,2 @@
-export type MissionItem = 'quest' | 'powerup' | 'villain' | 'epicwin';
+export type AdventureItem = 'quest' | 'powerup' | 'villain' | 'epicwin';
 export type MissionCondition = 'any' | 'specific';

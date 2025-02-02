@@ -76,7 +76,7 @@ const Page = async (props: {
             <MissionEntities
               items={mission.data.missionConditions.map((mc) => ({
                 id: mc.id,
-                missionItemType: mc.itemType,
+                itemType: mc.itemType,
                 completed: mc.completed,
               }))}
             />

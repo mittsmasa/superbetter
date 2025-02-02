@@ -19,27 +19,27 @@ export const Default = {
     items: [
       {
         id: '1',
-        missionItemType: 'powerup',
+        itemType: 'powerup',
         completed: true,
       },
       {
         id: '2',
-        missionItemType: 'powerup',
+        itemType: 'powerup',
         completed: true,
       },
       {
         id: '3',
-        missionItemType: 'powerup',
+        itemType: 'powerup',
         completed: true,
       },
       {
         id: '4',
-        missionItemType: 'quest',
+        itemType: 'quest',
         completed: true,
       },
       {
         id: '5',
-        missionItemType: 'villain',
+        itemType: 'villain',
         completed: true,
       },
     ],
@@ -51,27 +51,27 @@ export const Incomplete = {
     items: [
       {
         id: '1',
-        missionItemType: 'powerup',
+        itemType: 'powerup',
         completed: false,
       },
       {
         id: '2',
-        missionItemType: 'powerup',
+        itemType: 'powerup',
         completed: false,
       },
       {
         id: '3',
-        missionItemType: 'powerup',
+        itemType: 'powerup',
         completed: false,
       },
       {
         id: '4',
-        missionItemType: 'quest',
+        itemType: 'quest',
         completed: false,
       },
       {
         id: '5',
-        missionItemType: 'villain',
+        itemType: 'villain',
         completed: false,
       },
     ],

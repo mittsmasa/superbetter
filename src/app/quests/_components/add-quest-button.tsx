@@ -60,7 +60,7 @@ export const AddQuestButton = () => {
               items={[
                 {
                   id: 'quest',
-                  missionItemType: 'quest',
+                  itemType: 'quest',
                   completed: true,
                 },
               ]}
