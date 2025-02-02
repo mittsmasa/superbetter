@@ -4,7 +4,7 @@ import { getUser } from '@/app/_actions/get-user';
 import type { Result } from '@/app/_actions/types/result';
 import { db } from '@/db/client';
 import { powerups } from '@/db/schema/superbetter';
-import { eq } from 'drizzle-orm';
+import { desc, eq } from 'drizzle-orm';
 
 export const getPowerups = async (ops?: { limit: number }): Promise<
   Result<
@@ -16,6 +16,7 @@ export const getPowerups = async (ops?: { limit: number }): Promise<
   try {
     const pups = await db.query.powerups.findMany({
       where: (powerup) => eq(powerup.userId, user.id),
+      orderBy: [desc(powerups.updatedAt)],
       limit: ops?.limit,
     });
     const pupCount = await db.$count(powerups);
