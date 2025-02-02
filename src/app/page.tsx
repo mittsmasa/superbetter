@@ -1,7 +1,9 @@
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
 import { getMissions } from './_actions/get-mission';
+import { getTodayLogs } from './_actions/get-today-logs';
 import { getWeeklyAchievements } from './_actions/get-weeklly-achievements';
+import type { AdventureLog as AdventureLogType } from './_actions/types/adventure-log';
 import { AdventureLog } from './_components/adventure-log';
 import { DailyAchievement } from './_components/daily-achievement';
 import { Mission } from './_components/mission';
@@ -26,14 +28,40 @@ const WeeklyAchievement = async () => {
   );
 };
 
-const TodayAdventureLog = () => {
+const TodayAdventureLog = async () => {
+  const logs = await getTodayLogs();
+  if (logs.type === 'error') {
+    throw new Error(logs.error.message);
+  }
+  const { powerups, quests, villains } = logs.data;
   return (
     <AdventureLog
       heading="本日の冒険ログ"
       logs={[
-        { id: '1', type: 'powerup', title: 'パワーブレスする' },
-        { id: '2', type: 'quest', title: 'クエストをクリアする' },
-        { id: '3', type: 'villain', title: 'ヴィランを倒す' },
+        ...powerups.map(
+          (p) =>
+            ({
+              id: p.id,
+              type: 'powerup',
+              title: p.title,
+            }) satisfies AdventureLogType,
+        ),
+        ...quests.map(
+          (q) =>
+            ({
+              id: q.id,
+              type: 'quest',
+              title: q.title,
+            }) satisfies AdventureLogType,
+        ),
+        ...villains.map(
+          (v) =>
+            ({
+              id: v.id,
+              type: 'villain',
+              title: v.title,
+            }) satisfies AdventureLogType,
+        ),
       ]}
     />
   );
