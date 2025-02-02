@@ -26,6 +26,14 @@ export const AdventureLog = ({
     >
       <h2>{heading}</h2>
       <div className={css({ overflow: 'auto' })}>
+        {logs.length === 0 && (
+          <p
+            className={css({ textAlign: 'center', textStyle: 'Body.tertiary' })}
+          >
+            ログがありません
+          </p>
+        )}
+
         {logs.map((log) => (
           <div
             key={log.id}

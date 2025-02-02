@@ -1,8 +1,8 @@
-import { Zap } from '@/assets/icons';
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
 import { getMissions } from './_actions/get-mission';
 import { getWeeklyAchievements } from './_actions/get-weeklly-achievements';
+import { AdventureLog } from './_components/adventure-log';
 import { DailyAchievement } from './_components/daily-achievement';
 import { Mission } from './_components/mission';
 
@@ -26,31 +26,18 @@ const WeeklyAchievement = async () => {
   );
 };
 
-const TodayAdventureLog = () => (
-  <div
-    className={css({
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '8px',
-      maxHeight: '[240px]',
-      padding: '8px',
-    })}
-  >
-    <h2>本日の冒険ログ</h2>
-    <div className={css({ overflow: 'auto' })}>
-      <div
-        className={css({
-          alignItems: 'center',
-          display: 'flex',
-          gap: '8px',
-        })}
-      >
-        <Zap className={css({ color: 'yellow.300', width: '[18px]' })} />
-        <p className={css({ textStyle: 'Body.tertiary' })}>パワーブレスする</p>
-      </div>
-    </div>
-  </div>
-);
+const TodayAdventureLog = () => {
+  return (
+    <AdventureLog
+      heading="本日の冒険ログ"
+      logs={[
+        { id: '1', type: 'powerup', title: 'パワーブレスする' },
+        { id: '2', type: 'quest', title: 'クエストをクリアする' },
+        { id: '3', type: 'villain', title: 'ヴィランを倒す' },
+      ]}
+    />
+  );
+};
 
 export default async function Home() {
   const missions = await getMissions();
