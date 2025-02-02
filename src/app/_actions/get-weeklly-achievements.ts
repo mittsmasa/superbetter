@@ -17,8 +17,11 @@ export const getWeeklyAchievements = async (): Promise<
 > => {
   // NOTE: ユーザーごとのタイムゾーンを使うように修正
   const now = new TZDate(new Date(), 'Asia/Tokyo');
-  const mondayStart = new Date(startOfDay(addDays(now, -getDay(now) + 1)));
-  const sundayEnd = new Date(endOfDay(addDays(now, -getDay(now) + 7)));
+  const day = getDay(now);
+  // day = 0: 日曜日, 1: 月曜日, ..., 6: 土曜日
+  const distanceToMonday = day === 0 ? 6 : day - 1;
+  const mondayStart = new Date(startOfDay(addDays(now, -distanceToMonday)));
+  const sundayEnd = new Date(endOfDay(addDays(now, -distanceToMonday + 6)));
 
   const user = await getUser();
   try {
