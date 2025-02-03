@@ -13,22 +13,20 @@ export const Mission = ({
   items: MissionEntity[];
 }) => {
   return (
-    <MotionLink
-      href={`/missions/${id}`}
-      className={cx(
-        pixelBorder({}),
-        css({
+    <MotionLink href={`/missions/${id}`} className={cx(pixelBorder({}))}>
+      <div
+        className={css({
           textStyle: 'Body.secondary',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
           padding: '[8px]',
           width: '[100%]',
-        }),
-      )}
-    >
-      <p>{title}</p>
-      <MissionEntities items={items} />
+        })}
+      >
+        <p>{title}</p>
+        <MissionEntities items={items} />
+      </div>
     </MotionLink>
   );
 };
