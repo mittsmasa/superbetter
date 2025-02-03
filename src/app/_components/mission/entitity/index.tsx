@@ -53,7 +53,6 @@ export type MissionEntity = {
 };
 
 const MissionEntity = ({ itemType, completed }: MissionEntity) => {
-  console.log('missionItemType', itemType);
   switch (itemType) {
     case 'quest':
       return (

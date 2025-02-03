@@ -1,14 +1,20 @@
 import { getMission } from '@/app/_actions/get-mission';
 import { getPowerups } from '@/app/_actions/get-powerup';
+import { getQuests } from '@/app/_actions/get-quest';
+import { getVillains } from '@/app/_actions/get-villain';
 import { postPowerupHistory } from '@/app/_actions/post-powerup-history';
+import { postQuestHistory } from '@/app/_actions/post-quest-history';
+import { postVillainHistory } from '@/app/_actions/post-villain-history';
 import { MissionEntities } from '@/app/_components/mission/entitity';
-import { Zap } from '@/assets/icons';
+import { Android, ScriptText, Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { FooterNavigation } from '@/components/navigation';
 import { Radio } from '@/components/radio';
+import type { AdventureItem } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 import { revalidatePath } from 'next/cache';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { Header } from '../../_components/header';
 import { getEntity, getEntityValue } from './_utils/converter';
 
@@ -82,42 +88,7 @@ const Page = async (props: {
             />
           </div>
         </div>
-        <form
-          action={async (a) => {
-            'use server';
-            const val = a.get('entity') as string | null;
-            if (!val) {
-              return;
-            }
-            const entity = getEntity(val);
-            if (entity.type === 'powerup') {
-              await postPowerupHistory(entity.id);
-            }
-            revalidatePath('/missions/[missionId]', 'page');
-          }}
-        >
-          <div
-            className={css({
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '16px',
-            })}
-          >
-            <EntityList />
-            <div
-              className={css({
-                backgroundColor: 'black',
-                bottom: 0,
-                display: 'flex',
-                justifyContent: 'center',
-                position: 'sticky',
-                py: '8px',
-              })}
-            >
-              <Button type="submit">つかった / いどんだ / たたかった</Button>
-            </div>
-          </div>
-        </form>
+        <Form />
       </div>
       <div className={css({ position: 'sticky', bottom: 0, padding: '8px' })}>
         <FooterNavigation />
@@ -128,13 +99,99 @@ const Page = async (props: {
 
 export default Page;
 
-const EntityList = async () => {
+const Form = async () => {
   const LIMIT = 5;
   const powerups = await getPowerups({ limit: LIMIT });
+  const quests = await getQuests({ limit: LIMIT });
+  const villains = await getVillains({ limit: LIMIT });
   if (powerups.type === 'error') {
     throw new Error(powerups.error.message);
   }
-  const showMore = powerups.data.count > LIMIT;
+  if (quests.type === 'error') {
+    throw new Error(quests.error.message);
+  }
+  if (villains.type === 'error') {
+    throw new Error(villains.error.message);
+  }
+
+  return (
+    <form
+      action={async (a) => {
+        'use server';
+        const val = a.get('entity') as string | null;
+        if (!val) {
+          return;
+        }
+        const entity = getEntity(val);
+        if (entity.type === 'powerup') {
+          await postPowerupHistory(entity.id);
+        } else if (entity.type === 'quest') {
+          await postQuestHistory(entity.id);
+        } else if (entity.type === 'villain') {
+          await postVillainHistory(entity.id);
+        }
+        revalidatePath('/missions/[missionId]', 'page');
+      }}
+    >
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '16px',
+        })}
+      >
+        <div
+          className={css({
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px',
+          })}
+        >
+          <EntityList
+            type="powerup"
+            entities={powerups.data.records}
+            showMore={powerups.data.count > LIMIT}
+            showMoreLink="/powerups"
+          />
+          <EntityList
+            type="quest"
+            entities={quests.data.records}
+            showMore={quests.data.count > LIMIT}
+            showMoreLink="/quests"
+          />
+          <EntityList
+            type="villain"
+            entities={villains.data.records}
+            showMore={villains.data.count > LIMIT}
+            showMoreLink="/villains"
+          />
+        </div>
+        <div
+          className={css({
+            backgroundColor: 'black',
+            display: 'flex',
+            justifyContent: 'center',
+            py: '8px',
+          })}
+        >
+          <Button type="submit">つかった / いどんだ / たたかった</Button>
+        </div>
+      </div>
+    </form>
+  );
+};
+
+const EntityList = ({
+  type,
+  entities,
+  showMore,
+  showMoreLink,
+}: {
+  type: AdventureItem;
+  entities: { id: string; title: string }[];
+  showMore: boolean;
+  showMoreLink: string;
+}) => {
   return (
     <div
       className={css({
@@ -157,13 +214,13 @@ const EntityList = async () => {
             gap: '8px',
           })}
         >
-          <Zap className={css({ width: '[24px]', height: '[24px]' })} />
+          {Icon[type]}
           <p
             className={css({
               textStyle: 'Body.secondary',
             })}
           >
-            パワーアップアイテム
+            {Label[type]}
           </p>
         </div>
       </div>
@@ -174,12 +231,12 @@ const EntityList = async () => {
           gap: '8px',
         })}
       >
-        {powerups.data.records.map((p) => (
+        {entities.map((p) => (
           <Radio
             required
             key={p.id}
             name="entity"
-            value={getEntityValue({ type: 'powerup', id: p.id })}
+            value={getEntityValue({ type, id: p.id })}
             label={p.title}
           />
         ))}
@@ -187,7 +244,7 @@ const EntityList = async () => {
       {showMore && (
         <div className={css({ textAlign: 'center' })}>
           <Link
-            href="/powerups"
+            href={showMoreLink}
             className={css({ padding: '12px', textStyle: 'Body.secondary' })}
           >
             もっとみる
@@ -197,3 +254,17 @@ const EntityList = async () => {
     </div>
   );
 };
+
+const Icon = {
+  powerup: <Zap className={css({ width: '[20px]' })} />,
+  quest: <ScriptText className={css({ width: '[20px]' })} />,
+  villain: <Android className={css({ width: '[20px]' })} />,
+  epicwin: <>未定</>,
+} as const satisfies Record<AdventureItem, ReactNode>;
+
+const Label = {
+  powerup: 'パワーアップ',
+  quest: 'クエスト',
+  villain: 'ヴィラン',
+  epicwin: '未定',
+} as const satisfies Record<AdventureItem, string>;
