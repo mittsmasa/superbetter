@@ -135,5 +135,5 @@ styled-system-studio
 *storybook.log
 
 # Serwist
-src/public/sw*
-src/public/swe-worker*
+public/sw*
+public/swe-worker*
