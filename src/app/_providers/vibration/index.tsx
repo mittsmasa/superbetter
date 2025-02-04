@@ -22,9 +22,9 @@ export const VibrationProvider = ({ children }: { children: ReactNode }) => {
       {children}
       <input
         ref={ref}
+        // @ts-expect-error -- switch をつかいたい
+        switch="true"
         type="checkbox"
-        // @ts-expect-error -- input switch が表示されるか確認したい
-        switch
         className={css({ width: '[0]', height: '[0]' })}
       />
     </VibrationContext.Provider>

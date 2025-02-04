@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { pixelMPlus } from '@/fonts';
 import { css } from '@/styled-system/css';
+import { VibrationProvider } from './_providers/vibration';
 
 const APP_NAME = 'Super Better';
 const APP_DEFAULT_TITLE = 'Super Better';
@@ -51,7 +52,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={pixelMPlus.className}>
-      <body className={css({ height: '[100dvh]' })}>{children}</body>
+      <body className={css({ height: '[100dvh]' })}>
+        <VibrationProvider>{children}</VibrationProvider>
+      </body>
     </html>
   );
 }

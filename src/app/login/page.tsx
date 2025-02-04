@@ -1,5 +1,6 @@
 import { SignInButton } from '@/components/google/signin-button';
 import { css } from '@/styled-system/css';
+import { VibrateButton } from '../_components/vibrate-button';
 
 const Login = async ({
   searchParams,
@@ -30,6 +31,7 @@ const Login = async ({
         あらたな世界のとびらはここにある
       </p>
       <SignInButton redirectTo={redirectTo} />
+      <VibrateButton />
     </main>
   );
 };
