@@ -65,6 +65,4 @@ const Page = async () => {
   );
 };
 
-const QuestLink = () => <EntityLink href="/quests/1" title="朝さんぽする" />;
-
 export default Page;
