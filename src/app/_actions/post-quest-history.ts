@@ -14,21 +14,21 @@ export const postQuestHistory = async (
 
   try {
     const historyId = await db.transaction(async (tx) => {
-      const pup = await tx.query.quests.findFirst({
+      const q = await tx.query.quests.findFirst({
         where: (quest) => and(eq(quest.id, questId), eq(quest.userId, user.id)),
       });
-      if (!pup) {
+      if (!q) {
         tx.rollback();
         return;
       }
       const [{ id: historyId }] = await tx
         .insert(questHistories)
-        .values({ questId: pup.id })
+        .values({ questId: q.id })
         .$returningId();
       await tx
         .update(quests)
         .set({ count: sql`${quests.count} + 1` })
-        .where(eq(quests.id, pup.id));
+        .where(eq(quests.id, q.id));
 
       // update mission condition
       await updateMissionConditions({

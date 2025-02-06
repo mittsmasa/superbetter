@@ -16,7 +16,7 @@ export const getPowerups = async (ops?: { limit: number }): Promise<
   try {
     const pups = await db.query.powerups.findMany({
       where: (powerup) => eq(powerup.userId, user.id),
-      orderBy: [desc(powerups.updatedAt)],
+      orderBy: [desc(powerups.createdAt)],
       limit: ops?.limit,
     });
     const pupCount = await db.$count(powerups);
