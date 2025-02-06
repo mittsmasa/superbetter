@@ -64,7 +64,11 @@ const Page = async (props: {
           </h1>
           {powerup.data.description && (
             <p
-              className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}
+              className={css({
+                textStyle: 'Body.tertiary',
+                color: 'gray.50',
+                whiteSpace: 'pre-wrap',
+              })}
             >
               {powerup.data.description}
             </p>
