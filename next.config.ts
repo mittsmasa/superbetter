@@ -8,6 +8,9 @@ const withSerwist = withSerwistInit({
 });
 
 const nextConfig: NextConfig = {
+  experimental: {
+    useCache: true,
+  },
   webpack: (config) => {
     // For svgr
     // biome-ignore lint/suspicious/noExplicitAny: 公式の型定義に従っている

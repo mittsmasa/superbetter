@@ -6,6 +6,7 @@ import { updateMissionConditions } from '@/app/_utils/sql/mission';
 import { db } from '@/db/client';
 import { questHistories, quests } from '@/db/schema/superbetter';
 import { and, eq, sql } from 'drizzle-orm';
+import { revalidate } from '../_utils/cache/revalidate-tag';
 
 export const postQuestHistory = async (
   questId: string,
@@ -45,6 +46,7 @@ export const postQuestHistory = async (
         error: { type: 'unknown', message: 'unknown error' },
       };
     }
+    revalidate('mission-achievement');
     return { type: 'ok', data: { id: historyId } };
   } catch (e) {
     console.error(e);

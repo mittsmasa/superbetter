@@ -6,6 +6,7 @@ import { updateMissionConditions } from '@/app/_utils/sql/mission';
 import { db } from '@/db/client';
 import { villainHistories, villains } from '@/db/schema/superbetter';
 import { and, eq, sql } from 'drizzle-orm';
+import { revalidate } from '../_utils/cache/revalidate-tag';
 
 export const postVillainHistory = async (
   villainId: string,
@@ -46,6 +47,7 @@ export const postVillainHistory = async (
         error: { type: 'unknown', message: 'unknown error' },
       };
     }
+    revalidate('mission-achievement');
     return { type: 'ok', data: { id: historyId } };
   } catch (e) {
     console.error(e);
