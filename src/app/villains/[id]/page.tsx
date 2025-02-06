@@ -63,7 +63,11 @@ const Page = async (props: {
           </h1>
           {villain.data.description && (
             <p
-              className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}
+              className={css({
+                textStyle: 'Body.tertiary',
+                color: 'gray.50',
+                whiteSpace: 'pre-wrap',
+              })}
             >
               {villain.data.description}
             </p>

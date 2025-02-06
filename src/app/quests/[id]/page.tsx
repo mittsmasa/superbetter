@@ -60,7 +60,11 @@ const Page = async (props: {
           </h1>
           {quest.data.description && (
             <p
-              className={css({ textStyle: 'Body.tertiary', color: 'gray.50' })}
+              className={css({
+                textStyle: 'Body.tertiary',
+                color: 'gray.50',
+                whiteSpace: 'pre-wrap',
+              })}
             >
               {quest.data.description}
             </p>
