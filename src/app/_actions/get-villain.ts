@@ -16,7 +16,7 @@ export const getVillains = async (ops?: { limit: number }): Promise<
   try {
     const vs = await db.query.villains.findMany({
       where: (villain) => eq(villain.userId, user.id),
-      orderBy: [desc(villains.updatedAt)],
+      orderBy: [desc(villains.createdAt)],
       limit: ops?.limit,
     });
     const vCount = await db.$count(villains);

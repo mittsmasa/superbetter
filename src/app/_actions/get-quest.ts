@@ -16,7 +16,7 @@ export const getQuests = async (ops?: { limit: number }): Promise<
   try {
     const qs = await db.query.quests.findMany({
       where: (quest) => eq(quest.userId, user.id),
-      orderBy: [desc(quests.updatedAt)],
+      orderBy: [desc(quests.createdAt)],
       limit: ops?.limit,
     });
     const qCount = await db.$count(quests);
