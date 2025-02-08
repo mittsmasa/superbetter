@@ -11,8 +11,8 @@ const pool = createPool({
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  connectionLimit: 2,
-  connectTimeout: 1000,
+  connectionLimit: 1,
+  connectTimeout: 5000,
   ssl: process.env.DB_TYPE?.toLowerCase() === 'tidb' ? {} : undefined,
 });
 
