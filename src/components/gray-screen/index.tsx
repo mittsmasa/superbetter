@@ -17,7 +17,7 @@ const Screen = () => (
       backgroundColor: 'black',
       opacity: 0.1,
       pointerEvents: 'none',
-      zIndex: 10,
+      zIndex: 'glassScreen',
     })}
   />
 );
