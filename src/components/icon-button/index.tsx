@@ -7,10 +7,11 @@ import type { ComponentProps } from 'react';
 
 const button = cva({
   base: {
+    alignItems: 'center',
     color: 'white',
     cursor: 'pointer',
     display: 'flex',
-    alignItems: 'center',
+    flexShrink: 0,
     justifyContent: 'center',
     _disabled: {
       color: 'gray.200',

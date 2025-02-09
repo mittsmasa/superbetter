@@ -4,6 +4,7 @@ import { getUniqueId } from '@/app/_utils/unique-id';
 import { Close } from '@/assets/icons';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
+import { AnimatePresence, motion } from 'motion/react';
 import {
   type PropsWithChildren,
   type ReactNode,
@@ -66,22 +67,24 @@ export const Toaster = () => {
     throw new Error("Toaster can't be used outside of ToastProvider");
   }
   return createPortal(
-    <ol
-      className={css({
-        bottom: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-        left: 0,
-        padding: '12px 4px',
-        position: 'fixed',
-        zIndex: 'toast',
-      })}
-    >
-      {toasts.map((toast) => (
-        <Toast key={toast.id} {...toast} />
-      ))}
-    </ol>,
+    <AnimatePresence>
+      <ol
+        className={css({
+          bottom: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          left: 0,
+          padding: '12px 4px',
+          position: 'fixed',
+          zIndex: 'toast',
+        })}
+      >
+        {toasts.map((toast) => (
+          <Toast key={toast.id} {...toast} />
+        ))}
+      </ol>
+    </AnimatePresence>,
     document.body,
   );
 };
@@ -89,11 +92,17 @@ export const Toaster = () => {
 const Toast = ({ id, message }: ToastProps) => {
   const { remove: removeToast } = use(ToastUpdateContext);
   return (
-    <li
+    <motion.li
+      layout
+      initial={{ x: '-100%', opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      exit={{ x: '-100%', opacity: 0 }}
+      transition={{ type: 'spring', duration: 0.3 }}
       className={cx(
         pixelBorder({}),
         css({
           alignItems: 'center',
+          backgroundColor: 'black',
           color: 'white',
           display: 'flex',
           gap: '8px',
@@ -103,10 +112,10 @@ const Toast = ({ id, message }: ToastProps) => {
       )}
     >
       <div>{message}</div>
-      <IconButton onClick={() => removeToast(id)}>
+      <IconButton onClick={() => removeToast(id)} size="sm">
         <Close />
       </IconButton>
-    </li>
+    </motion.li>
   );
 };
 
