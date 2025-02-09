@@ -2,6 +2,7 @@
 
 import { getUniqueId } from '@/app/_utils/unique-id';
 import { Close } from '@/assets/icons';
+import { useIsClient } from '@/hooks/check/client';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
 import { AnimatePresence, motion } from 'motion/react';
@@ -63,8 +64,14 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
 
 export const Toaster = () => {
   const toasts = use(ToastContext);
+  const isClient = useIsClient();
   if (!toasts) {
     throw new Error("Toaster can't be used outside of ToastProvider");
+  }
+
+  if (!isClient) {
+    // avoid prerendering sinse this component use window
+    return null;
   }
   return createPortal(
     <AnimatePresence>
@@ -85,7 +92,7 @@ export const Toaster = () => {
         ))}
       </ol>
     </AnimatePresence>,
-    document.body,
+    window.document.body,
   );
 };
 
