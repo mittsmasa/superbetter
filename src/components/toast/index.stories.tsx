@@ -1,31 +1,42 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ToastProvider, Toaster, useToast } from '.';
 
-const ToastButton = () => {
+const ToastButton = ({ message }: { message: string }) => {
   const { add: toast } = useToast();
   return (
-    <button
-      type="button"
-      onClick={() => toast({ message: 'トーストを表示する' })}
-    >
+    <button type="button" onClick={() => toast({ message })}>
       Show Toast
     </button>
   );
 };
 
 const meta = {
-  render: () => {
+  argTypes: {
+    message: { control: 'text' },
+  },
+  render: (args) => {
     return (
       <ToastProvider>
-        <ToastButton />
+        <ToastButton message={args.message} />
         <Toaster />
       </ToastProvider>
     );
   },
-} satisfies Meta;
+} satisfies Meta<{ message: string }>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default = {} satisfies Story;
+export const Default = {
+  args: {
+    message: 'トーストを表示する',
+  },
+} satisfies Story;
+
+export const LongMessage = {
+  args: {
+    message:
+      'トーストを表示するときに、メッセージが長い場合はどうなるか確認する',
+  },
+} satisfies Story;

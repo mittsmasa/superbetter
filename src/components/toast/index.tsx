@@ -1,20 +1,23 @@
 'use client';
 
 import { getUniqueId } from '@/app/_utils/unique-id';
-import { css } from '@/styled-system/css';
+import { Close } from '@/assets/icons';
+import { css, cx } from '@/styled-system/css';
+import { pixelBorder } from '@/styled-system/patterns';
 import {
   type PropsWithChildren,
+  type ReactNode,
   createContext,
   use,
   useCallback,
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { IconButton } from '../icon-button';
 
 type ToastProps = {
   id: string;
-  message: string;
-  type?: 'success';
+  message: ReactNode;
 };
 
 type ToastInput = Omit<ToastProps, 'id'>;
@@ -65,32 +68,47 @@ export const Toaster = () => {
   return createPortal(
     <ol
       className={css({
-        zIndex: 'toast',
-        position: 'fixed',
         bottom: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
         left: 0,
         padding: '12px 4px',
+        position: 'fixed',
+        zIndex: 'toast',
       })}
     >
       {toasts.map((toast) => (
-        <li
-          key={toast.id}
-          className={css({
-            padding: '4px 8px',
-            borderRadius: '4px',
-            backgroundColor: 'black',
-            color: 'white',
-          })}
-        >
-          {toast.message}
-        </li>
+        <Toast key={toast.id} {...toast} />
       ))}
     </ol>,
     document.body,
   );
 };
 
-const Toast = () => {};
+const Toast = ({ id, message }: ToastProps) => {
+  const { remove: removeToast } = use(ToastUpdateContext);
+  return (
+    <li
+      className={cx(
+        pixelBorder({}),
+        css({
+          alignItems: 'center',
+          color: 'white',
+          display: 'flex',
+          gap: '8px',
+          textStyle: 'Body.secondary',
+          padding: '4px 8px',
+        }),
+      )}
+    >
+      <div>{message}</div>
+      <IconButton onClick={() => removeToast(id)}>
+        <Close />
+      </IconButton>
+    </li>
+  );
+};
 
 export const useToast = () => {
   const updater = use(ToastUpdateContext);
