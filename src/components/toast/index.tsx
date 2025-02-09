@@ -70,13 +70,13 @@ export const Toaster = () => {
     <AnimatePresence>
       <ol
         className={css({
-          bottom: 0,
           display: 'flex',
           flexDirection: 'column',
           gap: '8px',
           left: 0,
           padding: '12px 4px',
           position: 'fixed',
+          top: 0,
           zIndex: 'toast',
         })}
       >
