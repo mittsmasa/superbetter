@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { ToastProvider, Toaster } from '@/components/toast';
 import { pixelMPlus } from '@/fonts';
 import { css } from '@/styled-system/css';
 
@@ -51,7 +52,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={pixelMPlus.className}>
-      <body className={css({ height: '[100dvh]' })}>{children}</body>
+      <body className={css({ height: '[100dvh]' })}>
+        <ToastProvider>
+          {children}
+          <Toaster />
+        </ToastProvider>
+      </body>
     </html>
   );
 }
