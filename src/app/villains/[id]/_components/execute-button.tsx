@@ -3,11 +3,13 @@
 import { postVillainHistory } from '@/app/_actions/post-villain-history';
 import { Button } from '@/components/button';
 import { GlassScreen } from '@/components/gray-screen';
+import { useToast } from '@/components/toast';
 import { css } from '@/styled-system/css';
 import { useTransition } from 'react';
 
 export const ExecuteButton = ({ villainId }: { villainId: string }) => {
   const [isPending, startTransition] = useTransition();
+  const { add: toast } = useToast();
   return (
     <>
       <form
@@ -17,7 +19,7 @@ export const ExecuteButton = ({ villainId }: { villainId: string }) => {
             if (response.type === 'error') {
               throw new Error(response.error.message);
             }
-            //TODO: show toast
+            toast({ message: 'ヴィランとたたかった！' });
           });
         }}
       >
