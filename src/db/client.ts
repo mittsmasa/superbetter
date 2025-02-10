@@ -11,21 +11,11 @@ const pool = createPool({
   user: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  connectionLimit: 1,
+  connectionLimit: 3,
   connectTimeout: 5000,
+  enableKeepAlive: true,
+  keepAliveInitialDelay: 0,
   ssl: process.env.DB_TYPE?.toLowerCase() === 'tidb' ? {} : undefined,
-});
-
-pool.on('connection', (connection) => {
-  connection.on('error', (err) => {
-    console.error('MySQL connection error', err);
-    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-      connection.destroy();
-      pool.getConnection();
-    } else {
-      throw err;
-    }
-  });
 });
 
 const drizzleClient = drizzle(pool, { schema, mode: 'default' });
