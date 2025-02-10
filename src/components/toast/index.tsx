@@ -74,24 +74,24 @@ export const Toaster = () => {
     return null;
   }
   return createPortal(
-    <AnimatePresence>
-      <ol
-        className={css({
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '8px',
-          left: 0,
-          padding: '12px 4px',
-          position: 'fixed',
-          top: 0,
-          zIndex: 'toast',
-        })}
-      >
+    <ol
+      className={css({
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        left: 0,
+        padding: '12px 4px',
+        position: 'fixed',
+        top: 0,
+        zIndex: 'toast',
+      })}
+    >
+      <AnimatePresence>
         {toasts.map((toast) => (
           <Toast key={toast.id} {...toast} />
         ))}
-      </ol>
-    </AnimatePresence>,
+      </AnimatePresence>
+    </ol>,
     window.document.body,
   );
 };
