@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Super Better',
-    short_name: 'SB',
+    short_name: 'Super Better',
     description: 'スーパーベターになろう',
     start_url: '/',
     display: 'standalone',

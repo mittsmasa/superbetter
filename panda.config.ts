@@ -1,3 +1,4 @@
+import { keyframes } from '@/styles/keyframes';
 import * as patterns from '@/styles/patterns';
 import { textStyles } from '@/styles/text-styles';
 import { tokens } from '@/styles/tokens';
@@ -21,6 +22,7 @@ export default defineConfig({
   theme: {
     tokens,
     textStyles,
+    keyframes,
   },
   patterns,
   outdir: 'src/styled-system',
