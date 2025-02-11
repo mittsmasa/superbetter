@@ -11,46 +11,45 @@ const Page = async () => {
   return (
     <main
       className={css({
-        height: '[100%]',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
       })}
     >
-      <div>
-        <div
-          className={css({
-            backgroundColor: 'black',
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '8px',
-            position: 'sticky',
-            top: 0,
-          })}
-        >
-          <h1 className={css({ textStyle: 'Heading.primary' })}>
-            パワーアップアイテム
-          </h1>
-          <AddPowerupButton />
-        </div>
-        <div
-          className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            padding: '8px',
-            textStyle: 'Body.secondary',
-          })}
-        >
-          {powerups.data.records.map((p) => (
-            <EntityLink
-              key={p.id}
-              href={`/powerups/${p.id}`}
-              title={p.title}
-              description={p.description}
-            />
-          ))}
-        </div>
+      <div
+        className={css({
+          backgroundColor: 'black',
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '8px',
+          position: 'sticky',
+          top: 0,
+        })}
+      >
+        <h1 className={css({ textStyle: 'Heading.primary' })}>
+          パワーアップアイテム
+        </h1>
+        <AddPowerupButton />
+      </div>
+      <div
+        className={css({
+          display: 'flex',
+          flex: '1',
+          minHeight: '[0px]',
+          flexDirection: 'column',
+          gap: '12px',
+          overflowY: 'auto',
+          padding: '8px',
+          textStyle: 'Body.secondary',
+        })}
+      >
+        {powerups.data.records.map((p) => (
+          <EntityLink
+            key={p.id}
+            href={`/powerups/${p.id}`}
+            title={p.title}
+            description={p.description}
+          />
+        ))}
       </div>
     </main>
   );

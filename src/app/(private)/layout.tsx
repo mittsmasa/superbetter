@@ -8,6 +8,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       className={css({
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-between',
         height: '[100%]',
       })}
     >
