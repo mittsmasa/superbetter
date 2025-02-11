@@ -11,49 +11,46 @@ const Page = async () => {
   return (
     <main
       className={css({
-        height: '[100%]',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
       })}
     >
-      <div>
-        <div
-          className={css({
-            backgroundColor: 'black',
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '8px',
-            position: 'sticky',
-            top: 0,
-          })}
-        >
-          <h1 className={css({ textStyle: 'Heading.primary' })}>クエスト</h1>
-          <AddQuestButton />
-        </div>
-        <div
-          className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            padding: '8px',
-            textStyle: 'Body.secondary',
-          })}
-        >
-          {quests.data.records.map((q) => (
-            <EntityLink
-              key={q.id}
-              href={`/quests/${q.id}`}
-              title={q.title}
-              description={q.description}
-            />
-          ))}
-        </div>
+      <div
+        className={css({
+          backgroundColor: 'black',
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '8px',
+          position: 'sticky',
+          top: 0,
+        })}
+      >
+        <h1 className={css({ textStyle: 'Heading.primary' })}>クエスト</h1>
+        <AddQuestButton />
+      </div>
+      <div
+        className={css({
+          display: 'flex',
+          flex: '1',
+          minHeight: '[0px]',
+          flexDirection: 'column',
+          gap: '12px',
+          overflowY: 'auto',
+          padding: '8px',
+          textStyle: 'Body.secondary',
+        })}
+      >
+        {quests.data.records.map((q) => (
+          <EntityLink
+            key={q.id}
+            href={`/quests/${q.id}`}
+            title={q.title}
+            description={q.description}
+          />
+        ))}
       </div>
     </main>
   );
 };
-
-const QuestLink = () => <EntityLink href="/quests/1" title="朝さんぽする" />;
 
 export default Page;
