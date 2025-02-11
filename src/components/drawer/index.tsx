@@ -12,7 +12,6 @@ export const Drawer = ({
   ref: RefObject<HTMLDialogElement | null>;
 }>) => {
   return (
-    // TODO: animation
     // TODO: close on click backdrop
     <dialog
       ref={ref}
@@ -26,6 +25,20 @@ export const Drawer = ({
         width: '[100%]',
         height: '[90%]',
         margin: '[auto auto 0]',
+        transitionTimingFunction: 'ease',
+        transitionProperty: 'display, overlay, opacity, transform',
+        transitionDuration: '0.3s',
+        transitionBehavior: 'allow-discrete',
+        opacity: 0,
+        transform: 'translateY(100%)',
+        _open: {
+          opacity: 1,
+          transform: 'translateY(0)',
+          _starting: {
+            opacity: 0,
+            transform: 'translateY(100%)',
+          },
+        },
         _backdrop: {
           backgroundColor: 'black',
           opacity: 0.5,
