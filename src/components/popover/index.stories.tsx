@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Popover } from '.';
 
 const meta = {
-  title: 'app/(private)/me/_components/popover',
   parameters: {
     layout: 'centered',
   },
