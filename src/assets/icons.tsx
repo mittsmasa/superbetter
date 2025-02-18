@@ -13,3 +13,4 @@ export { default as Human } from './pixel-icons/human.svg';
 export { default as ScriptText } from './pixel-icons/script-text.svg';
 export { default as Trash } from './pixel-icons/trash.svg';
 export { default as Zap } from './pixel-icons/zap.svg';
+export { default as MoreVertical } from './pixel-icons/more-vertical.svg';

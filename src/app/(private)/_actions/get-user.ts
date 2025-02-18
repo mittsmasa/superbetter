@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 export const getUser = async () => {
   const session = await auth();
   if (!session?.user) {
-    console.error('user not logged in');
+    console.info('user not logged in');
     return redirect('/login');
   }
   const { email } = session.user;

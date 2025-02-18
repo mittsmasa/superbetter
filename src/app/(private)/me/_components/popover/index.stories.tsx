@@ -1,0 +1,50 @@
+import { css } from '@/styled-system/css';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Popover } from '.';
+
+const meta = {
+  title: 'app/(private)/me/_components/popover',
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default = {
+  render: () => {
+    return (
+      <Popover.Root>
+        <Popover.Trigger
+          renderItem={({ setOpen, getReferenceProps, refs }) => (
+            <button
+              ref={refs.setReference}
+              type="button"
+              onClick={() => setOpen((prev) => !prev)}
+              {...getReferenceProps()}
+            >
+              Open
+            </button>
+          )}
+        />
+        <Popover.Content
+          renderItem={({ getFloatingProps, floatingStyles, refs }) => (
+            <div
+              {...getFloatingProps()}
+              style={floatingStyles}
+              ref={refs.setFloating}
+              className={css({
+                backgroundColor: 'black',
+                padding: '20px',
+              })}
+            >
+              <div style={{ width: '200px', height: '200px' }}>Content</div>
+            </div>
+          )}
+        />
+      </Popover.Root>
+    );
+  },
+} satisfies Story;
