@@ -4,7 +4,7 @@ import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
 import { quests } from '@/db/schema/superbetter';
-import { desc, eq } from 'drizzle-orm';
+import { asc, desc, eq } from 'drizzle-orm';
 
 export const getQuests = async (ops?: { limit: number }): Promise<
   Result<
@@ -16,7 +16,7 @@ export const getQuests = async (ops?: { limit: number }): Promise<
   try {
     const qs = await db.query.quests.findMany({
       where: (quest) => eq(quest.userId, user.id),
-      orderBy: [desc(quests.createdAt)],
+      orderBy: [asc(quests.order), desc(quests.createdAt)],
       limit: ops?.limit,
     });
     const qCount = await db.$count(quests);
