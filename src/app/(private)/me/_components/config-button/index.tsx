@@ -12,13 +12,11 @@ export const ConfigButton = () => {
     <Popover.Root>
       <Popover.Trigger
         renderItem={({ setOpen, getReferenceProps, refs }) => (
-          <div
-            ref={refs.setReference}
-            {...getReferenceProps()}
-            className={css({ color: 'white' })}
-          >
+          <div ref={refs.setReference} {...getReferenceProps()}>
             <IconButton onClick={() => setOpen((prev) => !prev)}>
-              <MoreVertical />
+              <MoreVertical
+                className={css({ width: '[24px]', height: '[24px]' })}
+              />
             </IconButton>
           </div>
         )}
