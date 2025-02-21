@@ -5,6 +5,7 @@ export { default as Network5G } from './pixel-icons/5g.svg';
 export { default as AbTesting } from './pixel-icons/ab-testing.svg';
 export { default as AddBox } from './pixel-icons/add-box.svg';
 export { default as Android } from './pixel-icons/android.svg';
+export { default as Archive } from './pixel-icons/archive.svg';
 export { default as Calendar } from './pixel-icons/calendar.svg';
 export { default as ChevlonLeft } from './pixel-icons/chevron-left.svg';
 export { default as Close } from './pixel-icons/close.svg';

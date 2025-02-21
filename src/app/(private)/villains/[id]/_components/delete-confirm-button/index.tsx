@@ -1,12 +1,12 @@
 'use client';
 
 import { DeleteConfirmDialog } from '@/app/(private)/_components/delete-confirm-dialog';
-import { Trash } from '@/assets/icons';
+import { Archive } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import { useRouter } from 'next/navigation';
-import { deleteVillain } from '../../_actions/delete-villain';
+import { archiveVillain } from '../../_actions/archive-villain';
 
 export const DeleteConfirmButton = (props: { id: string; name: string }) => {
   const deleteConfirm = useDialog();
@@ -14,13 +14,13 @@ export const DeleteConfirmButton = (props: { id: string; name: string }) => {
   return (
     <>
       <IconButton onClick={deleteConfirm.show}>
-        <Trash className={css({ width: '[24px]', height: '[24px]' })} />
+        <Archive className={css({ width: '[24px]', height: '[24px]' })} />
       </IconButton>
       <DeleteConfirmDialog
         dialog={deleteConfirm}
         itemName={props.name}
         onDelete={async () => {
-          const res = await deleteVillain({ id: props.id });
+          const res = await archiveVillain({ id: props.id });
           if (res.type === 'error') {
             throw new Error(res.error.message);
           }
