@@ -1,7 +1,7 @@
 import { css } from '@/styled-system/css';
 import { getQuests } from '../_actions/get-quest';
-import { EntityLink } from '../_components/entity-link';
 import { AddQuestButton } from './_components/add-quest-button';
+import { QuestList } from './_components/quest-list';
 
 const Page = async () => {
   const quests = await getQuests();
@@ -40,14 +40,7 @@ const Page = async () => {
           textStyle: 'Body.secondary',
         })}
       >
-        {quests.data.records.map((q) => (
-          <EntityLink
-            key={q.id}
-            href={`/quests/${q.id}`}
-            title={q.title}
-            description={q.description}
-          />
-        ))}
+        <QuestList quests={quests.data.records} />
       </div>
     </main>
   );
