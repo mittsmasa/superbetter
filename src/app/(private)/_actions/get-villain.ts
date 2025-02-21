@@ -4,7 +4,7 @@ import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
 import { villains } from '@/db/schema/superbetter';
-import { asc, desc, eq } from 'drizzle-orm';
+import { and, asc, desc, eq } from 'drizzle-orm';
 
 export const getVillains = async (ops?: { limit: number }): Promise<
   Result<
@@ -15,7 +15,8 @@ export const getVillains = async (ops?: { limit: number }): Promise<
   const user = await getUser();
   try {
     const vs = await db.query.villains.findMany({
-      where: (villain) => eq(villain.userId, user.id),
+      where: (villain) =>
+        and(eq(villain.userId, user.id), eq(villain.archived, false)),
       orderBy: [asc(villains.order), desc(villains.createdAt)],
       limit: ops?.limit,
     });
