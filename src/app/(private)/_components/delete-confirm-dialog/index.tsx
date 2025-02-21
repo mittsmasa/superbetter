@@ -33,7 +33,7 @@ export const DeleteConfirmDialog = ({
               textStyle: 'Body.secondary',
             })}
           >
-            を削除しますか
+            をアーカイブしますか
           </p>
         </div>
         <div
@@ -44,7 +44,7 @@ export const DeleteConfirmDialog = ({
           })}
         >
           <Button onClick={() => onDelete()}>
-            <div className={css({ width: '[100px]' })}>さくじょ</div>
+            <div className={css({ width: '[100px]' })}>アーカイブ</div>
           </Button>
           <Button onClick={dialog.close} variant="secondary">
             <div className={css({ width: '[100px]' })}>キャンセル</div>
