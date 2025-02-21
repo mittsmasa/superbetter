@@ -1,6 +1,5 @@
 import { MotionLink } from '@/components/motion-link';
-import { css, cx } from '@/styled-system/css';
-import { pixelBorder } from '@/styled-system/patterns';
+import { css } from '@/styled-system/css';
 import { MissionEntities, type MissionEntity } from './entitity';
 
 export const Mission = ({
@@ -13,7 +12,7 @@ export const Mission = ({
   items: MissionEntity[];
 }) => {
   return (
-    <MotionLink href={`/missions/${id}`} className={cx(pixelBorder({}))}>
+    <MotionLink href={`/missions/${id}`} pixelBorderWidth={2}>
       <div
         className={css({
           textStyle: 'Body.secondary',

@@ -1,40 +1,73 @@
+import { Menu } from '@/assets/icons';
 import { MotionLink } from '@/components/motion-link';
-import { css, cx } from '@/styled-system/css';
-import { pixelBorder } from '@/styled-system/patterns';
-import type { ComponentProps } from 'react';
+import { css } from '@/styled-system/css';
+import type { ComponentProps, ReactNode } from 'react';
 
 export const EntityLink = ({
   href,
   title,
   description,
+  reorderHandleSlot,
 }: {
   href: ComponentProps<typeof MotionLink>['href'];
   title: string;
   description?: string | null;
+  reorderHandleSlot?: ReactNode;
 }) => {
   return (
-    <MotionLink href={href} className={cx(pixelBorder({ borderWidth: 1 }))}>
+    <MotionLink href={href}>
       <div
         className={css({
+          backgroundColor: 'black',
           display: 'flex',
-          flexDirection: 'column',
-          gap: '8px',
+          gap: '4px',
           padding: '4px',
         })}
       >
-        <p>{title}</p>
-        {description && (
-          <p
-            className={css({
-              color: 'gray.200',
-              textStyle: 'Body.tertiary',
-              lineClamp: 3,
-            })}
-          >
-            {description}
-          </p>
-        )}
+        <div
+          className={css({
+            display: 'flex',
+            flex: '1',
+            flexDirection: 'column',
+            gap: '8px',
+          })}
+        >
+          <p>{title}</p>
+          {description && (
+            <p
+              className={css({
+                color: 'gray.200',
+                textStyle: 'Body.tertiary',
+                lineClamp: 3,
+              })}
+            >
+              {description}
+            </p>
+          )}
+        </div>
+        {reorderHandleSlot}
       </div>
     </MotionLink>
+  );
+};
+
+export const EntityLinkReorderHandle = ({
+  onPointerDown,
+}: {
+  onPointerDown: ComponentProps<'div'>['onPointerDown'];
+}) => {
+  return (
+    <div
+      className={css({
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        touchAction: 'none',
+        px: '4px',
+      })}
+      onPointerDown={onPointerDown}
+    >
+      <Menu className={css({ width: '[24px]', height: '[24px]' })} />
+    </div>
   );
 };
