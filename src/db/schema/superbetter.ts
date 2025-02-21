@@ -67,6 +67,7 @@ export const powerups = table('powerup', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
+  order: int('order').notNull().default(0),
   createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
@@ -103,6 +104,7 @@ export const villains = table('villain', {
     .references(() => users.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
+  order: int('order').notNull().default(0),
   createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
