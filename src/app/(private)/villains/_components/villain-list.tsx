@@ -2,11 +2,7 @@
 
 import { Reorder } from '@/components/reorder';
 import { useEffect, useState } from 'react';
-import {
-  EntityLink,
-  EntityLinkReorderHandle,
-} from '../../_components/entity-link';
-import { reorderVillains } from '../_actions/reorder-villains';
+import { EntityLink } from '../../_components/entity-link';
 
 export const VillainList = ({
   villains,
@@ -41,14 +37,14 @@ export const VillainList = ({
               href={`/villains/${q.id}`}
               title={q.title}
               description={q.description}
-              reorderHandleSlot={
-                <EntityLinkReorderHandle
-                  onPointerDown={(e) => controls.start(e)}
-                  onPointerUp={async () => {
-                    await reorderVillains(orderedVillains);
-                  }}
-                />
-              }
+              // reorderHandleSlot={
+              //   <EntityLinkReorderHandle
+              //     onPointerDown={(e) => controls.start(e)}
+              //     onPointerUp={async () => {
+              //       await reorderVillains(orderedVillains);
+              //     }}
+              //   />
+              // }
             />
           )}
         />

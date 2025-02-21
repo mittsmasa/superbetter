@@ -74,7 +74,9 @@ export const EntityLinkReorderHandle = ({
         e.stopPropagation();
         onPointerDown?.(e);
       }}
-      onPointerUp={onPointerUp}
+      onPointerUp={(e) => {
+        onPointerUp?.(e);
+      }}
     >
       <Menu className={css({ width: '[24px]', height: '[24px]' })} />
     </div>
