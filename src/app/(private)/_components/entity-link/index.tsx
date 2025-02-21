@@ -29,6 +29,7 @@ export const EntityLink = ({
             display: 'flex',
             flex: '1',
             flexDirection: 'column',
+            justifyContent: 'center',
             gap: '8px',
           })}
         >
