@@ -1,6 +1,5 @@
 import { MotionLink } from '@/components/motion-link';
-import { css, cx } from '@/styled-system/css';
-import { pixelBorder } from '@/styled-system/patterns';
+import { css } from '@/styled-system/css';
 import type { ComponentProps } from 'react';
 
 export const EntityLink = ({
@@ -13,7 +12,7 @@ export const EntityLink = ({
   description?: string | null;
 }) => {
   return (
-    <MotionLink href={href} className={cx(pixelBorder({ borderWidth: 1 }))}>
+    <MotionLink href={href}>
       <div
         className={css({
           display: 'flex',
