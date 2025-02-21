@@ -21,7 +21,7 @@ export const EntityLink = ({
           backgroundColor: 'black',
           display: 'flex',
           gap: '4px',
-          padding: '4px',
+          padding: '4px 0px 4px 12px',
         })}
       >
         <div
@@ -64,11 +64,16 @@ export const EntityLinkReorderHandle = ({
       className={css({
         alignItems: 'center',
         display: 'flex',
+        minHeight: '[60px]',
+        minWidth: '[60px]',
         justifyContent: 'center',
         touchAction: 'none',
         px: '4px',
       })}
-      onPointerDown={onPointerDown}
+      onPointerDown={(e) => {
+        e.stopPropagation();
+        onPointerDown?.(e);
+      }}
       onPointerUp={onPointerUp}
     >
       <Menu className={css({ width: '[24px]', height: '[24px]' })} />
