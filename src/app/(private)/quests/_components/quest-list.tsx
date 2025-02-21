@@ -6,6 +6,7 @@ import {
   EntityLink,
   EntityLinkReorderHandle,
 } from '../../_components/entity-link';
+import { reorderQuests } from '../_actions/reorder-quests';
 
 export const QuestList = ({
   quests,
@@ -43,6 +44,9 @@ export const QuestList = ({
               reorderHandleSlot={
                 <EntityLinkReorderHandle
                   onPointerDown={(e) => controls.start(e)}
+                  onPointerUp={async () => {
+                    await reorderQuests(orderedQuests);
+                  }}
                 />
               }
             />

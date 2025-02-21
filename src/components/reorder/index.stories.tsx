@@ -3,6 +3,7 @@ import {
   EntityLinkReorderHandle,
 } from '@/app/(private)/_components/entity-link';
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { useState } from 'react';
 import { Reorder } from '.';
 const meta = {
@@ -27,10 +28,11 @@ const meta = {
               <EntityLink
                 href="#"
                 title={item.toString()}
-                // description="hogehoge"
+                description="hogehoge"
                 reorderHandleSlot={
                   <EntityLinkReorderHandle
                     onPointerDown={(e) => controls.start(e)}
+                    onPointerUp={fn}
                   />
                 }
               />

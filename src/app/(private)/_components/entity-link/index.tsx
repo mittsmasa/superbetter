@@ -53,8 +53,10 @@ export const EntityLink = ({
 
 export const EntityLinkReorderHandle = ({
   onPointerDown,
+  onPointerUp,
 }: {
   onPointerDown: ComponentProps<'div'>['onPointerDown'];
+  onPointerUp: ComponentProps<'div'>['onPointerUp'];
 }) => {
   return (
     <div
@@ -66,6 +68,7 @@ export const EntityLinkReorderHandle = ({
         px: '4px',
       })}
       onPointerDown={onPointerDown}
+      onPointerUp={onPointerUp}
     >
       <Menu className={css({ width: '[24px]', height: '[24px]' })} />
     </div>
