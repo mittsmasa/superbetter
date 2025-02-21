@@ -1,0 +1,1 @@
+ALTER TABLE `quest` ADD `order` int DEFAULT 0 NOT NULL;

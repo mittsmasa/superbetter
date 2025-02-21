@@ -1,7 +1,7 @@
 import { css } from '@/styled-system/css';
 import { getPowerups } from '../_actions/get-powerup';
-import { EntityLink } from '../_components/entity-link';
 import { AddPowerupButton } from './_components/add-powerup-button';
+import { PowerupList } from './_components/powerup-list';
 
 const Page = async () => {
   const powerups = await getPowerups();
@@ -42,14 +42,7 @@ const Page = async () => {
           textStyle: 'Body.secondary',
         })}
       >
-        {powerups.data.records.map((p) => (
-          <EntityLink
-            key={p.id}
-            href={`/powerups/${p.id}`}
-            title={p.title}
-            description={p.description}
-          />
-        ))}
+        <PowerupList powerups={powerups.data.records} />
       </div>
     </main>
   );

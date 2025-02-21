@@ -1,7 +1,7 @@
 import { css } from '@/styled-system/css';
 import { getVillains } from '../_actions/get-villain';
-import { EntityLink } from '../_components/entity-link';
 import { AddVillainButton } from './_components/add-villain-button';
+import { VillainList } from './_components/villain-list';
 
 const Page = async () => {
   const villains = await getVillains();
@@ -40,14 +40,7 @@ const Page = async () => {
           textStyle: 'Body.secondary',
         })}
       >
-        {villains.data.records.map((v) => (
-          <EntityLink
-            key={v.id}
-            href={`/villains/${v.id}`}
-            title={v.title}
-            description={v.description}
-          />
-        ))}
+        <VillainList villains={villains.data.records} />
       </div>
     </main>
   );
