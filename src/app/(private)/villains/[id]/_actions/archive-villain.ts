@@ -7,13 +7,14 @@ import { villains } from '@/db/schema/superbetter';
 import { and, eq } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';
 
-export const deleteVillain = async (args: {
+export const archiveVillain = async (args: {
   id: string;
 }): Promise<Result<undefined, { type: 'unknown'; message: string }>> => {
   const user = await getUser();
   try {
     await db
-      .delete(villains)
+      .update(villains)
+      .set({ archived: true })
       .where(and(eq(villains.id, args.id), eq(villains.userId, user.id)));
     revalidatePath('/villains');
   } catch (e) {

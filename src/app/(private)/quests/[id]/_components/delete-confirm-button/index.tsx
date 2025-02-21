@@ -6,7 +6,7 @@ import { IconButton } from '@/components/icon-button';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import { useRouter } from 'next/navigation';
-import { deleteQuest } from '../../_actions/delete-quest';
+import { archiveQuest } from '../../_actions/archive-quest';
 
 export const DeleteConfirmButton = (props: { id: string; name: string }) => {
   const deleteConfirm = useDialog();
@@ -20,7 +20,7 @@ export const DeleteConfirmButton = (props: { id: string; name: string }) => {
         dialog={deleteConfirm}
         itemName={props.name}
         onDelete={async () => {
-          const res = await deleteQuest({ id: props.id });
+          const res = await archiveQuest({ id: props.id });
           if (res.type === 'error') {
             throw new Error(res.error.message);
           }
