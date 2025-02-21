@@ -2,11 +2,7 @@
 
 import { Reorder } from '@/components/reorder';
 import { useEffect, useState } from 'react';
-import {
-  EntityLink,
-  EntityLinkReorderHandle,
-} from '../../_components/entity-link';
-import { reorderQuests } from '../_actions/reorder-quests';
+import { EntityLink } from '../../_components/entity-link';
 
 export const QuestList = ({
   quests,
@@ -41,14 +37,14 @@ export const QuestList = ({
               href={`/quests/${q.id}`}
               title={q.title}
               description={q.description}
-              reorderHandleSlot={
-                <EntityLinkReorderHandle
-                  onPointerDown={(e) => controls.start(e)}
-                  onPointerUp={async () => {
-                    await reorderQuests(orderedQuests);
-                  }}
-                />
-              }
+              // reorderHandleSlot={
+              //   <EntityLinkReorderHandle
+              //     onPointerDown={(e) => controls.start(e)}
+              //     onPointerUp={async () => {
+              //       await reorderQuests(orderedQuests);
+              //     }}
+              //   />
+              // }
             />
           )}
         />
