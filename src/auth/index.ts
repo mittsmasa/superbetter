@@ -6,5 +6,6 @@ import { config } from './config';
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: DrizzleAdapter(db),
   session: { strategy: 'jwt' },
+  experimental: { enableWebAuthn: true },
   ...config,
 });
