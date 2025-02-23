@@ -1,4 +1,6 @@
+import { users } from '@/db/schema/auth';
 import { DrizzleAdapter } from '@auth/drizzle-adapter';
+import { and, eq } from 'drizzle-orm';
 import NextAuth from 'next-auth';
 import type { NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
@@ -16,19 +18,24 @@ const config = {
         password: {},
       },
       authorize: async (credentials) => {
-        // let user = null
-        // // logic to salt and hash password
-        // const pwHash = saltAndHashPassword(credentials.password)
-        // // logic to verify if the user exists
-        // user = await getUserFromDb(credentials.email, pwHash)
-        // if (!user) {
-        //   // No user found, so this is their first attempt to login
-        //   // Optionally, this is also the place you could do a user registration
-        //   throw new Error("Invalid credentials.")
-        // }
+        // logic to verify if the user exists
+        const user = await db.query.users.findFirst({
+          columns: {
+            id: true,
+            email: true,
+          },
+          where: and(
+            eq(users.email, credentials.email as string),
+            eq(users.password, credentials.password as string),
+          ),
+        });
+        if (!user) {
+          // No user found, so this is their first attempt to login
+          // Optionally, this is also the place you could do a user registration
+          throw new Error('Invalid credentials.');
+        }
         // return user object with their profile data
-        // return user
-        return { email: credentials.email as string, name: 'Test User' };
+        return user;
       },
     }),
   ],
