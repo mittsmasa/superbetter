@@ -4,7 +4,7 @@ import { createPool } from 'mysql2/promise';
 import * as authScehma from './schema/auth';
 import * as sbSchema from './schema/superbetter';
 
-const schema = { ...authScehma, ...sbSchema };
+export const schema = { ...authScehma, ...sbSchema };
 
 const pool = createPool({
   host: process.env.DB_HOST,

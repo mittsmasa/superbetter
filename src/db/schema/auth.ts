@@ -12,6 +12,7 @@ export const users = table('user', {
   id: varchar('id', { length: 255 })
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
+  password: varchar('password', { length: 255 }),
   name: varchar('name', { length: 255 }),
   email: varchar('email', { length: 255 }).unique(),
   emailVerified: timestamp('emailVerified', {

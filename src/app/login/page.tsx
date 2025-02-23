@@ -1,5 +1,8 @@
-import { SignInButton } from '@/components/google/signin-button';
+import { CredentialsForm } from '@/components/auth/credentials-form';
+import { GoogleButton } from '@/components/auth/google-button';
 import { css } from '@/styled-system/css';
+
+const VERCEL_ENV = process.env.NEXT_PUBLIC_VERCEL_ENV;
 
 const Login = async ({
   searchParams,
@@ -29,7 +32,8 @@ const Login = async ({
         <br />
         あらたな世界のとびらはここにある
       </p>
-      <SignInButton redirectTo={redirectTo} />
+      <GoogleButton redirectTo={redirectTo} />
+      {VERCEL_ENV !== 'production' && <CredentialsForm />}
     </main>
   );
 };

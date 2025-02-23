@@ -1,7 +1,7 @@
 import { signIn } from '@/auth';
 import { Button } from '../button';
 
-export const SignInButton = ({ redirectTo }: { redirectTo?: string }) => {
+export const GoogleButton = ({ redirectTo }: { redirectTo?: string }) => {
   return (
     <form
       action={async () => {
