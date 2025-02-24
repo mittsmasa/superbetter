@@ -1,8 +1,13 @@
 'use client';
 
+import { useSortable } from '@/app/_components/sortable/provider';
 import { Reorder } from '@/components/reorder';
 import { useEffect, useState } from 'react';
-import { EntityLink } from '../../_components/entity-link';
+import {
+  EntityLink,
+  EntityLinkReorderHandle,
+} from '../../_components/entity-link';
+import { reorderVillains } from '../_actions/reorder-villains';
 
 export const VillainList = ({
   villains,
@@ -13,6 +18,7 @@ export const VillainList = ({
     description?: string | null;
   }[];
 }) => {
+  const { sortable } = useSortable();
   const [orderedVillains, setOrderedVillains] = useState(villains);
   useEffect(() => {
     setOrderedVillains(villains);
@@ -37,14 +43,16 @@ export const VillainList = ({
               href={`/villains/${q.id}`}
               title={q.title}
               description={q.description}
-              // reorderHandleSlot={
-              //   <EntityLinkReorderHandle
-              //     onPointerDown={(e) => controls.start(e)}
-              //     onPointerUp={async () => {
-              //       await reorderVillains(orderedVillains);
-              //     }}
-              //   />
-              // }
+              reorderHandleSlot={
+                sortable && (
+                  <EntityLinkReorderHandle
+                    onPointerDown={(e) => controls.start(e)}
+                    onPointerUp={async () => {
+                      await reorderVillains(orderedVillains);
+                    }}
+                  />
+                )
+              }
             />
           )}
         />

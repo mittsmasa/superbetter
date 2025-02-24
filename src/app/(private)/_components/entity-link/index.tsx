@@ -64,8 +64,8 @@ export const EntityLinkReorderHandle = ({
       className={css({
         alignItems: 'center',
         display: 'flex',
-        minHeight: '[60px]',
-        minWidth: '[60px]',
+        minHeight: '[30px]',
+        minWidth: '[30px]',
         justifyContent: 'center',
         touchAction: 'none',
         px: '4px',

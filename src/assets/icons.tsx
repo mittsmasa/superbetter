@@ -15,5 +15,6 @@ export { default as Logout } from './pixel-icons/logout.svg';
 export { default as Menu } from './pixel-icons/menu.svg';
 export { default as MoreVertical } from './pixel-icons/more-vertical.svg';
 export { default as ScriptText } from './pixel-icons/script-text.svg';
+export { default as Sort } from './pixel-icons/sort.svg';
 export { default as Trash } from './pixel-icons/trash.svg';
 export { default as Zap } from './pixel-icons/zap.svg';

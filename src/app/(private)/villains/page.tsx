@@ -1,3 +1,4 @@
+import { SortableButton } from '@/app/_components/sortable/button';
 import { css } from '@/styled-system/css';
 import { getVillains } from '../_actions/get-villain';
 import { AddVillainButton } from './_components/add-villain-button';
@@ -12,6 +13,7 @@ const Page = async () => {
     <main
       className={css({
         display: 'flex',
+        flex: '1',
         flexDirection: 'column',
       })}
     >
@@ -26,7 +28,10 @@ const Page = async () => {
         })}
       >
         <h1 className={css({ textStyle: 'Heading.primary' })}>ヴィラン</h1>
-        <AddVillainButton />
+        <div className={css({ display: 'flex', gap: '8px' })}>
+          <SortableButton />
+          <AddVillainButton />
+        </div>
       </div>
       <div
         className={css({
