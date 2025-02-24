@@ -14,6 +14,7 @@ const Page = async () => {
       className={css({
         display: 'flex',
         flexDirection: 'column',
+        flex: '1',
       })}
     >
       <div

@@ -1,3 +1,4 @@
+import { SortableButton } from '@/app/_components/sortable/button';
 import { css } from '@/styled-system/css';
 import { getQuests } from '../_actions/get-quest';
 import { AddQuestButton } from './_components/add-quest-button';
@@ -13,6 +14,7 @@ const Page = async () => {
       className={css({
         display: 'flex',
         flexDirection: 'column',
+        flex: '1',
       })}
     >
       <div
@@ -26,7 +28,10 @@ const Page = async () => {
         })}
       >
         <h1 className={css({ textStyle: 'Heading.primary' })}>クエスト</h1>
-        <AddQuestButton />
+        <div className={css({ display: 'flex', gap: '8px' })}>
+          <SortableButton />
+          <AddQuestButton />
+        </div>
       </div>
       <div
         className={css({

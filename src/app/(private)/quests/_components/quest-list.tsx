@@ -1,8 +1,13 @@
 'use client';
 
+import { useSortable } from '@/app/_components/sortable/provider';
 import { Reorder } from '@/components/reorder';
 import { useEffect, useState } from 'react';
-import { EntityLink } from '../../_components/entity-link';
+import {
+  EntityLink,
+  EntityLinkReorderHandle,
+} from '../../_components/entity-link';
+import { reorderQuests } from '../_actions/reorder-quests';
 
 export const QuestList = ({
   quests,
@@ -13,6 +18,7 @@ export const QuestList = ({
     description?: string | null;
   }[];
 }) => {
+  const { sortable } = useSortable();
   const [orderedQuests, setOrderedQuests] = useState(quests);
   useEffect(() => {
     setOrderedQuests(quests);
@@ -37,14 +43,16 @@ export const QuestList = ({
               href={`/quests/${q.id}`}
               title={q.title}
               description={q.description}
-              // reorderHandleSlot={
-              //   <EntityLinkReorderHandle
-              //     onPointerDown={(e) => controls.start(e)}
-              //     onPointerUp={async () => {
-              //       await reorderQuests(orderedQuests);
-              //     }}
-              //   />
-              // }
+              reorderHandleSlot={
+                sortable && (
+                  <EntityLinkReorderHandle
+                    onPointerDown={(e) => controls.start(e)}
+                    onPointerUp={async () => {
+                      await reorderQuests(orderedQuests);
+                    }}
+                  />
+                )
+              }
             />
           )}
         />
