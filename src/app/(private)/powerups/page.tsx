@@ -1,3 +1,4 @@
+import { SortableButton } from '@/app/_components/sortable/button';
 import { css } from '@/styled-system/css';
 import { getPowerups } from '../_actions/get-powerup';
 import { AddPowerupButton } from './_components/add-powerup-button';
@@ -28,7 +29,10 @@ const Page = async () => {
         <h1 className={css({ textStyle: 'Heading.primary' })}>
           パワーアップアイテム
         </h1>
-        <AddPowerupButton />
+        <div className={css({ display: 'flex', gap: '8px' })}>
+          <SortableButton />
+          <AddPowerupButton />
+        </div>
       </div>
       <div
         className={css({

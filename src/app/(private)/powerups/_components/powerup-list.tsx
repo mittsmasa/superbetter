@@ -1,8 +1,13 @@
 'use client';
 
+import { useSortable } from '@/app/_components/sortable/provider';
 import { Reorder } from '@/components/reorder';
 import { useEffect, useState } from 'react';
-import { EntityLink } from '../../_components/entity-link';
+import {
+  EntityLink,
+  EntityLinkReorderHandle,
+} from '../../_components/entity-link';
+import { reorderPowerups } from '../_actions/reorder-powerups';
 
 export const PowerupList = ({
   powerups,
@@ -13,6 +18,7 @@ export const PowerupList = ({
     description?: string | null;
   }[];
 }) => {
+  const { sortable } = useSortable();
   const [orderedPowerups, setOrderedPowerups] = useState(powerups);
   useEffect(() => {
     setOrderedPowerups(powerups);
@@ -37,14 +43,16 @@ export const PowerupList = ({
               href={`/powerups/${p.id}`}
               title={p.title}
               description={p.description}
-              // reorderHandleSlot={
-              //   <EntityLinkReorderHandle
-              //     onPointerDown={(e) => controls.start(e)}
-              //     onPointerUp={async () => {
-              //       await reorderPowerups(orderedPowerups);
-              //     }}
-              //   />
-              // }
+              reorderHandleSlot={
+                sortable && (
+                  <EntityLinkReorderHandle
+                    onPointerDown={(e) => controls.start(e)}
+                    onPointerUp={async () => {
+                      await reorderPowerups(orderedPowerups);
+                    }}
+                  />
+                )
+              }
             />
           )}
         />

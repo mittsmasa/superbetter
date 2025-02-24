@@ -3,6 +3,7 @@ import './globals.css';
 import { ToastProvider, Toaster } from '@/components/toast';
 import { pixelMPlus } from '@/fonts';
 import { css } from '@/styled-system/css';
+import { SortableProvider } from './_components/sortable/provider';
 
 const APP_NAME = 'Super Better';
 const APP_DEFAULT_TITLE = 'Super Better';
@@ -54,7 +55,7 @@ export default function RootLayout({
     <html lang="ja" className={pixelMPlus.className}>
       <body className={css({ height: '[100dvh]' })}>
         <ToastProvider>
-          {children}
+          <SortableProvider>{children}</SortableProvider>
           <Toaster />
         </ToastProvider>
       </body>
