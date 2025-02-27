@@ -12,7 +12,7 @@
     "drizzle:push": "drizzle-kit push",
     "drizzle:studio": "drizzle-kit studio",
     "drizzle:seed": "pnpm dlx tsx ./src/db/seed/index.ts",
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "dev:utc": "TZ='Etc/UTC' next dev",
     "prepare": "panda codegen",
     "start": "next start",
