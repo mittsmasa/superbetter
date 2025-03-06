@@ -15,13 +15,16 @@ export const updateMissionConditions = async ({
 }) => {
   const tragetMissons = await tx
     .select({
-      mission: missions,
+      missionId: sql`ANY_VALUE(mission.id)`
+        .mapWith(missions.id)
+        .as('missionId'),
       missionConditionId: sql`ANY_VALUE(missionCondition.id)`
         .mapWith(missionConditions.id)
         .as('missionConditionId'),
       maxCreatedAt: sql`MAX(missionCondition.createdAt)`.as('maxCreatedAt'),
     })
     .from(missions)
+    .for('update')
     .innerJoin(missionConditions, eq(missions.id, missionConditions.missionId))
     .where(
       and(
@@ -38,7 +41,7 @@ export const updateMissionConditions = async ({
         ),
       ),
     )
-    .groupBy(missionConditions.missionId);
+    .groupBy(missions.id);
 
   await tx
     .update(missionConditions)
