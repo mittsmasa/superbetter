@@ -8,9 +8,11 @@ import type { ComponentProps } from 'react';
 
 export const MotionLink = ({
   pixelBorderWidth = 1,
+  disabled = false,
   ...props
 }: Omit<ComponentProps<typeof Link>, 'className'> & {
   pixelBorderWidth?: number;
+  disabled?: boolean;
 }) => {
   const feeling = useTapFeeling();
   return (
@@ -19,7 +21,11 @@ export const MotionLink = ({
       {...feeling.props}
       className={cx(
         // display: inline では transform が効かないため block に変更
-        css(feeling.cssRaw, { display: 'block' }),
+        css(feeling.cssRaw, {
+          display: 'block',
+          cursor: disabled ? 'not-allowed' : undefined,
+          pointerEvents: disabled ? 'none' : undefined,
+        }),
         pixelBorderWidth > 0 && pixelBorder({ borderWidth: pixelBorderWidth }),
       )}
     />

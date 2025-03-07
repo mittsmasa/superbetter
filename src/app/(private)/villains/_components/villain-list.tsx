@@ -41,6 +41,7 @@ export const VillainList = ({
           renderItem={({ controls }) => (
             <EntityLink
               href={`/villains/${q.id}`}
+              disabled={sortable}
               title={q.title}
               description={q.description}
               reorderHandleSlot={

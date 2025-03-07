@@ -41,6 +41,7 @@ export const PowerupList = ({
           renderItem={({ controls }) => (
             <EntityLink
               href={`/powerups/${p.id}`}
+              disabled={sortable}
               title={p.title}
               description={p.description}
               reorderHandleSlot={

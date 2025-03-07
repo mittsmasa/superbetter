@@ -41,6 +41,7 @@ export const QuestList = ({
           renderItem={({ controls }) => (
             <EntityLink
               href={`/quests/${q.id}`}
+              disabled={sortable}
               title={q.title}
               description={q.description}
               reorderHandleSlot={
