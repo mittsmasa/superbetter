@@ -28,6 +28,7 @@ const meta = {
               <EntityLink
                 href="#"
                 title={item.toString()}
+                disabled
                 description="hogehoge"
                 reorderHandleSlot={
                   <EntityLinkReorderHandle

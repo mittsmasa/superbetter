@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import {
   type PropsWithChildren,
   createContext,
@@ -23,8 +24,14 @@ const SortableToggleContext = createContext<SortableToggleContextProps | null>(
 );
 
 export const SortableProvider = ({ children }: PropsWithChildren) => {
+  const pathaname = usePathname();
   const [sortable, setSortable] = useState(false);
+  const [prevPathname, setPrevPathname] = useState(pathaname);
   const toggleSortable = useCallback(() => setSortable((prev) => !prev), []);
+  if (prevPathname !== pathaname) {
+    setSortable(false);
+    setPrevPathname(pathaname);
+  }
   return (
     <SortableContext value={{ sortable }}>
       <SortableToggleContext value={{ toggleSortable }}>
