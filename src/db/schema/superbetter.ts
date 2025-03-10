@@ -3,11 +3,13 @@ import {
   datetime,
   mysqlEnum as enumField,
   int,
+  json,
   mysqlTable as table,
   text,
   varchar,
 } from 'drizzle-orm/mysql-core';
 import type { AdventureItem, MissionCondition } from '../types/mission';
+import type { TestAnswer, TestName } from '../types/test';
 import { users } from './auth';
 
 export const userProfile = table('userProfile', {
@@ -201,4 +203,30 @@ export const missionConditions = table('missionCondition', {
     .notNull()
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date()),
+});
+
+/** 診断まわり */
+export const testTypes = table('testType', {
+  id: varchar('id', { length: 255 })
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  name: enumField('name', ['pos-neg'] as const satisfies TestName[])
+    .notNull()
+    .unique(),
+});
+
+export const testResults = table('testResult', {
+  id: varchar('id', { length: 255 })
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  userId: varchar('userId', { length: 255 })
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  testTypeId: varchar('testTypeId', { length: 255 })
+    .notNull()
+    .references(() => testTypes.id, { onDelete: 'cascade' }),
+  answer: json('answer').notNull().$type<TestAnswer>(),
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .$defaultFn(() => new Date()),
 });
