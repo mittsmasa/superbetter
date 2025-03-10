@@ -12,19 +12,24 @@ export const EntityLink = ({
 }: {
   href: ComponentProps<typeof MotionLink>['href'];
   disabled?: ComponentProps<typeof MotionLink>['disabled'];
-  title: string;
+  title: ReactNode;
   description?: string | null;
   reorderHandleSlot?: ReactNode;
 }) => {
   return (
     <div className={css({ position: 'relative' })}>
-      <MotionLink href={href} disabled={disabled}>
+      <MotionLink
+        href={href}
+        disabled={disabled}
+        pixelBorderColor={disabled ? 'gray.200' : undefined}
+      >
         <div
           className={css({
             backgroundColor: 'black',
+            ...(disabled && { color: 'gray.200' }),
             display: 'flex',
             gap: '4px',
-            padding: '4px 0px 4px 12px',
+            padding: '4px 4px 4px 8px',
             ...(reorderHandleSlot && { paddingRight: '32px' }),
           })}
         >
@@ -37,7 +42,7 @@ export const EntityLink = ({
               gap: '8px',
             })}
           >
-            <p>{title}</p>
+            {title}
             {description && (
               <p
                 className={css({
