@@ -48,7 +48,7 @@ const Page = async () => {
             })}
           >
             <EntityLink
-              href="/trial-gate/pos-neg"
+              href="/scan/pos-neg"
               disabled
               title={
                 <div
