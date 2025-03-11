@@ -3,6 +3,7 @@
 import { useTapFeeling } from '@/hooks/feeling';
 import { css, cva, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
+import Link from 'next/link';
 import type { ComponentProps } from 'react';
 
 const button = cva({
@@ -57,5 +58,33 @@ export const Button = ({
     >
       {children}
     </button>
+  );
+};
+
+export const ButtonLink = ({
+  children,
+  variant,
+  ...props
+}: { variant?: 'primary' | 'secondary'; disabled?: boolean } & Pick<
+  ComponentProps<typeof Link>,
+  'children' | 'href'
+>) => {
+  const feeling = useTapFeeling();
+  return (
+    <Link
+      {...feeling.props}
+      {...props}
+      className={cx(
+        pixelBorder({
+          borderColor: props.disabled ? 'gray.200' : 'white',
+        }),
+        css(button.raw({ variant }), !props.disabled && feeling.cssRaw, {
+          cursor: props.disabled ? 'not-allowed' : undefined,
+          pointerEvents: props.disabled ? 'none' : undefined,
+        }),
+      )}
+    >
+      {children}
+    </Link>
   );
 };
