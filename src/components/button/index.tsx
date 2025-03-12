@@ -11,11 +11,17 @@ const button = cva({
     cursor: 'pointer',
     padding: '8px',
     textStyle: 'Body.primary',
+    transition: '[width 0.2s]',
     _disabled: {
       cursor: 'unset',
     },
   },
   variants: {
+    full: {
+      true: {
+        width: '[100%]',
+      },
+    },
     variant: {
       primary: {
         backgroundColor: 'white',
@@ -33,14 +39,15 @@ const button = cva({
       },
     },
   },
-  defaultVariants: { variant: 'primary' },
+  defaultVariants: { variant: 'primary', full: false },
 });
 
 export const Button = ({
   children,
   variant,
+  full,
   ...props
-}: { variant?: 'primary' | 'secondary' } & Pick<
+}: { variant?: 'primary' | 'secondary'; full?: boolean } & Pick<
   ComponentProps<'button'>,
   'disabled' | 'type' | 'onClick' | 'children'
 >) => {
@@ -53,7 +60,7 @@ export const Button = ({
         pixelBorder({
           borderColor: props.disabled ? 'gray.200' : 'white',
         }),
-        css(button.raw({ variant }), !props.disabled && feeling.cssRaw),
+        css(button.raw({ variant, full }), !props.disabled && feeling.cssRaw),
       )}
     >
       {children}

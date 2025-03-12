@@ -22,3 +22,4 @@ export { default as ScriptText } from './pixel-icons/script-text.svg';
 export { default as Sort } from './pixel-icons/sort.svg';
 export { default as Trash } from './pixel-icons/trash.svg';
 export { default as Zap } from './pixel-icons/zap.svg';
+export { default as Reload } from './pixel-icons/reload.svg';
