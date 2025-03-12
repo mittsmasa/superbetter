@@ -7,8 +7,12 @@
 ## Env
 https://superbetter.vercel.app/
 
-### Font
+## Storybook
+https://mittsmasa.github.io/superbetter
+
+## Font
 [PixelMplus](https://itouhiro.hatenablog.com/entry/20130602/font) を使わせていただいております。感謝
 
-### Icon
+## Icon
 [PixelartIcons](https://pixelarticons.com/) を使わせていただいております。感謝。
+
