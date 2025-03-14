@@ -152,7 +152,7 @@ const Page = async () => {
                 <span>ポジネガ比</span>
               </div>
               <span className={css({ textStyle: 'Body.primary' })}>
-                {latest.positive}/{latest.negative} = {latest.posNegRatio}(
+                {latest.positive}/{latest.negative} = {latest.posNegRatio} (
                 {previous
                   ? withSign.format(latest.posNegRatio - previous?.posNegRatio)
                   : '-'}
