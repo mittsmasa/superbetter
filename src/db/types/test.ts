@@ -5,6 +5,7 @@ export type PosNegAnswer = {
   answer: {
     positive: number;
     negative: number;
+    posNegRatio: number;
   };
 };
 

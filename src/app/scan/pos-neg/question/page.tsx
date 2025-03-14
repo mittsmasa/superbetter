@@ -4,6 +4,7 @@ import { Button } from '@/components/button';
 import { CounterButton } from '@/components/counter-button';
 import { css } from '@/styled-system/css';
 import { redirect } from 'next/navigation';
+import { postPosNegScore } from './pos-neg-score';
 
 const Page = () => {
   return (
@@ -58,11 +59,10 @@ const Page = () => {
             const negatives = f.getAll('negative');
             const posScore = positives.reduce((a, b) => a + Number(b), 0);
             const negScore = negatives.reduce((a, b) => a + Number(b), 0);
-            // 少数第一位までで四捨五入
-            const posNegRatio =
-              negScore > 0 ? Math.round((posScore / negScore) * 10) / 10 : 0;
-            console.log(posScore, negScore, posNegRatio);
-            // insert result to db
+            const response = await postPosNegScore(posScore, negScore);
+            if (response.type === 'error') {
+              throw new Error(response.error.message);
+            }
             redirect('/scan/pos-neg/result');
           }}
           className={css({
