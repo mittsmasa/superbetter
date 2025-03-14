@@ -1,9 +1,14 @@
 import { CheckList, CloudSun } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import { EntityLink } from '../_components/entity-link';
+import { getPosNegScores } from './_actions/get-pos-neg-scores';
 import { ConfigButton } from './_components/config-button';
 
 const Page = async () => {
+  const posNegScore = await getPosNegScores();
+  if (posNegScore.type === 'error') {
+    throw new Error(posNegScore.error.message);
+  }
   return (
     <main
       className={css({
@@ -49,7 +54,6 @@ const Page = async () => {
           >
             <EntityLink
               href="/scan/pos-neg"
-              disabled
               title={
                 <div
                   className={css({
@@ -68,14 +72,14 @@ const Page = async () => {
                       className={css({ width: '[20px]', height: '[20px]' })}
                     />
                     <span className={css({ textStyle: 'Body.primary' })}>
-                      魔力測定 (公開予定)
+                      魔力測定
                     </span>
                   </div>
                   <span className={css({ display: 'flex', gap: '8px' })}>
                     <CloudSun
                       className={css({ width: '[20px]', height: '[20px]' })}
                     />
-                    {'なし'}
+                    {posNegScore.data.latest?.posNegRatio ?? '未測定'}
                   </span>
                 </div>
               }
