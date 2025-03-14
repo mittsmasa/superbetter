@@ -59,7 +59,7 @@ const Page = () => {
           py: '24px',
         })}
       >
-        <ButtonLink href="#">魔力をはかる！</ButtonLink>
+        <ButtonLink href="/scan/pos-neg/question">魔力をはかる！</ButtonLink>
       </div>
     </main>
   );
