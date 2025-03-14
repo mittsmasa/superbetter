@@ -4,7 +4,7 @@ import { Button } from '@/components/button';
 import { CounterButton } from '@/components/counter-button';
 import { css } from '@/styled-system/css';
 import { redirect } from 'next/navigation';
-import { postPosNegScore } from './pos-neg-score';
+import { postPosNegScore } from './_actions/pos-neg-score';
 
 const Page = () => {
   return (
