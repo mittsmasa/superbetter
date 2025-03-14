@@ -6,7 +6,10 @@ import { css } from '@/styled-system/css';
 import { useRouter } from 'next/navigation';
 import type { ReactNode } from 'react';
 
-export const Header = ({ rightSlot }: { rightSlot?: ReactNode }) => {
+export const Header = ({
+  withBackButton = true,
+  rightSlot,
+}: { withBackButton?: boolean; rightSlot?: ReactNode }) => {
   const router = useRouter();
   return (
     <div
@@ -18,9 +21,15 @@ export const Header = ({ rightSlot }: { rightSlot?: ReactNode }) => {
         padding: '8px',
       })}
     >
-      <IconButton onClick={() => router.back()}>
-        <ChevlonLeft className={css({ width: '[24px]', height: '[24px]' })} />
-      </IconButton>
+      <div>
+        {withBackButton && (
+          <IconButton onClick={() => router.back()}>
+            <ChevlonLeft
+              className={css({ width: '[24px]', height: '[24px]' })}
+            />
+          </IconButton>
+        )}
+      </div>
       <div>{rightSlot}</div>
     </div>
   );
