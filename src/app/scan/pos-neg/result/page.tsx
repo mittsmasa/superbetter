@@ -2,8 +2,20 @@ import { Header } from '@/app/(private)/_components/header';
 import { CheckList, Cloud, CloudSun, Sun } from '@/assets/icons';
 import { ButtonLink } from '@/components/button';
 import { css } from '@/styled-system/css';
+import { getPosNegScores } from './_actions/get-pos-neg-scores';
 
-const Page = () => {
+const withSign = new Intl.NumberFormat('en-US', { signDisplay: 'always' });
+
+const Page = async () => {
+  const score = await getPosNegScores();
+  if (score.type === 'error') {
+    throw new Error(score.error.message);
+  }
+  const { latest, previous } = score.data;
+  if (!latest) {
+    throw new Error('There is no latest score');
+  }
+
   return (
     <main
       className={css({
@@ -84,7 +96,13 @@ const Page = () => {
                 <Sun className={css({ width: '[18px]', height: '[18px]' })} />
                 <span>ポジティブ感情</span>
               </div>
-              <span>5 (+1)</span>
+              <span>
+                {latest.positive} (
+                {previous
+                  ? withSign.format(latest.positive - previous.positive)
+                  : '-'}
+                )
+              </span>
             </div>
             <div
               className={css({
@@ -103,7 +121,13 @@ const Page = () => {
                 <Cloud className={css({ width: '[18px]', height: '[18px]' })} />
                 <span>ネガティブ感情</span>
               </div>
-              <span>5 (-3)</span>
+              <span>
+                {latest.negative} (
+                {previous
+                  ? withSign.format(latest.negative - previous.negative)
+                  : '-'}
+                )
+              </span>
             </div>
             <hr
               className={css({ height: '[1px]', backgroundColor: 'white' })}
@@ -128,7 +152,11 @@ const Page = () => {
                 <span>ポジネガ比</span>
               </div>
               <span className={css({ textStyle: 'Body.primary' })}>
-                5/5 = 1.0 (+1.2)
+                {latest.positive}/{latest.negative} = {latest.posNegRatio}(
+                {previous
+                  ? withSign.format(latest.posNegRatio - previous?.posNegRatio)
+                  : '-'}
+                )
               </span>
             </div>
           </div>
