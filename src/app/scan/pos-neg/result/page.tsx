@@ -154,7 +154,7 @@ const Page = async () => {
               <span className={css({ textStyle: 'Body.primary' })}>
                 {latest.positive}/{latest.negative} = {latest.posNegRatio} (
                 {previous
-                  ? withSign.format(latest.posNegRatio - previous?.posNegRatio)
+                  ? withSign.format(latest.posNegRatio - previous.posNegRatio)
                   : '-'}
                 )
               </span>
