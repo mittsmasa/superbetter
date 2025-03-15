@@ -79,7 +79,8 @@ const Page = async () => {
                     <CloudSun
                       className={css({ width: '[20px]', height: '[20px]' })}
                     />
-                    {posNegScore.data.latest?.posNegRatio ?? '未測定'}
+                    {posNegScore.data.latest?.posNegRatio.toFixed(1) ??
+                      '未測定'}
                   </span>
                 </div>
               }
