@@ -1,9 +1,8 @@
 import 'server-only';
 
+import { getStartAndEndOfDay } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
-import { TZDate } from '@date-fns/tz';
-import { addDays, endOfDay, startOfDay } from 'date-fns';
 import { and, between, eq } from 'drizzle-orm';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
@@ -17,11 +16,7 @@ export const createDailyMission = async (): Promise<
 > => {
   const user = await getUser();
 
-  const now = new TZDate(new Date(), 'Asia/Tokyo');
-  // NOTE: ユーザーごとのタイムゾーンを使うように修正
-  const todayStart = new Date(startOfDay(now));
-  const tomorrowStart = new Date(addDays(todayStart, 1));
-  const todayEnd = new Date(endOfDay(now));
+  const { start: todayStart, end: todayEnd } = getStartAndEndOfDay(new Date());
 
   try {
     const mission = await db.query.missions.findFirst({
@@ -29,7 +24,7 @@ export const createDailyMission = async (): Promise<
         and(
           eq(mission.userId, user.id),
           eq(mission.type, 'system-daily'),
-          between(mission.deadline, todayStart, tomorrowStart),
+          between(mission.deadline, todayStart, todayEnd),
         ),
     });
     if (mission) {

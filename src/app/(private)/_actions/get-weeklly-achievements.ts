@@ -1,8 +1,8 @@
 import 'server-only';
 
+import { fixToUTC, getTZDate } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
-import { TZDate } from '@date-fns/tz';
 import { addDays, endOfDay, getDay, startOfDay } from 'date-fns';
 import { and, asc, between, desc, eq } from 'drizzle-orm';
 import { getUser } from './get-user';
@@ -15,13 +15,12 @@ import type {
 export const getWeeklyAchievements = async (): Promise<
   Result<WeekelyAchievements, { type: 'unknown'; message: string }>
 > => {
-  // NOTE: ユーザーごとのタイムゾーンを使うように修正
-  const now = new TZDate(new Date(), 'Asia/Tokyo');
+  const now = getTZDate(new Date());
   const day = getDay(now);
   // day = 0: 日曜日, 1: 月曜日, ..., 6: 土曜日
   const distanceToMonday = day === 0 ? 6 : day - 1;
-  const mondayStart = new Date(startOfDay(addDays(now, -distanceToMonday)));
-  const sundayEnd = new Date(endOfDay(addDays(now, -distanceToMonday + 6)));
+  const mondayStart = fixToUTC(startOfDay(addDays(now, -distanceToMonday)));
+  const sundayEnd = fixToUTC(endOfDay(addDays(now, -distanceToMonday + 6)));
 
   const user = await getUser();
   try {

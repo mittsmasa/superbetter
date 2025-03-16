@@ -6,6 +6,7 @@
   "scripts": {
     "build": "next build",
     "check": "biome check",
+    "test": "vitest",
     "check:fix": "biome check --write",
     "drizzle:gen": "drizzle-kit generate",
     "drizzle:migrate": "drizzle-kit migrate",
@@ -57,7 +58,8 @@
     "serwist": "9.0.12",
     "storybook": "8.6.6",
     "tsx": "4.19.3",
-    "typescript": "5.8.2"
+    "typescript": "5.8.2",
+    "vitest": "3.0.8"
   },
   "volta": {
     "node": "22.14.0"
