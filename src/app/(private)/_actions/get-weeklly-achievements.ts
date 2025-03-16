@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { fixDate, getTZDate } from '@/app/_utils/date';
+import { fixToUTC, getTZDate } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
 import { addDays, endOfDay, getDay, startOfDay } from 'date-fns';
@@ -19,8 +19,8 @@ export const getWeeklyAchievements = async (): Promise<
   const day = getDay(now);
   // day = 0: 日曜日, 1: 月曜日, ..., 6: 土曜日
   const distanceToMonday = day === 0 ? 6 : day - 1;
-  const mondayStart = fixDate(startOfDay(addDays(now, -distanceToMonday)));
-  const sundayEnd = fixDate(endOfDay(addDays(now, -distanceToMonday + 6)));
+  const mondayStart = fixToUTC(startOfDay(addDays(now, -distanceToMonday)));
+  const sundayEnd = fixToUTC(endOfDay(addDays(now, -distanceToMonday + 6)));
 
   const user = await getUser();
   try {

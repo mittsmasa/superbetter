@@ -8,17 +8,17 @@ export const getTZDate = (date: Date, timezone = 'Asia/Tokyo') => {
 };
 
 /**
- * startOfDay や endOfDay がサーバーのタイムゾーンで処理されてしまうため
+ * UTCに固定する
  * @param date
  * @returns
  */
-export const fixDate = (date: Date) => {
+export const fixToUTC = (date: Date) => {
   return new Date(date);
 };
 
 export const getStartAndEndOfDay = (date: Date) => {
   const now = getTZDate(date);
-  const start = fixDate(startOfDay(now));
-  const end = fixDate(endOfDay(now));
+  const start = fixToUTC(startOfDay(now));
+  const end = fixToUTC(endOfDay(now));
   return { start, end };
 };
