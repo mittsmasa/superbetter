@@ -2,6 +2,7 @@ import 'server-only';
 
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
+import { getStartAndEndOfDay } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import {
   powerupHistories,
@@ -11,8 +12,6 @@ import {
   villainHistories,
   villains,
 } from '@/db/schema/superbetter';
-import { TZDate } from '@date-fns/tz';
-import { endOfDay, startOfDay } from 'date-fns';
 import { and, between, desc, eq } from 'drizzle-orm';
 import type { AdventureLog } from './types/adventure-log';
 
@@ -30,10 +29,7 @@ export const getTodayLogs = async (): Promise<
 > => {
   const user = await getUser();
 
-  // NOTE: ユーザーごとのタイムゾーンを使うように修正
-  const now = new TZDate(new Date(), 'Asia/Tokyo');
-  const todayStart = new Date(startOfDay(now));
-  const todayEnd = new Date(endOfDay(now));
+  const { start: todayStart, end: todayEnd } = getStartAndEndOfDay(new Date());
 
   try {
     const powerupLogs = await db

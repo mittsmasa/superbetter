@@ -2,7 +2,7 @@ import { TZDate } from '@date-fns/tz';
 import { endOfDay } from 'date-fns/endOfDay';
 import { startOfDay } from 'date-fns/startOfDay';
 
-const getTZDate = (date: Date, timezone = 'Asia/Tokyo') => {
+export const getTZDate = (date: Date, timezone = 'Asia/Tokyo') => {
   const now = new TZDate(date, timezone);
   return now;
 };
@@ -12,7 +12,7 @@ const getTZDate = (date: Date, timezone = 'Asia/Tokyo') => {
  * @param date
  * @returns
  */
-const fixDate = (date: Date) => {
+export const fixDate = (date: Date) => {
   return new Date(date);
 };
 
