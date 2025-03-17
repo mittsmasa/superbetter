@@ -6,6 +6,7 @@ export { default as AbTesting } from './pixel-icons/ab-testing.svg';
 export { default as AddBox } from './pixel-icons/add-box.svg';
 export { default as Android } from './pixel-icons/android.svg';
 export { default as Archive } from './pixel-icons/archive.svg';
+export { default as CalendarCheck } from './pixel-icons/calendar-check.svg';
 export { default as Calendar } from './pixel-icons/calendar.svg';
 export { default as CheckList } from './pixel-icons/checklist.svg';
 export { default as ChevlonLeft } from './pixel-icons/chevron-left.svg';
