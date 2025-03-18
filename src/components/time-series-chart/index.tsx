@@ -77,7 +77,7 @@ const NeonBar = ({ fill, x, y, width, height }: BarProps) => {
   );
 };
 
-const StackedBarChart = () => {
+export const TimeSeriesChart = () => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart
@@ -115,5 +115,3 @@ const StackedBarChart = () => {
     </ResponsiveContainer>
   );
 };
-
-export default StackedBarChart;

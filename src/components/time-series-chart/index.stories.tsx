@@ -1,6 +1,6 @@
 import { css } from '@/styled-system/css';
 import type { Meta, StoryObj } from '@storybook/react';
-import TimeSeriesChart from './index';
+import { TimeSeriesChart } from './index';
 
 const meta = {
   component: TimeSeriesChart,
@@ -21,6 +21,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {},
-};
+} satisfies Story;
