@@ -22,3 +22,17 @@ export const getStartAndEndOfDay = (date: Date) => {
   const end = fixToUTC(endOfDay(now));
   return { start, end };
 };
+
+export const getDateTimeFormat = (datetime: Date, timeZone = 'Asia/Tokyo') => {
+  const day = new Intl.DateTimeFormat('ja-JP', {
+    weekday: 'short',
+    timeZone,
+  }).format(datetime);
+
+  const date = new Intl.DateTimeFormat('en-US', {
+    day: 'numeric',
+    timeZone,
+  }).format(datetime);
+
+  return { day, date };
+};

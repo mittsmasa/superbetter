@@ -1,4 +1,5 @@
 import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
+import { getDateTimeFormat } from '@/app/_utils/date';
 import { cva, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
 
@@ -32,15 +33,7 @@ export const DailyAchievement = ({
   status,
   isToday,
 }: DailyAchievements) => {
-  const day = new Intl.DateTimeFormat('ja-JP', {
-    weekday: 'short',
-    timeZone: 'Asia/Tokyo',
-  }).format(datetime);
-
-  const date = new Intl.DateTimeFormat('en-US', {
-    day: 'numeric',
-    timeZone: 'Asia/Tokyo',
-  }).format(datetime);
+  const { day, date } = getDateTimeFormat(datetime);
 
   return (
     <div className={cx(wrapper({ status }), isToday && pixelBorder({}))}>
