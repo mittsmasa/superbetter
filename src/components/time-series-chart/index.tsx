@@ -77,7 +77,11 @@ const NeonBar = ({ fill, x, y, width, height }: BarProps) => {
   );
 };
 
-export const TimeSeriesChart = () => {
+export const TimeSeriesChart = ({
+  data,
+}: {
+  data: { date: string; powerup: number; quest: number; villain: number }[];
+}) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart
