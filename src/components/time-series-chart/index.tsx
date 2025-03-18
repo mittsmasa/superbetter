@@ -1,4 +1,5 @@
 import { token } from '@/styled-system/tokens';
+import { useId } from 'react';
 import {
   Bar,
   BarChart,
@@ -40,20 +41,39 @@ const CustomXTick = ({
 };
 
 const NeonBar = ({ fill, x, y, width, height }: BarProps) => {
+  const id = useId();
   return (
-    <rect
-      x={x}
-      y={y}
-      width={width}
-      height={height}
-      stroke={fill}
-      strokeWidth={2}
-      fill={fill}
-      fillOpacity={0.2}
-      style={{
-        filter: `drop-shadow(0 0 8px ${fill}) drop-shadow(0 0 16px ${fill}`,
-      }}
-    />
+    <>
+      <defs>
+        <filter id={id}>
+          <feDropShadow
+            in="SourceGraphic"
+            dx="0"
+            dy="0"
+            stdDeviation="4"
+            floodColor={fill}
+          />
+          <feDropShadow
+            in="SourceGraphic"
+            dx="0"
+            dy="0"
+            stdDeviation="8"
+            floodColor={fill}
+          />
+        </filter>
+      </defs>
+      <rect
+        x={x}
+        y={y}
+        width={width}
+        height={height}
+        stroke={fill}
+        strokeWidth={2}
+        fill={fill}
+        fillOpacity={0.2}
+        filter={`url(#${id})`}
+      />
+    </>
   );
 };
 
