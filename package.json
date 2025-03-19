@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@pandacss/dev": "0.53.1",
+    "@pandacss/dev": "0.53.2",
     "@storybook/addon-essentials": "8.6.7",
     "@storybook/addon-interactions": "8.6.7",
     "@storybook/blocks": "8.6.7",
