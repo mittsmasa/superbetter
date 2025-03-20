@@ -1,39 +1,80 @@
+'use client';
+
+import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { token } from '@/styled-system/tokens';
-import { useId } from 'react';
+import { type ComponentProps, useId } from 'react';
 import {
   Bar,
   BarChart,
   type BarProps,
+  CartesianGrid,
   ResponsiveContainer,
   XAxis,
   YAxis,
 } from 'recharts';
 
-const data = [
-  { date: '2024-03-11', powerup: 30, quest: 20, villain: 10 },
-  { date: '2024-03-12', powerup: 40, quest: 25, villain: 15 },
-  { date: '2024-03-13', powerup: 35, quest: 30, villain: 20 },
-  { date: '2024-03-14', powerup: 50, quest: 35, villain: 25 },
-  { date: '2024-03-15', powerup: 60, quest: 40, villain: 30 },
-] satisfies { date: string; powerup: number; quest: number; villain: number }[];
-
 const CustomXTick = ({
   x,
   y,
   payload,
-}: { x: number; y: number; payload: { value: string } }) => {
+  custom,
+}: {
+  x: number;
+  y: number;
+  payload: { value: string };
+  custom: ChartElement;
+}) => {
   const date = new Date(payload.value);
   const day = `${date.getDate()}`;
   const weekday = new Intl.DateTimeFormat('ja-JP', { weekday: 'short' }).format(
     date,
   );
-
+  const textColor =
+    custom.status === 'achieved'
+      ? token('colors.black')
+      : custom.status === 'no-data'
+        ? token('colors.gray.200')
+        : token('colors.white');
   return (
-    <g transform={`translate(${x},${y})`} fill="white">
-      <text x={0} y={0} dy={10} textAnchor="middle" fill="white">
+    <g transform={`translate(${x},${y})`}>
+      {/* border */}
+      <rect
+        x={-14}
+        y={-6}
+        fill={custom.isToday ? token('colors.white') : 'transparent'}
+        width={28}
+        height={40}
+      />
+      {/* background */}
+      <rect
+        x={-12}
+        y={-4}
+        fill={
+          custom.status === 'achieved'
+            ? token('colors.white')
+            : token('colors.black')
+        }
+        width={24}
+        height={36}
+      />
+      <text
+        x={0}
+        y={0}
+        dy={8}
+        textAnchor="middle"
+        fill={textColor}
+        fontSize={14}
+      >
         {day}
       </text>
-      <text x={0} y={20} dy={10} textAnchor="middle" fill="white">
+      <text
+        x={0}
+        y={20}
+        dy={8}
+        textAnchor="middle"
+        fill={textColor}
+        fontSize={14}
+      >
         {weekday}
       </text>
     </g>
@@ -77,43 +118,74 @@ const NeonBar = ({ fill, x, y, width, height }: BarProps) => {
   );
 };
 
-const StackedBarChart = () => {
+type ChartElement = {
+  date: DailyAchievements['dateString'];
+  isToday?: DailyAchievements['isToday'];
+  status: DailyAchievements['status'];
+  powerup: number;
+  quest: number;
+  villain: number;
+};
+
+export const TimeSeriesChart = ({
+  onClickBar,
+  data,
+}: {
+  onClickBar: (date: string) => void;
+  data: ChartElement[];
+}) => {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height={200}>
       <BarChart
         data={data}
         barCategoryGap={4}
-        margin={{ top: 16, right: 16, left: -10, bottom: 10 }}
+        style={{ overflow: 'visible' }}
+        margin={{ top: 4, right: 16, left: -30, bottom: 12 }}
       >
         <XAxis
           interval={0}
           dataKey="date"
           axisLine={false}
           tickLine={false}
-          tick={(props) => <CustomXTick {...props} />}
+          tick={(props: ComponentProps<typeof CustomXTick>) => {
+            const customProp = data.find((d) => d.date === props.payload.value);
+            if (!customProp) return <></>;
+            return <CustomXTick {...props} custom={customProp} />;
+          }}
         />
-        <YAxis axisLine={false} tickLine={false} />
+        <YAxis
+          axisLine={false}
+          tickLine={false}
+          domain={[0, 'dataMax']}
+          tick={{ fill: token('colors.gray.200') }}
+        />
+        <CartesianGrid
+          vertical={false}
+          stroke={token('colors.gray.600')}
+          strokeDasharray="5 5"
+        />
         <Bar
           fill={token('colors.yellow.300')}
           dataKey="powerup"
           stackId="a"
           shape={(props: BarProps) => <NeonBar {...props} />}
+          onTouchStart={(e: { date: string }) => onClickBar(e.date)}
         />
         <Bar
           dataKey="quest"
           stackId="a"
           fill={token('colors.cyan.500')}
           shape={(props: BarProps) => <NeonBar {...props} />}
+          onTouchStart={(e: { date: string }) => onClickBar(e.date)}
         />
         <Bar
           dataKey="villain"
           stackId="a"
           fill={token('colors.purple.600')}
           shape={(props: BarProps) => <NeonBar {...props} />}
+          onTouchStart={(e: { date: string }) => onClickBar(e.date)}
         />
       </BarChart>
     </ResponsiveContainer>
   );
 };
-
-export default StackedBarChart;

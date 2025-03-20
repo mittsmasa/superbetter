@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { fixToUTC, getStartAndEndOfDay, getTZDate } from './date';
+import {
+  fixToUTC,
+  getDateTimeFormat,
+  getStartAndEndOfDay,
+  getTZDate,
+} from './date';
 
 describe('date utils', () => {
   describe('test environment', () => {
@@ -32,6 +37,26 @@ describe('date utils', () => {
       expect(tzDate.toISOString()).toBe('2025-03-16T13:43:00.000+09:00');
       expect(fixed.toISOString()).toBe('2025-03-16T04:43:00.000Z');
       expect(fixed.getTime()).toBe(tzDate.getTime());
+    });
+
+    describe('getDateTimeFormat', () => {
+      it('日本語の曜日と日付を正しく返す', () => {
+        const date = new Date('2025-03-16T00:00:00Z');
+        // UTC時間（日本時間で3月16日（日））
+        const result = getDateTimeFormat(date);
+
+        expect(result.day).toBe('日');
+        expect(result.date).toBe('16');
+      });
+
+      it('異なるタイムゾーンでも正しく動作する', () => {
+        const date = new Date('2025-03-16T00:00:00Z');
+        // UTC時間（アメリカ東部時間で3月15日（土））
+        const result = getDateTimeFormat(date, 'America/New_York');
+
+        expect(result.day).toBe('土');
+        expect(result.date).toBe('15');
+      });
     });
   });
 

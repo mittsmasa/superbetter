@@ -1,14 +1,21 @@
 import { CheckList, CloudSun } from '@/assets/icons';
 import { css } from '@/styled-system/css';
+import { getWeeklyAchievements } from '../_actions/get-weeklly-achievements';
 import { EntityLink } from '../_components/entity-link';
 import { getPosNegScores } from './_actions/get-pos-neg-scores';
 import { ConfigButton } from './_components/config-button';
+import { LogSection } from './_components/log-section';
 
 const Page = async () => {
   const posNegScore = await getPosNegScores();
   if (posNegScore.type === 'error') {
     throw new Error(posNegScore.error.message);
   }
+  const achievement = await getWeeklyAchievements();
+  if (achievement.type === 'error') {
+    throw new Error(achievement.error.message);
+  }
+
   return (
     <main
       className={css({
@@ -37,6 +44,7 @@ const Page = async () => {
           padding: '8px',
         })}
       >
+        <LogSection weeklyAchievement={achievement.data} />
         <div
           className={css({
             display: 'flex',
