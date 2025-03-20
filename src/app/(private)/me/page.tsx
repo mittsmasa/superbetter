@@ -1,11 +1,10 @@
 import { CheckList, CloudSun } from '@/assets/icons';
-import { TimeSeriesChart } from '@/components/time-series-chart';
 import { css } from '@/styled-system/css';
 import { getWeeklyAchievements } from '../_actions/get-weeklly-achievements';
-import { AdventureLog } from '../_components/adventure-log';
 import { EntityLink } from '../_components/entity-link';
 import { getPosNegScores } from './_actions/get-pos-neg-scores';
 import { ConfigButton } from './_components/config-button';
+import { LogSection } from './_components/log-section';
 
 const Page = async () => {
   const posNegScore = await getPosNegScores();
@@ -16,12 +15,7 @@ const Page = async () => {
   if (achievement.type === 'error') {
     throw new Error(achievement.error.message);
   }
-  const chartData = achievement.data.map((d) => ({
-    date: d.dateString,
-    quest: d.adventureLogs.filter((log) => log.type === 'quest').length,
-    powerup: d.adventureLogs.filter((log) => log.type === 'powerup').length,
-    villain: d.adventureLogs.filter((log) => log.type === 'villain').length,
-  }));
+
   return (
     <main
       className={css({
@@ -50,17 +44,7 @@ const Page = async () => {
           padding: '8px',
         })}
       >
-        <div
-          className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px',
-          })}
-        >
-          <h2 className={css({ textStyle: 'Heading.primary' })}>冒険ログ</h2>
-          <TimeSeriesChart data={chartData} />
-          <AdventureLog heading={''} logs={[]} />
-        </div>
+        <LogSection weeklyAchievement={achievement.data} />
         <div
           className={css({
             display: 'flex',
