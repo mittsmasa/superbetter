@@ -96,7 +96,8 @@ export const getWeeklyAchievements = async (): Promise<
         const datetimeString = dateFormatter.format(datetime);
 
         return {
-          datetime,
+          date: datetime,
+          dateString: datetimeString,
           adventureLogs:
             entities.find((entity) => entity.datetime === datetimeString)
               ?.adventureLogs ?? [],
@@ -104,12 +105,11 @@ export const getWeeklyAchievements = async (): Promise<
         } satisfies DailyAchievements;
       })
       .map((achievement) => {
-        const datetimeString = dateFormatter.format(achievement.datetime);
-        const isToday = datetimeString === dateFormatter.format(now);
+        const isToday = achievement.dateString === dateFormatter.format(now);
         const mission = missionWithConditions.find(
           (mwc) =>
             dateFormatter.format(mwc.deadline ?? Date.UTC(0)) ===
-            datetimeString,
+            achievement.dateString,
         );
         if (!mission) {
           return achievement;

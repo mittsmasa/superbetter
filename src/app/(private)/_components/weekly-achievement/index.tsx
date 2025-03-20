@@ -16,7 +16,7 @@ export const WeeklyAchievement = async ({
       })}
     >
       {weeklyAchievement.map((a) => (
-        <DailyAchievement key={a.datetime.toString()} {...a} />
+        <DailyAchievement key={a.dateString.toString()} {...a} />
       ))}
     </div>
   );

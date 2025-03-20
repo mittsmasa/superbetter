@@ -29,11 +29,11 @@ const wrapper = cva({
 });
 
 export const DailyAchievement = ({
-  datetime,
+  date: _date,
   status,
   isToday,
 }: DailyAchievements) => {
-  const { day, date } = getDateTimeFormat(datetime);
+  const { day, date } = getDateTimeFormat(_date);
 
   return (
     <div className={cx(wrapper({ status }), isToday && pixelBorder({}))}>

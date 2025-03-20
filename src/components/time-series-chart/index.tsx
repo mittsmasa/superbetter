@@ -1,3 +1,5 @@
+'use client';
+
 import { token } from '@/styled-system/tokens';
 import { useId } from 'react';
 import {
@@ -83,7 +85,7 @@ export const TimeSeriesChart = ({
   data: { date: string; powerup: number; quest: number; villain: number }[];
 }) => {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height={200}>
       <BarChart
         data={data}
         barCategoryGap={4}

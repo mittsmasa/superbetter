@@ -4,7 +4,8 @@ import { DailyAchievement } from '.';
 const meta = {
   component: DailyAchievement,
   args: {
-    datetime: new Date('2024-12-30'),
+    date: new Date('2024-12-30'),
+    dateString: '2024-12-30',
     adventureLogs: [],
   },
 } satisfies Meta<typeof DailyAchievement>;
