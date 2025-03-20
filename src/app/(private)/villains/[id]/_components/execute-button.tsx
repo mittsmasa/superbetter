@@ -2,7 +2,7 @@
 
 import { postVillainHistory } from '@/app/(private)/_actions/post-villain-history';
 import { Button } from '@/components/button';
-import { GlassScreen } from '@/components/gray-screen';
+import { GlassScreen } from '@/components/glass-screen';
 import { useToast } from '@/components/toast';
 import { css } from '@/styled-system/css';
 import { useTransition } from 'react';
