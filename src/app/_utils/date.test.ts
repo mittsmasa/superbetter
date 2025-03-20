@@ -41,7 +41,8 @@ describe('date utils', () => {
 
     describe('getDateTimeFormat', () => {
       it('日本語の曜日と日付を正しく返す', () => {
-        const date = new Date('2025-03-16T04:43:00Z'); // UTC時間（日本時間で3月16日（日））
+        const date = new Date('2025-03-16T00:00:00Z');
+        // UTC時間（日本時間で3月16日（日））
         const result = getDateTimeFormat(date);
 
         expect(result.day).toBe('日');
@@ -49,10 +50,10 @@ describe('date utils', () => {
       });
 
       it('異なるタイムゾーンでも正しく動作する', () => {
-        const date = new Date('2025-03-16T04:43:00Z');
+        const date = new Date('2025-03-16T00:00:00Z');
+        // UTC時間（アメリカ東部時間で3月15日（土））
         const result = getDateTimeFormat(date, 'America/New_York');
 
-        // UTCで4:43 = NYで0:43（3月15日（土））
         expect(result.day).toBe('土');
         expect(result.date).toBe('15');
       });
