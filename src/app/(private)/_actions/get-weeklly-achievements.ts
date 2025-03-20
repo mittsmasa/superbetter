@@ -24,7 +24,7 @@ import type {
   WeekelyAchievements,
 } from './types/weekly-achievements';
 
-const dateFormatter = new Intl.DateTimeFormat('en-US', {
+const dateFormatter = new Intl.DateTimeFormat('ja-JP', {
   year: 'numeric',
   month: 'numeric',
   day: 'numeric',

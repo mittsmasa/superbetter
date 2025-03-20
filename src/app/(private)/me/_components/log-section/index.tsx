@@ -17,6 +17,8 @@ export const LogSection = ({
   const chartData = useMemo(
     () =>
       weeklyAchievement.map((d) => ({
+        status: d.status,
+        isToday: d.isToday,
         date: d.dateString,
         quest: d.adventureLogs.filter((log) => log.type === 'quest').length,
         powerup: d.adventureLogs.filter((log) => log.type === 'powerup').length,
@@ -36,7 +38,7 @@ export const LogSection = ({
       })}
     >
       <h2 className={css({ textStyle: 'Heading.primary' })}>冒険ログ</h2>
-      <TimeSeriesChart data={chartData} />
+      <TimeSeriesChart onClickBar={setSelectedDate} data={chartData} />
       {achievement && (
         <AdventureLog
           heading={achievement.isToday ? '本日' : `${achievement.dateString}`}

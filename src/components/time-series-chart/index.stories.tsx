@@ -1,9 +1,11 @@
 import { css } from '@/styled-system/css';
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import { TimeSeriesChart } from './index';
 
 const meta = {
   component: TimeSeriesChart,
+  args: { onClickBar: fn },
   decorators: [
     (Story) => (
       <div
@@ -24,13 +26,62 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   args: {
     data: [
-      { date: '2024-03-11', powerup: 3, quest: 2, villain: 1 },
-      { date: '2024-03-12', powerup: 4, quest: 2, villain: 1 },
-      { date: '2024-03-13', powerup: 3, quest: 3, villain: 2 },
-      { date: '2024-03-14', powerup: 5, quest: 3, villain: 2 },
-      { date: '2024-03-15', powerup: 6, quest: 4, villain: 3 },
-      { date: '2024-03-16', powerup: 7, quest: 5, villain: 4 },
-      { date: '2024-03-17', powerup: 8, quest: 6, villain: 5 },
+      {
+        date: '2024-03-11',
+        powerup: 3,
+        quest: 2,
+        villain: 1,
+        isToday: false,
+        status: 'achieved',
+      },
+      {
+        date: '2024-03-12',
+        powerup: 0,
+        quest: 0,
+        villain: 0,
+        isToday: false,
+        status: 'no-data',
+      },
+      {
+        date: '2024-03-13',
+        powerup: 1,
+        quest: 1,
+        villain: 1,
+        isToday: false,
+        status: 'not-achieved',
+      },
+      {
+        date: '2024-03-14',
+        powerup: 5,
+        quest: 3,
+        villain: 2,
+        isToday: false,
+        status: 'achieved',
+      },
+      {
+        date: '2024-03-15',
+        powerup: 6,
+        quest: 4,
+        villain: 3,
+        isToday: false,
+        status: 'achieved',
+      },
+      {
+        date: '2024-03-16',
+        powerup: 7,
+        quest: 5,
+        villain: 4,
+        isToday: false,
+        status: 'achieved',
+      },
+      {
+        date: '2024-03-17',
+        powerup: 8,
+        quest: 6,
+        villain: 5,
+        isToday: true,
+        status: 'achieved',
+      },
     ],
   },
 } satisfies Story;
