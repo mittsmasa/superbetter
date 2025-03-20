@@ -1,31 +1,10 @@
 import { css } from '@/styled-system/css';
 import { getMissions } from './_actions/get-mission';
 import { getTodayLogs } from './_actions/get-today-logs';
-import { getWeeklyAchievements } from './_actions/get-weeklly-achievements';
 import type { AdventureLog as AdventureLogType } from './_actions/types/adventure-log';
 import { AdventureLog } from './_components/adventure-log';
-import { DailyAchievement } from './_components/daily-achievement';
 import { Mission } from './_components/mission';
-
-const WeeklyAchievement = async () => {
-  const achievements = await getWeeklyAchievements();
-  if (achievements.type === 'error') {
-    throw new Error(achievements.error.message);
-  }
-  return (
-    <div
-      className={css({
-        display: 'flex',
-        justifyContent: 'space-between',
-        padding: '8px',
-      })}
-    >
-      {achievements.data.map((a) => (
-        <DailyAchievement key={a.datetime.toString()} {...a} />
-      ))}
-    </div>
-  );
-};
+import { WeeklyAchievement } from './_components/weekly-achievement';
 
 const TodayAdventureLog = async () => {
   const logs = await getTodayLogs();
