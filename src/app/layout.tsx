@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { GlassScreenProvider } from '@/components/glass-screen';
 import { ToastProvider, Toaster } from '@/components/toast';
 import { pixelMPlus } from '@/fonts';
 import { css } from '@/styled-system/css';
@@ -54,10 +55,12 @@ export default function RootLayout({
   return (
     <html lang="ja" className={pixelMPlus.className}>
       <body className={css({ height: '[100dvh]' })}>
-        <ToastProvider>
-          <SortableProvider>{children}</SortableProvider>
-          <Toaster />
-        </ToastProvider>
+        <GlassScreenProvider>
+          <ToastProvider>
+            <SortableProvider>{children}</SortableProvider>
+            <Toaster />
+          </ToastProvider>
+        </GlassScreenProvider>
       </body>
     </html>
   );

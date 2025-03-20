@@ -1,12 +1,11 @@
 import { css } from '@/styled-system/css';
 import type { Meta, StoryObj } from '@storybook/react';
-import { GlassScreen, GlassScreenProvider, useGlassScreen } from '.';
+import { GlassScreenProvider, useGlassScreen } from '.';
 import { Button } from '../button';
 
 const meta = {
-  component: GlassScreen,
   args: {},
-} satisfies Meta<typeof GlassScreen>;
+} satisfies Meta;
 
 export default meta;
 

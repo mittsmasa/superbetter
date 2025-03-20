@@ -8,7 +8,7 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-export const GlassScreen = () => {
+const GlassScreen = () => {
   return createPortal(<Screen />, document.body);
 };
 
