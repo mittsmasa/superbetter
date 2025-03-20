@@ -1,5 +1,6 @@
 import { css } from '@/styled-system/css';
 import { getMissions } from './_actions/get-mission';
+import { getWeeklyAchievements } from './_actions/get-weeklly-achievements';
 import { Mission } from './_components/mission';
 import { TodayAdventureLog } from './_components/today-adventure-log';
 import { WeeklyAchievement } from './_components/weekly-achievement';
@@ -9,6 +10,11 @@ export default async function Home() {
   if (missions.type === 'error') {
     throw new Error(missions.error.message);
   }
+  const weeklyAchievement = await getWeeklyAchievements();
+  if (weeklyAchievement.type === 'error') {
+    throw new Error(weeklyAchievement.error.message);
+  }
+  const todayAchievement = weeklyAchievement.data.find((d) => d.isToday);
   return (
     <main
       className={css({
@@ -25,8 +31,10 @@ export default async function Home() {
           gap: '8px',
         })}
       >
-        <WeeklyAchievement />
-        <TodayAdventureLog />
+        <WeeklyAchievement weeklyAchievement={weeklyAchievement.data} />
+        {todayAchievement && (
+          <TodayAdventureLog achievement={todayAchievement} />
+        )}
         <div
           className={css({
             display: 'flex',

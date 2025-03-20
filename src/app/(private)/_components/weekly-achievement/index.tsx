@@ -1,12 +1,12 @@
 import { css } from '@/styled-system/css';
-import { getWeeklyAchievements } from '../../_actions/get-weeklly-achievements';
+import type { WeekelyAchievements } from '../../_actions/types/weekly-achievements';
 import { DailyAchievement } from '../daily-achievement';
 
-export const WeeklyAchievement = async () => {
-  const achievements = await getWeeklyAchievements();
-  if (achievements.type === 'error') {
-    throw new Error(achievements.error.message);
-  }
+export const WeeklyAchievement = async ({
+  weeklyAchievement,
+}: {
+  weeklyAchievement: WeekelyAchievements;
+}) => {
   return (
     <div
       className={css({
@@ -15,7 +15,7 @@ export const WeeklyAchievement = async () => {
         padding: '8px',
       })}
     >
-      {achievements.data.map((a) => (
+      {weeklyAchievement.map((a) => (
         <DailyAchievement key={a.datetime.toString()} {...a} />
       ))}
     </div>

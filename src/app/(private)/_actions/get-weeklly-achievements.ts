@@ -192,7 +192,7 @@ const getTimeSeriesAdventureLogs = async (
     .orderBy(desc(villainHistories.createdAt));
 
   const entities = await unionAll(powerupLogs, questLogs, villainLogs).orderBy(
-    sql<string>`createdAt`,
+    desc(sql<string>`createdAt`),
   );
 
   const dateWithLog = Object.groupBy(
