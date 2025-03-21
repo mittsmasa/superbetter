@@ -1,5 +1,5 @@
 import { Android, ScriptText, Zap } from '@/assets/icons';
-import type { AdventureItem } from '@/db/types/mission';
+import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 import type { ReactNode } from 'react';
 
@@ -10,7 +10,7 @@ export const AdventureLog = ({
   heading: string;
   logs: {
     id: string;
-    type: AdventureItem;
+    type: EntityType;
     title: string;
   }[];
 }) => {
@@ -59,4 +59,4 @@ const Icon = {
     <Android className={css({ color: 'purple.600', width: '[18px]' })} />
   ),
   epicwin: <>未定</>,
-} as const satisfies Record<AdventureItem, ReactNode>;
+} as const satisfies Record<EntityType, ReactNode>;

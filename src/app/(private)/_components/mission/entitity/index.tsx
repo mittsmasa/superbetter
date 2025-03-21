@@ -1,5 +1,5 @@
 import { Android, ScriptText, Zap } from '@/assets/icons';
-import type { AdventureItem } from '@/db/types/mission';
+import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 
 const MISSION_ITEM_ORDER = [
@@ -7,7 +7,7 @@ const MISSION_ITEM_ORDER = [
   'quest',
   'villain',
   'epicwin',
-] as const satisfies AdventureItem[];
+] as const satisfies EntityType[];
 
 const sortMissionEntities = ():
   | ((a: MissionEntity, b: MissionEntity) => number)
@@ -48,7 +48,7 @@ export const MissionEntities = (props: { items: MissionEntity[] }) => {
 
 export type MissionEntity = {
   id: string;
-  itemType: AdventureItem;
+  itemType: EntityType;
   completed: boolean;
 };
 

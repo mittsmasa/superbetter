@@ -12,7 +12,7 @@ import {
   villainHistories,
   villains,
 } from '@/db/schema/superbetter';
-import type { AdventureItem } from '@/db/types/mission';
+import type { EntityType } from '@/db/types/mission';
 import { addDays, endOfDay, getDay, startOfDay } from 'date-fns';
 import { and, asc, between, desc, eq, sql } from 'drizzle-orm';
 import { unionAll } from 'drizzle-orm/mysql-core';
@@ -143,7 +143,7 @@ const getTimeSeriesAdventureLogs = async (
   const powerupLogs = db
     .select({
       id: powerupHistories.id,
-      type: sql<AdventureItem>`"powerup"`.as('type'),
+      type: sql<EntityType>`"powerup"`.as('type'),
       title: powerups.title,
       createdAt: powerupHistories.createdAt,
     })
@@ -160,7 +160,7 @@ const getTimeSeriesAdventureLogs = async (
   const questLogs = db
     .select({
       id: questHistories.id,
-      type: sql<AdventureItem>`"quest"`.as('type'),
+      type: sql<EntityType>`"quest"`.as('type'),
       title: quests.title,
       createdAt: questHistories.createdAt,
     })
@@ -177,7 +177,7 @@ const getTimeSeriesAdventureLogs = async (
   const villainLogs = db
     .select({
       id: villainHistories.id,
-      type: sql<AdventureItem>`"villain"`.as('type'),
+      type: sql<EntityType>`"villain"`.as('type'),
       title: villains.title,
       createdAt: villainHistories.createdAt,
     })
@@ -208,7 +208,7 @@ const getTimeSeriesAdventureLogs = async (
       quest: 2,
       villain: 3,
       epicwin: 4,
-    } as const satisfies Record<AdventureItem, number>;
+    } as const satisfies Record<EntityType, number>;
     return {
       datetime,
       adventureLogs:
