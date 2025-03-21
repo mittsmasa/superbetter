@@ -3,14 +3,13 @@ import { Android, ScriptText, Zap } from '@/assets/icons';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 
-const sortMissionEntities = ():
-  | ((a: MissionEntity, b: MissionEntity) => number)
-  | undefined => {
-  return (a, b) => {
-    const typeA = ENTITY_ORDER.indexOf(a.itemType);
-    const typeB = ENTITY_ORDER.indexOf(b.itemType);
-    return typeA - typeB;
-  };
+export const sortMissionEntities: (
+  a: MissionEntity,
+  b: MissionEntity,
+) => number = (a, b) => {
+  const typeA = ENTITY_ORDER.indexOf(a.itemType);
+  const typeB = ENTITY_ORDER.indexOf(b.itemType);
+  return typeA - typeB;
 };
 
 export const MissionEntities = (props: { items: MissionEntity[] }) => {
@@ -24,7 +23,7 @@ export const MissionEntities = (props: { items: MissionEntity[] }) => {
         overflowX: 'auto',
       })}
     >
-      {props.items.sort(sortMissionEntities()).map((item, index) => (
+      {props.items.sort(sortMissionEntities).map((item, index) => (
         <div
           key={index}
           className={css({
