@@ -9,16 +9,14 @@ import { useTransition } from 'react';
 
 export const ExecuteButton = ({ questId }: { questId: string }) => {
   const [isPending, startTransition] = useTransition();
-  const screen = useGlassScreen();
+  useGlassScreen(isPending);
   const { add: toast } = useToast();
   return (
     <>
       <form
         action={async () => {
           startTransition(async () => {
-            screen.show();
             const response = await postQuestHistory(questId);
-            screen.hide();
             if (response.type === 'error') {
               throw new Error(response.error.message);
             }

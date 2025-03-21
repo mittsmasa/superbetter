@@ -1,24 +1,31 @@
+'use client';
 import { Cloud, Sun } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { CounterButton } from '@/components/counter-button';
+import { useGlassScreen } from '@/components/glass-screen';
 import { css } from '@/styled-system/css';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { useTransition } from 'react';
 import { postPosNegScore } from '../../_actions/pos-neg-score';
 
 export const PosNegScoreForm = () => {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  useGlassScreen(isPending);
   return (
     <form
       action={async (f) => {
-        'use server';
-        const positives = f.getAll('positive');
-        const negatives = f.getAll('negative');
-        const posScore = positives.reduce((a, b) => a + Number(b), 0);
-        const negScore = negatives.reduce((a, b) => a + Number(b), 0);
-        const response = await postPosNegScore(posScore, negScore);
-        if (response.type === 'error') {
-          throw new Error(response.error.message);
-        }
-        redirect('/scan/pos-neg/result');
+        startTransition(async () => {
+          const positives = f.getAll('positive');
+          const negatives = f.getAll('negative');
+          const posScore = positives.reduce((a, b) => a + Number(b), 0);
+          const negScore = negatives.reduce((a, b) => a + Number(b), 0);
+          const response = await postPosNegScore(posScore, negScore);
+          if (response.type === 'error') {
+            throw new Error(response.error.message);
+          }
+          router.push('/scan/pos-neg/result');
+        });
       }}
       className={css({
         display: 'flex',
@@ -128,7 +135,7 @@ export const PosNegScoreForm = () => {
           backgroundColor: 'black',
         })}
       >
-        <Button type="submit" full>
+        <Button type="submit" full disabled={isPending}>
           けっかをみる！
         </Button>
       </div>

@@ -9,16 +9,14 @@ import { useTransition } from 'react';
 
 export const ExecuteButton = ({ villainId }: { villainId: string }) => {
   const [isPending, startTransition] = useTransition();
-  const screen = useGlassScreen();
+  useGlassScreen(isPending);
   const { add: toast } = useToast();
   return (
     <>
       <form
         action={async () => {
           startTransition(async () => {
-            screen.show();
             const response = await postVillainHistory(villainId);
-            screen.hide();
             if (response.type === 'error') {
               throw new Error(response.error.message);
             }

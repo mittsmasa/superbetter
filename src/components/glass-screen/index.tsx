@@ -1,8 +1,11 @@
+'use client';
+
 import { css } from '@/styled-system/css';
 import {
   type PropsWithChildren,
   createContext,
   use,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -28,7 +31,7 @@ const Screen = () => (
   />
 );
 
-const GlassScreenContext = createContext<{
+const GlassScreenUpdaterContext = createContext<{
   show: () => void;
   hide: () => void;
 } | null>(null);
@@ -40,17 +43,28 @@ export const GlassScreenProvider = ({ children }: PropsWithChildren) => {
     [],
   );
   return (
-    <GlassScreenContext.Provider value={context}>
+    <GlassScreenUpdaterContext.Provider value={context}>
       {children}
       {isShow && <GlassScreen />}
-    </GlassScreenContext.Provider>
+    </GlassScreenUpdaterContext.Provider>
   );
 };
 
-export const useGlassScreen = () => {
-  const context = use(GlassScreenContext);
+export const useGlassScreenUpdater = () => {
+  const context = use(GlassScreenUpdaterContext);
   if (!context) {
     throw new Error('useGlassScreen must be used within a GlassScreenProvider');
   }
   return context;
+};
+
+export const useGlassScreen = (isShow: boolean) => {
+  const { show, hide } = useGlassScreenUpdater();
+  useEffect(() => {
+    if (isShow) {
+      show();
+      return;
+    }
+    hide();
+  }, [isShow, show, hide]);
 };

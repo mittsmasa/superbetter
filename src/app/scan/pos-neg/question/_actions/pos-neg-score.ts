@@ -1,9 +1,10 @@
+'use server';
+
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
 import { testResults } from '@/db/schema/superbetter';
 import { eq } from 'drizzle-orm';
-import 'server-only';
 
 export const postPosNegScore = async (
   posScore: number,

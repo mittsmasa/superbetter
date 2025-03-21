@@ -1,5 +1,6 @@
 import { css } from '@/styled-system/css';
 import type { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
 import { GlassScreenProvider, useGlassScreen } from '.';
 import { Button } from '../button';
 
@@ -20,11 +21,12 @@ export const Default = {
 } satisfies Story;
 
 const ScreenButton = () => {
-  const { show, hide } = useGlassScreen();
+  const [isShow, setIsShow] = useState(false);
+  useGlassScreen(isShow);
   return (
     <div className={css({ display: 'flex', gap: '8px' })}>
-      <Button onClick={show}>Show Screen</Button>
-      <Button variant="secondary" onClick={hide}>
+      <Button onClick={() => setIsShow(true)}>Show Screen</Button>
+      <Button variant="secondary" onClick={() => setIsShow(false)}>
         Hide Screen
       </Button>
     </div>
