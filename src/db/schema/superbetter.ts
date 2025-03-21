@@ -8,7 +8,7 @@ import {
   text,
   varchar,
 } from 'drizzle-orm/mysql-core';
-import type { AdventureItem, MissionCondition } from '../types/mission';
+import type { EntityType, MissionCondition } from '../types/mission';
 import type { TestAnswer, TestName } from '../types/test';
 import { users } from './auth';
 
@@ -193,7 +193,7 @@ export const missionConditions = table('missionCondition', {
     'powerup',
     'villain',
     'epicwin',
-  ] as const satisfies AdventureItem[]).notNull(),
+  ] as const satisfies EntityType[]).notNull(),
   itemId: varchar('itemId', { length: 255 }),
   completed: boolean('completed').notNull().default(false),
   createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })

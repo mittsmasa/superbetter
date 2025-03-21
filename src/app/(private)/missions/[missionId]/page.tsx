@@ -9,7 +9,7 @@ import { MissionEntities } from '@/app/(private)/_components/mission/entitity';
 import { Android, ScriptText, Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { Radio } from '@/components/radio';
-import type { AdventureItem } from '@/db/types/mission';
+import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 import { revalidatePath } from 'next/cache';
 import Link from 'next/link';
@@ -183,7 +183,7 @@ const EntityList = ({
   showMore,
   showMoreLink,
 }: {
-  type: AdventureItem;
+  type: EntityType;
   entities: { id: string; title: string }[];
   showMore: boolean;
   showMoreLink: string;
@@ -256,11 +256,11 @@ const Icon = {
   quest: <ScriptText className={css({ width: '[20px]' })} />,
   villain: <Android className={css({ width: '[20px]' })} />,
   epicwin: <>未定</>,
-} as const satisfies Record<AdventureItem, ReactNode>;
+} as const satisfies Record<EntityType, ReactNode>;
 
 const Label = {
   powerup: 'パワーアップ',
   quest: 'クエスト',
   villain: 'ヴィラン',
   epicwin: '未定',
-} as const satisfies Record<AdventureItem, string>;
+} as const satisfies Record<EntityType, string>;
