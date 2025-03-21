@@ -1,20 +1,14 @@
+import { ENTITY_ORDER } from '@/app/_utils/constants';
 import { Android, ScriptText, Zap } from '@/assets/icons';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
-
-const MISSION_ITEM_ORDER = [
-  'powerup',
-  'quest',
-  'villain',
-  'epicwin',
-] as const satisfies EntityType[];
 
 const sortMissionEntities = ():
   | ((a: MissionEntity, b: MissionEntity) => number)
   | undefined => {
   return (a, b) => {
-    const typeA = MISSION_ITEM_ORDER.indexOf(a.itemType);
-    const typeB = MISSION_ITEM_ORDER.indexOf(b.itemType);
+    const typeA = ENTITY_ORDER.indexOf(a.itemType);
+    const typeB = ENTITY_ORDER.indexOf(b.itemType);
     return typeA - typeB;
   };
 };
