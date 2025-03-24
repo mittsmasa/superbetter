@@ -18,7 +18,7 @@ const Layout = ({ children }: PropsWithChildren) => {
           position: 'sticky',
           bottom: 0,
           padding: '8px',
-          backgroundColor: 'black',
+          backgroundColor: 'background',
         })}
       >
         <FooterNavigation />

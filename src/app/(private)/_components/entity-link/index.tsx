@@ -21,12 +21,12 @@ export const EntityLink = ({
       <MotionLink
         href={href}
         disabled={disabled}
-        pixelBorderColor={disabled ? 'gray.200' : undefined}
+        pixelBorderColor={disabled ? 'foreground.disabled' : undefined}
       >
         <div
           className={css({
-            backgroundColor: 'black',
-            ...(disabled && { color: 'gray.200' }),
+            backgroundColor: 'background',
+            ...(disabled && { color: 'foreground.disabled' }),
             display: 'flex',
             gap: '4px',
             padding: '4px 4px 4px 8px',
@@ -46,7 +46,7 @@ export const EntityLink = ({
             {description && (
               <p
                 className={css({
-                  color: 'gray.200',
+                  color: 'foreground.secondary',
                   textStyle: 'Body.tertiary',
                   lineClamp: 3,
                 })}

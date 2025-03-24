@@ -11,7 +11,7 @@ const meta = {
       <div
         className={css({
           height: '[fit-content]',
-          backgroundColor: 'black',
+          backgroundColor: 'background',
         })}
       >
         <Story />

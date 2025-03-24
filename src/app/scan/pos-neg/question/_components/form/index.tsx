@@ -132,7 +132,7 @@ export const PosNegScoreForm = () => {
       <div
         className={css({
           padding: '12px',
-          backgroundColor: 'black',
+          backgroundColor: 'background',
         })}
       >
         <Button type="submit" full disabled={isPending}>

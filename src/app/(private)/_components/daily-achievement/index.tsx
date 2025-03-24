@@ -6,8 +6,8 @@ import { pixelBorder } from '@/styled-system/patterns';
 const wrapper = cva({
   base: {
     alignItems: 'center',
-    backgroundColor: 'black',
-    color: 'white',
+    backgroundColor: 'background',
+    color: 'foreground',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -16,11 +16,11 @@ const wrapper = cva({
   variants: {
     status: {
       'no-data': {
-        color: 'gray.300',
+        color: 'foreground.disabled',
       },
       achieved: {
-        color: 'black',
-        backgroundColor: 'white',
+        color: 'background',
+        backgroundColor: 'foreground',
       },
       'not-achieved': {},
       today: {},

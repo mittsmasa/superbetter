@@ -36,7 +36,7 @@ const Page = async () => {
           className={css({
             position: 'sticky',
             top: 0,
-            backgroundColor: 'black',
+            backgroundColor: 'background',
           })}
         >
           <Header
@@ -91,6 +91,7 @@ const Page = async () => {
                   alignItems: 'center',
                   display: 'flex',
                   justifyContent: 'space-between',
+                  gap: '4px',
                 })}
               >
                 <Sun className={css({ width: '[18px]', height: '[18px]' })} />
@@ -116,6 +117,7 @@ const Page = async () => {
                   alignItems: 'center',
                   display: 'flex',
                   justifyContent: 'space-between',
+                  gap: '4px',
                 })}
               >
                 <Cloud className={css({ width: '[18px]', height: '[18px]' })} />
@@ -130,7 +132,10 @@ const Page = async () => {
               </span>
             </div>
             <hr
-              className={css({ height: '[1px]', backgroundColor: 'white' })}
+              className={css({
+                height: '[1px]',
+                backgroundColor: 'foreground',
+              })}
             />
             <div
               className={css({
@@ -144,6 +149,7 @@ const Page = async () => {
                   alignItems: 'center',
                   display: 'flex',
                   justifyContent: 'space-between',
+                  gap: '4px',
                 })}
               >
                 <CloudSun

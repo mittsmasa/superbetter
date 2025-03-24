@@ -4,7 +4,7 @@ const pixelBorder = definePattern({
   description: 'A container that has pixel borders',
   defaultValues: {
     borderWidth: 2,
-    borderColor: 'white',
+    borderColor: 'foreground',
   },
   properties: {
     borderWidth: { type: 'number' },

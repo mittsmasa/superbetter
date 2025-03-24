@@ -23,7 +23,7 @@ const Screen = () => (
       left: 0,
       width: '[100dvw]',
       height: '[100dvh]',
-      backgroundColor: 'black',
+      backgroundColor: 'background',
       opacity: 0.1,
       pointerEvents: 'none',
       zIndex: 'glassScreen',

@@ -31,17 +31,17 @@ const CustomXTick = ({
   );
   const textColor =
     custom.status === 'achieved'
-      ? token('colors.black')
+      ? token('colors.background')
       : custom.status === 'no-data'
-        ? token('colors.gray.200')
-        : token('colors.white');
+        ? token('colors.foreground.disabled')
+        : token('colors.foreground');
   return (
     <g transform={`translate(${x},${y})`}>
       {/* border */}
       <rect
         x={-14}
         y={-6}
-        fill={custom.isToday ? token('colors.white') : 'transparent'}
+        fill={custom.isToday ? token('colors.foreground') : 'transparent'}
         width={28}
         height={40}
       />
@@ -51,8 +51,8 @@ const CustomXTick = ({
         y={-4}
         fill={
           custom.status === 'achieved'
-            ? token('colors.white')
-            : token('colors.black')
+            ? token('colors.foreground')
+            : token('colors.background')
         }
         width={24}
         height={36}
@@ -157,15 +157,15 @@ export const TimeSeriesChart = ({
           axisLine={false}
           tickLine={false}
           domain={[0, 'dataMax']}
-          tick={{ fill: token('colors.gray.200') }}
+          tick={{ fill: token('colors.foreground.disabled') }}
         />
         <CartesianGrid
           vertical={false}
-          stroke={token('colors.gray.600')}
+          stroke={token('colors.chart.grid')}
           strokeDasharray="5 5"
         />
         <Bar
-          fill={token('colors.yellow.300')}
+          fill={token('colors.entity.powerup')}
           dataKey="powerup"
           stackId="a"
           shape={(props: BarProps) => <NeonBar {...props} />}
@@ -174,14 +174,14 @@ export const TimeSeriesChart = ({
         <Bar
           dataKey="quest"
           stackId="a"
-          fill={token('colors.cyan.500')}
+          fill={token('colors.entity.quest')}
           shape={(props: BarProps) => <NeonBar {...props} />}
           onTouchStart={(e: { date: string }) => onClickBar(e.date)}
         />
         <Bar
           dataKey="villain"
           stackId="a"
-          fill={token('colors.purple.600')}
+          fill={token('colors.entity.villain')}
           shape={(props: BarProps) => <NeonBar {...props} />}
           onTouchStart={(e: { date: string }) => onClickBar(e.date)}
         />

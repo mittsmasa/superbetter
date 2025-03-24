@@ -1,5 +1,6 @@
 import { keyframes } from '@/styles/keyframes';
 import * as patterns from '@/styles/patterns';
+import { semanticTokens } from '@/styles/semantic-tokens';
 import { textStyles } from '@/styles/text-styles';
 import { tokens } from '@/styles/tokens';
 import { defineConfig } from '@pandacss/dev';
@@ -12,8 +13,8 @@ export default defineConfig({
   exclude: [],
   globalCss: {
     body: {
-      backgroundColor: 'black',
-      color: 'white',
+      backgroundColor: 'background',
+      color: 'foreground',
     },
     '*': {
       boxSizing: 'border-box',
@@ -21,6 +22,7 @@ export default defineConfig({
   },
   theme: {
     tokens,
+    semanticTokens,
     textStyles,
     keyframes,
   },

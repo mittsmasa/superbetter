@@ -18,17 +18,17 @@ const numberInput = cva({
   variants: {
     variant: {
       primary: {
-        backgroundColor: 'black',
-        color: 'white',
+        backgroundColor: 'background',
+        color: 'foreground',
         _disabled: {
-          color: 'gray.200',
+          color: 'foreground.disabled',
         },
       },
       secondary: {
-        backgroundColor: 'white',
-        color: 'black',
+        backgroundColor: 'foreground',
+        color: 'background',
         _disabled: {
-          backgroundColor: 'gray.200',
+          backgroundColor: 'foreground.disabled',
         },
       },
     },
