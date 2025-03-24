@@ -165,7 +165,7 @@ export const TimeSeriesChart = ({
           strokeDasharray="5 5"
         />
         <Bar
-          fill={token('colors.yellow.300')}
+          fill={token('colors.entity.powerup')}
           dataKey="powerup"
           stackId="a"
           shape={(props: BarProps) => <NeonBar {...props} />}
@@ -174,14 +174,14 @@ export const TimeSeriesChart = ({
         <Bar
           dataKey="quest"
           stackId="a"
-          fill={token('colors.cyan.500')}
+          fill={token('colors.entity.quest')}
           shape={(props: BarProps) => <NeonBar {...props} />}
           onTouchStart={(e: { date: string }) => onClickBar(e.date)}
         />
         <Bar
           dataKey="villain"
           stackId="a"
-          fill={token('colors.purple.600')}
+          fill={token('colors.entity.villain')}
           shape={(props: BarProps) => <NeonBar {...props} />}
           onTouchStart={(e: { date: string }) => onClickBar(e.date)}
         />

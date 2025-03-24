@@ -53,10 +53,14 @@ export const AdventureLog = ({
 };
 
 const Icon = {
-  powerup: <Zap className={css({ color: 'yellow.300', width: '[18px]' })} />,
-  quest: <ScriptText className={css({ color: 'cyan.500', width: '[18px]' })} />,
+  powerup: (
+    <Zap className={css({ color: 'entity.powerup', width: '[18px]' })} />
+  ),
+  quest: (
+    <ScriptText className={css({ color: 'entity.quest', width: '[18px]' })} />
+  ),
   villain: (
-    <Android className={css({ color: 'purple.600', width: '[18px]' })} />
+    <Android className={css({ color: 'entity.villain', width: '[18px]' })} />
   ),
   epicwin: <>未定</>,
 } as const satisfies Record<EntityType, ReactNode>;
