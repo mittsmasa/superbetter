@@ -91,6 +91,7 @@ const Page = async () => {
                   alignItems: 'center',
                   display: 'flex',
                   justifyContent: 'space-between',
+                  gap: '4px',
                 })}
               >
                 <Sun className={css({ width: '[18px]', height: '[18px]' })} />
@@ -116,6 +117,7 @@ const Page = async () => {
                   alignItems: 'center',
                   display: 'flex',
                   justifyContent: 'space-between',
+                  gap: '4px',
                 })}
               >
                 <Cloud className={css({ width: '[18px]', height: '[18px]' })} />
@@ -147,6 +149,7 @@ const Page = async () => {
                   alignItems: 'center',
                   display: 'flex',
                   justifyContent: 'space-between',
+                  gap: '4px',
                 })}
               >
                 <CloudSun

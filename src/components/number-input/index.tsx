@@ -21,14 +21,14 @@ const numberInput = cva({
         backgroundColor: 'background',
         color: 'foreground',
         _disabled: {
-          color: 'gray.200',
+          color: 'foreground.disabled',
         },
       },
       secondary: {
         backgroundColor: 'foreground',
         color: 'background',
         _disabled: {
-          backgroundColor: 'gray.200',
+          backgroundColor: 'foreground.disabled',
         },
       },
     },

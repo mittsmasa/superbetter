@@ -51,7 +51,7 @@ const MissionEntity = ({ itemType, completed }: MissionEntity) => {
       return (
         <ScriptText
           className={css({
-            color: completed ? 'entity.quest' : 'gray.500',
+            color: completed ? 'entity.quest' : 'entity.disabled',
             transition: '[color 0.8s ease-in-out]',
           })}
         />
@@ -60,7 +60,7 @@ const MissionEntity = ({ itemType, completed }: MissionEntity) => {
       return (
         <Zap
           className={css({
-            color: completed ? 'entity.powerup' : 'gray.500',
+            color: completed ? 'entity.powerup' : 'entity.disabled',
             transition: '[color 0.8s ease-in-out]',
           })}
         />
@@ -69,7 +69,7 @@ const MissionEntity = ({ itemType, completed }: MissionEntity) => {
       return (
         <Android
           className={css({
-            color: completed ? 'entity.villain' : 'gray.500',
+            color: completed ? 'entity.villain' : 'entity.disabled',
             transition: '[color 0.8s ease-in-out]',
           })}
         />

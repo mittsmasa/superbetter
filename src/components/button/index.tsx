@@ -27,14 +27,14 @@ const button = cva({
         backgroundColor: 'foreground',
         color: 'background',
         _disabled: {
-          backgroundColor: 'gray.200',
+          backgroundColor: 'foreground.disabled',
         },
       },
       secondary: {
         backgroundColor: 'background',
         color: 'foreground',
         _disabled: {
-          color: 'gray.200',
+          color: 'foreground.disabled',
         },
       },
     },
@@ -58,7 +58,7 @@ export const Button = ({
       {...props}
       className={cx(
         pixelBorder({
-          borderColor: props.disabled ? 'gray.200' : 'foreground',
+          borderColor: props.disabled ? 'foreground.disabled' : 'foreground',
         }),
         css(button.raw({ variant, full }), !props.disabled && feeling.cssRaw),
       )}
@@ -83,7 +83,7 @@ export const ButtonLink = ({
       {...props}
       className={cx(
         pixelBorder({
-          borderColor: props.disabled ? 'gray.200' : 'foreground',
+          borderColor: props.disabled ? 'foreground.disabled' : 'foreground',
         }),
         css(button.raw({ variant }), !props.disabled && feeling.cssRaw, {
           cursor: props.disabled ? 'not-allowed' : undefined,

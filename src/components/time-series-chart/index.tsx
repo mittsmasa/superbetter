@@ -33,7 +33,7 @@ const CustomXTick = ({
     custom.status === 'achieved'
       ? token('colors.background')
       : custom.status === 'no-data'
-        ? token('colors.gray.200')
+        ? token('colors.foreground.disabled')
         : token('colors.foreground');
   return (
     <g transform={`translate(${x},${y})`}>
@@ -157,11 +157,11 @@ export const TimeSeriesChart = ({
           axisLine={false}
           tickLine={false}
           domain={[0, 'dataMax']}
-          tick={{ fill: token('colors.gray.200') }}
+          tick={{ fill: token('colors.foreground.disabled') }}
         />
         <CartesianGrid
           vertical={false}
-          stroke={token('colors.gray.600')}
+          stroke={token('colors.chart.grid')}
           strokeDasharray="5 5"
         />
         <Bar

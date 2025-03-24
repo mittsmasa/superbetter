@@ -43,7 +43,7 @@ const Page = () => {
           <p
             className={css({
               textStyle: 'Body.tertiary',
-              color: 'gray.50',
+              color: 'foreground',
               whiteSpace: 'pre-wrap',
             })}
           >

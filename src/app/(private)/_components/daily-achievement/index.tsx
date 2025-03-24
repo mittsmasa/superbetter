@@ -16,7 +16,7 @@ const wrapper = cva({
   variants: {
     status: {
       'no-data': {
-        color: 'gray.300',
+        color: 'foreground.disabled',
       },
       achieved: {
         color: 'background',

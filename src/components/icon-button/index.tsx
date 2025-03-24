@@ -14,7 +14,7 @@ const button = cva({
     flexShrink: 0,
     justifyContent: 'center',
     _disabled: {
-      color: 'gray.200',
+      color: 'foreground.disabled',
       cursor: 'unset',
     },
   },
@@ -58,7 +58,7 @@ export const IconButton = ({
       className={cx(
         active &&
           pixelBorder({
-            ...(props.disabled ? { borderColor: 'gray.400' } : {}),
+            ...(props.disabled ? { borderColor: 'border.disabled' } : {}),
           }),
         css(button.raw({ size }), !props.disabled && feeling.cssRaw),
       )}
