@@ -50,7 +50,7 @@
     "@storybook/react": "8.6.8",
     "@storybook/test": "8.6.8",
     "@svgr/webpack": "8.1.0",
-    "@types/node": "22.13.11",
+    "@types/node": "22.13.12",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "drizzle-kit": "0.30.5",
