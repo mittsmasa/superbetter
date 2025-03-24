@@ -13,8 +13,8 @@ export default defineConfig({
   exclude: [],
   globalCss: {
     body: {
-      backgroundColor: 'black',
-      color: 'white',
+      backgroundColor: 'background',
+      color: 'foreground',
     },
     '*': {
       boxSizing: 'border-box',

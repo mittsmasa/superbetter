@@ -109,8 +109,8 @@ const Toast = ({ id, message }: ToastProps) => {
         pixelBorder({}),
         css({
           alignItems: 'center',
-          backgroundColor: 'black',
-          color: 'white',
+          backgroundColor: 'background',
+          color: 'foreground',
           display: 'flex',
           gap: '8px',
           textStyle: 'Body.secondary',

@@ -16,10 +16,10 @@ export const Drawer = ({
     <dialog
       ref={ref}
       className={css({
-        backgroundColor: 'black',
+        backgroundColor: 'background',
         borderTop: '1px solid',
-        borderColor: 'white',
-        color: 'white',
+        borderColor: 'foreground',
+        color: 'foreground',
         maxWidth: '[100dvw]',
         maxHeight: '[100dvh]',
         width: '[100%]',
@@ -40,7 +40,7 @@ export const Drawer = ({
           },
         },
         _backdrop: {
-          backgroundColor: 'black',
+          backgroundColor: 'background',
           opacity: 0.5,
         },
       })}
@@ -54,7 +54,7 @@ export const Drawer = ({
       >
         <div
           className={css({
-            backgroundColor: 'black',
+            backgroundColor: 'background',
             display: 'flex',
             justifyContent: 'flex-end',
             padding: '12px',

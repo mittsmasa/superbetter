@@ -34,8 +34,8 @@ export const Radio = ({
           width: '[100%]',
           padding: '4px',
           _peerChecked: {
-            backgroundColor: 'white',
-            color: 'black',
+            backgroundColor: 'foreground',
+            color: 'background',
           },
         })}
       >

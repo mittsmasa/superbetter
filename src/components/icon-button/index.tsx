@@ -8,7 +8,7 @@ import type { ComponentProps } from 'react';
 const button = cva({
   base: {
     alignItems: 'center',
-    color: 'white',
+    color: 'foreground',
     cursor: 'pointer',
     display: 'flex',
     flexShrink: 0,

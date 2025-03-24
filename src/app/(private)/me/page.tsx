@@ -21,7 +21,7 @@ const Page = async () => {
     >
       <div
         className={css({
-          backgroundColor: 'black',
+          backgroundColor: 'background',
           display: 'flex',
           justifyContent: 'space-between',
           padding: '8px',

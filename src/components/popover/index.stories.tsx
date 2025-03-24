@@ -35,7 +35,7 @@ export const Default = {
               style={floatingStyles}
               ref={refs.setFloating}
               className={css({
-                backgroundColor: 'black',
+                backgroundColor: 'background',
                 padding: '20px',
               })}
             >

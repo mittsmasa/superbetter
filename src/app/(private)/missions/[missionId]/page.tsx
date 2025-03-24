@@ -45,7 +45,7 @@ const Page = async (props: {
       >
         <div
           className={css({
-            backgroundColor: 'black',
+            backgroundColor: 'background',
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
@@ -164,7 +164,7 @@ const Form = async () => {
         </div>
         <div
           className={css({
-            backgroundColor: 'black',
+            backgroundColor: 'background',
             display: 'flex',
             justifyContent: 'center',
             py: '8px',

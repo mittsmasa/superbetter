@@ -31,17 +31,17 @@ const CustomXTick = ({
   );
   const textColor =
     custom.status === 'achieved'
-      ? token('colors.black')
+      ? token('colors.background')
       : custom.status === 'no-data'
         ? token('colors.gray.200')
-        : token('colors.white');
+        : token('colors.foreground');
   return (
     <g transform={`translate(${x},${y})`}>
       {/* border */}
       <rect
         x={-14}
         y={-6}
-        fill={custom.isToday ? token('colors.white') : 'transparent'}
+        fill={custom.isToday ? token('colors.foreground') : 'transparent'}
         width={28}
         height={40}
       />
@@ -51,8 +51,8 @@ const CustomXTick = ({
         y={-4}
         fill={
           custom.status === 'achieved'
-            ? token('colors.white')
-            : token('colors.black')
+            ? token('colors.foreground')
+            : token('colors.background')
         }
         width={24}
         height={36}

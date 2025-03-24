@@ -13,7 +13,7 @@ export const FooterNavigation = () => {
     <div
       className={css({
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'background',
         display: 'flex',
         justifyContent: 'space-between',
         padding: '4px 8px',

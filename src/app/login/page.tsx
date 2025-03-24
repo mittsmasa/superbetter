@@ -21,7 +21,7 @@ const Login = async ({
     >
       <p
         className={css({
-          color: 'white',
+          color: 'foreground',
           textAlign: 'center',
           textStyle: 'Body.secondary',
         })}

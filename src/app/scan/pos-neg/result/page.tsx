@@ -36,7 +36,7 @@ const Page = async () => {
           className={css({
             position: 'sticky',
             top: 0,
-            backgroundColor: 'black',
+            backgroundColor: 'background',
           })}
         >
           <Header
@@ -130,7 +130,10 @@ const Page = async () => {
               </span>
             </div>
             <hr
-              className={css({ height: '[1px]', backgroundColor: 'white' })}
+              className={css({
+                height: '[1px]',
+                backgroundColor: 'foreground',
+              })}
             />
             <div
               className={css({

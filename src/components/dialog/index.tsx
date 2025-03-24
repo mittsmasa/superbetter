@@ -15,13 +15,13 @@ export const Dialog = ({
       className={cx(
         pixelBorder({}),
         css({
-          backgroundColor: 'black',
-          color: 'white',
+          backgroundColor: 'background',
+          color: 'foreground',
           width: '[100%]',
           margin: 'auto',
           padding: '4px',
           _backdrop: {
-            backgroundColor: 'black',
+            backgroundColor: 'background',
             opacity: 0.5,
           },
         }),

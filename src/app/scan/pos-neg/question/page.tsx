@@ -24,7 +24,7 @@ const Page = () => {
           className={css({
             position: 'sticky',
             top: 0,
-            backgroundColor: 'black',
+            backgroundColor: 'background',
           })}
         >
           <Header
