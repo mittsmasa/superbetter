@@ -24,8 +24,8 @@ const button = cva({
     },
     variant: {
       primary: {
-        backgroundColor: 'foreground',
-        color: 'background',
+        backgroundColor: 'background.alt',
+        color: 'foreground.alt',
         _disabled: {
           backgroundColor: 'foreground.disabled',
         },

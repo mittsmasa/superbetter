@@ -5,10 +5,13 @@ export const colorsSemanticTokens = defineSemanticTokens.colors({
     DEFAULT: { value: '{colors.gray.50}' },
     primary: { value: '{colors.gray.50}' },
     secondary: { value: '{colors.gray.200}' },
-    disabled: { value: '{colors.gray.500}' },
+    alt: { value: '{colors.black}' },
+    disabled: { value: '{colors.gray.300}' },
   },
   background: {
     DEFAULT: { value: '{colors.black}' },
+    primary: { value: '{colors.black}' },
+    alt: { value: '{colors.gray.50}' },
   },
   border: {
     DEFAULT: { value: '{colors.gray.50}' },
