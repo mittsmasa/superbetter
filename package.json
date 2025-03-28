@@ -35,8 +35,8 @@
     "mysql2": "3.14.0",
     "next": "15.2.4",
     "next-auth": "5.0.0-beta.25",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "recharts": "2.15.1",
     "server-only": "0.0.1"
   },
