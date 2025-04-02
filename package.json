@@ -26,7 +26,7 @@
   "dependencies": {
     "@auth/drizzle-adapter": "1.8.0",
     "@date-fns/tz": "1.2.0",
-    "@floating-ui/react": "0.27.5",
+    "@floating-ui/react": "0.27.6",
     "@serwist/next": "9.0.12",
     "date-fns": "4.1.0",
     "dotenv": "16.4.7",
@@ -50,7 +50,7 @@
     "@storybook/react": "8.6.11",
     "@storybook/test": "8.6.11",
     "@svgr/webpack": "8.1.0",
-    "@types/node": "22.13.14",
+    "@types/node": "22.13.17",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "drizzle-kit": "0.30.6",
