@@ -6,7 +6,9 @@ const VERCEL_ENV = process.env.NEXT_PUBLIC_VERCEL_ENV;
 
 const Login = async ({
   searchParams,
-}: { searchParams: Promise<{ redirectTo?: string }> }) => {
+}: {
+  searchParams: Promise<{ redirectTo?: string }>;
+}) => {
   const { redirectTo } = await searchParams;
   return (
     <main

@@ -1,10 +1,10 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
 import { villains } from '@/db/schema/superbetter';
-import { revalidatePath } from 'next/cache';
 
 export const postVillain = async (args: {
   name: string;

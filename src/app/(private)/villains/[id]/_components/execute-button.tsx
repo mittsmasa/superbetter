@@ -1,11 +1,11 @@
 'use client';
 
+import { useTransition } from 'react';
 import { postVillainHistory } from '@/app/(private)/_actions/post-villain-history';
 import { Button } from '@/components/button';
 import { useGlassScreen } from '@/components/glass-screen';
 import { useToast } from '@/components/toast';
 import { css } from '@/styled-system/css';
-import { useTransition } from 'react';
 
 export const ExecuteButton = ({ villainId }: { villainId: string }) => {
   const [isPending, startTransition] = useTransition();

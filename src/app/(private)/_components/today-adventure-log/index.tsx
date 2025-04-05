@@ -3,7 +3,9 @@ import { AdventureLog } from '../adventure-log';
 
 export const TodayAdventureLog = async ({
   achievement,
-}: { achievement: DailyAchievements }) => {
+}: {
+  achievement: DailyAchievements;
+}) => {
   return (
     <AdventureLog
       heading="本日の冒険ログ"

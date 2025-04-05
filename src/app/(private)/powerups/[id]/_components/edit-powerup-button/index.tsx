@@ -1,4 +1,5 @@
 'use client';
+import { useTransition } from 'react';
 import { editPowerup } from '@/app/(private)/powerups/_actions/edit-powerup';
 import { Edit } from '@/assets/icons';
 import { Button } from '@/components/button';
@@ -8,7 +9,6 @@ import { TextArea } from '@/components/text-area';
 import { TextInput } from '@/components/text-input';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
-import { useTransition } from 'react';
 
 export const EditPowerupButton = ({
   id,

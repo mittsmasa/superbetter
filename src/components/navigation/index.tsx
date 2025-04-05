@@ -1,9 +1,9 @@
 'use client';
 
-import { Android, Calendar, Human, ScriptText, Zap } from '@/assets/icons';
-import { css } from '@/styled-system/css';
 import { usePathname, useRouter } from 'next/navigation';
 import { type ComponentProps, type PropsWithChildren, useId } from 'react';
+import { Android, Calendar, Human, ScriptText, Zap } from '@/assets/icons';
+import { css } from '@/styled-system/css';
 import { IconButton } from '../icon-button';
 
 export const FooterNavigation = () => {

@@ -1,7 +1,7 @@
-import { useDialog } from '@/hooks/dialog';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { useEffect } from 'react';
+import { useDialog } from '@/hooks/dialog';
 import { DeleteConfirmDialog } from '.';
 
 const meta = {

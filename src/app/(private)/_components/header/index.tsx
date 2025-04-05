@@ -1,15 +1,18 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+import type { ReactNode } from 'react';
 import { ChevlonLeft } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
 import { css } from '@/styled-system/css';
-import { useRouter } from 'next/navigation';
-import type { ReactNode } from 'react';
 
 export const Header = ({
   withBackButton = true,
   rightSlot,
-}: { withBackButton?: boolean; rightSlot?: ReactNode }) => {
+}: {
+  withBackButton?: boolean;
+  rightSlot?: ReactNode;
+}) => {
   const router = useRouter();
   return (
     <div

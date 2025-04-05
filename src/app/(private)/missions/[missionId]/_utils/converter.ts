@@ -7,9 +7,6 @@ export const getEntity = (value: string) => {
   return { type, id };
 };
 
-export const getEntityValue = (entity: {
-  type: EntityType;
-  id: string;
-}) => {
+export const getEntityValue = (entity: { type: EntityType; id: string }) => {
   return `${entity.type}.${entity.id}`;
 };

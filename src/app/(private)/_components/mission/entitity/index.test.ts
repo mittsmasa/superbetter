@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { sortMissionEntities } from '.';
 import type { MissionEntity } from '.';
+import { sortMissionEntities } from '.';
 
 describe('sortMissionEntities', () => {
   it('アイテムを正しい順序でソートする', () => {

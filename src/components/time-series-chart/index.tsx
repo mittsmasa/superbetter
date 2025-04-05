@@ -1,7 +1,5 @@
 'use client';
 
-import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
-import { token } from '@/styled-system/tokens';
 import { type ComponentProps, useId } from 'react';
 import {
   Bar,
@@ -12,6 +10,8 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
+import { token } from '@/styled-system/tokens';
 
 const CustomXTick = ({
   x,

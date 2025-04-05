@@ -1,11 +1,11 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { DeleteConfirmDialog } from '@/app/(private)/_components/delete-confirm-dialog';
 import { Archive } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
-import { useRouter } from 'next/navigation';
 import { archiveQuest } from '../../_actions/archive-quest';
 
 export const DeleteConfirmButton = (props: { id: string; name: string }) => {

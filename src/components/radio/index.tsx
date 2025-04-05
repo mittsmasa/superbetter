@@ -1,6 +1,6 @@
+import type { InputHTMLAttributes } from 'react';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
-import type { InputHTMLAttributes } from 'react';
 
 export const Radio = ({
   label,

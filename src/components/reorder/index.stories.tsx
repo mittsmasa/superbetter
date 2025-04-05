@@ -1,11 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import { useState } from 'react';
 import {
   EntityLink,
   EntityLinkReorderHandle,
 } from '@/app/(private)/_components/entity-link';
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { useState } from 'react';
 import { Reorder } from '.';
+
 const meta = {
   render: () => {
     const [items, setItems] = useState([0, 1, 2, 3]);

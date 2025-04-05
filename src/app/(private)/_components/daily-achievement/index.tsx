@@ -1,5 +1,5 @@
-import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { getDateTimeFormat } from '@/app/_utils/date';
+import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { cva, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
 

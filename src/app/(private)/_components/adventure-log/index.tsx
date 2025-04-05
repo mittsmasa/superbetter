@@ -1,7 +1,7 @@
+import type { ReactNode } from 'react';
 import { Android, ScriptText, Zap } from '@/assets/icons';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
-import type { ReactNode } from 'react';
 
 export const AdventureLog = ({
   heading,

@@ -1,3 +1,6 @@
+import { revalidatePath } from 'next/cache';
+import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { getMission } from '@/app/(private)/_actions/get-mission';
 import { getPowerups } from '@/app/(private)/_actions/get-powerup';
 import { getQuests } from '@/app/(private)/_actions/get-quest';
@@ -11,15 +14,10 @@ import { Button } from '@/components/button';
 import { Radio } from '@/components/radio';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
-import { revalidatePath } from 'next/cache';
-import Link from 'next/link';
-import type { ReactNode } from 'react';
 import { Header } from '../../_components/header';
 import { getEntity, getEntityValue } from './_utils/converter';
 
-const Page = async (props: {
-  params: Promise<{ missionId: string }>;
-}) => {
+const Page = async (props: { params: Promise<{ missionId: string }> }) => {
   const { missionId } = await props.params;
   const mission = await getMission(missionId);
   if (mission.type === 'error') {

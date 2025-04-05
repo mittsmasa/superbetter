@@ -1,12 +1,14 @@
 import 'server-only';
 
+import { and, asc, desc, eq } from 'drizzle-orm';
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
 import { villains } from '@/db/schema/superbetter';
-import { and, asc, desc, eq } from 'drizzle-orm';
 
-export const getVillains = async (ops?: { limit: number }): Promise<
+export const getVillains = async (ops?: {
+  limit: number;
+}): Promise<
   Result<
     { records: (typeof villains.$inferSelect)[]; count: number },
     { type: 'unknown'; message: string }

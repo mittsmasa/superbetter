@@ -1,6 +1,6 @@
+import type { PropsWithChildren, RefObject } from 'react';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
-import type { PropsWithChildren, RefObject } from 'react';
 
 export const Dialog = ({
   ref,

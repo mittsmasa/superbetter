@@ -1,9 +1,9 @@
 'use server';
 
+import { inArray, type SQL, sql } from 'drizzle-orm';
+import { revalidatePath } from 'next/cache';
 import { db } from '@/db/client';
 import { quests } from '@/db/schema/superbetter';
-import { type SQL, inArray, sql } from 'drizzle-orm';
-import { revalidatePath } from 'next/cache';
 import { getUser } from '../../_actions/get-user';
 import type { Result } from '../../_actions/types/result';
 

@@ -1,6 +1,6 @@
+import type { PropsWithChildren, RefObject } from 'react';
 import { Close } from '@/assets/icons';
 import { css } from '@/styled-system/css';
-import type { PropsWithChildren, RefObject } from 'react';
 import { IconButton } from '../icon-button';
 
 export const Drawer = ({

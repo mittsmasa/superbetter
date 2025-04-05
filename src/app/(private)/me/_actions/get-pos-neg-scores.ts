@@ -1,10 +1,10 @@
 import 'server-only';
+import { and, desc, eq } from 'drizzle-orm';
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
 import { testResults, testTypes } from '@/db/schema/superbetter';
 import type { PosNegAnswer } from '@/db/types/test';
-import { and, desc, eq } from 'drizzle-orm';
 
 export const getPosNegScores = async (): Promise<
   Result<

@@ -1,7 +1,7 @@
-import { flex } from '@/styled-system/patterns';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { useState } from 'react';
+import { flex } from '@/styled-system/patterns';
 import { CounterButton } from './index';
 
 const meta = {

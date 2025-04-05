@@ -1,12 +1,12 @@
 'use client';
 
+import Link from 'next/link';
+import type { ComponentProps } from 'react';
 import { useTapFeeling } from '@/hooks/feeling';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
 import type { ColorToken } from '@/styled-system/tokens';
 import type { ConditionalValue } from '@/styled-system/types';
-import Link from 'next/link';
-import type { ComponentProps } from 'react';
 
 export const MotionLink = ({
   pixelBorderWidth = 1,

@@ -1,6 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
-import type { Meta, StoryObj } from '@storybook/react';
 import { Dialog } from '.';
 
 const meta = {

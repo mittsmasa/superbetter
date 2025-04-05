@@ -1,9 +1,9 @@
 'use client';
 
 import {
+  autoUpdate,
   FloatingFocusManager,
   FloatingPortal,
-  autoUpdate,
   flip,
   offset,
   shift,
@@ -14,9 +14,9 @@ import {
   useRole,
 } from '@floating-ui/react';
 import {
+  createContext,
   type PropsWithChildren,
   type ReactElement,
-  createContext,
   use,
   useMemo,
   useState,
@@ -83,7 +83,9 @@ const Trigger = ({
 
 const Content = ({
   renderItem,
-}: { renderItem: (props: RenderItemProps) => ReactElement }) => {
+}: {
+  renderItem: (props: RenderItemProps) => ReactElement;
+}) => {
   const ctx = usePopoverContext();
 
   if (!ctx.open) {
