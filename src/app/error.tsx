@@ -1,10 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Cat from '@/app/icon.png';
 import { Button } from '@/components/button';
 import { useIsClient } from '@/hooks/check/client';
 import { css } from '@/styled-system/css';
-import Image from 'next/image';
 
 const ErrorFallback = () => {
   const isClient = useIsClient();

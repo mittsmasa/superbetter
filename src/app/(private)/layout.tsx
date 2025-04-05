@@ -1,6 +1,6 @@
+import type { PropsWithChildren } from 'react';
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
-import type { PropsWithChildren } from 'react';
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (

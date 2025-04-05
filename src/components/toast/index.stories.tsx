@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ToastProvider, Toaster, useToast } from '.';
+import { Toaster, ToastProvider, useToast } from '.';
 
 const ToastButton = ({ message }: { message: string }) => {
   const { add: toast } = useToast();

@@ -1,7 +1,7 @@
+import type { ComponentProps, ReactNode } from 'react';
 import { Menu } from '@/assets/icons';
 import { MotionLink } from '@/components/motion-link';
 import { css } from '@/styled-system/css';
-import type { ComponentProps, ReactNode } from 'react';
 
 export const EntityLink = ({
   href,

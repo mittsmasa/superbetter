@@ -1,6 +1,6 @@
-import { css } from '@/styled-system/css';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import { css } from '@/styled-system/css';
 import { TimeSeriesChart } from './index';
 
 const meta = {

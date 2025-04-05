@@ -1,9 +1,9 @@
 'use client';
 
+import type { ComponentProps } from 'react';
 import { useTapFeeling } from '@/hooks/feeling';
 import { css, cva, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
-import type { ComponentProps } from 'react';
 
 const button = cva({
   base: {

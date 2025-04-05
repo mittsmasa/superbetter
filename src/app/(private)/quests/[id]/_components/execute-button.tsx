@@ -1,11 +1,11 @@
 'use client';
 
+import { useTransition } from 'react';
 import { postQuestHistory } from '@/app/(private)/_actions/post-quest-history';
 import { Button } from '@/components/button';
 import { useGlassScreen } from '@/components/glass-screen';
 import { useToast } from '@/components/toast';
 import { css } from '@/styled-system/css';
-import { useTransition } from 'react';
 
 export const ExecuteButton = ({ questId }: { questId: string }) => {
   const [isPending, startTransition] = useTransition();

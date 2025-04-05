@@ -1,10 +1,10 @@
 'use client';
 
+import { useMemo, useState } from 'react';
 import type { WeekelyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { AdventureLog } from '@/app/(private)/_components/adventure-log';
 import { TimeSeriesChart } from '@/components/time-series-chart';
 import { css } from '@/styled-system/css';
-import { useMemo, useState } from 'react';
 
 export const LogSection = ({
   weeklyAchievement,
