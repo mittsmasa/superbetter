@@ -48,13 +48,26 @@
         "useShorthandFunctionType": "error"
       },
       "correctness": {
-        "noUnusedImports": "error"
+        "noUnusedImports": "error",
+        "noPrivateImports": "error"
       },
       "complexity": {
         "useLiteralKeys": "off"
       },
       "suspicious": {
         "noArrayIndexKey": "off"
+      },
+      "nursery": {
+        "noAwaitInLoop": "on",
+        "noBitwiseOperators": "error",
+        "noFloatingPromises": "error",
+        "noImportCycles": "on",
+        "noTsIgnore": "error",
+        "noUnwantedPolyfillio": "error",
+        "useConsistentObjectDefinition": {
+          "level": "error",
+          "options": { "syntax": "shorthand" }
+        }
       }
     }
   },
