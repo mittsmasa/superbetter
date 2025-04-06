@@ -1,8 +1,11 @@
 import type { PropsWithChildren } from 'react';
 import { FooterNavigation } from '@/components/navigation';
 import { css } from '@/styled-system/css';
+import { createDailyMission } from './_actions/create-daily-mission';
 
-const Layout = ({ children }: PropsWithChildren) => {
+const Layout = async ({ children }: PropsWithChildren) => {
+  // プライベートページのどこかにリクエストしたら
+  await createDailyMission();
   return (
     <div
       className={css({
