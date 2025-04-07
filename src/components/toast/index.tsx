@@ -82,7 +82,7 @@ export const Toaster = () => {
         left: 0,
         padding: '12px 4px',
         position: 'fixed',
-        top: 0,
+        bottom: '[200px]',
         zIndex: 'toast',
       })}
     >
