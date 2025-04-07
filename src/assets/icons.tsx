@@ -1,3 +1,4 @@
+export { default as CheckGradient } from './customize/check-gradient.svg';
 export { default as Network4G } from './pixel-icons/4g.svg';
 export { default as Resolution4K } from './pixel-icons/4k.svg';
 export { default as Resolution4KBox } from './pixel-icons/4k-box.svg';
@@ -20,6 +21,7 @@ export { default as Menu } from './pixel-icons/menu.svg';
 export { default as Minus } from './pixel-icons/minus.svg';
 export { default as MoreVertical } from './pixel-icons/more-vertical.svg';
 export { default as Plus } from './pixel-icons/plus.svg';
+export { default as RadioOn } from './pixel-icons/radio-on.svg';
 export { default as Reload } from './pixel-icons/reload.svg';
 export { default as ScriptText } from './pixel-icons/script-text.svg';
 export { default as Sort } from './pixel-icons/sort.svg';
