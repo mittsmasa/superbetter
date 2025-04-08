@@ -46,7 +46,7 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
 
     setTimeout(() => {
       setToasts((prev) => prev.filter((toast) => toast.id !== id));
-    }, 5_000);
+    }, 3_000);
   }, []);
 
   const removeToast = useCallback((id: string) => {
