@@ -55,7 +55,7 @@
     "@types/react-dom": "19.1.2",
     "drizzle-kit": "0.30.6",
     "drizzle-seed": "0.3.1",
-    "lefthook": "1.11.9",
+    "lefthook": "1.11.10",
     "serwist": "9.0.13",
     "storybook": "8.6.12",
     "tsx": "4.19.3",
