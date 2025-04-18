@@ -18,8 +18,8 @@ importers:
         specifier: 0.27.7
         version: 0.27.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@serwist/next':
-        specifier: 9.0.13
-        version: 9.0.13(next@15.2.5(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.1))
+        specifier: 9.0.14
+        version: 9.0.14(next@15.2.5(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.1))
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -100,8 +100,8 @@ importers:
         specifier: 1.11.10
         version: 1.11.10
       serwist:
-        specifier: 9.0.13
-        version: 9.0.13(typescript@5.8.3)
+        specifier: 9.0.14
+        version: 9.0.14(typescript@5.8.3)
       storybook:
         specifier: 8.6.12
         version: 8.6.12(prettier@3.2.5)
@@ -1765,8 +1765,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@serwist/build@9.0.13':
-    resolution: {integrity: sha512-Hoc6llxFmnsE8z5Cs95UmRRhRyoNh44OdrMWWPPX8BpW19z0CK/qnBquptjyBIe46jjoOxsPHK0Tt7oZOV4Mbw==}
+  '@serwist/build@9.0.14':
+    resolution: {integrity: sha512-CV8LBBT85c5juyVqodqUUxo9yMFt7LQ3TZUrz0Vzp1XwC+hpggfXfnoMyQfneP1La/85oNjrCxvrvLgp2eCJXQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -1774,8 +1774,8 @@ packages:
       typescript:
         optional: true
 
-  '@serwist/next@9.0.13':
-    resolution: {integrity: sha512-nI2N4oSEHJGH0YUsE4m1obPfudO3DZ/pXiHPaisw+28YjgkMqD6ePfhzeHGO07ahPmIUiyHca9VNO8OfarbQ1Q==}
+  '@serwist/next@9.0.14':
+    resolution: {integrity: sha512-6VOKuXbwFAM/V98GJs/FRvzcUvV1HCEACornbsPo5x9tfYI5BYhnaSdPRK5SQvXVIdifigS8Kzh/Dx1g0CpCGw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       next: '>=14.0.0'
@@ -1784,8 +1784,8 @@ packages:
       typescript:
         optional: true
 
-  '@serwist/webpack-plugin@9.0.13':
-    resolution: {integrity: sha512-Z+Eve8dckM2FulRCa7Cj7VCF3EOP7QkRA76tI742olF7J2sYZSm3t9Ex13jDxTMmYiU1AxLq6V6gEMIdRAetVw==}
+  '@serwist/webpack-plugin@9.0.14':
+    resolution: {integrity: sha512-2CG7gsq/ZgC0fYbdfIIh3SrXXGRJFYlq0Wrph50ek8SABZccTIUx5QRzGkKaMl3I4ICzPJZyM8HVtz5FocVH2w==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -1796,8 +1796,8 @@ packages:
       webpack:
         optional: true
 
-  '@serwist/window@9.0.13':
-    resolution: {integrity: sha512-Cf3RizPuFInDcLt0P1Y5QzG1sA5mW131/PZfMYE3yBuNUSGNgOQGlYuLdwDOWPHgECYoVb/da8pspdQNKs0O5g==}
+  '@serwist/window@9.0.14':
+    resolution: {integrity: sha512-LjcgdZXDGJ2OmE8zo/ULxvLkaQ3dgjc2SsokZ9azt1Z+WR9Gt3fKiyyKf28us6VuCASPlkYtqsWjg7efNXI6pQ==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -4551,8 +4551,8 @@ packages:
   server-only@0.0.1:
     resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
 
-  serwist@9.0.13:
-    resolution: {integrity: sha512-BF3bmzYdOVT2lF3iHV0044NqTO6q6GAiqrYpc7L9EPYQXZHOy22WajKaHLvCdvpm2Jpji4SsxUL8/uC1WSCZ5g==}
+  serwist@9.0.14:
+    resolution: {integrity: sha512-vr4uqSeB7NxrAJeneCxhnEDDksovTcVAxkWyse4DFj/OP8UVJkdsSEJlzT94gRu5qrTZxKrb+pFrxsIStfWTWg==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -5147,8 +5147,8 @@ packages:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
 
-  zod@3.24.2:
-    resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
+  zod@3.24.3:
+    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
 
 snapshots:
 
@@ -6695,44 +6695,44 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.35.0':
     optional: true
 
-  '@serwist/build@9.0.13(typescript@5.8.3)':
+  '@serwist/build@9.0.14(typescript@5.8.3)':
     dependencies:
       common-tags: 1.8.2
       glob: 10.4.5
       pretty-bytes: 6.1.1
       source-map: 0.8.0-beta.0
-      zod: 3.24.2
+      zod: 3.24.3
     optionalDependencies:
       typescript: 5.8.3
 
-  '@serwist/next@9.0.13(next@15.2.5(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.1))':
+  '@serwist/next@9.0.14(next@15.2.5(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.1))':
     dependencies:
-      '@serwist/build': 9.0.13(typescript@5.8.3)
-      '@serwist/webpack-plugin': 9.0.13(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.1))
-      '@serwist/window': 9.0.13(typescript@5.8.3)
+      '@serwist/build': 9.0.14(typescript@5.8.3)
+      '@serwist/webpack-plugin': 9.0.14(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.1))
+      '@serwist/window': 9.0.14(typescript@5.8.3)
       chalk: 5.4.1
       glob: 10.4.5
       next: 15.2.5(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      serwist: 9.0.13(typescript@5.8.3)
-      zod: 3.24.2
+      serwist: 9.0.14(typescript@5.8.3)
+      zod: 3.24.3
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
       - webpack
 
-  '@serwist/webpack-plugin@9.0.13(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.1))':
+  '@serwist/webpack-plugin@9.0.14(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.1))':
     dependencies:
-      '@serwist/build': 9.0.13(typescript@5.8.3)
+      '@serwist/build': 9.0.14(typescript@5.8.3)
       pretty-bytes: 6.1.1
-      zod: 3.24.2
+      zod: 3.24.3
     optionalDependencies:
       typescript: 5.8.3
       webpack: 5.97.1(esbuild@0.25.1)
 
-  '@serwist/window@9.0.13(typescript@5.8.3)':
+  '@serwist/window@9.0.14(typescript@5.8.3)':
     dependencies:
       '@types/trusted-types': 2.0.7
-      serwist: 9.0.13(typescript@5.8.3)
+      serwist: 9.0.14(typescript@5.8.3)
     optionalDependencies:
       typescript: 5.8.3
 
@@ -9717,7 +9717,7 @@ snapshots:
 
   server-only@0.0.1: {}
 
-  serwist@9.0.13(typescript@5.8.3):
+  serwist@9.0.14(typescript@5.8.3):
     dependencies:
       idb: 8.0.2
     optionalDependencies:
@@ -10333,4 +10333,4 @@ snapshots:
 
   yocto-queue@1.1.1: {}
 
-  zod@3.24.2: {}
+  zod@3.24.3: {}
