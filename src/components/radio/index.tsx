@@ -1,6 +1,5 @@
 import type { InputHTMLAttributes } from 'react';
 import { css, cx } from '@/styled-system/css';
-import { pixelBorder } from '@/styled-system/patterns';
 
 export const Radio = ({
   label,
@@ -11,13 +10,11 @@ export const Radio = ({
 >) => {
   return (
     <label
-      className={cx(
-        pixelBorder({ borderWidth: 1 }),
-        css({
-          display: 'flex',
-          width: '[100%]',
-        }),
-      )}
+      className={css({
+        backgroundColor: 'interactive.background',
+        display: 'flex',
+        width: '[100%]',
+      })}
     >
       <input
         {...props}

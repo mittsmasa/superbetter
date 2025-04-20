@@ -25,7 +25,6 @@ export const EntityLink = ({
       >
         <div
           className={css({
-            backgroundColor: 'background',
             ...(disabled && { color: 'foreground.disabled' }),
             display: 'flex',
             gap: '4px',

@@ -58,7 +58,10 @@ export const Button = ({
       {...props}
       className={cx(
         pixelBorder({
-          borderColor: props.disabled ? 'foreground.disabled' : 'foreground',
+          borderWidth: 2,
+          borderColor: props.disabled
+            ? 'interactive.border.disabled'
+            : 'interactive.border.alt',
         }),
         css(button.raw({ variant, full }), !props.disabled && feeling.cssRaw),
       )}
@@ -83,7 +86,10 @@ export const ButtonLink = ({
       {...props}
       className={cx(
         pixelBorder({
-          borderColor: props.disabled ? 'foreground.disabled' : 'foreground',
+          borderWidth: 2,
+          borderColor: props.disabled
+            ? 'interactive.border.disabled'
+            : 'interactive.border.alt',
         }),
         css(button.raw({ variant }), !props.disabled && feeling.cssRaw, {
           cursor: props.disabled ? 'not-allowed' : undefined,

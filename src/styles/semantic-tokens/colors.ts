@@ -13,6 +13,24 @@ export const colorsSemanticTokens = defineSemanticTokens.colors({
     primary: { value: '{colors.black}' },
     alt: { value: '{colors.gray.100}' },
   },
+  interactive: {
+    border: {
+      DEFAULT: { value: '{colors.gray.600}' },
+      disabled: { value: '{colors.gray.300}' },
+      alt: { value: '{colors.gray.100}' },
+    },
+    background: {
+      DEFAULT: { value: '{colors.gray.800}' },
+      hover: { value: '{colors.gray.700}' },
+      active: { value: '{colors.gray.600}' },
+      alt: { value: '{colors.gray.100}' },
+    },
+    foreground: {
+      DEFAULT: { value: '{colors.gray.100}' },
+      disabled: { value: '{colors.gray.300}' },
+      alt: { value: '{colors.gray.800}' },
+    },
+  },
   border: {
     DEFAULT: { value: '{colors.gray.200}' },
     disabled: { value: '{colors.gray.500}' },
