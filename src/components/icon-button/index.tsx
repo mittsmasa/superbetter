@@ -8,6 +8,7 @@ import { pixelBorder } from '@/styled-system/patterns';
 const button = cva({
   base: {
     alignItems: 'center',
+    backgroundColor: 'interactive.background',
     color: 'foreground',
     cursor: 'pointer',
     display: 'flex',
@@ -58,9 +59,17 @@ export const IconButton = ({
       className={cx(
         active &&
           pixelBorder({
-            ...(props.disabled ? { borderColor: 'border.disabled' } : {}),
+            borderWidth: 2,
+            borderColor: 'interactive.border.alt',
           }),
-        css(button.raw({ size }), !props.disabled && feeling.cssRaw),
+        css(
+          button.raw({ size }),
+          !props.disabled && feeling.cssRaw,
+          active && {
+            backgroundColor: 'interactive.background.alt',
+            color: 'interactive.foreground.alt',
+          },
+        ),
       )}
     >
       {children}

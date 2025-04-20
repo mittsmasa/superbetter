@@ -36,7 +36,12 @@ export const DailyAchievement = ({
   const { day, date } = getDateTimeFormat(_date);
 
   return (
-    <div className={cx(wrapper({ status }), isToday && pixelBorder({}))}>
+    <div
+      className={cx(
+        wrapper({ status }),
+        isToday && pixelBorder({ borderColor: 'interactive.border.alt' }),
+      )}
+    >
       <p>{day}</p>
       <p>{date}</p>
     </div>

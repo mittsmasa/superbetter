@@ -27,7 +27,7 @@ export const TextInput = ({
         type="text"
         id={id}
         className={cx(
-          pixelBorder({}),
+          pixelBorder({ borderWidth: 2, borderColor: 'interactive.border' }),
           css({ padding: '4px', textStyle: 'Body.primary' }),
         )}
       />
