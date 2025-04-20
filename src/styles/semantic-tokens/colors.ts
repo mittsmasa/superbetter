@@ -2,8 +2,8 @@ import { defineSemanticTokens } from '@pandacss/dev';
 
 export const colorsSemanticTokens = defineSemanticTokens.colors({
   foreground: {
-    DEFAULT: { value: '{colors.gray.50}' },
-    primary: { value: '{colors.gray.50}' },
+    DEFAULT: { value: '{colors.gray.100}' },
+    primary: { value: '{colors.gray.100}' },
     secondary: { value: '{colors.gray.200}' },
     alt: { value: '{colors.black}' },
     disabled: { value: '{colors.gray.300}' },
@@ -11,10 +11,10 @@ export const colorsSemanticTokens = defineSemanticTokens.colors({
   background: {
     DEFAULT: { value: '{colors.black}' },
     primary: { value: '{colors.black}' },
-    alt: { value: '{colors.gray.50}' },
+    alt: { value: '{colors.gray.100}' },
   },
   border: {
-    DEFAULT: { value: '{colors.gray.50}' },
+    DEFAULT: { value: '{colors.gray.200}' },
     disabled: { value: '{colors.gray.500}' },
   },
   entity: {
