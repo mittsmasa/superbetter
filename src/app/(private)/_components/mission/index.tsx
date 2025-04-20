@@ -14,7 +14,7 @@ export const Mission = ({
 }) => {
   const completed = items.every((item) => item.completed);
   return (
-    <MotionLink href={`/missions/${id}`} pixelBorderWidth={2}>
+    <MotionLink href={`/missions/${id}`}>
       <div
         className={css({
           textStyle: 'Body.secondary',
@@ -36,13 +36,13 @@ export const Mission = ({
           <p>{title}</p>
           {completed ? (
             <CheckGradient
-              className={css({ width: '[32px]', height: '[32px]' })}
+              className={css({ width: '[28px]', height: '[28px]' })}
             />
           ) : (
             <RadioOn
               className={css({
-                width: '[32px]',
-                height: '[32px]',
+                width: '[28px]',
+                height: '[28px]',
                 color: 'foreground.disabled',
               })}
             />

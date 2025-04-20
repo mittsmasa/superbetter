@@ -41,8 +41,8 @@ const Page = async () => {
           padding: '8px',
         })}
       >
-        <ScanSection />
         <LogSection weeklyAchievement={achievement.data} />
+        <ScanSection />
       </div>
     </main>
   );

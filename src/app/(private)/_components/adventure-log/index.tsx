@@ -25,7 +25,7 @@ export const AdventureLog = ({
       })}
     >
       <h2>{heading}</h2>
-      <div className={css({ overflow: 'auto' })}>
+      <div className={css({ overflow: 'auto', height: '[100px]' })}>
         {logs.length === 0 && (
           <p
             className={css({ textAlign: 'center', textStyle: 'Body.tertiary' })}

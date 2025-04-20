@@ -135,7 +135,7 @@ export const TimeSeriesChart = ({
   data: ChartElement[];
 }) => {
   return (
-    <ResponsiveContainer width="100%" height={200}>
+    <ResponsiveContainer width="100%" height={150}>
       <BarChart
         data={data}
         barCategoryGap={4}
