@@ -36,13 +36,13 @@ export const Mission = ({
           <p>{title}</p>
           {completed ? (
             <CheckGradient
-              className={css({ width: '[32px]', height: '[32px]' })}
+              className={css({ width: '[28px]', height: '[28px]' })}
             />
           ) : (
             <RadioOn
               className={css({
-                width: '[32px]',
-                height: '[32px]',
+                width: '[28px]',
+                height: '[28px]',
                 color: 'foreground.disabled',
               })}
             />
