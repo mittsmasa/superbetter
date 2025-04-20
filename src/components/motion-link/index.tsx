@@ -9,12 +9,10 @@ import type { ColorToken } from '@/styled-system/tokens';
 import type { ConditionalValue } from '@/styled-system/types';
 
 export const MotionLink = ({
-  pixelBorderWidth = 1,
   pixelBorderColor,
   disabled = false,
   ...props
 }: Omit<ComponentProps<typeof Link>, 'className'> & {
-  pixelBorderWidth?: number;
   pixelBorderColor?: ConditionalValue<ColorToken>;
   disabled?: boolean;
 }) => {
@@ -30,11 +28,10 @@ export const MotionLink = ({
           cursor: disabled ? 'not-allowed' : undefined,
           pointerEvents: disabled ? 'none' : undefined,
         }),
-        pixelBorderWidth > 0 &&
-          pixelBorder({
-            borderWidth: pixelBorderWidth,
-            borderColor: pixelBorderColor,
-          }),
+        pixelBorder({
+          borderWidth: 1,
+          borderColor: pixelBorderColor,
+        }),
       )}
     />
   );

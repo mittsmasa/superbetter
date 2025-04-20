@@ -14,7 +14,7 @@ export const Mission = ({
 }) => {
   const completed = items.every((item) => item.completed);
   return (
-    <MotionLink href={`/missions/${id}`} pixelBorderWidth={2}>
+    <MotionLink href={`/missions/${id}`}>
       <div
         className={css({
           textStyle: 'Body.secondary',
