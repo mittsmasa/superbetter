@@ -55,13 +55,13 @@
     "@types/react-dom": "19.1.2",
     "drizzle-kit": "0.31.0",
     "drizzle-seed": "0.3.1",
-    "lefthook": "1.11.10",
+    "lefthook": "1.11.11",
     "serwist": "9.0.14",
     "storybook": "8.6.12",
     "tsx": "4.19.3",
     "typescript": "5.8.3",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.1.1"
+    "vitest": "3.1.2"
   },
   "volta": {
     "node": "22.14.0"
