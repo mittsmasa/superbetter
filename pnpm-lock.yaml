@@ -27,11 +27,11 @@ importers:
         specifier: 16.5.0
         version: 16.5.0
       drizzle-orm:
-        specifier: 0.42.0
-        version: 0.42.0(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
+        specifier: 0.43.1
+        version: 0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
       motion:
-        specifier: 12.7.5
-        version: 12.7.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 12.9.2
+        version: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       mysql2:
         specifier: 3.14.1
         version: 3.14.1
@@ -82,8 +82,8 @@ importers:
         specifier: 8.1.0
         version: 8.1.0(typescript@5.8.3)
       '@types/node':
-        specifier: 22.14.1
-        version: 22.14.1
+        specifier: 22.15.3
+        version: 22.15.3
       '@types/react':
         specifier: 19.1.2
         version: 19.1.2
@@ -95,7 +95,7 @@ importers:
         version: 0.31.0
       drizzle-seed:
         specifier: 0.3.1
-        version: 0.3.1(drizzle-orm@0.42.0(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1))
+        version: 0.3.1(drizzle-orm@0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1))
       lefthook:
         specifier: 1.11.11
         version: 1.11.11
@@ -113,10 +113,10 @@ importers:
         version: 5.8.3
       vite-tsconfig-paths:
         specifier: 5.1.4
-        version: 5.1.4(typescript@5.8.3)(vite@6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3))
+        version: 5.1.4(typescript@5.8.3)(vite@6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3))
       vitest:
         specifier: 3.1.2
-        version: 3.1.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
+        version: 3.1.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
 
 packages:
 
@@ -2280,8 +2280,8 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@22.14.1':
-    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
+  '@types/node@22.15.3':
+    resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
@@ -3051,8 +3051,8 @@ packages:
     resolution: {integrity: sha512-pcKVT+GbfPA+bUovPIilgVOoq+onNBo/YQBG86sf3/GFHkN6lRJPm1l7dKN0IMAk57RQoIm4GUllRrasLlcaSg==}
     hasBin: true
 
-  drizzle-orm@0.42.0:
-    resolution: {integrity: sha512-pS8nNJm2kBNZwrOjTHJfdKkaU+KuUQmV/vk5D57NojDq4FG+0uAYGMulXtYT///HfgsMF0hnFFvu1ezI3OwOkg==}
+  drizzle-orm@0.43.1:
+    resolution: {integrity: sha512-dUcDaZtE/zN4RV/xqGrVSMpnEczxd5cIaoDeor7Zst9wOe/HzC/7eAaulywWGYXdDEc9oBPMjayVEDg0ziTLJA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -3369,8 +3369,8 @@ packages:
       typescript: '>3.6.0'
       webpack: ^5.11.0
 
-  framer-motion@12.8.0:
-    resolution: {integrity: sha512-EarL75miCDcKLEAQLJ+6Zfwdj+KQsVlbHGGlygZ/TigKBj7NLPkyDKk4WLFUScjAs2xNpfMRLBM6VsCJq9Roxg==}
+  framer-motion@12.9.2:
+    resolution: {integrity: sha512-R0O3Jdqbfwywpm45obP+8sTgafmdEcUoShQTAV+rB5pi+Y1Px/FYL5qLLRe5tPtBdN1J4jos7M+xN2VV2oEAbQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -3980,14 +3980,14 @@ packages:
   mlly@1.7.3:
     resolution: {integrity: sha512-xUsx5n/mN0uQf4V548PKQ+YShA4/IW0KI1dZhrNrPCLG+xizETbHTkOa1f8/xut9JRPp8kQuMnz0oqwkTiLo/A==}
 
-  motion-dom@12.8.0:
-    resolution: {integrity: sha512-YsfUE1F8Ycv9th1V0YJ6LOx9U2EMe/8P3RXK1o6NZhRbdFiWvzBLvxqp2X6Fn3rbJbwWkSEfnpe14ZU9Oz1d1Q==}
+  motion-dom@12.9.1:
+    resolution: {integrity: sha512-xqXEwRLDYDTzOgXobSoWtytRtGlf7zdkRfFbrrdP7eojaGQZ5Go4OOKtgnx7uF8sAkfr1ZjMvbCJSCIT2h6fkQ==}
 
-  motion-utils@12.7.5:
-    resolution: {integrity: sha512-JIgrmEq7Vw1x0AUrjvkRp7oMMQkGqSUMT50O/Ag6RRCQWG3gRRTkOI+BirBAJT6m+GIPoiyxkJ1u98GgF/a6TQ==}
+  motion-utils@12.8.3:
+    resolution: {integrity: sha512-GYVauZEbca8/zOhEiYOY9/uJeedYQld6co/GJFKOy//0c/4lDqk0zB549sBYqqV2iMuX+uHrY1E5zd8A2L+1Lw==}
 
-  motion@12.7.5:
-    resolution: {integrity: sha512-tNybSjfg3bf60Amh/zeMH4KZ96AxyrJdM4meTJUbeEVY7d3Edl6lrWTX/GNfgpmytXwx3ZuAB55KAP+q6IiZcg==}
+  motion@12.9.2:
+    resolution: {integrity: sha512-2hwi4wlOpt/zDHcDZATL2FFhYgj2n6t5Hd0UT91swMup6dx6KpFRkTydYJkkV0PUImT1QfC+WT5d0eRekTKpcg==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -7449,7 +7449,7 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@22.14.1':
+  '@types/node@22.15.3':
     dependencies:
       undici-types: 6.21.0
 
@@ -7485,13 +7485,13 @@ snapshots:
       chai: 5.2.0
       tinyrainbow: 2.0.0
 
-  '@vitest/mocker@3.1.2(vite@6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3))':
+  '@vitest/mocker@3.1.2(vite@6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3))':
     dependencies:
       '@vitest/spy': 3.1.2
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
-      vite: 6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
+      vite: 6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
 
   '@vitest/pretty-format@2.0.5':
     dependencies:
@@ -8328,17 +8328,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.42.0(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1):
+  drizzle-orm@0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1):
     optionalDependencies:
       '@tidbcloud/serverless': 0.2.0
       gel: 2.0.0
       mysql2: 3.14.1
 
-  drizzle-seed@0.3.1(drizzle-orm@0.42.0(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)):
+  drizzle-seed@0.3.1(drizzle-orm@0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)):
     dependencies:
       pure-rand: 6.1.0
     optionalDependencies:
-      drizzle-orm: 0.42.0(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
+      drizzle-orm: 0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
 
   dunder-proto@1.0.1:
     dependencies:
@@ -8647,10 +8647,10 @@ snapshots:
       typescript: 5.8.3
       webpack: 5.97.1(esbuild@0.25.1)
 
-  framer-motion@12.8.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  framer-motion@12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      motion-dom: 12.8.0
-      motion-utils: 12.7.5
+      motion-dom: 12.9.1
+      motion-utils: 12.8.3
       tslib: 2.8.1
     optionalDependencies:
       react: 19.1.0
@@ -8917,7 +8917,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.14.1
+      '@types/node': 22.15.3
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -9188,15 +9188,15 @@ snapshots:
       pkg-types: 1.2.1
       ufo: 1.5.4
 
-  motion-dom@12.8.0:
+  motion-dom@12.9.1:
     dependencies:
-      motion-utils: 12.7.5
+      motion-utils: 12.8.3
 
-  motion-utils@12.7.5: {}
+  motion-utils@12.8.3: {}
 
-  motion@12.7.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  motion@12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      framer-motion: 12.8.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      framer-motion: 12.9.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tslib: 2.8.1
     optionalDependencies:
       react: 19.1.0
@@ -10339,13 +10339,13 @@ snapshots:
       d3-time: 3.1.0
       d3-timer: 3.0.1
 
-  vite-node@3.1.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3):
+  vite-node@3.1.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0
       es-module-lexer: 1.6.0
       pathe: 2.0.3
-      vite: 6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
+      vite: 6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -10360,34 +10360,34 @@ snapshots:
       - tsx
       - yaml
 
-  vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)):
+  vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)):
     dependencies:
       debug: 4.4.0
       globrex: 0.1.2
       tsconfck: 3.1.5(typescript@5.8.3)
     optionalDependencies:
-      vite: 6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
+      vite: 6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3):
+  vite@6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3):
     dependencies:
       esbuild: 0.25.2
       postcss: 8.5.3
       rollup: 4.35.0
     optionalDependencies:
-      '@types/node': 22.14.1
+      '@types/node': 22.15.3
       fsevents: 2.3.3
       jiti: 1.21.7
       lightningcss: 1.25.1
       terser: 5.37.0
       tsx: 4.19.3
 
-  vitest@3.1.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3):
+  vitest@3.1.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3):
     dependencies:
       '@vitest/expect': 3.1.2
-      '@vitest/mocker': 3.1.2(vite@6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3))
+      '@vitest/mocker': 3.1.2(vite@6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3))
       '@vitest/pretty-format': 3.1.2
       '@vitest/runner': 3.1.2
       '@vitest/snapshot': 3.1.2
@@ -10404,11 +10404,11 @@ snapshots:
       tinyglobby: 0.2.13
       tinypool: 1.0.2
       tinyrainbow: 2.0.0
-      vite: 6.2.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
-      vite-node: 3.1.2(@types/node@22.14.1)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
+      vite: 6.2.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
+      vite-node: 3.1.2(@types/node@22.15.3)(jiti@1.21.7)(lightningcss@1.25.1)(terser@5.37.0)(tsx@4.19.3)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.14.1
+      '@types/node': 22.15.3
     transitivePeerDependencies:
       - jiti
       - less
