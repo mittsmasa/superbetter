@@ -43,6 +43,8 @@ const config = {
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: DrizzleAdapter(db),
-  session: { strategy: 'jwt' },
+  session: {
+    strategy: 'database',
+  },
   ...config,
 });
