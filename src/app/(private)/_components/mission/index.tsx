@@ -43,7 +43,7 @@ export const Mission = ({
               className={css({
                 width: '[28px]',
                 height: '[28px]',
-                color: 'foreground.disabled',
+                color: 'entity.disabled',
               })}
             />
           )}
