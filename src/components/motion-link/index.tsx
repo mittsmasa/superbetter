@@ -35,9 +35,6 @@ export const MotionLink = ({
           _hover: {
             backgroundColor: 'interactive.background.hover',
           },
-          _active: {
-            backgroundColor: 'interactive.background.active',
-          },
           display: 'block',
           cursor: disabled ? 'not-allowed' : undefined,
           pointerEvents: disabled ? 'none' : undefined,
