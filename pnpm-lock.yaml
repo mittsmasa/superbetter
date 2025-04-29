@@ -39,8 +39,8 @@ importers:
         specifier: 15.3.1
         version: 15.3.1(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-auth:
-        specifier: 5.0.0-beta.25
-        version: 5.0.0-beta.25(next@15.3.1(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        specifier: 5.0.0-beta.27
+        version: 5.0.0-beta.27(next@15.3.1(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -55,8 +55,8 @@ importers:
         version: 0.0.1
     devDependencies:
       '@biomejs/biome':
-        specifier: 2.0.0-beta.1
-        version: 2.0.0-beta.1
+        specifier: 2.0.0-beta.2
+        version: 2.0.0-beta.2
       '@pandacss/dev':
         specifier: 0.53.6
         version: 0.53.6(typescript@5.8.3)
@@ -126,20 +126,6 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
-
-  '@auth/core@0.37.2':
-    resolution: {integrity: sha512-kUvzyvkcd6h1vpeMAojK2y7+PAV5H+0Cc9+ZlKYDFhDY31AlvsB+GW5vNO4qE3Y07KeQgvNO9U0QUx/fN62kBw==}
-    peerDependencies:
-      '@simplewebauthn/browser': ^9.0.1
-      '@simplewebauthn/server': ^9.0.2
-      nodemailer: ^6.8.0
-    peerDependenciesMeta:
-      '@simplewebauthn/browser':
-        optional: true
-      '@simplewebauthn/server':
-        optional: true
-      nodemailer:
-        optional: true
 
   '@auth/core@0.39.0':
     resolution: {integrity: sha512-jusviw/sUSfAh6S/wjY5tRmJOq0Itd3ImF+c/b4HB9DfmfChtcfVJTNJeqCeExeCG8oh4PBKRsMQJsn2W6NhFQ==}
@@ -719,55 +705,55 @@ packages:
     resolution: {integrity: sha512-vN5p+1kl59GVKMvTHt55NzzmYVxprfJD+ql7U9NFIfKCBkYE55LYtS+WtPlaYOyzydrKI8Nezd+aZextrd+FMA==}
     engines: {node: '>=6.9.0'}
 
-  '@biomejs/biome@2.0.0-beta.1':
-    resolution: {integrity: sha512-MqRoy9CbTkrS45zW+S4u8p4kQUIFx0mGUWi789W1R3b1kXYIudEqsTKgXKtTGsI0kWOlvnjuKqwTrabjaGchhQ==}
+  '@biomejs/biome@2.0.0-beta.2':
+    resolution: {integrity: sha512-F/2/v4T+kctdV8cY/+x5y09RJyHZibDMqi5uRIa6kpJsirm42TEsqMx1srGqcrY3bSJ3JO3pbjW3icTcIS2Z3g==}
     engines: {node: '>=14.21.3'}
     hasBin: true
 
-  '@biomejs/cli-darwin-arm64@2.0.0-beta.1':
-    resolution: {integrity: sha512-RaGmpNLl5NFooXaoCwvgvcuU6Am/rMZ3R48pQeCVxjrCcz1BIlKLTai5UosiedazW7JbXAvgXdSNizYG7ITlAQ==}
+  '@biomejs/cli-darwin-arm64@2.0.0-beta.2':
+    resolution: {integrity: sha512-LJ7wjYNZkqcQDV6Xyoy9pwFp931rTDp5JvJkF+oPkucurn1kg07sYKV1fPErbfgnLzquaGHAez3wVA8MsTf79A==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [darwin]
 
-  '@biomejs/cli-darwin-x64@2.0.0-beta.1':
-    resolution: {integrity: sha512-sTzSshkne7HKZFNfiIhmAji7gjtCBXvkTujZELCZWIZC7oj1Tjw/gvAzbdFj2UyHd5/i90pND4ybFOLQZm9gpg==}
+  '@biomejs/cli-darwin-x64@2.0.0-beta.2':
+    resolution: {integrity: sha512-o6KINuooUCIeg8RPUFabYjEtlosR7+P3ysyeOJ9BvGTLykgm+EtMBVMG+aZTut/cCcijkLQNDCdhza+Zj9PKQA==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [darwin]
 
-  '@biomejs/cli-linux-arm64-musl@2.0.0-beta.1':
-    resolution: {integrity: sha512-0MPUKzz9uBBxAYSJ+OlFi4+yGwiRcZeFqq39H0MxXCQ9MMpKJFH2Ek72fw8sXwG7Prn7EsW/3u1b7najyn1XGQ==}
+  '@biomejs/cli-linux-arm64-musl@2.0.0-beta.2':
+    resolution: {integrity: sha512-OTPJalprRj+sGJKOFOrtPvRO2GqCzRBDJTk2C4MbK9ed5+h9eBMd8/A2IdQ8XOm0BECJWvIomzDaNEwKN3pNYw==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
 
-  '@biomejs/cli-linux-arm64@2.0.0-beta.1':
-    resolution: {integrity: sha512-bxce2O4nooBmp20Ey0+IFIZyy/b0RVnciIQk9euCfAi9evq7SvFtMBYo3YUZej0KIvrau5H7tJk5OqmRJk2l+g==}
+  '@biomejs/cli-linux-arm64@2.0.0-beta.2':
+    resolution: {integrity: sha512-9DWVXNYcKFTZv8T3Q6SBAl6SPMNzHsiaiQuuXm/cxSGaAfI0ixh0HNWYlLeTbfC86aBsnG+Us6mGYaFKF2p8YA==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
 
-  '@biomejs/cli-linux-x64-musl@2.0.0-beta.1':
-    resolution: {integrity: sha512-dFvisnP1hFpVILNw0PZfs8piBwe8+aykO04Tb/4AJDVVzKkGgJfwSefwo4jqzO/Wk/Zruvhcp1nKbjgRXM+vDg==}
+  '@biomejs/cli-linux-x64-musl@2.0.0-beta.2':
+    resolution: {integrity: sha512-1TsFLIuefU47cdGLw1ELUVggvZsbyJbgrxy4KSeUQ3Ko1dJ9loOPvDC3X6UQBamHFdaKpbyZYzh2BiH81Pf55g==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
 
-  '@biomejs/cli-linux-x64@2.0.0-beta.1':
-    resolution: {integrity: sha512-6P/AtJv4hOH8mu8ez0c4UInUpiet9NEoF25+O7OPyb4w6ZHJMp2qzvayJS7TKrTQzE5KUvSiNsACGRz34DzUkg==}
+  '@biomejs/cli-linux-x64@2.0.0-beta.2':
+    resolution: {integrity: sha512-QjFfkbkzu388ChySo5XPMh2VNrFv216Xw04k0y3VlQ9v8pAPxmx9z0y+UnBjlndtDdJj/IhsLKG2FN7RhBjXbA==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
 
-  '@biomejs/cli-win32-arm64@2.0.0-beta.1':
-    resolution: {integrity: sha512-0C9YSqWHf2cJGnjKDbLi49xv6H9IfqbDsFav7X557PqwY64O6IKWqcmZzi/PkDFHjQM9opU6uhKapeGKGDxziQ==}
+  '@biomejs/cli-win32-arm64@2.0.0-beta.2':
+    resolution: {integrity: sha512-MM60v1kLPONOwQK45jRbRwUes/083Hy/dzmO8QsQJ5eW5sV0oPIuZhuX+SMY3z3TyDmfuXZoemgPETeEjB+TdA==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [win32]
 
-  '@biomejs/cli-win32-x64@2.0.0-beta.1':
-    resolution: {integrity: sha512-o8W6+DX0YRjt1kS8Y3ismq6EkjwiVDv7X0TEpfnFywoVG8HoJ7G7/m9r8LM1yE46WI3maPH2A0MoVpQ1ZNG++A==}
+  '@biomejs/cli-win32-x64@2.0.0-beta.2':
+    resolution: {integrity: sha512-tTHhVMEqRRBhpfWxwYTSGV8PIOQqc/RQz7WmuX/zaBkBbB9+hc2yeMmn6DPRPnaxNPjkNgD/Kwy3prQ4SxYAAw==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
@@ -1943,9 +1929,6 @@ packages:
   '@types/babel__traverse@7.20.6':
     resolution: {integrity: sha512-r1bzfrm0tomOI8g1SzvCaQHo6Lcv6zu0EA+W2kHrt8dyrHQxGzBBL4kdkzIS+jBMV+EYcMAEAqXqYaLJq5rOZg==}
 
-  '@types/cookie@0.6.0':
-    resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
-
   '@types/d3-array@3.2.1':
     resolution: {integrity: sha512-Y2Jn2idRrLzUfAKV2LyRImR+y4oa2AntrgID95SHJxuMUrkNXmanDSed71sRNZysveJVt1hLLemQZIady0FpEg==}
 
@@ -2505,10 +2488,6 @@ packages:
 
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
-
-  cookie@0.7.1:
-    resolution: {integrity: sha512-6DnInpx7SJ2AK3+CTUE/ZM0vWTUboZCegxhC2xiIydHR9jNuTAASBrfEpHhiGOZw/nX51bHt6YQl8jsGo4y/0w==}
-    engines: {node: '>= 0.6'}
 
   core-js-compat@3.39.0:
     resolution: {integrity: sha512-VgEUx3VwlExr5no0tXlBt+silBvhTryPwCXRI2Id1PN8WTKu7MreethvddqOubrYxkFdv/RnYrqlv1sFNAUelw==}
@@ -3360,9 +3339,6 @@ packages:
     resolution: {integrity: sha512-/imKNG4EbWNrVjoNC/1H5/9GFy+tqjGBHCaSsN+P2RnPqjsLmv6UD3Ej+Kj8nBWaRAwyk7kK5ZUc+OEatnTR3A==}
     hasBin: true
 
-  jose@5.10.0:
-    resolution: {integrity: sha512-s+3Al/p9g32Iq+oqXxkW//7jk2Vig6FF1CFqzVXoTUXt2qz89YWbL+OwS17NFYEvxC35n0FKeGO2LGYSxeM2Gg==}
-
   jose@6.0.8:
     resolution: {integrity: sha512-EyUPtOKyTYq+iMOszO42eobQllaIjJnwkZ2U93aJzNyPibCy7CEvT9UQnaCVB51IAd49gbNdCew1c0LcLTCB2g==}
 
@@ -3733,8 +3709,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  next-auth@5.0.0-beta.25:
-    resolution: {integrity: sha512-2dJJw1sHQl2qxCrRk+KTQbeH+izFbGFPuJj5eGgBZFYyiYYtvlrBeUw1E/OJJxTRjuxbSYGnCTkUIRsIIW0bog==}
+  next-auth@5.0.0-beta.27:
+    resolution: {integrity: sha512-/QtP9C0C99YpEuBEJqMaDXH3ISWMgObQalwVZEoC7sskaIPhv5fQl6fXS/rXJQKqLY6MNJ42rqjqmRdoXZH2EQ==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
       '@simplewebauthn/server': ^9.0.2
@@ -4078,18 +4054,10 @@ packages:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  preact-render-to-string@5.2.3:
-    resolution: {integrity: sha512-aPDxUn5o3GhWdtJtW0svRC2SS/l8D9MAgo2+AWml+BhDImb27ALf04Q2d+AHqUUOc6RdSXFIBVa2gxzgMKgtZA==}
-    peerDependencies:
-      preact: '>=10'
-
   preact-render-to-string@6.5.11:
     resolution: {integrity: sha512-ubnauqoGczeGISiOh6RjX0/cdaF8v/oDXIjO85XALCQjwQP+SB4RDXXtvZ6yTYSjG+PC1QRP2AhPgCEsM2EvUw==}
     peerDependencies:
       preact: '>=10'
-
-  preact@10.11.3:
-    resolution: {integrity: sha512-eY93IVpod/zG3uMF22Unl8h9KkrcKIRs2EGar8hwLZZDU1lkjph303V9HZBwufh2s736U6VXuhD109LYqPoffg==}
 
   preact@10.24.3:
     resolution: {integrity: sha512-Z2dPnBnMUfyQfSQ+GBdsGa16hz35YmLmtTLhM169uW944hYL6xzTYkJjC07j+Wosz733pMWx0fgON3JNw1jJQA==}
@@ -4109,9 +4077,6 @@ packages:
   pretty-format@27.5.1:
     resolution: {integrity: sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
-
-  pretty-format@3.8.0:
-    resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
 
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
@@ -4984,16 +4949,6 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@auth/core@0.37.2':
-    dependencies:
-      '@panva/hkdf': 1.2.1
-      '@types/cookie': 0.6.0
-      cookie: 0.7.1
-      jose: 5.10.0
-      oauth4webapi: 3.3.0
-      preact: 10.11.3
-      preact-render-to-string: 5.2.3(preact@10.11.3)
-
   '@auth/core@0.39.0':
     dependencies:
       '@panva/hkdf': 1.2.1
@@ -5749,39 +5704,39 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@biomejs/biome@2.0.0-beta.1':
+  '@biomejs/biome@2.0.0-beta.2':
     optionalDependencies:
-      '@biomejs/cli-darwin-arm64': 2.0.0-beta.1
-      '@biomejs/cli-darwin-x64': 2.0.0-beta.1
-      '@biomejs/cli-linux-arm64': 2.0.0-beta.1
-      '@biomejs/cli-linux-arm64-musl': 2.0.0-beta.1
-      '@biomejs/cli-linux-x64': 2.0.0-beta.1
-      '@biomejs/cli-linux-x64-musl': 2.0.0-beta.1
-      '@biomejs/cli-win32-arm64': 2.0.0-beta.1
-      '@biomejs/cli-win32-x64': 2.0.0-beta.1
+      '@biomejs/cli-darwin-arm64': 2.0.0-beta.2
+      '@biomejs/cli-darwin-x64': 2.0.0-beta.2
+      '@biomejs/cli-linux-arm64': 2.0.0-beta.2
+      '@biomejs/cli-linux-arm64-musl': 2.0.0-beta.2
+      '@biomejs/cli-linux-x64': 2.0.0-beta.2
+      '@biomejs/cli-linux-x64-musl': 2.0.0-beta.2
+      '@biomejs/cli-win32-arm64': 2.0.0-beta.2
+      '@biomejs/cli-win32-x64': 2.0.0-beta.2
 
-  '@biomejs/cli-darwin-arm64@2.0.0-beta.1':
+  '@biomejs/cli-darwin-arm64@2.0.0-beta.2':
     optional: true
 
-  '@biomejs/cli-darwin-x64@2.0.0-beta.1':
+  '@biomejs/cli-darwin-x64@2.0.0-beta.2':
     optional: true
 
-  '@biomejs/cli-linux-arm64-musl@2.0.0-beta.1':
+  '@biomejs/cli-linux-arm64-musl@2.0.0-beta.2':
     optional: true
 
-  '@biomejs/cli-linux-arm64@2.0.0-beta.1':
+  '@biomejs/cli-linux-arm64@2.0.0-beta.2':
     optional: true
 
-  '@biomejs/cli-linux-x64-musl@2.0.0-beta.1':
+  '@biomejs/cli-linux-x64-musl@2.0.0-beta.2':
     optional: true
 
-  '@biomejs/cli-linux-x64@2.0.0-beta.1':
+  '@biomejs/cli-linux-x64@2.0.0-beta.2':
     optional: true
 
-  '@biomejs/cli-win32-arm64@2.0.0-beta.1':
+  '@biomejs/cli-win32-arm64@2.0.0-beta.2':
     optional: true
 
-  '@biomejs/cli-win32-x64@2.0.0-beta.1':
+  '@biomejs/cli-win32-x64@2.0.0-beta.2':
     optional: true
 
   '@clack/core@0.4.1':
@@ -6988,8 +6943,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.26.3
 
-  '@types/cookie@0.6.0': {}
-
   '@types/d3-array@3.2.1': {}
 
   '@types/d3-color@3.1.3': {}
@@ -7623,8 +7576,6 @@ snapshots:
   convert-source-map@1.9.0: {}
 
   convert-source-map@2.0.0: {}
-
-  cookie@0.7.1: {}
 
   core-js-compat@3.39.0:
     dependencies:
@@ -8449,8 +8400,6 @@ snapshots:
 
   jiti@1.21.7: {}
 
-  jose@5.10.0: {}
-
   jose@6.0.8: {}
 
   js-tokens@4.0.0: {}
@@ -8752,9 +8701,9 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-auth@5.0.0-beta.25(next@15.3.1(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
+  next-auth@5.0.0-beta.27(next@15.3.1(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
     dependencies:
-      '@auth/core': 0.37.2
+      '@auth/core': 0.39.0
       next: 15.3.1(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
@@ -9102,16 +9051,9 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  preact-render-to-string@5.2.3(preact@10.11.3):
-    dependencies:
-      preact: 10.11.3
-      pretty-format: 3.8.0
-
   preact-render-to-string@6.5.11(preact@10.24.3):
     dependencies:
       preact: 10.24.3
-
-  preact@10.11.3: {}
 
   preact@10.24.3: {}
 
@@ -9129,8 +9071,6 @@ snapshots:
       ansi-regex: 5.0.1
       ansi-styles: 5.2.0
       react-is: 17.0.2
-
-  pretty-format@3.8.0: {}
 
   process-nextick-args@2.0.1: {}
 
