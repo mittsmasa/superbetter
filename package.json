@@ -58,7 +58,7 @@
     "lefthook": "1.11.12",
     "serwist": "9.0.14",
     "storybook": "8.6.12",
-    "tsx": "4.19.3",
+    "tsx": "4.19.4",
     "typescript": "5.8.3",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.1.2"
