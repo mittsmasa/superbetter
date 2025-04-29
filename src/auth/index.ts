@@ -9,7 +9,15 @@ import { db } from '../db/client';
 
 const config = {
   providers: [
-    Google,
+    Google({
+      authorization: {
+        params: {
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code',
+        },
+      },
+    }),
     Credentials({
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
       // e.g. domain, username, password, 2FA token, etc.
