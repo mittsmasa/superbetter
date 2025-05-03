@@ -22,18 +22,18 @@ export const createDailyMission = cache(
     );
 
     try {
-      const mission = await db.query.missions.findFirst({
-        where: (mission) =>
-          and(
-            eq(mission.userId, user.id),
-            eq(mission.type, 'system-daily'),
-            between(mission.deadline, todayStart, todayEnd),
-          ),
-      });
-      if (mission) {
-        return { type: 'ok', data: undefined };
-      }
       await db.transaction(async (tx) => {
+        const mission = await tx.query.missions.findFirst({
+          where: (mission) =>
+            and(
+              eq(mission.userId, user.id),
+              eq(mission.type, 'system-daily'),
+              between(mission.deadline, todayStart, todayEnd),
+            ),
+        });
+        if (mission) {
+          return { type: 'ok', data: undefined };
+        }
         const [{ id }] = await tx
           .insert(missions)
           .values({
