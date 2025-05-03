@@ -30,8 +30,8 @@ importers:
         specifier: 0.43.1
         version: 0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
       motion:
-        specifier: 12.9.4
-        version: 12.9.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 12.8.0
+        version: 12.8.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       mysql2:
         specifier: 3.14.1
         version: 3.14.1
@@ -3676,8 +3676,8 @@ packages:
   motion-utils@12.9.4:
     resolution: {integrity: sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg==}
 
-  motion@12.9.4:
-    resolution: {integrity: sha512-ZMKNnhWylaIbtFmU+scDxdldk//3Rn/8B+dcDhIpGlixAl7yhiLx1WXyGD4TSJZf3sDU6yrnu3L3FWGFo4fTEQ==}
+  motion@12.8.0:
+    resolution: {integrity: sha512-j03/FAIjwlFSTcr3VIrLFhRTdDyfyyyvJz5s0Ctli3vuv/72+YKEOV2OIC/9QbjDqWU3ChngWlLnFezakCQ3Vg==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -8671,7 +8671,7 @@ snapshots:
 
   motion-utils@12.9.4: {}
 
-  motion@12.9.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  motion@12.8.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       framer-motion: 12.9.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tslib: 2.8.1
