@@ -22,57 +22,62 @@ export const createDailyMission = cache(
     );
 
     try {
-      const mission = await db.query.missions.findFirst({
-        where: (mission) =>
-          and(
-            eq(mission.userId, user.id),
-            eq(mission.type, 'system-daily'),
-            between(mission.deadline, todayStart, todayEnd),
-          ),
-      });
-      if (mission) {
-        return { type: 'ok', data: undefined };
-      }
-      await db.transaction(async (tx) => {
-        const [{ id }] = await tx
-          .insert(missions)
-          .values({
-            userId: user.id,
-            title: 'デイリーミッション',
-            description:
-              '秘宝を使い、挑戦を受け、悪を討て\n小さな積み重ねが、真の英雄への道となる',
-            type: 'system-daily',
-            deadline: todayEnd,
-          })
-          .$returningId();
-        await tx.insert(missionConditions).values([
-          {
-            missionId: id,
-            conditionType: 'any',
-            itemType: 'powerup',
-          },
-          {
-            missionId: id,
-            conditionType: 'any',
-            itemType: 'powerup',
-          },
-          {
-            missionId: id,
-            conditionType: 'any',
-            itemType: 'powerup',
-          },
-          {
-            missionId: id,
-            conditionType: 'any',
-            itemType: 'quest',
-          },
-          {
-            missionId: id,
-            conditionType: 'any',
-            itemType: 'villain',
-          },
-        ]);
-      });
+      await db.transaction(
+        async (tx) => {
+          const mission = await tx.query.missions.findFirst({
+            where: (mission) =>
+              and(
+                eq(mission.userId, user.id),
+                eq(mission.type, 'system-daily'),
+                between(mission.deadline, todayStart, todayEnd),
+              ),
+          });
+          if (mission) {
+            return { type: 'ok', data: undefined };
+          }
+          const [{ id }] = await tx
+            .insert(missions)
+            .values({
+              userId: user.id,
+              title: 'デイリーミッション',
+              description:
+                '秘宝を使い、挑戦を受け、悪を討て\n小さな積み重ねが、真の英雄への道となる',
+              type: 'system-daily',
+              deadline: todayEnd,
+            })
+            .$returningId();
+          await tx.insert(missionConditions).values([
+            {
+              missionId: id,
+              conditionType: 'any',
+              itemType: 'powerup',
+            },
+            {
+              missionId: id,
+              conditionType: 'any',
+              itemType: 'powerup',
+            },
+            {
+              missionId: id,
+              conditionType: 'any',
+              itemType: 'powerup',
+            },
+            {
+              missionId: id,
+              conditionType: 'any',
+              itemType: 'quest',
+            },
+            {
+              missionId: id,
+              conditionType: 'any',
+              itemType: 'villain',
+            },
+          ]);
+        },
+        {
+          isolationLevel: 'serializable',
+        },
+      );
       return { type: 'ok', data: undefined };
     } catch (e) {
       console.error(e);
