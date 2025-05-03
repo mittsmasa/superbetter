@@ -32,9 +32,6 @@ export const MotionLink = ({
         // display: inline では transform が効かないため block に変更
         css(feeling.cssRaw, {
           backgroundColor: 'interactive.background',
-          _hover: {
-            backgroundColor: 'interactive.background.hover',
-          },
           display: 'block',
           cursor: disabled ? 'not-allowed' : undefined,
           pointerEvents: disabled ? 'none' : undefined,
