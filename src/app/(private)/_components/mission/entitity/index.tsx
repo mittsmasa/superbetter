@@ -21,7 +21,6 @@ export const MissionEntities = (props: { items: MissionEntity[] }) => {
         display: 'flex',
         justifyContent: 'center',
         gap: '12px',
-        overflowX: 'auto',
       })}
     >
       {props.items.sort(sortMissionEntities).map((item, index) => (
