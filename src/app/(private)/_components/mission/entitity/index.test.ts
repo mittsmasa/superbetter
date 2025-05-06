@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { MissionEntity } from '.';
+import type { MissionEntity } from '../../entity-icon';
 import { sortMissionEntities } from '.';
 
 describe('sortMissionEntities', () => {
