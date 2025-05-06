@@ -1,7 +1,8 @@
 import { CheckGradient, RadioOn } from '@/assets/icons';
 import { MotionLink } from '@/components/motion-link';
 import { css } from '@/styled-system/css';
-import { MissionEntities, type MissionEntity } from './entitity';
+import type { MissionEntity } from '../entity-icon';
+import { MissionEntities } from './entitity';
 
 export const Mission = ({
   id,

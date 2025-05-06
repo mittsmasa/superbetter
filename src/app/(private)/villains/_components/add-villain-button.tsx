@@ -59,7 +59,6 @@ export const AddVillainButton = () => {
             <MissionEntities
               items={[
                 {
-                  id: 'villain',
                   itemType: 'villain',
                   completed: true,
                 },

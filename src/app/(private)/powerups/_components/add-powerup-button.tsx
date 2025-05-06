@@ -59,7 +59,6 @@ export const AddPowerupButton = () => {
             <MissionEntities
               items={[
                 {
-                  id: 'powerup',
                   itemType: 'powerup',
                   completed: true,
                 },

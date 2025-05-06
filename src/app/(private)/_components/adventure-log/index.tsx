@@ -1,7 +1,6 @@
-import type { ReactNode } from 'react';
-import { Android, ScriptText, Zap } from '@/assets/icons';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
+import { EntityIcon } from '../entity-icon';
 
 export const AdventureLog = ({
   heading,
@@ -43,7 +42,9 @@ export const AdventureLog = ({
               gap: '8px',
             })}
           >
-            {Icon[log.type]}
+            <span className={css({ width: '[18px]', height: '[18px]' })}>
+              <EntityIcon itemType={log.type} completed />
+            </span>
             <p className={css({ textStyle: 'Body.tertiary' })}>{log.title}</p>
           </div>
         ))}
@@ -51,16 +52,3 @@ export const AdventureLog = ({
     </div>
   );
 };
-
-const Icon = {
-  powerup: (
-    <Zap className={css({ color: 'entity.powerup', width: '[18px]' })} />
-  ),
-  quest: (
-    <ScriptText className={css({ color: 'entity.quest', width: '[18px]' })} />
-  ),
-  villain: (
-    <Android className={css({ color: 'entity.villain', width: '[18px]' })} />
-  ),
-  epicwin: <>未定</>,
-} as const satisfies Record<EntityType, ReactNode>;

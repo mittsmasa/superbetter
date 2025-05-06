@@ -59,7 +59,6 @@ export const AddQuestButton = () => {
             <MissionEntities
               items={[
                 {
-                  id: 'quest',
                   itemType: 'quest',
                   completed: true,
                 },
