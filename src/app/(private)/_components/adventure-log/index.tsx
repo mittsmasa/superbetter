@@ -43,7 +43,7 @@ export const AdventureLog = ({
             })}
           >
             <span className={css({ width: '[18px]', height: '[18px]' })}>
-              <EntityIcon id={''} itemType={log.type} completed />
+              <EntityIcon itemType={log.type} completed />
             </span>
             <p className={css({ textStyle: 'Body.tertiary' })}>{log.title}</p>
           </div>
