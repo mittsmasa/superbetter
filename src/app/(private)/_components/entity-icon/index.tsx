@@ -4,7 +4,7 @@ import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 
 export type MissionEntity = {
-  id: string;
+  id: string; // TODO: 不要かも
   itemType: EntityType;
   completed: boolean;
 };
