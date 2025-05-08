@@ -1,13 +1,22 @@
 import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import { and, eq } from 'drizzle-orm';
-import NextAuth from 'next-auth';
 import type { NextAuthConfig } from 'next-auth';
+import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import Google from 'next-auth/providers/google';
+import { createInitialEntity } from '@/app/(private)/_server-only/create-initial-entity';
 import { users } from '@/db/schema/auth';
 import { db } from '../db/client';
 
 const config = {
+  events: {
+    signIn: async ({ user, isNewUser }) => {
+      if (!(isNewUser && user.id)) {
+        return;
+      }
+      await createInitialEntity(user.id);
+    },
+  },
   providers: [
     Google({
       authorization: {
