@@ -29,6 +29,9 @@ export const createInitialEntity = async (
     await db
       .insert(powerups)
       .values(entities.powerups.map((p) => ({ userId, ...p })));
+    await db
+      .insert(villains)
+      .values(entities.villains.map((v) => ({ userId, ...v })));
 
     return {
       type: 'ok',
