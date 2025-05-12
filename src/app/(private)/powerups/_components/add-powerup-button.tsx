@@ -4,7 +4,7 @@ import { MissionEntities } from '@/app/(private)/_components/mission/entitity';
 import { AddBox } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { Drawer } from '@/components/drawer';
-import { IconButton } from '@/components/icon-button';
+import { IconButtonWithLabel } from '@/components/icon-button/with-label';
 import { TextArea } from '@/components/text-area';
 import { TextInput } from '@/components/text-input';
 import { useDialog } from '@/hooks/dialog';
@@ -15,14 +15,12 @@ export const AddPowerupButton = () => {
   const dialog = useDialog();
   return (
     <>
-      <IconButton onClick={dialog.show}>
-        <AddBox className={css({ width: '[24px]', height: '[24px]' })} />
-      </IconButton>
+      <IconButtonWithLabel onClick={dialog.show} label="ついか" size="sm">
+        <AddBox />
+      </IconButtonWithLabel>
       <Drawer ref={dialog.ref} onClose={dialog.close}>
         <form
           action={async (f) => {
-            // TODO: zod でバリデーション
-            // TODO: snackbar or toast でエラー通知
             const name = f.get('item-name') as string | null;
             const description = f.get('item-desc') as string | null;
             const res = await postPowerup({ name: name ?? '', description });

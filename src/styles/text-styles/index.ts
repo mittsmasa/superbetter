@@ -46,5 +46,12 @@ export const textStyles = defineTextStyles({
         fontWeight: 'normal',
       },
     },
+    quaternary: {
+      value: {
+        fontSize: '0.625rem',
+        lineHeight: 1.3,
+        fontWeight: 'normal',
+      },
+    },
   },
 });
