@@ -57,11 +57,12 @@ export const IconButton = ({
       {...feeling.props}
       {...props}
       className={cx(
-        active &&
-          pixelBorder({
-            borderWidth: 2,
-            borderColor: 'interactive.border.alt',
-          }),
+        pixelBorder({
+          borderWidth: 2,
+          borderColor: active
+            ? 'interactive.border.alt'
+            : 'interactive.background',
+        }),
         css(
           button.raw({ size }),
           !props.disabled && feeling.cssRaw,
