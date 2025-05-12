@@ -8,6 +8,7 @@ const meta = {
   args: {
     onClick: fn(),
     children: <AbTesting />,
+    size: 'md',
     label: 'アイコンボタン',
   },
 } satisfies Meta<typeof IconButtonWithLabel>;
