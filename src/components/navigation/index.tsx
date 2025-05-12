@@ -1,10 +1,9 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { type ComponentProps, type PropsWithChildren, useId } from 'react';
 import { Android, Calendar, Human, ScriptText, Zap } from '@/assets/icons';
+import { IconButtonWithLabel } from '@/components/icon-button/with-label';
 import { css } from '@/styled-system/css';
-import { IconButton } from '../icon-button';
 
 export const FooterNavigation = () => {
   const pathname = usePathname();
@@ -64,34 +63,6 @@ export const FooterNavigation = () => {
       >
         <Human className={css({ width: '[24px]' })} />
       </IconButtonWithLabel>
-    </div>
-  );
-};
-
-const IconButtonWithLabel = ({
-  children,
-  label,
-  ...rest
-}: PropsWithChildren<ComponentProps<typeof IconButton>> & {
-  label: string;
-}) => {
-  const id = useId();
-  return (
-    <div
-      className={css({
-        alignItems: 'center',
-        display: 'flex',
-        flex: '1',
-        flexDirection: 'column',
-        gap: '8px',
-      })}
-    >
-      <IconButton {...rest} id={id}>
-        {children}
-      </IconButton>
-      <label htmlFor={id} className={css({ textStyle: 'Body.tertiary' })}>
-        {label}
-      </label>
     </div>
   );
 };
