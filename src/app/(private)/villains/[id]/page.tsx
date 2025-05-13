@@ -24,7 +24,6 @@ const Page = async (props: {
         justifyContent: 'space-between',
         gap: '16px',
         height: '[100%]',
-        padding: '8px',
       })}
     >
       <div
