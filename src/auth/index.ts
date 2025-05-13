@@ -19,6 +19,7 @@ const config = {
   },
   providers: [
     Google({
+      checks: ['state'],
       authorization: {
         params: {
           prompt: 'consent',
