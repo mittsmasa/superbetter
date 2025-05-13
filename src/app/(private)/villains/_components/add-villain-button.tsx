@@ -15,7 +15,7 @@ export const AddVillainButton = () => {
   const dialog = useDialog();
   return (
     <>
-      <IconButtonWithLabel onClick={dialog.show} label="ついか" size="sm">
+      <IconButtonWithLabel onClick={dialog.show} label="ついか" size="md">
         <AddBox />
       </IconButtonWithLabel>
       <Drawer ref={dialog.ref} onClose={dialog.close}>

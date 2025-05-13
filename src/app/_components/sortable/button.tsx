@@ -12,7 +12,7 @@ export const SortableButton = () => {
       active={sortable}
       onClick={toggleSortable}
       label="ソート"
-      size="sm"
+      size="md"
     >
       <Sort />
     </IconButtonWithLabel>

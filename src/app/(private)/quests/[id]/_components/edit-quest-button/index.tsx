@@ -5,7 +5,7 @@ import { editQuest } from '@/app/(private)/quests/_actions/edit-quest';
 import { Edit } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { Drawer } from '@/components/drawer';
-import { IconButton } from '@/components/icon-button';
+import { IconButtonWithLabel } from '@/components/icon-button/with-label';
 import { TextArea } from '@/components/text-area';
 import { TextInput } from '@/components/text-input';
 import { useDialog } from '@/hooks/dialog';
@@ -24,9 +24,9 @@ export const EditQuestButton = ({
   const [isPending, startTransition] = useTransition();
   return (
     <>
-      <IconButton onClick={dialog.show}>
-        <Edit className={css({ width: '[24px]', height: '[24px]' })} />
-      </IconButton>
+      <IconButtonWithLabel onClick={dialog.show} label="へんしゅう" size="md">
+        <Edit />
+      </IconButtonWithLabel>
       <Drawer ref={dialog.ref} onClose={dialog.close}>
         <div
           className={css({
