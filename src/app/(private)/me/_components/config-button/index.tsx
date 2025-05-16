@@ -1,6 +1,6 @@
 'use client';
 
-import { signOut } from '@/app/(private)/_actions/signout';
+import { signOut } from 'next-auth/react';
 import { Logout, MoreVertical } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
 import { Popover } from '@/components/popover';
@@ -31,9 +31,7 @@ export const ConfigButton = () => {
           >
             <button
               type="button"
-              onClick={async () => {
-                await signOut();
-              }}
+              onClick={() => signOut({ callbackUrl: '/login' })}
               className={css({
                 alignItems: 'center',
                 display: 'flex',
