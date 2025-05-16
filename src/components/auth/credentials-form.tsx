@@ -1,6 +1,4 @@
-'use client';
-
-import { signIn } from 'next-auth/react';
+import { signIn } from '@/auth';
 import { css } from '@/styled-system/css';
 import { Button } from '../button';
 
@@ -8,9 +6,10 @@ export const CredentialsForm = () => {
   return (
     <form
       action={async (formData) => {
+        'use server';
         const email = formData.get('email') as string;
         const password = formData.get('password') as string;
-        signIn('credentials', { email, password, callbackUrl: '/' });
+        await signIn('credentials', { email, password, redirectTo: '/' });
       }}
       className={css({
         display: 'flex',

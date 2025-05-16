@@ -34,7 +34,7 @@
     "motion": "12.8.2",
     "mysql2": "3.14.1",
     "next": "15.3.2",
-    "next-auth": "4.24.11",
+    "next-auth": "5.0.0-beta.28",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "recharts": "2.15.3",
