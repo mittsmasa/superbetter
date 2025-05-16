@@ -18,16 +18,7 @@ const config = {
     },
   },
   providers: [
-    Google({
-      checks: ['state'],
-      authorization: {
-        params: {
-          prompt: 'consent',
-          access_type: 'offline',
-          response_type: 'code',
-        },
-      },
-    }),
+    Google,
     Credentials({
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
       // e.g. domain, username, password, 2FA token, etc.
