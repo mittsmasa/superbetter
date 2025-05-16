@@ -8,7 +8,6 @@ import { db } from '@/db/client';
 export const getUser = async () => {
   const session = await getServerSession(config);
   if (!session?.user) {
-    console.log(session);
     console.info('user not logged in');
     return redirect('/login');
   }
