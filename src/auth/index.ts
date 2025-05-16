@@ -18,13 +18,7 @@ const config = {
     },
   },
   providers: [
-    Google({
-      authorization: {
-        params: {
-          scope: 'openid profile email',
-        },
-      },
-    }),
+    Google,
     Credentials({
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
       // e.g. domain, username, password, 2FA token, etc.
