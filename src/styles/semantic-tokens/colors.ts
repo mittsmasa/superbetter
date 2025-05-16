@@ -15,7 +15,7 @@ export const colorsSemanticTokens = defineSemanticTokens.colors({
   },
   interactive: {
     border: {
-      DEFAULT: { value: '{colors.gray.600}' },
+      DEFAULT: { value: '{colors.gray.700}' },
       disabled: { value: '{colors.gray.300}' },
       alt: { value: '{colors.gray.100}' },
     },
