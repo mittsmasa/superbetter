@@ -4,7 +4,7 @@
 Next.js、PandaCSS、Drizzle ORMを使用したウェブアプリケーション
 
 ## アプリケーション
-https://superbetter.vercel.app/
+https://www.superbetter.app/
 
 ## Storybook
 https://mittsmasa.github.io/superbetter
