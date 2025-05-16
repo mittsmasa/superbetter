@@ -27,7 +27,7 @@ export const MotionLink = ({
           borderColor:
             (pixelBorderColor ?? disabled)
               ? 'interactive.border.disabled'
-              : 'interactive.background',
+              : 'interactive.border',
         }),
         // display: inline では transform が効かないため block に変更
         css(feeling.cssRaw, {
