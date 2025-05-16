@@ -1,9 +1,12 @@
+'server-only';
+
 import { redirect } from 'next/navigation';
-import { auth } from '@/auth';
+import { getServerSession } from 'next-auth';
+import { config } from '@/auth';
 import { db } from '@/db/client';
 
 export const getUser = async () => {
-  const session = await auth();
+  const session = await getServerSession(config);
   if (!session?.user) {
     console.info('user not logged in');
     return redirect('/login');
