@@ -1,6 +1,6 @@
 import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import { and, eq } from 'drizzle-orm';
-import type { AuthOptions as NextAuthConfig } from 'next-auth';
+import type { NextAuthConfig } from 'next-auth';
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import Google from 'next-auth/providers/google';
@@ -8,11 +8,7 @@ import { createInitialEntity } from '@/app/(private)/_server-only/create-initial
 import { users } from '@/db/schema/auth';
 import { db } from '../db/client';
 
-export const config = {
-  adapter: DrizzleAdapter(db),
-  session: {
-    strategy: 'database',
-  },
+const config = {
   events: {
     signIn: async ({ user, isNewUser }) => {
       if (!(isNewUser && user.id)) {
@@ -23,14 +19,9 @@ export const config = {
   },
   providers: [
     Google({
-      clientId: process.env.AUTH_GOOGLE_ID || '',
-      clientSecret: process.env.AUTH_GOOGLE_SECRET || '',
-      checks: ['state'],
       authorization: {
         params: {
-          prompt: 'consent',
-          access_type: 'offline',
-          response_type: 'code',
+          scope: 'openid profile email',
         },
       },
     }),
@@ -42,11 +33,6 @@ export const config = {
         password: {},
       },
       authorize: async (credentials) => {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error(
-            'Invalid credentials. No email or password was provided.',
-          );
-        }
         // logic to verify if the user exists
         const user = await db.query.users.findFirst({
           columns: {
@@ -70,4 +56,10 @@ export const config = {
   ],
 } satisfies NextAuthConfig;
 
-export const handler = NextAuth(config);
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  adapter: DrizzleAdapter(db),
+  session: {
+    strategy: 'database',
+  },
+  ...config,
+});

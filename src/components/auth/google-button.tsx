@@ -1,15 +1,15 @@
-'use client';
-
-import { signIn } from 'next-auth/react';
+import { signIn } from '@/auth';
 import { Button } from '../button';
 
 export const GoogleButton = ({ redirectTo }: { redirectTo?: string }) => {
   return (
-    <Button
-      type="button"
-      onClick={() => signIn('google', { callbackUrl: redirectTo ?? '/' })}
+    <form
+      action={async () => {
+        'use server';
+        await signIn('google', { redirectTo: redirectTo ?? '/' });
+      }}
     >
-      Googleでサインイン
-    </Button>
+      <Button type="submit">Googleでサインイン</Button>
+    </form>
   );
 };
