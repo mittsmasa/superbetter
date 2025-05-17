@@ -19,7 +19,9 @@ const config = {
     },
   },
   providers: [
-    Resend,
+    Resend({
+      from: process.env.EMAIL_FROM,
+    }),
     Google,
     Credentials({
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
