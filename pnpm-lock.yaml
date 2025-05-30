@@ -27,11 +27,11 @@ importers:
         specifier: 16.5.0
         version: 16.5.0
       drizzle-orm:
-        specifier: 0.43.1
-        version: 0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
+        specifier: 0.44.1
+        version: 0.44.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
       motion:
-        specifier: 12.8.2
-        version: 12.8.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 12.15.0
+        version: 12.15.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       mysql2:
         specifier: 3.14.1
         version: 3.14.1
@@ -95,7 +95,7 @@ importers:
         version: 0.31.1
       drizzle-seed:
         specifier: 0.3.1
-        version: 0.3.1(drizzle-orm@0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1))
+        version: 0.3.1(drizzle-orm@0.44.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1))
       lefthook:
         specifier: 1.11.13
         version: 1.11.13
@@ -2748,8 +2748,8 @@ packages:
     resolution: {integrity: sha512-PUjYKWtzOzPtdtQlTHQG3qfv4Y0XT8+Eas6UbxCmxTj7qgMf+39dDujf1BP1I+qqZtw9uzwTh8jYtkMuCq+B0Q==}
     hasBin: true
 
-  drizzle-orm@0.43.1:
-    resolution: {integrity: sha512-dUcDaZtE/zN4RV/xqGrVSMpnEczxd5cIaoDeor7Zst9wOe/HzC/7eAaulywWGYXdDEc9oBPMjayVEDg0ziTLJA==}
+  drizzle-orm@0.44.1:
+    resolution: {integrity: sha512-prIWOlwJbiYInvcJxE+IMiJCtMiFVrSUJCwx6AXSJvGOdLu35qZ46QncTZDgloiLNCG0XxTC8agQElSmsl++TA==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -2765,6 +2765,7 @@ packages:
       '@types/better-sqlite3': '*'
       '@types/pg': '*'
       '@types/sql.js': '*'
+      '@upstash/redis': '>=1.34.7'
       '@vercel/postgres': '>=0.8.0'
       '@xata.io/client': '*'
       better-sqlite3: '>=7'
@@ -2807,6 +2808,8 @@ packages:
       '@types/pg':
         optional: true
       '@types/sql.js':
+        optional: true
+      '@upstash/redis':
         optional: true
       '@vercel/postgres':
         optional: true
@@ -3056,8 +3059,8 @@ packages:
       typescript: '>3.6.0'
       webpack: ^5.11.0
 
-  framer-motion@12.9.4:
-    resolution: {integrity: sha512-yaeGDmGQ3eCQEwZ95/pRQMaSh/Q4E2CK6JYOclG/PdjyQad0MULJ+JFVV8911Fl5a6tF6o0wgW8Dpl5Qx4Adjg==}
+  framer-motion@12.15.0:
+    resolution: {integrity: sha512-XKg/LnKExdLGugZrDILV7jZjI599785lDIJZLxMiiIFidCsy0a4R2ZEf+Izm67zyOuJgQYTHOmodi7igQsw3vg==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -3667,14 +3670,14 @@ packages:
   mlly@1.7.3:
     resolution: {integrity: sha512-xUsx5n/mN0uQf4V548PKQ+YShA4/IW0KI1dZhrNrPCLG+xizETbHTkOa1f8/xut9JRPp8kQuMnz0oqwkTiLo/A==}
 
-  motion-dom@12.9.4:
-    resolution: {integrity: sha512-25TWkQPj5I18m+qVjXGtCsxboY11DaRC5HMjd29tHKExazW4Zf4XtAagBdLpyKsVuAxEQ6cx5/E4AB21PFpLnQ==}
+  motion-dom@12.15.0:
+    resolution: {integrity: sha512-D2ldJgor+2vdcrDtKJw48k3OddXiZN1dDLLWrS8kiHzQdYVruh0IoTwbJBslrnTXIPgFED7PBN2Zbwl7rNqnhA==}
 
-  motion-utils@12.9.4:
-    resolution: {integrity: sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg==}
+  motion-utils@12.12.1:
+    resolution: {integrity: sha512-f9qiqUHm7hWSLlNW8gS9pisnsN7CRFRD58vNjptKdsqFLpkVnX00TNeD6Q0d27V9KzT7ySFyK1TZ/DShfVOv6w==}
 
-  motion@12.8.2:
-    resolution: {integrity: sha512-Oy3hpk/10H9x5dKKLVjcAkv1rIn+hV42dGOliUdY9VL7admkmc3F0MBxK1YJ+7V9BgyokUyDRG3Ivs23H9Q/zA==}
+  motion@12.15.0:
+    resolution: {integrity: sha512-HLouXyIb1uQFiZgJTYGrtEzbatPc6vK+HP+Qt6afLQjaudiGiLLVsoy71CwzD/Stlh06FUd5OpyiXqn6XvqjqQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -7855,17 +7858,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1):
+  drizzle-orm@0.44.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1):
     optionalDependencies:
       '@tidbcloud/serverless': 0.2.0
       gel: 2.0.0
       mysql2: 3.14.1
 
-  drizzle-seed@0.3.1(drizzle-orm@0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)):
+  drizzle-seed@0.3.1(drizzle-orm@0.44.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)):
     dependencies:
       pure-rand: 6.1.0
     optionalDependencies:
-      drizzle-orm: 0.43.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
+      drizzle-orm: 0.44.1(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.1)
 
   dunder-proto@1.0.1:
     dependencies:
@@ -8111,10 +8114,10 @@ snapshots:
       typescript: 5.8.3
       webpack: 5.97.1(esbuild@0.25.2)
 
-  framer-motion@12.9.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  framer-motion@12.15.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      motion-dom: 12.9.4
-      motion-utils: 12.9.4
+      motion-dom: 12.15.0
+      motion-utils: 12.12.1
       tslib: 2.8.1
     optionalDependencies:
       react: 19.1.0
@@ -8652,15 +8655,15 @@ snapshots:
       pkg-types: 1.2.1
       ufo: 1.5.4
 
-  motion-dom@12.9.4:
+  motion-dom@12.15.0:
     dependencies:
-      motion-utils: 12.9.4
+      motion-utils: 12.12.1
 
-  motion-utils@12.9.4: {}
+  motion-utils@12.12.1: {}
 
-  motion@12.8.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  motion@12.15.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      framer-motion: 12.9.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      framer-motion: 12.15.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tslib: 2.8.1
     optionalDependencies:
       react: 19.1.0
