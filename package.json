@@ -26,7 +26,7 @@
   "dependencies": {
     "@auth/drizzle-adapter": "1.9.1",
     "@date-fns/tz": "1.2.0",
-    "@floating-ui/react": "0.27.9",
+    "@floating-ui/react": "0.27.10",
     "@serwist/next": "9.0.14",
     "date-fns": "4.1.0",
     "dotenv": "16.5.0",
