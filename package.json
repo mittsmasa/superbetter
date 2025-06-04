@@ -52,7 +52,7 @@
     "@svgr/webpack": "8.1.0",
     "@types/node": "22.15.29",
     "@types/react": "19.1.6",
-    "@types/react-dom": "19.1.5",
+    "@types/react-dom": "19.1.6",
     "drizzle-kit": "0.31.1",
     "drizzle-seed": "0.3.1",
     "lefthook": "1.11.13",
