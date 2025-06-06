@@ -30,8 +30,8 @@
     "@serwist/next": "9.0.14",
     "date-fns": "4.1.0",
     "dotenv": "16.5.0",
-    "drizzle-orm": "0.43.1",
-    "motion": "12.8.2",
+    "drizzle-orm": "0.44.2",
+    "motion": "12.16.0",
     "mysql2": "3.14.1",
     "next": "15.3.3",
     "next-auth": "5.0.0-beta.28",
@@ -61,7 +61,7 @@
     "tsx": "4.19.4",
     "typescript": "5.8.3",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "3.1.4"
+    "vitest": "3.2.2"
   },
   "volta": {
     "node": "22.16.0"
