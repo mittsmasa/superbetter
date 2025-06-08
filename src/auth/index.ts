@@ -9,6 +9,10 @@ import { users } from '@/db/schema/auth';
 import { db } from '../db/client';
 
 const config = {
+  pages: {
+    signIn: '/login',
+    error: '/',
+  },
   events: {
     signIn: async ({ user, isNewUser }) => {
       if (!(isNewUser && user.id)) {
