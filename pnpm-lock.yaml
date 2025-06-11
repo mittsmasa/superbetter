@@ -62,7 +62,7 @@ importers:
         version: 0.53.7(typescript@5.8.3)
       '@storybook/addon-essentials':
         specifier: 8.6.14
-        version: 8.6.14(@types/react@19.1.7)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
+        version: 8.6.14(@types/react@19.1.8)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
       '@storybook/addon-interactions':
         specifier: 8.6.14
         version: 8.6.14(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
@@ -85,11 +85,11 @@ importers:
         specifier: 22.15.31
         version: 22.15.31
       '@types/react':
-        specifier: 19.1.7
-        version: 19.1.7
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.7)
+        version: 19.1.6(@types/react@19.1.8)
       drizzle-kit:
         specifier: 0.31.1
         version: 0.31.1
@@ -1869,8 +1869,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.0.0
 
-  '@types/react@19.1.7':
-    resolution: {integrity: sha512-BnsPLV43ddr05N71gaGzyZ5hzkCmGwhMvYc8zmvI8Ci1bRkkDSzDDVfAXfN2tk748OwI7ediiPX6PfT9p0QGVg==}
+  '@types/react@19.1.8':
+    resolution: {integrity: sha512-AwAfQ2Wa5bCx9WP8nZL2uMZWod7J7/JSplxbTmBQ5ms6QpqNYm672H0Vu9ZVKVngQ+ii4R/byguVEUZQyeg44g==}
 
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
@@ -5912,10 +5912,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@mdx-js/react@3.1.0(@types/react@19.1.7)(react@19.1.0)':
+  '@mdx-js/react@3.1.0(@types/react@19.1.8)(react@19.1.0)':
     dependencies:
       '@types/mdx': 2.0.13
-      '@types/react': 19.1.7
+      '@types/react': 19.1.8
       react: 19.1.0
 
   '@next/env@15.3.3': {}
@@ -6257,9 +6257,9 @@ snapshots:
       storybook: 9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.6.14(@types/react@19.1.7)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))':
+  '@storybook/addon-docs@8.6.14(@types/react@19.1.8)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))':
     dependencies:
-      '@mdx-js/react': 3.1.0(@types/react@19.1.7)(react@19.1.0)
+      '@mdx-js/react': 3.1.0(@types/react@19.1.8)(react@19.1.0)
       '@storybook/blocks': 8.6.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
       '@storybook/csf-plugin': 8.6.14(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
       '@storybook/react-dom-shim': 8.6.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
@@ -6270,12 +6270,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.6.14(@types/react@19.1.7)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))':
+  '@storybook/addon-essentials@8.6.14(@types/react@19.1.8)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))':
     dependencies:
       '@storybook/addon-actions': 8.6.14(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
       '@storybook/addon-backgrounds': 8.6.14(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
       '@storybook/addon-controls': 8.6.14(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
-      '@storybook/addon-docs': 8.6.14(@types/react@19.1.7)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
+      '@storybook/addon-docs': 8.6.14(@types/react@19.1.8)(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
       '@storybook/addon-highlight': 8.6.14(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
       '@storybook/addon-measure': 8.6.14(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
       '@storybook/addon-outline': 8.6.14(storybook@9.0.8(@testing-library/dom@10.4.0)(prettier@3.2.5))
@@ -6735,11 +6735,11 @@ snapshots:
 
   '@types/parse-json@4.0.2': {}
 
-  '@types/react-dom@19.1.6(@types/react@19.1.7)':
+  '@types/react-dom@19.1.6(@types/react@19.1.8)':
     dependencies:
-      '@types/react': 19.1.7
+      '@types/react': 19.1.8
 
-  '@types/react@19.1.7':
+  '@types/react@19.1.8':
     dependencies:
       csstype: 3.1.3
 
