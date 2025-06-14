@@ -18,8 +18,8 @@ importers:
         specifier: 0.27.12
         version: 0.27.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@serwist/next':
-        specifier: 9.0.14
-        version: 9.0.14(next@15.3.3(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.2))
+        specifier: 9.0.15
+        version: 9.0.15(next@15.3.3(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.2))
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -100,8 +100,8 @@ importers:
         specifier: 1.11.13
         version: 1.11.13
       serwist:
-        specifier: 9.0.14
-        version: 9.0.14(typescript@5.8.3)
+        specifier: 9.0.15
+        version: 9.0.15(typescript@5.8.3)
       storybook:
         specifier: 9.0.9
         version: 9.0.9(@testing-library/dom@10.4.0)(prettier@3.2.5)
@@ -1468,8 +1468,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@serwist/build@9.0.14':
-    resolution: {integrity: sha512-CV8LBBT85c5juyVqodqUUxo9yMFt7LQ3TZUrz0Vzp1XwC+hpggfXfnoMyQfneP1La/85oNjrCxvrvLgp2eCJXQ==}
+  '@serwist/build@9.0.15':
+    resolution: {integrity: sha512-6AC7rd62PLqHH6yAeNcN6Qhid8f5bzDXBnE3nRz17RQFx30lFoz4ecveM++pYbEh976EQVXJqMwVQqbXqd3fOQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -1477,8 +1477,8 @@ packages:
       typescript:
         optional: true
 
-  '@serwist/next@9.0.14':
-    resolution: {integrity: sha512-6VOKuXbwFAM/V98GJs/FRvzcUvV1HCEACornbsPo5x9tfYI5BYhnaSdPRK5SQvXVIdifigS8Kzh/Dx1g0CpCGw==}
+  '@serwist/next@9.0.15':
+    resolution: {integrity: sha512-YtEN5XltnjqsyMtOmxKMMDKv1QhbUlQMdQaIZCXO+3JiTZ19kklNchN6lZFhD8LUeCIjLNMJWL63b3FkV2yjig==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       next: '>=14.0.0'
@@ -1487,8 +1487,8 @@ packages:
       typescript:
         optional: true
 
-  '@serwist/webpack-plugin@9.0.14':
-    resolution: {integrity: sha512-2CG7gsq/ZgC0fYbdfIIh3SrXXGRJFYlq0Wrph50ek8SABZccTIUx5QRzGkKaMl3I4ICzPJZyM8HVtz5FocVH2w==}
+  '@serwist/webpack-plugin@9.0.15':
+    resolution: {integrity: sha512-Pzz4YNHOIBsKmLp/MvXjA2tWUK+uFN4ZUQ5FmbQHbOHYPai6eN6FLqyvvRC+mhGA7IP3Iu6ZEzcqrRuhheRD3Q==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -1499,8 +1499,8 @@ packages:
       webpack:
         optional: true
 
-  '@serwist/window@9.0.14':
-    resolution: {integrity: sha512-LjcgdZXDGJ2OmE8zo/ULxvLkaQ3dgjc2SsokZ9azt1Z+WR9Gt3fKiyyKf28us6VuCASPlkYtqsWjg7efNXI6pQ==}
+  '@serwist/window@9.0.15':
+    resolution: {integrity: sha512-rQ9qFl7lHXwzLselCn1VNDgKz3cxWVPSM51SAAGIbz3yvFnFt4G+8Nofusi2yPV/bYTIOVitphygwPY7xtzL5A==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -3106,8 +3106,8 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  idb@8.0.2:
-    resolution: {integrity: sha512-CX70rYhx7GDDQzwwQMDwF6kDRQi5vVs6khHUumDrMecBylKkwvZ8HWvKV08AGb7VbpoGCWUQ4aHzNDgoUiOIUg==}
+  idb@8.0.3:
+    resolution: {integrity: sha512-LtwtVyVYO5BqRvcsKuB2iUMnHwPVByPCXFXOpuU96IZPPoPN6xjOGxZQ74pgSVVLQWtUOYgyeL4GE98BY5D3wg==}
 
   ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -4204,8 +4204,8 @@ packages:
   server-only@0.0.1:
     resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
 
-  serwist@9.0.14:
-    resolution: {integrity: sha512-vr4uqSeB7NxrAJeneCxhnEDDksovTcVAxkWyse4DFj/OP8UVJkdsSEJlzT94gRu5qrTZxKrb+pFrxsIStfWTWg==}
+  serwist@9.0.15:
+    resolution: {integrity: sha512-DyYLL73o3wOp0KwgSxCV6lk5KAgt7By5IHRoD6O5hJIrCQ09QwjOI8Fny7g2ZQjskcC8nRZZNVMP5GxcCREExw==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -4795,8 +4795,8 @@ packages:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
 
-  zod@3.24.3:
-    resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
+  zod@3.25.63:
+    resolution: {integrity: sha512-3ttCkqhtpncYXfP0f6dsyabbYV/nEUW+Xlu89jiXbTBifUfjaSqXOG6JnQPLtqt87n7KAmnMqcjay6c0Wq0Vbw==}
 
 snapshots:
 
@@ -6193,44 +6193,44 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.35.0':
     optional: true
 
-  '@serwist/build@9.0.14(typescript@5.8.3)':
+  '@serwist/build@9.0.15(typescript@5.8.3)':
     dependencies:
       common-tags: 1.8.2
       glob: 10.4.5
       pretty-bytes: 6.1.1
       source-map: 0.8.0-beta.0
-      zod: 3.24.3
+      zod: 3.25.63
     optionalDependencies:
       typescript: 5.8.3
 
-  '@serwist/next@9.0.14(next@15.3.3(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.2))':
+  '@serwist/next@9.0.15(next@15.3.3(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.2))':
     dependencies:
-      '@serwist/build': 9.0.14(typescript@5.8.3)
-      '@serwist/webpack-plugin': 9.0.14(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.2))
-      '@serwist/window': 9.0.14(typescript@5.8.3)
+      '@serwist/build': 9.0.15(typescript@5.8.3)
+      '@serwist/webpack-plugin': 9.0.15(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.2))
+      '@serwist/window': 9.0.15(typescript@5.8.3)
       chalk: 5.4.1
       glob: 10.4.5
       next: 15.3.3(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      serwist: 9.0.14(typescript@5.8.3)
-      zod: 3.24.3
+      serwist: 9.0.15(typescript@5.8.3)
+      zod: 3.25.63
     optionalDependencies:
       typescript: 5.8.3
     transitivePeerDependencies:
       - webpack
 
-  '@serwist/webpack-plugin@9.0.14(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.2))':
+  '@serwist/webpack-plugin@9.0.15(typescript@5.8.3)(webpack@5.97.1(esbuild@0.25.2))':
     dependencies:
-      '@serwist/build': 9.0.14(typescript@5.8.3)
+      '@serwist/build': 9.0.15(typescript@5.8.3)
       pretty-bytes: 6.1.1
-      zod: 3.24.3
+      zod: 3.25.63
     optionalDependencies:
       typescript: 5.8.3
       webpack: 5.97.1(esbuild@0.25.2)
 
-  '@serwist/window@9.0.14(typescript@5.8.3)':
+  '@serwist/window@9.0.15(typescript@5.8.3)':
     dependencies:
       '@types/trusted-types': 2.0.7
-      serwist: 9.0.14(typescript@5.8.3)
+      serwist: 9.0.15(typescript@5.8.3)
     optionalDependencies:
       typescript: 5.8.3
 
@@ -8059,7 +8059,7 @@ snapshots:
     dependencies:
       postcss: 8.5.3
 
-  idb@8.0.2: {}
+  idb@8.0.3: {}
 
   ieee754@1.2.1: {}
 
@@ -9106,9 +9106,9 @@ snapshots:
 
   server-only@0.0.1: {}
 
-  serwist@9.0.14(typescript@5.8.3):
+  serwist@9.0.15(typescript@5.8.3):
     dependencies:
-      idb: 8.0.2
+      idb: 8.0.3
     optionalDependencies:
       typescript: 5.8.3
 
@@ -9738,4 +9738,4 @@ snapshots:
 
   yocto-queue@1.1.1: {}
 
-  zod@3.24.3: {}
+  zod@3.25.63: {}
