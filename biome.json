@@ -25,10 +25,8 @@
     "rules": {
       "style": {
         "useLiteralEnumMembers": "error",
-        "noCommaOperator": "error",
         "useNodejsImportProtocol": "error",
         "useAsConstAssertion": "error",
-        "useNumericLiterals": "error",
         "useEnumInitializers": "error",
         "useSelfClosingElements": "error",
         "useConst": "error",
@@ -41,7 +39,6 @@
         "noParameterAssign": "error",
         "noNonNullAssertion": "error",
         "useDefaultParameterLast": "error",
-        "noArguments": "error",
         "useImportType": "error",
         "useExportType": "error",
         "noUselessElse": "error",
@@ -52,6 +49,9 @@
         "noPrivateImports": "error"
       },
       "complexity": {
+        "noArguments": "error",
+        "useNumericLiterals": "error",
+        "noCommaOperator": "error",
         "useLiteralKeys": "off"
       },
       "suspicious": {

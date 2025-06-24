@@ -169,21 +169,21 @@ export const TimeSeriesChart = ({
           dataKey="powerup"
           stackId="a"
           shape={(props: BarProps) => <NeonBar {...props} />}
-          onTouchStart={(e: { date: string }) => onClickBar(e.date)}
+          onTouchStart={(_, index) => onClickBar(data[index].date)}
         />
         <Bar
           dataKey="quest"
           stackId="a"
           fill={token('colors.entity.quest')}
           shape={(props: BarProps) => <NeonBar {...props} />}
-          onTouchStart={(e: { date: string }) => onClickBar(e.date)}
+          onTouchStart={(_, index) => onClickBar(data[index].date)}
         />
         <Bar
           dataKey="villain"
           stackId="a"
           fill={token('colors.entity.villain')}
           shape={(props: BarProps) => <NeonBar {...props} />}
-          onTouchStart={(e: { date: string }) => onClickBar(e.date)}
+          onTouchStart={(_, index) => onClickBar(data[index].date)}
         />
       </BarChart>
     </ResponsiveContainer>
