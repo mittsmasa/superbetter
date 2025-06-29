@@ -34,16 +34,16 @@ const Page = async () => {
       >
         <div
           className={css({
+            backgroundColor: 'background',
             position: 'sticky',
             top: 0,
-            backgroundColor: 'background',
           })}
         >
           <Header
             withBackButton={false}
             rightSlot={
               <div
-                className={css({ width: '[100%]', justifyContent: 'center' })}
+                className={css({ justifyContent: 'center', width: '[100%]' })}
               >
                 <div
                   className={css({
@@ -54,7 +54,7 @@ const Page = async () => {
                   })}
                 >
                   <CheckList
-                    className={css({ width: '[20px]', height: '[20px]' })}
+                    className={css({ height: '[20px]', width: '[20px]' })}
                   />
                   <span>魔力測定 結果</span>
                 </div>
@@ -90,11 +90,11 @@ const Page = async () => {
                 className={css({
                   alignItems: 'center',
                   display: 'flex',
-                  justifyContent: 'space-between',
                   gap: '4px',
+                  justifyContent: 'space-between',
                 })}
               >
-                <Sun className={css({ width: '[18px]', height: '[18px]' })} />
+                <Sun className={css({ height: '[18px]', width: '[18px]' })} />
                 <span>ポジティブ感情</span>
               </div>
               <span>
@@ -116,11 +116,11 @@ const Page = async () => {
                 className={css({
                   alignItems: 'center',
                   display: 'flex',
-                  justifyContent: 'space-between',
                   gap: '4px',
+                  justifyContent: 'space-between',
                 })}
               >
-                <Cloud className={css({ width: '[18px]', height: '[18px]' })} />
+                <Cloud className={css({ height: '[18px]', width: '[18px]' })} />
                 <span>ネガティブ感情</span>
               </div>
               <span>
@@ -133,8 +133,8 @@ const Page = async () => {
             </div>
             <hr
               className={css({
-                height: '[1px]',
                 backgroundColor: 'foreground',
+                height: '[1px]',
               })}
             />
             <div
@@ -148,12 +148,12 @@ const Page = async () => {
                 className={css({
                   alignItems: 'center',
                   display: 'flex',
-                  justifyContent: 'space-between',
                   gap: '4px',
+                  justifyContent: 'space-between',
                 })}
               >
                 <CloudSun
-                  className={css({ width: '[18px]', height: '[18px]' })}
+                  className={css({ height: '[18px]', width: '[18px]' })}
                 />
                 <span>ポジネガ比</span>
               </div>

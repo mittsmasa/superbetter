@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: 設定ファイルは並び順を維持したい */
 import '../src/app/globals.css';
 import type { Preview } from '@storybook/react';
 import Script from 'next/script';

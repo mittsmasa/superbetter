@@ -8,17 +8,17 @@ const Layout = async ({ children }: PropsWithChildren) => {
       className={css({
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
         height: '[100%]',
+        justifyContent: 'space-between',
       })}
     >
       {children}
       <div
         className={css({
-          position: 'sticky',
+          backgroundColor: 'background',
           bottom: 0,
           padding: '8px',
-          backgroundColor: 'background',
+          position: 'sticky',
         })}
       >
         <FooterNavigation />

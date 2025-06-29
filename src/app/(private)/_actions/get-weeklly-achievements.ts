@@ -25,10 +25,10 @@ import type {
 } from './types/weekly-achievements';
 
 const dateFormatter = new Intl.DateTimeFormat('ja-JP', {
-  year: 'numeric',
-  month: 'numeric',
   day: 'numeric',
+  month: 'numeric',
   timeZone: 'Asia/Tokyo',
+  year: 'numeric',
 });
 
 export const getWeeklyAchievements = async (): Promise<
@@ -96,11 +96,11 @@ export const getWeeklyAchievements = async (): Promise<
         const datetimeString = dateFormatter.format(datetime);
 
         return {
-          date: datetime,
-          dateString: datetimeString,
           adventureLogs:
             entities.find((entity) => entity.datetime === datetimeString)
               ?.adventureLogs ?? [],
+          date: datetime,
+          dateString: datetimeString,
           status: 'no-data',
         } satisfies DailyAchievements;
       })
@@ -120,17 +120,17 @@ export const getWeeklyAchievements = async (): Promise<
 
         return {
           ...achievement,
-          status: completed ? 'achieved' : 'not-achieved',
           isToday,
+          status: completed ? 'achieved' : 'not-achieved',
         };
       });
 
-    return { type: 'ok', data: weekelyAchievements };
+    return { data: weekelyAchievements, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };
@@ -142,10 +142,10 @@ const getTimeSeriesAdventureLogs = async (
 ): Promise<{ datetime: string; adventureLogs: AdventureLog[] }[]> => {
   const powerupLogs = db
     .select({
-      id: powerupHistories.id,
-      type: sql<EntityType>`"powerup"`.as('type'),
-      title: powerups.title,
       createdAt: powerupHistories.createdAt,
+      id: powerupHistories.id,
+      title: powerups.title,
+      type: sql<EntityType>`"powerup"`.as('type'),
     })
     .from(powerupHistories)
     .innerJoin(powerups, eq(powerupHistories.powerupId, powerups.id))
@@ -159,10 +159,10 @@ const getTimeSeriesAdventureLogs = async (
 
   const questLogs = db
     .select({
-      id: questHistories.id,
-      type: sql<EntityType>`"quest"`.as('type'),
-      title: quests.title,
       createdAt: questHistories.createdAt,
+      id: questHistories.id,
+      title: quests.title,
+      type: sql<EntityType>`"quest"`.as('type'),
     })
     .from(questHistories)
     .innerJoin(quests, eq(questHistories.questId, quests.id))
@@ -176,10 +176,10 @@ const getTimeSeriesAdventureLogs = async (
 
   const villainLogs = db
     .select({
-      id: villainHistories.id,
-      type: sql<EntityType>`"villain"`.as('type'),
-      title: villains.title,
       createdAt: villainHistories.createdAt,
+      id: villainHistories.id,
+      title: villains.title,
+      type: sql<EntityType>`"villain"`.as('type'),
     })
     .from(villainHistories)
     .innerJoin(villains, eq(villainHistories.villainId, villains.id))
@@ -204,17 +204,17 @@ const getTimeSeriesAdventureLogs = async (
   );
   return Object.entries(dateWithLog).map(([datetime, logs]) => {
     const SORT_ORDER = {
+      epicwin: 4,
       powerup: 1,
       quest: 2,
       villain: 3,
-      epicwin: 4,
     } as const satisfies Record<EntityType, number>;
     return {
-      datetime,
       adventureLogs:
         logs?.sort((a, b) => {
           return SORT_ORDER[a.type] - SORT_ORDER[b.type];
         }) ?? [],
+      datetime,
     };
   });
 };

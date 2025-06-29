@@ -21,9 +21,9 @@ const Page = async (props: {
       className={css({
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
         gap: '16px',
         height: '[100%]',
+        justifyContent: 'space-between',
       })}
     >
       <div
@@ -63,8 +63,8 @@ const Page = async (props: {
           {powerup.data.description && (
             <p
               className={css({
-                textStyle: 'Body.tertiary',
                 color: 'foreground',
+                textStyle: 'Body.tertiary',
                 whiteSpace: 'pre-wrap',
               })}
             >
@@ -75,10 +75,10 @@ const Page = async (props: {
       </div>
       <div
         className={css({
-          width: '[100%]',
           display: 'flex',
           justifyContent: 'center',
           py: '24px',
+          width: '[100%]',
         })}
       >
         <ExecuteButton powerupId={powerupId} />

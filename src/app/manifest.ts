@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: 並びを維持したほうが読みやすい */
 import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {

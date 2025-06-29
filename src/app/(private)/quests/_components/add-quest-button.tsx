@@ -23,7 +23,7 @@ export const AddQuestButton = () => {
           action={async (f) => {
             const name = f.get('item-name') as string | null;
             const description = f.get('item-desc') as string | null;
-            const res = await postQuest({ name: name ?? '', description });
+            const res = await postQuest({ description, name: name ?? '' });
             if (res.type === 'ok') {
               dialog.close();
               return;
@@ -33,8 +33,8 @@ export const AddQuestButton = () => {
           className={css({
             display: 'flex',
             flexDirection: 'column',
-            height: '[100%]',
             gap: '16px',
+            height: '[100%]',
           })}
         >
           <div
@@ -47,8 +47,8 @@ export const AddQuestButton = () => {
             <h1>クエストをみつけよ</h1>
             <div
               className={css({
-                textStyle: 'Body.tertiary',
                 textAlign: 'center',
+                textStyle: 'Body.tertiary',
               })}
             >
               <p>勇者よ、クエストを見つけ出し、成し遂げよ</p>
@@ -57,8 +57,8 @@ export const AddQuestButton = () => {
             <MissionEntities
               items={[
                 {
-                  itemType: 'quest',
                   completed: true,
+                  itemType: 'quest',
                 },
               ]}
             />

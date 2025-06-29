@@ -4,12 +4,12 @@ import { AbTesting } from '@/assets/icons';
 import { IconButton } from '.';
 
 const meta = {
-  component: IconButton,
   args: {
-    type: 'button',
-    onClick: fn(),
     children: <AbTesting />,
+    onClick: fn(),
+    type: 'button',
   },
+  component: IconButton,
 } satisfies Meta<typeof IconButton>;
 
 export default meta;

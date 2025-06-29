@@ -3,11 +3,11 @@ import { css } from '@/styled-system/css';
 import { Radio } from '.';
 
 const meta = {
-  component: Radio,
   args: {
     label: 'ラジオボタン',
     name: 'radio-button',
   },
+  component: Radio,
 } satisfies Meta<typeof Radio>;
 
 export default meta;

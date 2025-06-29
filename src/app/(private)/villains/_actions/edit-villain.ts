@@ -17,8 +17,8 @@ export const editVillain = async (args: {
     await db
       .update(villains)
       .set({
-        title: args.name,
         description: args.description,
+        title: args.name,
       })
       .where(
         and(eq(villains.id, args.villainId), eq(villains.userId, user.id)),
@@ -27,9 +27,9 @@ export const editVillain = async (args: {
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
-  return { type: 'ok', data: undefined };
+  return { data: undefined, type: 'ok' };
 };

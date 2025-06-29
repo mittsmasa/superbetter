@@ -15,5 +15,5 @@ export const useDialog = () => {
       ref.current.close();
     }
   }, []);
-  return { ref, show, close };
+  return { close, ref, show };
 };

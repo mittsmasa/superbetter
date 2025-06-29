@@ -28,9 +28,9 @@ const Page = async (props: { params: Promise<{ missionId: string }> }) => {
       className={css({
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
         gap: '16px',
         height: '[100%]',
+        justifyContent: 'space-between',
         overflow: 'auto',
       })}
     >
@@ -78,9 +78,9 @@ const Page = async (props: { params: Promise<{ missionId: string }> }) => {
             </div>
             <MissionEntities
               items={mission.data.missionConditions.map((mc) => ({
+                completed: mc.completed,
                 id: mc.id,
                 itemType: mc.itemType,
-                completed: mc.completed,
               }))}
             />
           </div>
@@ -230,7 +230,7 @@ const EntityList = ({
             required
             key={p.id}
             name="entity"
-            value={getEntityValue({ type, id: p.id })}
+            value={getEntityValue({ id: p.id, type })}
             label={p.title}
           />
         ))}
@@ -250,15 +250,15 @@ const EntityList = ({
 };
 
 const Icon = {
+  epicwin: <>未定</>,
   powerup: <Zap className={css({ width: '[20px]' })} />,
   quest: <ScriptText className={css({ width: '[20px]' })} />,
   villain: <Android className={css({ width: '[20px]' })} />,
-  epicwin: <>未定</>,
 } as const satisfies Record<EntityType, ReactNode>;
 
 const Label = {
+  epicwin: '未定',
   powerup: 'パワーアップ',
   quest: 'クエスト',
   villain: 'ヴィラン',
-  epicwin: '未定',
 } as const satisfies Record<EntityType, string>;

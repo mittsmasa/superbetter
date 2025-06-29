@@ -53,12 +53,12 @@ export const getMissions = async (): Promise<
       }, {}),
     );
 
-    return { type: 'ok', data };
+    return { data, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };
@@ -86,8 +86,8 @@ export const getMission = async (
 
     if (rows.length === 0) {
       return {
+        error: { message: 'missions not found', type: 'not-found' },
         type: 'error',
-        error: { type: 'not-found', message: 'missions not found' },
       };
     }
 
@@ -116,19 +116,19 @@ export const getMission = async (
 
     if (!data) {
       return {
+        error: { message: 'data not found', type: 'not-found' },
         type: 'error',
-        error: { type: 'not-found', message: 'data not found' },
       };
     }
     return {
-      type: 'ok',
       data,
+      type: 'ok',
     };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };

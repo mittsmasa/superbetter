@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: 設定ファイルは設定値の並びを維持する */
 import { defineConfig } from '@pandacss/dev';
 import { keyframes } from '@/styles/keyframes';
 import * as patterns from '@/styles/patterns';

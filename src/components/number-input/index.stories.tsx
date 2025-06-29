@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NumberInput } from '.';
 
 const meta = {
-  component: NumberInput,
   args: {
     defaultValue: 0,
   },
+  component: NumberInput,
 } satisfies Meta<typeof NumberInput>;
 
 export default meta;
@@ -26,8 +26,8 @@ export const Secondary = {
 
 export const WithMinMax = {
   args: {
-    min: 0,
     max: 10,
+    min: 0,
   },
 } satisfies Story;
 

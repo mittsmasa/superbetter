@@ -18,8 +18,8 @@ export const createInitialEntity = async (
     );
     if (entityCount.length > 0) {
       return {
-        type: 'ok',
         data: undefined,
+        type: 'ok',
       };
     }
 
@@ -34,17 +34,17 @@ export const createInitialEntity = async (
       .values(entities.villains.map((v) => ({ userId, ...v })));
 
     return {
-      type: 'ok',
       data: undefined,
+      type: 'ok',
     };
   } catch (e) {
     console.error(e);
     return {
-      type: 'error',
       error: {
-        type: 'unknown',
         message: 'エラーが発生しました',
+        type: 'unknown',
       },
+      type: 'error',
     };
   }
 };

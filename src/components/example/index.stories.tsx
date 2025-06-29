@@ -5,11 +5,11 @@ import { css } from '@/styled-system/css';
 import { ExampleButton } from '.';
 
 const meta = {
-  component: ExampleButton,
   args: {
-    onClick: fn(),
     children: 'ボタン',
+    onClick: fn(),
   },
+  component: ExampleButton,
 } satisfies Meta<typeof ExampleButton>;
 
 export default meta;

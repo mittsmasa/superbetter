@@ -4,11 +4,11 @@ import { css } from '@/styled-system/css';
 import { Dialog } from '.';
 
 const meta = {
-  component: Dialog,
   args: {
-    ref: { current: null },
     children: 'ダイアログのなかみ',
+    ref: { current: null },
   },
+  component: Dialog,
 } satisfies Meta<typeof Dialog>;
 
 export default meta;

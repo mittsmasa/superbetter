@@ -2,9 +2,9 @@ import withSerwistInit from '@serwist/next';
 import type { NextConfig } from 'next';
 
 const withSerwist = withSerwistInit({
-  swSrc: 'src/app/sw.ts',
-  swDest: 'public/sw.js',
   disable: process.env.NODE_ENV !== 'production',
+  swDest: 'public/sw.js',
+  swSrc: 'src/app/sw.ts',
 });
 
 const nextConfig: NextConfig = {
@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
     turbo: {
       rules: {
         '*.svg': {
-          loaders: ['@svgr/webpack'],
           as: '*.js',
+          loaders: ['@svgr/webpack'],
         },
       },
     },

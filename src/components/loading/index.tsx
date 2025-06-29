@@ -11,12 +11,12 @@ export const Loading = () => {
     >
       <div
         className={css({
-          width: '[fit-content]',
-          clipPath: 'inset(0 3ch 0 0)',
-          animation: 'loading 1s steps(4) infinite',
           _before: {
             content: '"Loading..."',
           },
+          animation: 'loading 1s steps(4) infinite',
+          clipPath: 'inset(0 3ch 0 0)',
+          width: '[fit-content]',
         })}
       />
     </div>

@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TextInput } from '.';
 
 const meta = {
-  component: TextInput,
   args: {
+    defaultValue: 'default value',
     label: 'Label',
     placeholder: 'Enter text',
-    defaultValue: 'default value',
   },
+  component: TextInput,
 } satisfies Meta<typeof TextInput>;
 
 export default meta;

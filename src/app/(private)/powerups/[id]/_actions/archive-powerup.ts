@@ -20,9 +20,9 @@ export const archivePowerup = async (args: {
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
-  return { type: 'ok', data: undefined };
+  return { data: undefined, type: 'ok' };
 };

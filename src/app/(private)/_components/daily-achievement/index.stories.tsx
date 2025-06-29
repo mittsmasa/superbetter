@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { DailyAchievement } from '.';
 
 const meta = {
-  component: DailyAchievement,
   args: {
+    adventureLogs: [],
     date: new Date('2024-12-30'),
     dateString: '2024-12-30',
-    adventureLogs: [],
   },
+  component: DailyAchievement,
 } satisfies Meta<typeof DailyAchievement>;
 
 export default meta;
@@ -34,7 +34,7 @@ export const NoData = {
 
 export const Today = {
   args: {
-    status: 'achieved',
     isToday: true,
+    status: 'achieved',
   },
 } satisfies Story;

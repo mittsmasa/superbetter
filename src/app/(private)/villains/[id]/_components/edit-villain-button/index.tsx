@@ -41,9 +41,9 @@ export const EditVillainButton = ({
               const description = f.get('item-desc') as string | null;
               startTransition(async () => {
                 const { type } = await editVillain({
-                  villainId: id,
-                  name,
                   description,
+                  name,
+                  villainId: id,
                 });
                 if (type === 'ok') {
                   dialog.close();
@@ -55,9 +55,9 @@ export const EditVillainButton = ({
             className={css({
               display: 'flex',
               flexDirection: 'column',
+              gap: '16px',
               height: '[100%]',
               justifyContent: 'space-between',
-              gap: '16px',
             })}
           >
             <div

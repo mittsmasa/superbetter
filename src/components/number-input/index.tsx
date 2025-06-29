@@ -8,32 +8,32 @@ import { IconButton } from '../icon-button';
 
 const numberInput = cva({
   base: {
-    cursor: 'pointer',
-    padding: '8px',
-    textStyle: 'Body.primary',
     _disabled: {
       cursor: 'unset',
     },
+    cursor: 'pointer',
+    padding: '8px',
+    textStyle: 'Body.primary',
   },
+  defaultVariants: { variant: 'primary' },
   variants: {
     variant: {
       primary: {
-        backgroundColor: 'background',
-        color: 'foreground',
         _disabled: {
           color: 'foreground.disabled',
         },
+        backgroundColor: 'background',
+        color: 'foreground',
       },
       secondary: {
-        backgroundColor: 'foreground',
-        color: 'background',
         _disabled: {
           backgroundColor: 'foreground.disabled',
         },
+        backgroundColor: 'foreground',
+        color: 'background',
       },
     },
   },
-  defaultVariants: { variant: 'primary' },
 });
 
 export type NumberInputProps = {
@@ -105,7 +105,7 @@ export const NumberInput = ({
         aria-label="減少"
         {...feeling.props}
       >
-        <Minus className={css({ width: '[18px]', height: '[18px]' })} />
+        <Minus className={css({ height: '[18px]', width: '[18px]' })} />
       </IconButton>
       <input
         name={name}
@@ -118,13 +118,13 @@ export const NumberInput = ({
         step={step}
         aria-label={ariaLabel}
         className={css({
-          textStyle: 'Body.secondary',
-          width: '[100%]',
-          textAlign: 'center',
+          _disabled: { cursor: 'not-allowed' },
+          _focus: { outline: 'none' },
           bg: 'transparent',
           border: 'none',
-          _focus: { outline: 'none' },
-          _disabled: { cursor: 'not-allowed' },
+          textAlign: 'center',
+          textStyle: 'Body.secondary',
+          width: '[100%]',
         })}
       />
       <IconButton
@@ -134,7 +134,7 @@ export const NumberInput = ({
         aria-label="増加"
         {...feeling.props}
       >
-        <Plus className={css({ width: '[18px]', height: '[18px]' })} />
+        <Plus className={css({ height: '[18px]', width: '[18px]' })} />
       </IconButton>
     </div>
   );

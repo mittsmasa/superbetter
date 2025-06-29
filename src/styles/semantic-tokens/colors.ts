@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: 意味敵な順序で並びを維持したい */
 import { defineSemanticTokens } from '@pandacss/dev';
 
 export const colorsSemanticTokens = defineSemanticTokens.colors({

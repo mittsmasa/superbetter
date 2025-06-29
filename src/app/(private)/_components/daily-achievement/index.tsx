@@ -15,12 +15,12 @@ const wrapper = cva({
   },
   variants: {
     status: {
+      achieved: {
+        backgroundColor: 'foreground',
+        color: 'background',
+      },
       'no-data': {
         color: 'foreground.disabled',
-      },
-      achieved: {
-        color: 'background',
-        backgroundColor: 'foreground',
       },
       'not-achieved': {},
       today: {},

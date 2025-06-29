@@ -20,13 +20,13 @@ export const getStartAndEndOfDay = (date: Date) => {
   const now = getTZDate(date);
   const start = fixToUTC(startOfDay(now));
   const end = fixToUTC(endOfDay(now));
-  return { start, end };
+  return { end, start };
 };
 
 export const getDateTimeFormat = (datetime: Date, timeZone = 'Asia/Tokyo') => {
   const day = new Intl.DateTimeFormat('ja-JP', {
-    weekday: 'short',
     timeZone,
+    weekday: 'short',
   }).format(datetime);
 
   const date = new Intl.DateTimeFormat('en-US', {
@@ -34,5 +34,5 @@ export const getDateTimeFormat = (datetime: Date, timeZone = 'Asia/Tokyo') => {
     timeZone,
   }).format(datetime);
 
-  return { day, date };
+  return { date, day };
 };

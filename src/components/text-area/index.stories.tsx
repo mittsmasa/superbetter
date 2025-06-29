@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TextArea } from '.';
 
 const meta = {
-  component: TextArea,
   args: {
+    defaultValue: 'default value',
     label: 'Label',
     placeholder: 'Enter text',
-    defaultValue: 'default value',
   },
+  component: TextArea,
 } satisfies Meta<typeof TextArea>;
 
 export default meta;

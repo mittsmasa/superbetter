@@ -24,19 +24,19 @@ export const postPosNegScore = async (
       throw new Error('testType not found');
     }
     await db.insert(testResults).values({
-      userId: user.id,
-      testTypeId: testType.id,
       answer: {
         __typename: 'post-neg',
-        answer: { positive: posScore, negative: negScore, posNegRatio },
+        answer: { negative: negScore, positive: posScore, posNegRatio },
       },
+      testTypeId: testType.id,
+      userId: user.id,
     });
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
-  return { type: 'ok', data: undefined };
+  return { data: undefined, type: 'ok' };
 };

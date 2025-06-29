@@ -8,14 +8,15 @@ import { pixelBorder } from '@/styled-system/patterns';
 
 const button = cva({
   base: {
+    _disabled: {
+      cursor: 'unset',
+    },
     cursor: 'pointer',
     padding: '8px',
     textStyle: 'Body.primary',
     transition: '[width 0.2s]',
-    _disabled: {
-      cursor: 'unset',
-    },
   },
+  defaultVariants: { full: false, variant: 'primary' },
   variants: {
     full: {
       true: {
@@ -24,22 +25,21 @@ const button = cva({
     },
     variant: {
       primary: {
-        backgroundColor: 'background.alt',
-        color: 'foreground.alt',
         _disabled: {
           backgroundColor: 'foreground.disabled',
         },
+        backgroundColor: 'background.alt',
+        color: 'foreground.alt',
       },
       secondary: {
-        backgroundColor: 'background',
-        color: 'foreground',
         _disabled: {
           color: 'foreground.disabled',
         },
+        backgroundColor: 'background',
+        color: 'foreground',
       },
     },
   },
-  defaultVariants: { variant: 'primary', full: false },
 });
 
 export const Button = ({
@@ -58,12 +58,12 @@ export const Button = ({
       {...props}
       className={cx(
         pixelBorder({
-          borderWidth: 2,
           borderColor: props.disabled
             ? 'interactive.border.disabled'
             : 'interactive.border.alt',
+          borderWidth: 2,
         }),
-        css(button.raw({ variant, full }), !props.disabled && feeling.cssRaw),
+        css(button.raw({ full, variant }), !props.disabled && feeling.cssRaw),
       )}
     >
       {children}
@@ -86,10 +86,10 @@ export const ButtonLink = ({
       {...props}
       className={cx(
         pixelBorder({
-          borderWidth: 2,
           borderColor: props.disabled
             ? 'interactive.border.disabled'
             : 'interactive.border.alt',
+          borderWidth: 2,
         }),
         css(button.raw({ variant }), !props.disabled && feeling.cssRaw, {
           cursor: props.disabled ? 'not-allowed' : undefined,

@@ -19,8 +19,8 @@ export const Header = ({
       className={css({
         alignItems: 'center',
         display: 'flex',
-        justifyContent: 'space-between',
         gap: '8px',
+        justifyContent: 'space-between',
         padding: '8px',
       })}
     >
@@ -28,7 +28,7 @@ export const Header = ({
         {withBackButton && (
           <IconButton onClick={() => router.back()}>
             <ChevlonLeft
-              className={css({ width: '[24px]', height: '[24px]' })}
+              className={css({ height: '[24px]', width: '[24px]' })}
             />
           </IconButton>
         )}

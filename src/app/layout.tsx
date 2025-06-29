@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: metadata の並びは維持したほうが読みやすい */
 import type { Metadata } from 'next';
 import './globals.css';
 import { GlassScreenProvider } from '@/components/glass-screen';

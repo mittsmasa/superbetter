@@ -40,9 +40,9 @@ export const EditPowerupButton = ({
               const description = f.get('item-desc') as string | null;
               startTransition(async () => {
                 const { type } = await editPowerup({
-                  powerupId: id,
-                  name,
                   description,
+                  name,
+                  powerupId: id,
                 });
                 if (type === 'ok') {
                   dialog.close();
@@ -54,9 +54,9 @@ export const EditPowerupButton = ({
             className={css({
               display: 'flex',
               flexDirection: 'column',
+              gap: '16px',
               height: '[100%]',
               justifyContent: 'space-between',
-              gap: '16px',
             })}
           >
             <div

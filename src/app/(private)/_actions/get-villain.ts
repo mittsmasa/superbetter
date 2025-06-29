@@ -17,18 +17,18 @@ export const getVillains = async (ops?: {
   const user = await getUser();
   try {
     const vs = await db.query.villains.findMany({
+      limit: ops?.limit,
+      orderBy: [asc(villains.order), desc(villains.createdAt)],
       where: (villain) =>
         and(eq(villain.userId, user.id), eq(villain.archived, false)),
-      orderBy: [asc(villains.order), desc(villains.createdAt)],
-      limit: ops?.limit,
     });
     const vCount = await db.$count(villains);
-    return { type: 'ok', data: { records: vs, count: vCount } };
+    return { data: { count: vCount, records: vs }, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };
@@ -49,16 +49,16 @@ export const getVillain = async (
 
     if (!v) {
       return {
+        error: { message: 'specific id not found.', type: 'not-found' },
         type: 'error',
-        error: { type: 'not-found', message: 'specific id not found.' },
       };
     }
-    return { type: 'ok', data: v };
+    return { data: v, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };

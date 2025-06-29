@@ -15,13 +15,13 @@ export const updateMissionConditions = async ({
 }) => {
   const tragetMissons = await tx
     .select({
-      missionId: sql`ANY_VALUE(mission.id)`
-        .mapWith(missions.id)
-        .as('missionId'),
+      maxCreatedAt: sql`MAX(missionCondition.createdAt)`.as('maxCreatedAt'),
       missionConditionId: sql`ANY_VALUE(missionCondition.id)`
         .mapWith(missionConditions.id)
         .as('missionConditionId'),
-      maxCreatedAt: sql`MAX(missionCondition.createdAt)`.as('maxCreatedAt'),
+      missionId: sql`ANY_VALUE(mission.id)`
+        .mapWith(missions.id)
+        .as('missionId'),
     })
     .from(missions)
     .for('update')

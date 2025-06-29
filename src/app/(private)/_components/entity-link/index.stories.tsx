@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { EntityLink } from '.';
 
 const meta = {
-  component: EntityLink,
   args: {
+    description: 'せつめい',
     href: '#',
     title: 'たいとる',
-    description: 'せつめい',
   },
+  component: EntityLink,
 } satisfies Meta<typeof EntityLink>;
 
 export default meta;

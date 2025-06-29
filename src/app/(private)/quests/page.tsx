@@ -13,8 +13,8 @@ const Page = async () => {
     <main
       className={css({
         display: 'flex',
-        flexDirection: 'column',
         flex: '1',
+        flexDirection: 'column',
       })}
     >
       <div
@@ -37,9 +37,9 @@ const Page = async () => {
         className={css({
           display: 'flex',
           flex: '1',
-          minHeight: '[0px]',
           flexDirection: 'column',
           gap: '12px',
+          minHeight: '[0px]',
           overflowY: 'auto',
           padding: '8px',
           textStyle: 'Body.secondary',

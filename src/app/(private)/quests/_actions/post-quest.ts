@@ -13,17 +13,17 @@ export const postQuest = async (args: {
   const user = await getUser();
   try {
     await db.insert(quests).values({
-      title: args.name,
       description: args.description,
+      title: args.name,
       userId: user.id,
     });
     revalidatePath('/quests');
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
-  return { type: 'ok', data: undefined };
+  return { data: undefined, type: 'ok' };
 };

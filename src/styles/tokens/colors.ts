@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: transparent, black, white あたりが上に来るようにしたかった */
 import { defineTokens } from '@pandacss/dev';
 
 export const colorTokens = defineTokens.colors({

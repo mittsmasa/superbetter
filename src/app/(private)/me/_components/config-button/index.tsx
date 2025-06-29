@@ -15,7 +15,7 @@ export const ConfigButton = () => {
           <div ref={refs.setReference} {...getReferenceProps()}>
             <IconButton onClick={() => setOpen((prev) => !prev)}>
               <MoreVertical
-                className={css({ width: '[24px]', height: '[24px]' })}
+                className={css({ height: '[24px]', width: '[24px]' })}
               />
             </IconButton>
           </div>
@@ -37,12 +37,12 @@ export const ConfigButton = () => {
               className={css({
                 alignItems: 'center',
                 display: 'flex',
-                padding: '12px',
                 gap: '4px',
+                padding: '12px',
                 textStyle: 'Body.secondary',
               })}
             >
-              <Logout className={css({ width: '[18px]', height: '[18px]' })} />
+              <Logout className={css({ height: '[18px]', width: '[18px]' })} />
               ログアウト
             </button>
           </div>

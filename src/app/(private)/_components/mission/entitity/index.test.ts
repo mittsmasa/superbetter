@@ -5,9 +5,9 @@ import { sortMissionEntities } from '.';
 describe('sortMissionEntities', () => {
   it('アイテムを正しい順序でソートする', () => {
     const items: MissionEntity[] = [
-      { itemType: 'villain', completed: false },
-      { itemType: 'powerup', completed: false },
-      { itemType: 'quest', completed: false },
+      { completed: false, itemType: 'villain' },
+      { completed: false, itemType: 'powerup' },
+      { completed: false, itemType: 'quest' },
     ];
 
     const sorted = [...items].sort(sortMissionEntities);

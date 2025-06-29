@@ -25,11 +25,11 @@ import {
 const usePopover = () => {
   const [open, setOpen] = useState(false);
   const data = useFloating({
-    placement: 'bottom-end',
-    open,
-    onOpenChange: setOpen,
-    whileElementsMounted: autoUpdate,
     middleware: [offset(10), shift(), flip()],
+    onOpenChange: setOpen,
+    open,
+    placement: 'bottom-end',
+    whileElementsMounted: autoUpdate,
   });
   const context = data.context;
 
@@ -102,7 +102,7 @@ const Content = ({
 };
 
 export const Popover = {
+  Content,
   Root,
   Trigger,
-  Content,
 };

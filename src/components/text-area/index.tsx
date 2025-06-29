@@ -27,7 +27,7 @@ export const TextArea = ({
         rows={rows}
         id={id}
         className={cx(
-          pixelBorder({ borderWidth: 2, borderColor: 'interactive.border' }),
+          pixelBorder({ borderColor: 'interactive.border', borderWidth: 2 }),
           css({ padding: '4px', textStyle: 'Body.primary' }),
         )}
       />

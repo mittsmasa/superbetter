@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CounterButton } from './index';
 
 const meta = {
-  component: CounterButton,
   args: {
     label: 'カウンター',
   },
+  component: CounterButton,
 } satisfies Meta<typeof CounterButton>;
 
 export default meta;

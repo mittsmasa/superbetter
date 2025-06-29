@@ -5,12 +5,12 @@ import { css } from '@/styled-system/css';
 import { Drawer } from '.';
 
 const meta = {
-  title: 'components/drawer',
-  component: Drawer,
   args: {
     onClose: fn(),
     ref: { current: null },
   },
+  component: Drawer,
+  title: 'components/drawer',
 } satisfies Meta<typeof Drawer>;
 
 export default meta;

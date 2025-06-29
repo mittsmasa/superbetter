@@ -4,13 +4,13 @@ import { AbTesting } from '@/assets/icons';
 import { IconButtonWithLabel } from './with-label';
 
 const meta = {
-  component: IconButtonWithLabel,
   args: {
-    onClick: fn(),
     children: <AbTesting />,
-    size: 'md',
     label: 'アイコンボタン',
+    onClick: fn(),
+    size: 'md',
   },
+  component: IconButtonWithLabel,
 } satisfies Meta<typeof IconButtonWithLabel>;
 
 export default meta;

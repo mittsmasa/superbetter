@@ -17,17 +17,17 @@ export const editQuest = async (args: {
     await db
       .update(quests)
       .set({
-        title: args.name,
         description: args.description,
+        title: args.name,
       })
       .where(and(eq(quests.id, args.questId), eq(quests.userId, user.id)));
     revalidatePath('/quests/[id]', 'page');
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
-  return { type: 'ok', data: undefined };
+  return { data: undefined, type: 'ok' };
 };

@@ -17,9 +17,9 @@ const Login = async ({
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'column',
+        gap: '24px',
         height: 'dvh',
         justifyContent: 'center',
-        gap: '24px',
       })}
     >
       <p

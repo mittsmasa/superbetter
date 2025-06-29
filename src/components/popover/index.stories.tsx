@@ -39,7 +39,7 @@ export const Default = {
                 padding: '20px',
               })}
             >
-              <div style={{ width: '200px', height: '200px' }}>Content</div>
+              <div style={{ height: '200px', width: '200px' }}>Content</div>
             </div>
           )}
         />

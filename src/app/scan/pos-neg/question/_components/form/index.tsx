@@ -31,8 +31,8 @@ export const PosNegScoreForm = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '24px',
-        px: '12px',
         overflow: 'auto',
+        px: '12px',
       })}
     >
       <div
@@ -49,7 +49,7 @@ export const PosNegScoreForm = () => {
             gap: '12px',
           })}
         >
-          <Sun className={css({ width: '[20px]', height: '[20px]' })} />
+          <Sun className={css({ height: '[20px]', width: '[20px]' })} />
           <h1 className={css({ textStyle: 'Body.secondary' })}>
             ポジティブ感情
           </h1>
@@ -99,7 +99,7 @@ export const PosNegScoreForm = () => {
             gap: '12px',
           })}
         >
-          <Cloud className={css({ width: '[20px]', height: '[20px]' })} />
+          <Cloud className={css({ height: '[20px]', width: '[20px]' })} />
           <h1 className={css({ textStyle: 'Body.secondary' })}>
             ネガティブ感情
           </h1>
@@ -131,8 +131,8 @@ export const PosNegScoreForm = () => {
       </div>
       <div
         className={css({
-          padding: '12px',
           backgroundColor: 'background',
+          padding: '12px',
         })}
       >
         <Button type="submit" full disabled={isPending}>

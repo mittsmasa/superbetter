@@ -140,7 +140,7 @@ export const TimeSeriesChart = ({
         data={data}
         barCategoryGap={4}
         style={{ overflow: 'visible' }}
-        margin={{ top: 4, right: 16, left: -30, bottom: 12 }}
+        margin={{ bottom: 12, left: -30, right: 16, top: 4 }}
       >
         <XAxis
           interval={0}

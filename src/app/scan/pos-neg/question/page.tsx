@@ -22,15 +22,15 @@ const Page = () => {
       >
         <div
           className={css({
+            backgroundColor: 'background',
             position: 'sticky',
             top: 0,
-            backgroundColor: 'background',
           })}
         >
           <Header
             rightSlot={
               <div
-                className={css({ width: '[100%]', justifyContent: 'center' })}
+                className={css({ justifyContent: 'center', width: '[100%]' })}
               >
                 <div
                   className={css({
@@ -41,7 +41,7 @@ const Page = () => {
                   })}
                 >
                   <CheckList
-                    className={css({ width: '[20px]', height: '[20px]' })}
+                    className={css({ height: '[20px]', width: '[20px]' })}
                   />
                   <span>魔力測定</span>
                 </div>

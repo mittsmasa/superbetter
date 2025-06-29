@@ -37,13 +37,13 @@ const Page = () => {
               gap: '12px',
             })}
           >
-            <CheckList className={css({ width: '[24px]', height: '[24px]' })} />
+            <CheckList className={css({ height: '[24px]', width: '[24px]' })} />
             <h1 className={css({ textStyle: 'Body.primary' })}>魔力測定</h1>
           </div>
           <p
             className={css({
-              textStyle: 'Body.tertiary',
               color: 'foreground',
+              textStyle: 'Body.tertiary',
               whiteSpace: 'pre-wrap',
             })}
           >
@@ -53,10 +53,10 @@ const Page = () => {
       </div>
       <div
         className={css({
-          width: '[100%]',
           display: 'flex',
           justifyContent: 'center',
           py: '24px',
+          width: '[100%]',
         })}
       >
         <ButtonLink href="/scan/pos-neg/question">魔力をはかる！</ButtonLink>

@@ -20,8 +20,8 @@ export default async function Home() {
       className={css({
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
         height: '[100%]',
+        justifyContent: 'space-between',
       })}
     >
       <div
@@ -49,9 +49,9 @@ export default async function Home() {
               id={m.id}
               title={m.title}
               items={m.missionConditions.map((mc) => ({
+                completed: mc.completed,
                 id: mc.id,
                 itemType: mc.itemType,
-                completed: mc.completed,
               }))}
             />
           ))}

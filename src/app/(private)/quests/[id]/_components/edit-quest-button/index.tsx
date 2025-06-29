@@ -41,9 +41,9 @@ export const EditQuestButton = ({
               const description = f.get('item-desc') as string | null;
               startTransition(async () => {
                 const { type } = await editQuest({
-                  questId: id,
-                  name,
                   description,
+                  name,
+                  questId: id,
                 });
                 if (type === 'ok') {
                   dialog.close();
@@ -55,9 +55,9 @@ export const EditQuestButton = ({
             className={css({
               display: 'flex',
               flexDirection: 'column',
+              gap: '16px',
               height: '[100%]',
               justifyContent: 'space-between',
-              gap: '16px',
             })}
           >
             <div

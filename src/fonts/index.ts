@@ -5,8 +5,8 @@ export const pixelMPlus = localFont({
   src: [
     {
       path: '../public/fonts/PixelMplus12-Regular.ttf',
-      weight: '400',
       style: 'normal',
+      weight: '400',
     },
   ],
 });

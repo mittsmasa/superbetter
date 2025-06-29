@@ -67,40 +67,40 @@ const createDailyMissionForUser = async (userId: string): Promise<void> => {
       const [{ id }] = await tx
         .insert(missions)
         .values({
-          userId,
-          title: 'デイリーミッション',
+          deadline: todayEnd,
           description:
             '秘宝を使い、挑戦を受け、悪を討て\n小さな積み重ねが、真の英雄への道となる',
+          title: 'デイリーミッション',
           type: 'system-daily',
-          deadline: todayEnd,
+          userId,
         })
         .$returningId();
 
       await tx.insert(missionConditions).values([
         {
-          missionId: id,
           conditionType: 'any',
           itemType: 'powerup',
+          missionId: id,
         },
         {
-          missionId: id,
           conditionType: 'any',
           itemType: 'powerup',
+          missionId: id,
         },
         {
-          missionId: id,
           conditionType: 'any',
           itemType: 'powerup',
+          missionId: id,
         },
         {
-          missionId: id,
           conditionType: 'any',
           itemType: 'quest',
+          missionId: id,
         },
         {
-          missionId: id,
           conditionType: 'any',
           itemType: 'villain',
+          missionId: id,
         },
       ]);
     });
@@ -113,8 +113,8 @@ export async function GET(request: NextRequest) {
   // 認証チェック
   if (!validateRequest(request)) {
     return new NextResponse(JSON.stringify({ error: 'unauthorized' }), {
-      status: 401,
       headers: { 'Content-Type': 'application/json' },
+      status: 401,
     });
   }
 
@@ -132,14 +132,14 @@ export async function GET(request: NextRequest) {
     const failed = results.filter((r) => r.status === 'rejected').length;
 
     return NextResponse.json({
-      success: true,
       message: `Created daily missions for ${succeeded} users. Failed: ${failed}`,
+      success: true,
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
     console.error('Error creating daily missions:', error);
     return NextResponse.json(
-      { success: false, error: 'Failed to create daily missions' },
+      { error: 'Failed to create daily missions', success: false },
       { status: 500 },
     );
   }

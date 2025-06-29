@@ -24,7 +24,7 @@ export const AdventureLog = ({
       })}
     >
       <h2>{heading}</h2>
-      <div className={css({ overflow: 'auto', height: '[100px]' })}>
+      <div className={css({ height: '[100px]', overflow: 'auto' })}>
         {logs.length === 0 && (
           <p
             className={css({ textAlign: 'center', textStyle: 'Body.tertiary' })}
@@ -42,7 +42,7 @@ export const AdventureLog = ({
               gap: '8px',
             })}
           >
-            <span className={css({ width: '[18px]', height: '[18px]' })}>
+            <span className={css({ height: '[18px]', width: '[18px]' })}>
               <EntityIcon itemType={log.type} completed />
             </span>
             <p className={css({ textStyle: 'Body.tertiary' })}>{log.title}</p>

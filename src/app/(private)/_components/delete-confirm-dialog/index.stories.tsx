@@ -5,12 +5,12 @@ import { useDialog } from '@/hooks/dialog';
 import { DeleteConfirmDialog } from '.';
 
 const meta = {
-  component: DeleteConfirmDialog,
   args: {
-    dialog: { ref: { current: null }, show: fn(() => {}), close: fn(() => {}) },
+    dialog: { close: fn(() => {}), ref: { current: null }, show: fn(() => {}) },
     itemName: 'アイテムめい',
     onDelete: fn(),
   },
+  component: DeleteConfirmDialog,
 } satisfies Meta<typeof DeleteConfirmDialog>;
 
 export default meta;

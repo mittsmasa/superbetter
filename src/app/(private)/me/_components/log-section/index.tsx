@@ -17,11 +17,11 @@ export const LogSection = ({
   const chartData = useMemo(
     () =>
       weeklyAchievement.map((d) => ({
-        status: d.status,
-        isToday: d.isToday,
         date: d.dateString,
-        quest: d.adventureLogs.filter((log) => log.type === 'quest').length,
+        isToday: d.isToday,
         powerup: d.adventureLogs.filter((log) => log.type === 'powerup').length,
+        quest: d.adventureLogs.filter((log) => log.type === 'quest').length,
+        status: d.status,
         villain: d.adventureLogs.filter((log) => log.type === 'villain').length,
       })),
     [weeklyAchievement],

@@ -4,14 +4,14 @@ import { css } from '@/styled-system/css';
 import { TimeSeriesChart } from './index';
 
 const meta = {
-  component: TimeSeriesChart,
   args: { onClickBar: fn },
+  component: TimeSeriesChart,
   decorators: [
     (Story) => (
       <div
         className={css({
-          height: '[fit-content]',
           backgroundColor: 'background',
+          height: '[fit-content]',
         })}
       >
         <Story />
@@ -28,59 +28,59 @@ export const Default = {
     data: [
       {
         date: '2024-03-11',
+        isToday: false,
         powerup: 3,
         quest: 2,
-        villain: 1,
-        isToday: false,
         status: 'achieved',
+        villain: 1,
       },
       {
         date: '2024-03-12',
+        isToday: false,
         powerup: 0,
         quest: 0,
-        villain: 0,
-        isToday: false,
         status: 'no-data',
+        villain: 0,
       },
       {
         date: '2024-03-13',
+        isToday: false,
         powerup: 1,
         quest: 1,
-        villain: 1,
-        isToday: false,
         status: 'not-achieved',
+        villain: 1,
       },
       {
         date: '2024-03-14',
+        isToday: false,
         powerup: 5,
         quest: 3,
-        villain: 2,
-        isToday: false,
         status: 'achieved',
+        villain: 2,
       },
       {
         date: '2024-03-15',
+        isToday: false,
         powerup: 6,
         quest: 4,
-        villain: 3,
-        isToday: false,
         status: 'achieved',
+        villain: 3,
       },
       {
         date: '2024-03-16',
+        isToday: false,
         powerup: 7,
         quest: 5,
-        villain: 4,
-        isToday: false,
         status: 'achieved',
+        villain: 4,
       },
       {
         date: '2024-03-17',
+        isToday: true,
         powerup: 8,
         quest: 6,
-        villain: 5,
-        isToday: true,
         status: 'achieved',
+        villain: 5,
       },
     ],
   },

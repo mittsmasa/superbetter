@@ -3,12 +3,12 @@ import { fn } from '@storybook/test';
 import { Button } from '.';
 
 const meta = {
-  component: Button,
   args: {
-    type: 'button',
     children: 'ボタン',
     onClick: fn(),
+    type: 'button',
   },
+  component: Button,
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -26,5 +26,5 @@ export const Secondary = {
 } satisfies Story;
 
 export const SecondaryDisabled = {
-  args: { variant: 'secondary', disabled: true },
+  args: { disabled: true, variant: 'secondary' },
 } satisfies Story;

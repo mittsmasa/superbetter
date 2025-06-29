@@ -23,7 +23,7 @@ export const AddVillainButton = () => {
           action={async (f) => {
             const name = f.get('item-name') as string | null;
             const description = f.get('item-desc') as string | null;
-            const res = await postVillain({ name: name ?? '', description });
+            const res = await postVillain({ description, name: name ?? '' });
             if (res.type === 'ok') {
               dialog.close();
               return;
@@ -33,8 +33,8 @@ export const AddVillainButton = () => {
           className={css({
             display: 'flex',
             flexDirection: 'column',
-            height: '[100%]',
             gap: '16px',
+            height: '[100%]',
           })}
         >
           <div
@@ -47,8 +47,8 @@ export const AddVillainButton = () => {
             <h1>ヴィランをみつけよ</h1>
             <div
               className={css({
-                textStyle: 'Body.tertiary',
                 textAlign: 'center',
+                textStyle: 'Body.tertiary',
               })}
             >
               <p>あれこれのさまたげとなるヴィランを見つけよ</p>
@@ -57,8 +57,8 @@ export const AddVillainButton = () => {
             <MissionEntities
               items={[
                 {
-                  itemType: 'villain',
                   completed: true,
+                  itemType: 'villain',
                 },
               ]}
             />

@@ -2,12 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Mission } from '.';
 
 const meta = {
-  component: Mission,
   args: {
     id: '1',
-    title: 'デイリーミッション',
     items: [],
+    title: 'デイリーミッション',
   },
+  component: Mission,
 } satisfies Meta<typeof Mission>;
 
 export default meta;
@@ -18,24 +18,24 @@ export const Default = {
   args: {
     items: [
       {
-        itemType: 'powerup',
         completed: true,
+        itemType: 'powerup',
       },
       {
-        itemType: 'powerup',
         completed: true,
+        itemType: 'powerup',
       },
       {
-        itemType: 'powerup',
         completed: true,
+        itemType: 'powerup',
       },
       {
+        completed: true,
         itemType: 'quest',
-        completed: true,
       },
       {
-        itemType: 'villain',
         completed: true,
+        itemType: 'villain',
       },
     ],
   },
@@ -45,24 +45,24 @@ export const Incomplete = {
   args: {
     items: [
       {
-        itemType: 'powerup',
         completed: false,
+        itemType: 'powerup',
       },
       {
-        itemType: 'powerup',
         completed: false,
+        itemType: 'powerup',
       },
       {
-        itemType: 'powerup',
         completed: false,
+        itemType: 'powerup',
       },
       {
+        completed: false,
         itemType: 'quest',
-        completed: false,
       },
       {
-        itemType: 'villain',
         completed: false,
+        itemType: 'villain',
       },
     ],
   },

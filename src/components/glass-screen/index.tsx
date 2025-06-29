@@ -18,14 +18,14 @@ const GlassScreen = () => {
 const Screen = () => (
   <div
     className={css({
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '[100dvw]',
-      height: '[100dvh]',
       backgroundColor: 'background',
+      height: '[100dvh]',
+      left: 0,
       opacity: 0.1,
       pointerEvents: 'none',
+      position: 'fixed',
+      top: 0,
+      width: '[100dvw]',
       zIndex: 'glassScreen',
     })}
   />
@@ -39,7 +39,7 @@ const GlassScreenUpdaterContext = createContext<{
 export const GlassScreenProvider = ({ children }: PropsWithChildren) => {
   const [isShow, setIsShow] = useState(false);
   const context = useMemo(
-    () => ({ show: () => setIsShow(true), hide: () => setIsShow(false) }),
+    () => ({ hide: () => setIsShow(false), show: () => setIsShow(true) }),
     [],
   );
   return (

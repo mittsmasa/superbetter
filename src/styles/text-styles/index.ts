@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: primary から始まるように並びを維持したい */
 import { defineTextStyles } from '@pandacss/dev';
 
 export const textStyles = defineTextStyles({

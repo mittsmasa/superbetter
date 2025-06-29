@@ -16,33 +16,33 @@ export const Drawer = ({
     <dialog
       ref={ref}
       className={css({
-        backgroundColor: 'background',
-        borderTop: '1px solid',
-        borderColor: 'foreground',
-        color: 'foreground',
-        maxWidth: '[100dvw]',
-        maxHeight: '[100dvh]',
-        width: '[100%]',
-        height: '[90%]',
-        margin: '[auto auto 0]',
-        transitionTimingFunction: 'ease',
-        transitionProperty: 'display, overlay, opacity, transform',
-        transitionDuration: '0.3s',
-        transitionBehavior: 'allow-discrete',
-        opacity: 0,
-        transform: 'translateY(100%)',
-        _open: {
-          opacity: 1,
-          transform: 'translateY(0)',
-          _starting: {
-            opacity: 0,
-            transform: 'translateY(100%)',
-          },
-        },
         _backdrop: {
           backgroundColor: 'background',
           opacity: 0.5,
         },
+        _open: {
+          _starting: {
+            opacity: 0,
+            transform: 'translateY(100%)',
+          },
+          opacity: 1,
+          transform: 'translateY(0)',
+        },
+        backgroundColor: 'background',
+        borderColor: 'foreground',
+        borderTop: '1px solid',
+        color: 'foreground',
+        height: '[90%]',
+        margin: '[auto auto 0]',
+        maxHeight: '[100dvh]',
+        maxWidth: '[100dvw]',
+        opacity: 0,
+        transform: 'translateY(100%)',
+        transitionBehavior: 'allow-discrete',
+        transitionDuration: '0.3s',
+        transitionProperty: 'display, overlay, opacity, transform',
+        transitionTimingFunction: 'ease',
+        width: '[100%]',
       })}
     >
       <div
@@ -63,7 +63,7 @@ export const Drawer = ({
           })}
         >
           <IconButton onClick={onClose}>
-            <Close className={css({ width: '[24px]', height: '[24px]' })} />
+            <Close className={css({ height: '[24px]', width: '[24px]' })} />
           </IconButton>
         </div>
         <div className={css({ flex: '1', minHeight: '[0]', padding: '12px' })}>

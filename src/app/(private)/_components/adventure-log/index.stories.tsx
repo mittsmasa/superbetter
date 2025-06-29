@@ -2,16 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { AdventureLog } from '.';
 
 const meta = {
-  component: AdventureLog,
   args: {
     heading: '本日の冒険ログ',
     logs: [
-      { id: '1', type: 'powerup', title: 'パワーブレスする' },
-      { id: '2', type: 'quest', title: 'クエストをクリアする' },
-      { id: '3', type: 'villain', title: 'ヴィランを倒す' },
-      { id: '4', type: 'epicwin', title: 'エピックウィンを達成する' },
+      { id: '1', title: 'パワーブレスする', type: 'powerup' },
+      { id: '2', title: 'クエストをクリアする', type: 'quest' },
+      { id: '3', title: 'ヴィランを倒す', type: 'villain' },
+      { id: '4', title: 'エピックウィンを達成する', type: 'epicwin' },
     ],
   },
+  component: AdventureLog,
 } satisfies Meta<typeof AdventureLog>;
 
 export default meta;

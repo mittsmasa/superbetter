@@ -13,22 +13,25 @@ type Props = {
 };
 
 const counterButtonRecipe = sva({
-  slots: ['container', 'content', 'label', 'count'],
   base: {
     container: {
       padding: '4px',
     },
     content: {
       display: 'flex',
-      justifyContent: 'space-between',
       gap: '8px',
+      justifyContent: 'space-between',
       textStyle: 'Body.primary',
     },
+    count: {},
     label: {
       lineClamp: 1,
     },
-    count: {},
   },
+  defaultVariants: {
+    intensity: 0,
+  },
+  slots: ['container', 'content', 'label', 'count'],
   variants: {
     intensity: {
       0: {
@@ -36,53 +39,50 @@ const counterButtonRecipe = sva({
           backgroundColor: 'gray.900',
           borderColor: 'gray.800',
         },
-        label: { color: 'gray.600' },
         count: { color: 'gray.600' },
+        label: { color: 'gray.600' },
       },
       1: {
         container: {
           backgroundColor: 'gray.800',
           borderColor: 'gray.700',
         },
-        label: { color: 'gray.500' },
         count: { color: 'gray.500' },
+        label: { color: 'gray.500' },
       },
       2: {
         container: {
           backgroundColor: 'gray.700',
           borderColor: 'gray.600',
         },
-        label: { color: 'gray.400' },
         count: { color: 'gray.400' },
+        label: { color: 'gray.400' },
       },
       3: {
         container: {
           backgroundColor: 'gray.600',
           borderColor: 'gray.500',
         },
-        label: { color: 'gray.300' },
         count: { color: 'gray.300' },
+        label: { color: 'gray.300' },
       },
       4: {
         container: {
           backgroundColor: 'gray.500',
           borderColor: 'gray.400',
         },
-        label: { color: 'gray.200' },
         count: { color: 'gray.200' },
+        label: { color: 'gray.200' },
       },
       5: {
         container: {
           backgroundColor: 'gray.400',
           borderColor: 'gray.300',
         },
-        label: { color: 'white' },
         count: { color: 'white' },
+        label: { color: 'white' },
       },
     },
-  },
-  defaultVariants: {
-    intensity: 0,
   },
 });
 
@@ -106,8 +106,8 @@ export const CounterButton = ({ name, label, onChange }: Props) => {
   return (
     <div
       className={css({
-        display: 'flex',
         alignItems: 'center',
+        display: 'flex',
         gap: '8px',
         width: '[100%]',
       })}
@@ -118,7 +118,6 @@ export const CounterButton = ({ name, label, onChange }: Props) => {
         className={cx(
           styles.container,
           pixelBorder({
-            borderWidth: 1,
             borderColor:
               count === 0
                 ? 'gray.600'
@@ -131,10 +130,11 @@ export const CounterButton = ({ name, label, onChange }: Props) => {
                       : count === 4
                         ? 'gray.200'
                         : 'white',
+            borderWidth: 1,
           }),
           css({
-            flex: '1',
             color: 'background',
+            flex: '1',
           }),
         )}
       >
@@ -145,7 +145,7 @@ export const CounterButton = ({ name, label, onChange }: Props) => {
       </button>
       {count > 0 && (
         <IconButton type="button" onClick={handleReset}>
-          <Reload className={css({ width: '[20px]', height: '[20px]' })} />
+          <Reload className={css({ height: '[20px]', width: '[20px]' })} />
         </IconButton>
       )}
       <input type="hidden" name={name} value={count} />

@@ -23,17 +23,17 @@ export const MotionLink = ({
       {...feeling.props}
       className={cx(
         pixelBorder({
-          borderWidth: 2,
           borderColor:
             (pixelBorderColor ?? disabled)
               ? 'interactive.border.disabled'
               : 'interactive.border',
+          borderWidth: 2,
         }),
         // display: inline では transform が効かないため block に変更
         css(feeling.cssRaw, {
           backgroundColor: 'interactive.background',
-          display: 'block',
           cursor: disabled ? 'not-allowed' : undefined,
+          display: 'block',
           pointerEvents: disabled ? 'none' : undefined,
         }),
       )}

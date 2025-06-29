@@ -31,54 +31,54 @@ export const createDailyMission = cache(
           ),
       });
       if (mission) {
-        return { type: 'ok', data: undefined };
+        return { data: undefined, type: 'ok' };
       }
       await db.transaction(async (tx) => {
         const [{ id }] = await tx
           .insert(missions)
           .values({
-            userId: user.id,
-            title: 'デイリーミッション',
+            deadline: todayEnd,
             description:
               '秘宝を使い、挑戦を受け、悪を討て\n小さな積み重ねが、真の英雄への道となる',
+            title: 'デイリーミッション',
             type: 'system-daily',
-            deadline: todayEnd,
+            userId: user.id,
           })
           .$returningId();
         await tx.insert(missionConditions).values([
           {
-            missionId: id,
             conditionType: 'any',
             itemType: 'powerup',
+            missionId: id,
           },
           {
-            missionId: id,
             conditionType: 'any',
             itemType: 'powerup',
+            missionId: id,
           },
           {
-            missionId: id,
             conditionType: 'any',
             itemType: 'powerup',
+            missionId: id,
           },
           {
-            missionId: id,
             conditionType: 'any',
             itemType: 'quest',
+            missionId: id,
           },
           {
-            missionId: id,
             conditionType: 'any',
             itemType: 'villain',
+            missionId: id,
           },
         ]);
       });
-      return { type: 'ok', data: undefined };
+      return { data: undefined, type: 'ok' };
     } catch (e) {
       console.error(e);
       return {
+        error: { message: 'unknown error', type: 'unknown' },
         type: 'error',
-        error: { type: 'unknown', message: 'unknown error' },
       };
     }
   },

@@ -21,19 +21,19 @@ export const Radio = ({
         type="radio"
         className={cx(
           'peer',
-          css({ opacity: 0, width: '[0px]', height: '[0px]' }),
+          css({ height: '[0px]', opacity: 0, width: '[0px]' }),
         )}
       />
       <span
         className={css({
-          textStyle: 'Body.secondary',
-          display: 'flex',
-          width: '[100%]',
-          padding: '4px',
           _peerChecked: {
             backgroundColor: 'foreground',
             color: 'background',
           },
+          display: 'flex',
+          padding: '4px',
+          textStyle: 'Body.secondary',
+          width: '[100%]',
         })}
       >
         {label}

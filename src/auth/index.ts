@@ -9,10 +9,6 @@ import { users } from '@/db/schema/auth';
 import { db } from '../db/client';
 
 const config = {
-  pages: {
-    signIn: '/login',
-    error: '/',
-  },
   events: {
     signIn: async ({ user, isNewUser }) => {
       if (!(isNewUser && user.id)) {
@@ -21,24 +17,22 @@ const config = {
       await createInitialEntity(user.id);
     },
   },
+  pages: {
+    error: '/',
+    signIn: '/login',
+  },
   providers: [
     // Resend({
     //   from: process.env.EMAIL_FROM,
     // }),
     Google,
     Credentials({
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
-      credentials: {
-        email: {},
-        password: {},
-      },
       authorize: async (credentials) => {
         // logic to verify if the user exists
         const user = await db.query.users.findFirst({
           columns: {
-            id: true,
             email: true,
+            id: true,
           },
           where: and(
             eq(users.email, credentials.email as string),
@@ -52,6 +46,12 @@ const config = {
         }
         // return user object with their profile data
         return user;
+      },
+      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+      // e.g. domain, username, password, 2FA token, etc.
+      credentials: {
+        email: {},
+        password: {},
       },
     }),
   ],

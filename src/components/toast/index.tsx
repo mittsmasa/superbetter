@@ -76,13 +76,13 @@ export const Toaster = () => {
   return createPortal(
     <ol
       className={css({
+        bottom: '[200px]',
         display: 'flex',
         flexDirection: 'column',
         gap: '8px',
         left: 0,
         padding: '12px 4px',
         position: 'fixed',
-        bottom: '[200px]',
         zIndex: 'toast',
       })}
     >
@@ -101,10 +101,10 @@ const Toast = ({ id, message }: ToastProps) => {
   return (
     <motion.li
       layout
-      initial={{ x: '-100%', opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: '-100%', opacity: 0 }}
-      transition={{ type: 'spring', duration: 0.3 }}
+      initial={{ opacity: 0, x: '-100%' }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: '-100%' }}
+      transition={{ duration: 0.3, type: 'spring' }}
       className={cx(
         pixelBorder({}),
         css({
@@ -113,14 +113,14 @@ const Toast = ({ id, message }: ToastProps) => {
           color: 'foreground',
           display: 'flex',
           gap: '8px',
-          textStyle: 'Body.secondary',
           padding: '4px 8px',
+          textStyle: 'Body.secondary',
         }),
       )}
     >
       <div>{message}</div>
       <IconButton onClick={() => removeToast(id)} size="sm">
-        <Close className={css({ width: '[20px]', height: '[20px]' })} />
+        <Close className={css({ height: '[20px]', width: '[20px]' })} />
       </IconButton>
     </motion.li>
   );

@@ -37,8 +37,8 @@ export const EntityLink = ({
               display: 'flex',
               flex: '1',
               flexDirection: 'column',
-              justifyContent: 'center',
               gap: '8px',
+              justifyContent: 'center',
             })}
           >
             {title}
@@ -46,8 +46,8 @@ export const EntityLink = ({
               <p
                 className={css({
                   color: 'foreground.secondary',
-                  textStyle: 'Body.tertiary',
                   lineClamp: 3,
+                  textStyle: 'Body.tertiary',
                 })}
               >
                 {description}
@@ -59,8 +59,8 @@ export const EntityLink = ({
       <span
         className={css({
           position: 'absolute',
-          top: '50%',
           right: '0',
+          top: '50%',
           transform: 'translateY(-50%)',
         })}
       >
@@ -82,11 +82,11 @@ export const EntityLinkReorderHandle = ({
       className={css({
         alignItems: 'center',
         display: 'flex',
+        justifyContent: 'center',
         minHeight: '[30px]',
         minWidth: '[30px]',
-        justifyContent: 'center',
-        touchAction: 'none',
         px: '4px',
+        touchAction: 'none',
       })}
       onPointerDown={(e) => {
         e.stopPropagation();
@@ -96,7 +96,7 @@ export const EntityLinkReorderHandle = ({
         onPointerUp?.(e);
       }}
     >
-      <Menu className={css({ width: '[24px]', height: '[24px]' })} />
+      <Menu className={css({ height: '[24px]', width: '[24px]' })} />
     </div>
   );
 };

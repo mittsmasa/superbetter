@@ -33,25 +33,25 @@ export const postPowerupHistory = async (
 
       // update mission condition
       await updateMissionConditions({
+        itemId: powerupId,
+        itemType: 'powerup',
         transaction: tx,
         userId: user.id,
-        itemType: 'powerup',
-        itemId: powerupId,
       });
       return historyId;
     });
     if (!historyId) {
       return {
+        error: { message: 'unknown error', type: 'unknown' },
         type: 'error',
-        error: { type: 'unknown', message: 'unknown error' },
       };
     }
-    return { type: 'ok', data: { id: historyId } };
+    return { data: { id: historyId }, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };

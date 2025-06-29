@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: id が先頭を維持したい */
 import {
   boolean,
   datetime,

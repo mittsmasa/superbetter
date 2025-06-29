@@ -89,7 +89,7 @@ const ScanSection = async () => {
                 })}
               >
                 <CheckList
-                  className={css({ width: '[20px]', height: '[20px]' })}
+                  className={css({ height: '[20px]', width: '[20px]' })}
                 />
                 <span className={css({ textStyle: 'Body.primary' })}>
                   魔力測定
@@ -97,7 +97,7 @@ const ScanSection = async () => {
               </div>
               <span className={css({ display: 'flex', gap: '8px' })}>
                 <CloudSun
-                  className={css({ width: '[20px]', height: '[20px]' })}
+                  className={css({ height: '[20px]', width: '[20px]' })}
                 />
                 {posNegScore.data.latest?.posNegRatio.toFixed(1) ?? '未測定'}
               </span>

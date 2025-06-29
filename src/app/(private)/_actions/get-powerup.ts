@@ -17,18 +17,18 @@ export const getPowerups = async (ops?: {
   const user = await getUser();
   try {
     const pups = await db.query.powerups.findMany({
+      limit: ops?.limit,
+      orderBy: [asc(powerups.order), desc(powerups.createdAt)],
       where: (powerup) =>
         and(eq(powerup.userId, user.id), eq(powerup.archived, false)),
-      orderBy: [asc(powerups.order), desc(powerups.createdAt)],
-      limit: ops?.limit,
     });
     const pupCount = await db.$count(powerups);
-    return { type: 'ok', data: { records: pups, count: pupCount } };
+    return { data: { count: pupCount, records: pups }, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };
@@ -49,16 +49,16 @@ export const getPowerup = async (
 
     if (!pup) {
       return {
+        error: { message: 'specific id not found.', type: 'not-found' },
         type: 'error',
-        error: { type: 'not-found', message: 'specific id not found.' },
       };
     }
-    return { type: 'ok', data: pup };
+    return { data: pup, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };

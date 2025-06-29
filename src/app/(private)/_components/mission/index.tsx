@@ -18,11 +18,11 @@ export const Mission = ({
     <MotionLink href={`/missions/${id}`}>
       <div
         className={css({
-          textStyle: 'Body.secondary',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
           padding: '[8px]',
+          textStyle: 'Body.secondary',
           width: '[100%]',
         })}
       >
@@ -30,21 +30,21 @@ export const Mission = ({
           className={css({
             alignItems: 'center',
             display: 'flex',
-            justifyContent: 'space-between',
             gap: '8px',
+            justifyContent: 'space-between',
           })}
         >
           <p>{title}</p>
           {completed ? (
             <CheckGradient
-              className={css({ width: '[28px]', height: '[28px]' })}
+              className={css({ height: '[28px]', width: '[28px]' })}
             />
           ) : (
             <RadioOn
               className={css({
-                width: '[28px]',
-                height: '[28px]',
                 color: 'entity.disabled',
+                height: '[28px]',
+                width: '[28px]',
               })}
             />
           )}

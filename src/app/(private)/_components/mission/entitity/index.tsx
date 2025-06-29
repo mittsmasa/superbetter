@@ -17,17 +17,17 @@ export const MissionEntities = (props: { items: MissionEntity[] }) => {
       className={css({
         alignItems: 'center',
         display: 'flex',
-        justifyContent: 'center',
         gap: '12px',
+        justifyContent: 'center',
       })}
     >
       {props.items.sort(sortMissionEntities).map((item, index) => (
         <div
           key={index}
           className={css({
+            flexShrink: 0,
             height: '[24px]',
             width: '[24px]',
-            flexShrink: 0,
           })}
         >
           <EntityIcon key={index} {...item} />

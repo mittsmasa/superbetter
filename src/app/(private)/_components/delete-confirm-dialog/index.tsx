@@ -24,7 +24,7 @@ export const DeleteConfirmDialog = ({
         })}
       >
         <div>
-          <p className={css({ textAlign: 'center', lineClamp: 3 })}>
+          <p className={css({ lineClamp: 3, textAlign: 'center' })}>
             {itemName}
           </p>
           <p

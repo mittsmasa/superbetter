@@ -32,16 +32,16 @@ export const getPosNegScores = async (): Promise<
     const latest = results.at(0)?.testResult.answer.answer;
     const previous = results.at(1)?.testResult.answer.answer;
     return {
-      type: 'ok',
       data: {
         latest,
         previous,
       },
+      type: 'ok',
     };
   } catch (error) {
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };

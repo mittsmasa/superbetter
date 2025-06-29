@@ -17,18 +17,18 @@ export const getQuests = async (ops?: {
   const user = await getUser();
   try {
     const qs = await db.query.quests.findMany({
+      limit: ops?.limit,
+      orderBy: [asc(quests.order), desc(quests.createdAt)],
       where: (quest) =>
         and(eq(quest.userId, user.id), eq(quest.archived, false)),
-      orderBy: [asc(quests.order), desc(quests.createdAt)],
-      limit: ops?.limit,
     });
     const qCount = await db.$count(quests);
-    return { type: 'ok', data: { records: qs, count: qCount } };
+    return { data: { count: qCount, records: qs }, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };
@@ -49,16 +49,16 @@ export const getQuest = async (
 
     if (!q) {
       return {
+        error: { message: 'specific id not found.', type: 'not-found' },
         type: 'error',
-        error: { type: 'not-found', message: 'specific id not found.' },
       };
     }
-    return { type: 'ok', data: q };
+    return { data: q, type: 'ok' };
   } catch (e) {
     console.error(e);
     return {
+      error: { message: 'unknown error', type: 'unknown' },
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
     };
   }
 };

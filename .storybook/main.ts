@@ -1,3 +1,4 @@
+/** biome-ignore-all assist/source/useSortedKeys: 設定ファイルは並び順を維持したい */
 import path from 'node:path';
 import type { StorybookConfig } from '@storybook/nextjs';
 

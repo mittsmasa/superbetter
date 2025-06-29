@@ -3,7 +3,6 @@ import { sva } from '@/styled-system/css';
 import { IconButton } from '.';
 
 const withLabel = sva({
-  slots: ['root', 'label'],
   base: {
     root: {
       alignItems: 'center',
@@ -13,38 +12,39 @@ const withLabel = sva({
     },
   },
   defaultVariants: { size: 'md' },
+  slots: ['root', 'label'],
   variants: {
     size: {
-      sm: {
-        root: {
-          gap: '4px',
-        },
-        label: {
-          textStyle: 'Body.quaternary',
-        },
-      },
-      md: {
-        root: {
-          gap: '4px',
-        },
-        label: {
-          textStyle: 'Body.quaternary',
-        },
-      },
       lg: {
+        label: {
+          textStyle: 'Body.tertiary',
+        },
         root: {
           gap: '6px',
         },
+      },
+      md: {
         label: {
-          textStyle: 'Body.tertiary',
+          textStyle: 'Body.quaternary',
+        },
+        root: {
+          gap: '4px',
+        },
+      },
+      sm: {
+        label: {
+          textStyle: 'Body.quaternary',
+        },
+        root: {
+          gap: '4px',
         },
       },
       xl: {
-        root: {
-          gap: '8px',
-        },
         label: {
           textStyle: 'Body.tertiary',
+        },
+        root: {
+          gap: '8px',
         },
       },
     },
