@@ -16,6 +16,7 @@
   "assist": {
     "actions": {
       "source": {
+        "useSortedKeys": "on",
         "organizeImports": "on"
       }
     }
@@ -74,6 +75,11 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single"
+    }
+  },
+  "json": {
+    "assist": {
+      "enabled": false
     }
   }
 }
