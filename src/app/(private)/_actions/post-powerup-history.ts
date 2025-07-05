@@ -22,10 +22,15 @@ export const postPowerupHistory = async (
         tx.rollback();
         return;
       }
-      const [{ id: historyId }] = await tx
+      const insertResult = await tx
         .insert(powerupHistories)
         .values({ powerupId: pup.id })
         .$returningId();
+      if (!insertResult[0]) {
+        tx.rollback();
+        return;
+      }
+      const historyId = insertResult[0].id;
       await tx
         .update(powerups)
         .set({ count: sql`${powerups.count} + 1` })

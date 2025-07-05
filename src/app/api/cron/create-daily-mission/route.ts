@@ -64,7 +64,7 @@ const createDailyMissionForUser = async (userId: string): Promise<void> => {
 
     // トランザクションでミッションとミッション条件を作成
     await db.transaction(async (tx) => {
-      const [{ id }] = await tx
+      const insertResult = await tx
         .insert(missions)
         .values({
           userId,
@@ -75,6 +75,11 @@ const createDailyMissionForUser = async (userId: string): Promise<void> => {
           deadline: todayEnd,
         })
         .$returningId();
+      if (!insertResult[0]) {
+        tx.rollback();
+        return;
+      }
+      const id = insertResult[0].id;
 
       await tx.insert(missionConditions).values([
         {

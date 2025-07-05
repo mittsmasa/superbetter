@@ -34,7 +34,7 @@ export const createDailyMission = cache(
         return { type: 'ok', data: undefined };
       }
       await db.transaction(async (tx) => {
-        const [{ id }] = await tx
+        const insertResult = await tx
           .insert(missions)
           .values({
             userId: user.id,
@@ -45,29 +45,33 @@ export const createDailyMission = cache(
             deadline: todayEnd,
           })
           .$returningId();
+        const missionRecord = insertResult[0];
+        if (!missionRecord) {
+          throw new Error('Failed to create mission');
+        }
         await tx.insert(missionConditions).values([
           {
-            missionId: id,
+            missionId: missionRecord.id,
             conditionType: 'any',
             itemType: 'powerup',
           },
           {
-            missionId: id,
+            missionId: missionRecord.id,
             conditionType: 'any',
             itemType: 'powerup',
           },
           {
-            missionId: id,
+            missionId: missionRecord.id,
             conditionType: 'any',
             itemType: 'powerup',
           },
           {
-            missionId: id,
+            missionId: missionRecord.id,
             conditionType: 'any',
             itemType: 'quest',
           },
           {
-            missionId: id,
+            missionId: missionRecord.id,
             conditionType: 'any',
             itemType: 'villain',
           },

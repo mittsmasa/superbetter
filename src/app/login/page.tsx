@@ -36,7 +36,7 @@ const Login = async ({
         あらたな世界のとびらはここにある
       </p>
       <MagicLinksForm />
-      <GoogleButton redirectTo={redirectTo} />
+      <GoogleButton {...(redirectTo && { redirectTo })} />
       {VERCEL_ENV !== 'production' && <CredentialsForm />}
     </main>
   );

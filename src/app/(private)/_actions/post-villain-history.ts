@@ -22,10 +22,15 @@ export const postVillainHistory = async (
         tx.rollback();
         return;
       }
-      const [{ id: historyId }] = await tx
+      const insertResult = await tx
         .insert(villainHistories)
         .values({ villainId: vil.id })
         .$returningId();
+      if (!insertResult[0]) {
+        tx.rollback();
+        return;
+      }
+      const historyId = insertResult[0].id;
       await tx
         .update(villains)
         .set({ count: sql`${villains.count} + 1` })
