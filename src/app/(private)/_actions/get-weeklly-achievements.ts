@@ -77,7 +77,7 @@ export const getWeeklyAchievements = async (): Promise<
             missionConditions: [],
           };
         }
-        acc[mission.id].missionConditions.push(missionCondition);
+        acc[mission.id]?.missionConditions.push(missionCondition);
         return acc;
       }, {}),
     );

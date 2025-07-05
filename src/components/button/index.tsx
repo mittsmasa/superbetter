@@ -91,10 +91,14 @@ export const ButtonLink = ({
             ? 'interactive.border.disabled'
             : 'interactive.border.alt',
         }),
-        css(button.raw({ variant }), !props.disabled && feeling.cssRaw, {
-          cursor: props.disabled ? 'not-allowed' : undefined,
-          pointerEvents: props.disabled ? 'none' : undefined,
-        }),
+        css(
+          button.raw({ variant }),
+          !props.disabled && feeling.cssRaw,
+          props.disabled && {
+            cursor: 'not-allowed',
+            pointerEvents: 'none',
+          },
+        ),
       )}
     >
       {children}

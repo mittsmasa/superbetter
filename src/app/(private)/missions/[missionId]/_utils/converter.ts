@@ -1,7 +1,14 @@
 import type { EntityType } from '@/db/types/mission';
 
 export const getEntity = (value: string) => {
-  const [itemType, id] = value.split('.');
+  const parts = value.split('.');
+  if (parts.length !== 2) {
+    throw new Error(`Invalid entity value format: ${value}`);
+  }
+  const [itemType, id] = parts;
+  if (!itemType || !id) {
+    throw new Error(`Invalid entity value format: ${value}`);
+  }
   // TODO: validate type
   const type = itemType as EntityType;
   return { type, id };

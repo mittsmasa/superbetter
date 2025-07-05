@@ -7,15 +7,15 @@ import * as sbSchema from './schema/superbetter';
 export const schema = { ...authScehma, ...sbSchema };
 
 const pool = createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
+  host: process.env.DB_HOST ?? 'localhost',
+  user: process.env.DB_USERNAME ?? 'root',
+  password: process.env.DB_PASSWORD ?? 'root',
+  database: process.env.DB_DATABASE ?? 'superbetter',
   connectionLimit: 3,
   connectTimeout: 5000,
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
-  ssl: process.env.DB_TYPE?.toLowerCase() === 'tidb' ? {} : undefined,
+  ...(process.env.DB_TYPE?.toLowerCase() === 'tidb' ? { ssl: {} } : {}),
 });
 
 const drizzleClient = drizzle(pool, { schema, mode: 'default' });

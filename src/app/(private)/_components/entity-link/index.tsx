@@ -20,8 +20,10 @@ export const EntityLink = ({
     <div className={css({ position: 'relative' })}>
       <MotionLink
         href={href}
-        disabled={disabled}
-        pixelBorderColor={disabled ? 'foreground.disabled' : undefined}
+        {...(disabled && {
+          disabled: true,
+          pixelBorderColor: 'foreground.disabled',
+        })}
       >
         <div
           className={css({

@@ -21,10 +21,15 @@ export const postQuestHistory = async (
         tx.rollback();
         return;
       }
-      const [{ id: historyId }] = await tx
+      const insertResult = await tx
         .insert(questHistories)
         .values({ questId: q.id })
         .$returningId();
+      if (!insertResult[0]) {
+        tx.rollback();
+        return;
+      }
+      const historyId = insertResult[0].id;
       await tx
         .update(quests)
         .set({ count: sql`${quests.count} + 1` })

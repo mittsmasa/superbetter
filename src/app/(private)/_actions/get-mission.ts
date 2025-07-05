@@ -48,7 +48,7 @@ export const getMissions = async (): Promise<
             missionConditions: [],
           };
         }
-        acc[mission.id].missionConditions.push(missionCondition);
+        acc[mission.id]?.missionConditions.push(missionCondition);
         return acc;
       }, {}),
     );
@@ -109,7 +109,7 @@ export const getMission = async (
             missionConditions: [],
           };
         }
-        acc[mission.id].missionConditions.push(missionCondition);
+        acc[mission.id]?.missionConditions.push(missionCondition);
         return acc;
       }, {}),
     ).at(0);
