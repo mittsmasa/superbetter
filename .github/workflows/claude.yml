@@ -36,7 +36,7 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           assignee_trigger: "claude-bot"          
-          allowed_tools: "Bash(npm install),Bash(npm run build),Bash(npm run test:*),Bash(npm run lint:*)"          
+          allowed_tools: "Bash(pnpm install),Bash(pnpm build),Bash(pnpm test),Bash(pnpm check),Bash(pnpm type-check)"          
           custom_instructions: |
             日本語で回答ください
 
