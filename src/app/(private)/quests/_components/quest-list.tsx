@@ -43,7 +43,7 @@ export const QuestList = ({
               href={`/quests/${q.id}`}
               disabled={sortable}
               title={q.title}
-              description={q.description ?? null}
+              description={q.description}
               reorderHandleSlot={
                 sortable && (
                   <EntityLinkReorderHandle
