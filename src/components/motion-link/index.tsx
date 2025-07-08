@@ -30,17 +30,12 @@ export const MotionLink = ({
               : 'interactive.border',
         }),
         // display: inline では transform が効かないため block に変更
-        css(
-          feeling.cssRaw,
-          {
-            backgroundColor: 'interactive.background',
-            display: 'block',
-          },
-          disabled && {
-            cursor: 'not-allowed',
-            pointerEvents: 'none',
-          },
-        ),
+        css(feeling.cssRaw, {
+          backgroundColor: 'interactive.background',
+          display: 'block',
+          cursor: disabled ? 'not-allowed' : undefined,
+          pointerEvents: disabled ? 'none' : undefined,
+        }),
       )}
     />
   );

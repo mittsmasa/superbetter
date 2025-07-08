@@ -43,7 +43,7 @@ export const PowerupList = ({
               href={`/powerups/${p.id}`}
               disabled={sortable}
               title={p.title}
-              description={p.description ?? null}
+              description={p.description}
               reorderHandleSlot={
                 sortable && (
                   <EntityLinkReorderHandle

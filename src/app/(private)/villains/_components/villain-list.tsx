@@ -43,7 +43,7 @@ export const VillainList = ({
               href={`/villains/${q.id}`}
               disabled={sortable}
               title={q.title}
-              description={q.description ?? null}
+              description={q.description}
               reorderHandleSlot={
                 sortable && (
                   <EntityLinkReorderHandle
