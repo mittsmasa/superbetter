@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import { Dialog } from '.';

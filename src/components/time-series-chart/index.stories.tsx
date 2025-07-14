@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/nextjs';
+import { fn } from 'storybook/test';
 import { css } from '@/styled-system/css';
 import { TimeSeriesChart } from './index';
 
 const meta = {
   component: TimeSeriesChart,
-  args: { onClickBar: fn },
+  args: { onClickBar: fn() },
   decorators: [
     (Story) => (
       <div
