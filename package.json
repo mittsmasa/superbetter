@@ -45,7 +45,7 @@
     "@pandacss/dev": "0.54.0",
     "@storybook/nextjs": "9.0.17",
     "@svgr/webpack": "8.1.0",
-    "@types/node": "22.16.4",
+    "@types/node": "22.16.5",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "drizzle-kit": "0.31.4",
