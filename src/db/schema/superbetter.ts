@@ -6,6 +6,7 @@ import {
   json,
   mysqlTable as table,
   text,
+  time,
   varchar,
 } from 'drizzle-orm/mysql-core';
 import type { EntityType, MissionCondition } from '../types/mission';
@@ -229,4 +230,47 @@ export const testResults = table('testResult', {
   createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
     .$defaultFn(() => new Date()),
+});
+
+/** 通知機能 */
+export const notificationSettings = table('notificationSetting', {
+  userId: varchar('userId', { length: 255 })
+    .primaryKey()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  dailyMissionReminder: boolean('dailyMissionReminder')
+    .notNull()
+    .default(true),
+  reminderTime: time('reminderTime', { fsp: 0 })
+    .notNull()
+    .default('20:00:00'),
+  enablePushNotifications: boolean('enablePushNotifications')
+    .notNull()
+    .default(false),
+  pushSubscription: json('pushSubscription'),
+  createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  updatedAt: datetime('updatedAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .$defaultFn(() => new Date())
+    .$onUpdate(() => new Date()),
+});
+
+export const notificationHistories = table('notificationHistory', {
+  id: varchar('id', { length: 255 })
+    .primaryKey()
+    .$defaultFn(() => crypto.randomUUID()),
+  userId: varchar('userId', { length: 255 })
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  type: enumField('type', [
+    'daily_mission_reminder',
+    'missed_streak',
+    'achievement_unlock',
+  ] as const).notNull(),
+  message: text('message').notNull(),
+  sentAt: datetime('sentAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .$defaultFn(() => new Date()),
+  isRead: boolean('isRead').notNull().default(false),
 });
