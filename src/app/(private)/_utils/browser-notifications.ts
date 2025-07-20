@@ -43,7 +43,9 @@ export async function requestNotificationPermission(): Promise<NotificationPermi
 /**
  * ブラウザ通知を表示
  */
-export function showNotification(options: NotificationOptions): Notification | null {
+export function showNotification(
+  options: NotificationOptions,
+): Notification | null {
   if (!('Notification' in window)) {
     console.warn('このブラウザは通知をサポートしていません');
     return null;
@@ -79,7 +81,9 @@ export function showNotification(options: NotificationOptions): Notification | n
 /**
  * デイリーミッション通知を表示
  */
-export function showDailyMissionNotification(message: string): Notification | null {
+export function showDailyMissionNotification(
+  message: string,
+): Notification | null {
   return showNotification({
     title: 'SuperBetter - デイリーミッション',
     body: message,
@@ -92,7 +96,9 @@ export function showDailyMissionNotification(message: string): Notification | nu
 /**
  * 達成通知を表示
  */
-export function showAchievementNotification(message: string): Notification | null {
+export function showAchievementNotification(
+  message: string,
+): Notification | null {
   return showNotification({
     title: 'SuperBetter - 達成おめでとうございます！',
     body: message,
@@ -142,7 +148,7 @@ export async function getPushSubscription(): Promise<PushSubscription | null> {
  * Push通知をサブスクライブ
  */
 export async function subscribeToPushNotifications(
-  vapidPublicKey: string
+  vapidPublicKey: string,
 ): Promise<PushSubscription | null> {
   if (!isServiceWorkerNotificationSupported()) {
     console.warn('Push通知はサポートされていません');
@@ -151,7 +157,7 @@ export async function subscribeToPushNotifications(
 
   try {
     const registration = await navigator.serviceWorker.ready;
-    
+
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
       applicationServerKey: vapidPublicKey,
@@ -175,12 +181,12 @@ export async function unsubscribeFromPushNotifications(): Promise<boolean> {
   try {
     const registration = await navigator.serviceWorker.ready;
     const subscription = await registration.pushManager.getSubscription();
-    
+
     if (subscription) {
       const result = await subscription.unsubscribe();
       return result;
     }
-    
+
     return true;
   } catch (error) {
     console.error('Push通知のアンサブスクライブに失敗しました:', error);

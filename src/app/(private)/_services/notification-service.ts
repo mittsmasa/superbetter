@@ -1,15 +1,15 @@
 import 'server-only';
 
 import { and, count, eq, gte, lt, sql } from 'drizzle-orm';
-import { db } from '@/db/client';
-import { 
-  missions, 
-  missionConditions, 
-  notificationSettings, 
-  notificationHistories 
-} from '@/db/schema/superbetter';
-import { users } from '@/db/schema/auth';
 import { getStartAndEndOfDay } from '@/app/_utils/date';
+import { db } from '@/db/client';
+import { users } from '@/db/schema/auth';
+import {
+  missionConditions,
+  missions,
+  notificationHistories,
+  notificationSettings,
+} from '@/db/schema/superbetter';
 
 export interface NotificationTrigger {
   consecutiveMissedDays: number;
@@ -19,9 +19,9 @@ export interface NotificationTrigger {
 
 export interface NotificationCandidate {
   userId: string;
-  email: string;
-  dailyMissionReminder: boolean;
-  reminderTime: string;
+  email: string | null;
+  dailyMissionReminder: boolean | null;
+  reminderTime: string | null;
   missedDays: number;
   lastNotificationDate: Date | null;
 }
@@ -29,14 +29,16 @@ export interface NotificationCandidate {
 /**
  * デイリーミッション未達成の通知対象ユーザーを取得
  */
-export async function getNotificationCandidates(): Promise<NotificationCandidate[]> {
+export async function getNotificationCandidates(): Promise<
+  NotificationCandidate[]
+> {
   const today = new Date();
-  const { start: todayStart, end: todayEnd } = getStartAndEndOfDay(today);
-  
+
   // 昨日の日付を取得
   const yesterday = new Date(today);
   yesterday.setDate(yesterday.getDate() - 1);
-  const { start: yesterdayStart, end: yesterdayEnd } = getStartAndEndOfDay(yesterday);
+  const { start: yesterdayStart, end: yesterdayEnd } =
+    getStartAndEndOfDay(yesterday);
 
   try {
     // 通知設定が有効で、昨日のデイリーミッションが未完了のユーザーを取得
@@ -74,19 +76,21 @@ export async function getNotificationCandidates(): Promise<NotificationCandidate
             AND m.deadline BETWEEN ${yesterdayStart} AND ${yesterdayEnd}
             GROUP BY m.id
             HAVING COUNT(mc.id) = COUNT(CASE WHEN mc.completed = true THEN 1 END)
-          )`
-        )
+          )`,
+        ),
       );
 
     // 各ユーザーの連続未達成日数を計算
     const candidatesWithMissedDays = await Promise.all(
       candidates.map(async (candidate) => {
-        const missedDays = await calculateConsecutiveMissedDays(candidate.userId);
+        const missedDays = await calculateConsecutiveMissedDays(
+          candidate.userId,
+        );
         return {
           ...candidate,
           missedDays,
         };
-      })
+      }),
     );
 
     return candidatesWithMissedDays;
@@ -110,38 +114,44 @@ async function calculateConsecutiveMissedDays(userId: string): Promise<number> {
     const { start, end } = getStartAndEndOfDay(checkDate);
 
     try {
-      // その日のデイリーミッションが存在するかチェック
-      const missionExists = await db.query.missions.findFirst({
-        where: and(
-          eq(missions.userId, userId),
-          eq(missions.type, 'system-daily'),
-          gte(missions.deadline, start),
-          lt(missions.deadline, end)
-        ),
-      });
+      // その日のデイリーミッションが存在するかチェックと完了状況チェックを並列実行
+      // biome-ignore lint/nursery/noAwaitInLoop: 順次処理が必要なため連続日数の計算
+      const [missionExists, missionCompleted] = await Promise.all([
+        db.query.missions.findFirst({
+          where: and(
+            eq(missions.userId, userId),
+            eq(missions.type, 'system-daily'),
+            gte(missions.deadline, start),
+            lt(missions.deadline, end),
+          ),
+        }),
+        db
+          .select({
+            totalConditions: count(missionConditions.id),
+            completedConditions: count(
+              sql`CASE WHEN ${missionConditions.completed} = true THEN 1 END`,
+            ),
+          })
+          .from(missions)
+          .innerJoin(
+            missionConditions,
+            eq(missions.id, missionConditions.missionId),
+          )
+          .where(
+            and(
+              eq(missions.userId, userId),
+              eq(missions.type, 'system-daily'),
+              gte(missions.deadline, start),
+              lt(missions.deadline, end),
+            ),
+          )
+          .groupBy(missions.id),
+      ]);
 
       if (!missionExists) {
         // ミッション自体が存在しない場合はスキップ
         continue;
       }
-
-      // ミッションが完了しているかチェック
-      const missionCompleted = await db
-        .select({ 
-          totalConditions: count(missionConditions.id),
-          completedConditions: count(sql`CASE WHEN ${missionConditions.completed} = true THEN 1 END`)
-        })
-        .from(missions)
-        .innerJoin(missionConditions, eq(missions.id, missionConditions.missionId))
-        .where(
-          and(
-            eq(missions.userId, userId),
-            eq(missions.type, 'system-daily'),
-            gte(missions.deadline, start),
-            lt(missions.deadline, end)
-          )
-        )
-        .groupBy(missions.id);
 
       if (missionCompleted.length === 0) {
         missedDays++;
@@ -149,7 +159,7 @@ async function calculateConsecutiveMissedDays(userId: string): Promise<number> {
       }
 
       const { totalConditions, completedConditions } = missionCompleted[0];
-      
+
       if (totalConditions !== completedConditions) {
         // 未完了
         missedDays++;
@@ -169,18 +179,21 @@ async function calculateConsecutiveMissedDays(userId: string): Promise<number> {
 /**
  * 通知を送信すべきかどうかを判定
  */
-export function shouldSendNotification(candidate: NotificationCandidate): boolean {
+export function shouldSendNotification(
+  candidate: NotificationCandidate,
+): boolean {
   // 2日連続未達成の場合
   if (candidate.missedDays >= 2) {
     // 最後の通知から24時間経過している場合
     if (!candidate.lastNotificationDate) {
       return true;
     }
-    
+
     const now = new Date();
-    const hoursSinceLastNotification = 
-      (now.getTime() - candidate.lastNotificationDate.getTime()) / (1000 * 60 * 60);
-    
+    const hoursSinceLastNotification =
+      (now.getTime() - candidate.lastNotificationDate.getTime()) /
+      (1000 * 60 * 60);
+
     return hoursSinceLastNotification >= 24;
   }
 
@@ -193,7 +206,10 @@ export function shouldSendNotification(candidate: NotificationCandidate): boolea
 export async function sendNotificationAndRecord(
   userId: string,
   message: string,
-  type: 'daily_mission_reminder' | 'missed_streak' | 'achievement_unlock' = 'daily_mission_reminder'
+  type:
+    | 'daily_mission_reminder'
+    | 'missed_streak'
+    | 'achievement_unlock' = 'daily_mission_reminder',
 ): Promise<void> {
   try {
     // 通知履歴に記録
@@ -220,20 +236,26 @@ export async function sendNotificationAndRecord(
 export async function processDailyMissionNotifications(): Promise<void> {
   try {
     const candidates = await getNotificationCandidates();
-    
-    for (const candidate of candidates) {
-      if (shouldSendNotification(candidate)) {
-        const message = candidate.missedDays >= 7 
-          ? `もう${candidate.missedDays}日もデイリーミッションをお休みしています。少しずつでも英雄への道を歩み続けませんか？`
-          : `${candidate.missedDays}日連続でデイリーミッションが未達成です。今日こそは挑戦してみませんか？`;
-        
-        await sendNotificationAndRecord(
+
+    // 通知を送信すべき候補を並列処理
+    const notificationPromises = candidates
+      .filter(shouldSendNotification)
+      .map(async (candidate) => {
+        const message =
+          candidate.missedDays >= 7
+            ? `もう${candidate.missedDays}日もデイリーミッションをお休みしています。少しずつでも英雄への道を歩み続けませんか？`
+            : `${candidate.missedDays}日連続でデイリーミッションが未達成です。今日こそは挑戦してみませんか？`;
+
+        return sendNotificationAndRecord(
           candidate.userId,
           message,
-          candidate.missedDays >= 7 ? 'missed_streak' : 'daily_mission_reminder'
+          candidate.missedDays >= 7
+            ? 'missed_streak'
+            : 'daily_mission_reminder',
         );
-      }
-    }
+      });
+
+    await Promise.all(notificationPromises);
   } catch (error) {
     console.error('Error processing daily mission notifications:', error);
     throw error;

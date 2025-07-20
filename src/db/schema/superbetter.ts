@@ -237,8 +237,12 @@ export const notificationSettings = table('notificationSetting', {
     .primaryKey()
     .references(() => users.id, { onDelete: 'cascade' }),
   dailyMissionReminder: boolean('dailyMissionReminder').notNull().default(true),
-  reminderTime: varchar('reminderTime', { length: 8 }).notNull().default('20:00:00'),
-  enablePushNotifications: boolean('enablePushNotifications').notNull().default(false),
+  reminderTime: varchar('reminderTime', { length: 8 })
+    .notNull()
+    .default('20:00:00'),
+  enablePushNotifications: boolean('enablePushNotifications')
+    .notNull()
+    .default(false),
   pushSubscription: json('pushSubscription'),
   createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
     .notNull()
@@ -258,7 +262,7 @@ export const notificationHistories = table('notificationHistory', {
     .references(() => users.id, { onDelete: 'cascade' }),
   type: enumField('type', [
     'daily_mission_reminder',
-    'missed_streak', 
+    'missed_streak',
     'achievement_unlock',
   ] as const).notNull(),
   message: text('message').notNull(),

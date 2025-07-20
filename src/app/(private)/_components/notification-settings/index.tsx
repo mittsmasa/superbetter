@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/button';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
-import {
-  requestNotificationPermission,
-  getNotificationPermission,
-  showDailyMissionNotification,
-  isNotificationSupported,
-} from '../../_utils/browser-notifications';
 import { updateNotificationSettings } from '../../_actions/update-notification-settings';
+import {
+  getNotificationPermission,
+  isNotificationSupported,
+  requestNotificationPermission,
+  showDailyMissionNotification,
+} from '../../_utils/browser-notifications';
 
 interface NotificationSettingsProps {
   initialSettings: {
@@ -68,8 +68,8 @@ const Checkbox = ({
       >
         <span
           className={css({
-            width: '16px',
-            height: '16px',
+            width: '[16px]',
+            height: '[16px]',
             backgroundColor: checked ? 'background' : 'transparent',
             border: '2px solid',
             borderColor: checked ? 'background' : 'foreground',
@@ -100,18 +100,22 @@ const TimeInput = ({
         gap: '4px',
       })}
     >
-      <label className={css({ textStyle: 'Body.tertiary' })}>
+      <label
+        htmlFor="reminder-time"
+        className={css({ textStyle: 'Body.tertiary' })}
+      >
         {label}
       </label>
       <input
+        id="reminder-time"
         type="time"
         value={value.slice(0, 5)} // HH:MM:SS → HH:MM
         onChange={(e) => onChange(`${e.target.value}:00`)} // HH:MM → HH:MM:SS
         disabled={disabled}
         className={cx(
           pixelBorder({ borderWidth: 2, borderColor: 'interactive.border' }),
-          css({ 
-            padding: '4px', 
+          css({
+            padding: '4px',
             textStyle: 'Body.primary',
             opacity: disabled ? 0.6 : 1,
             cursor: disabled ? 'not-allowed' : 'auto',
@@ -122,11 +126,17 @@ const TimeInput = ({
   );
 };
 
-export const NotificationSettings = ({ initialSettings }: NotificationSettingsProps) => {
+export const NotificationSettings = ({
+  initialSettings,
+}: NotificationSettingsProps) => {
   const [settings, setSettings] = useState(initialSettings);
-  const [browserPermission, setBrowserPermission] = useState<NotificationPermission>('default');
+  const [browserPermission, setBrowserPermission] =
+    useState<NotificationPermission>('default');
   const [isLoading, setIsLoading] = useState(false);
-  const [isNotificationSupportedByBrowser, setIsNotificationSupportedByBrowser] = useState(false);
+  const [
+    isNotificationSupportedByBrowser,
+    setIsNotificationSupportedByBrowser,
+  ] = useState(false);
 
   useEffect(() => {
     setIsNotificationSupportedByBrowser(isNotificationSupported());
@@ -135,10 +145,12 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
     }
   }, []);
 
-  const handleSettingsChange = async (newSettings: Partial<typeof settings>) => {
+  const handleSettingsChange = async (
+    newSettings: Partial<typeof settings>,
+  ) => {
     const updatedSettings = { ...settings, ...newSettings };
     setSettings(updatedSettings);
-    
+
     try {
       setIsLoading(true);
       await updateNotificationSettings(updatedSettings);
@@ -161,7 +173,7 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
       setIsLoading(true);
       const permission = await requestNotificationPermission();
       setBrowserPermission(permission);
-      
+
       if (permission === 'granted') {
         // 権限が許可されたら設定を有効にする
         await handleSettingsChange({ enablePushNotifications: true });
@@ -175,7 +187,9 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
 
   const handleTestNotification = () => {
     if (browserPermission === 'granted') {
-      showDailyMissionNotification('これはテスト通知です。通知機能が正常に動作しています！');
+      showDailyMissionNotification(
+        'これはテスト通知です。通知機能が正常に動作しています！',
+      );
     } else {
       alert('まず通知の権限を許可してください。');
     }
@@ -195,11 +209,11 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
   const getPermissionStatusColor = () => {
     switch (browserPermission) {
       case 'granted':
-        return 'green.500';
+        return '[#10b981]';
       case 'denied':
-        return 'red.500';
+        return '[#ef4444]';
       default:
-        return 'yellow.500';
+        return '[#f59e0b]';
     }
   };
 
@@ -212,9 +226,7 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
         padding: '16px',
       })}
     >
-      <h2 className={css({ textStyle: 'Heading.primary' })}>
-        通知設定
-      </h2>
+      <h2 className={css({ textStyle: 'Heading.primary' })}>通知設定</h2>
 
       {/* 基本設定 */}
       <div
@@ -227,11 +239,13 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
         <h3 className={css({ textStyle: 'Heading.secondary' })}>
           デイリーミッション通知
         </h3>
-        
+
         <Checkbox
           label="デイリーミッション未達成時に通知を受け取る"
           checked={settings.dailyMissionReminder}
-          onChange={(checked) => handleSettingsChange({ dailyMissionReminder: checked })}
+          onChange={(checked) =>
+            handleSettingsChange({ dailyMissionReminder: checked })
+          }
           disabled={isLoading}
         />
 
@@ -257,7 +271,7 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
           <h3 className={css({ textStyle: 'Heading.secondary' })}>
             ブラウザ通知
           </h3>
-          
+
           <div
             className={css({
               display: 'flex',
@@ -269,8 +283,8 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
             <span className={css({ textStyle: 'Body.secondary' })}>
               権限状態:
             </span>
-            <span 
-              className={css({ 
+            <span
+              className={css({
                 textStyle: 'Body.primary',
                 color: getPermissionStatusColor(),
                 fontWeight: 'bold',
@@ -301,10 +315,12 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
               <Checkbox
                 label="ブラウザ通知を有効にする"
                 checked={settings.enablePushNotifications}
-                onChange={(checked) => handleSettingsChange({ enablePushNotifications: checked })}
+                onChange={(checked) =>
+                  handleSettingsChange({ enablePushNotifications: checked })
+                }
                 disabled={isLoading}
               />
-              
+
               <Button
                 onClick={handleTestNotification}
                 variant="secondary"
@@ -319,9 +335,9 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
             <div
               className={css({
                 padding: '8px',
-                backgroundColor: 'red.100',
+                backgroundColor: '[#fef2f2]',
                 border: '1px solid',
-                borderColor: 'red.300',
+                borderColor: '[#fca5a5]',
                 textStyle: 'Body.secondary',
               })}
             >
@@ -350,7 +366,7 @@ export const NotificationSettings = ({ initialSettings }: NotificationSettingsPr
           className={css({
             textAlign: 'center',
             textStyle: 'Body.secondary',
-            color: 'foreground.muted',
+            color: 'foreground.alt',
           })}
         >
           設定を更新中...

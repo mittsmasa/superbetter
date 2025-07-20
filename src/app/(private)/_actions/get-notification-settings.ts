@@ -9,11 +9,14 @@ import type { Result } from './types/result';
 
 export const getNotificationSettings = cache(
   async (): Promise<
-    Result<typeof notificationSettings.$inferSelect, { type: 'unknown'; message: string }>
+    Result<
+      typeof notificationSettings.$inferSelect,
+      { type: 'unknown'; message: string }
+    >
   > => {
     try {
       const user = await getUser();
-      
+
       let settings = await db.query.notificationSettings.findFirst({
         where: eq(notificationSettings.userId, user.id),
       });
@@ -35,7 +38,10 @@ export const getNotificationSettings = cache(
       if (!settings) {
         return {
           type: 'error',
-          error: { type: 'unknown', message: 'Failed to create notification settings' },
+          error: {
+            type: 'unknown',
+            message: 'Failed to create notification settings',
+          },
         };
       }
 

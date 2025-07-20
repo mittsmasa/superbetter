@@ -7,15 +7,23 @@ import { notificationSettings } from '@/db/schema/superbetter';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
 
+interface PushSubscriptionData {
+  endpoint: string;
+  keys: {
+    p256dh: string;
+    auth: string;
+  };
+}
+
 interface UpdateNotificationSettingsInput {
   dailyMissionReminder?: boolean;
   reminderTime?: string;
   enablePushNotifications?: boolean;
-  pushSubscription?: any;
+  pushSubscription?: PushSubscriptionData | null;
 }
 
 export async function updateNotificationSettings(
-  input: UpdateNotificationSettingsInput
+  input: UpdateNotificationSettingsInput,
 ): Promise<
   Result<undefined, { type: 'unknown' | 'validation'; message: string }>
 > {
@@ -28,7 +36,10 @@ export async function updateNotificationSettings(
       if (!timeRegex.test(input.reminderTime)) {
         return {
           type: 'error',
-          error: { type: 'validation', message: '時間の形式が正しくありません (HH:MM:SS)' },
+          error: {
+            type: 'validation',
+            message: '時間の形式が正しくありません (HH:MM:SS)',
+          },
         };
       }
     }
@@ -50,7 +61,7 @@ export async function updateNotificationSettings(
     } else {
       // 更新
       const updateData: Partial<typeof notificationSettings.$inferInsert> = {};
-      
+
       if (input.dailyMissionReminder !== undefined) {
         updateData.dailyMissionReminder = input.dailyMissionReminder;
       }
@@ -73,7 +84,7 @@ export async function updateNotificationSettings(
     }
 
     revalidatePath('/me');
-    
+
     return { type: 'ok', data: undefined };
   } catch (e) {
     console.error(e);
