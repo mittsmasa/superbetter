@@ -12,22 +12,20 @@ export const ExecuteButton = ({ villainId }: { villainId: string }) => {
   useGlassScreen(isPending);
   const { add: toast } = useToast();
   return (
-    <>
-      <form
-        action={async () => {
-          startTransition(async () => {
-            const response = await postVillainHistory(villainId);
-            if (response.type === 'error') {
-              throw new Error(response.error.message);
-            }
-            toast({ message: 'ヴィランとたたかった！' });
-          });
-        }}
-      >
-        <Button type="submit" disabled={isPending}>
-          <div className={css({ width: '[230px]' })}>たたかった！</div>
-        </Button>
-      </form>
-    </>
+    <form
+      action={async () => {
+        startTransition(async () => {
+          const response = await postVillainHistory(villainId);
+          if (response.type === 'error') {
+            throw new Error(response.error.message);
+          }
+          toast({ message: 'ヴィランとたたかった！' });
+        });
+      }}
+    >
+      <Button type="submit" disabled={isPending}>
+        <div className={css({ width: '[230px]' })}>たたかった！</div>
+      </Button>
+    </form>
   );
 };

@@ -41,7 +41,7 @@ export const getQuest = async (
     { type: 'not-found' | 'unknown'; message: string }
   >
 > => {
-  const user = await getUser();
+  const _user = await getUser();
   try {
     const q = await db.query.quests.findFirst({
       where: (quest) => eq(quest.id, questId),

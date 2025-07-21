@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { fn } from 'storybook/test';
 import { useState } from 'react';
 import {
   EntityLink,
@@ -34,7 +33,7 @@ const meta = {
                 reorderHandleSlot={
                   <EntityLinkReorderHandle
                     onPointerDown={(e) => controls.start(e)}
-                    onPointerUp={()=>{}}
+                    onPointerUp={() => {}}
                   />
                 }
               />

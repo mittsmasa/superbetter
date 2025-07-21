@@ -10,7 +10,7 @@ import type { Result } from '../../_actions/types/result';
 export const reorderVillains = async (
   newOrder: { id: string }[],
 ): Promise<Result<undefined, { type: 'unknown'; message: string }>> => {
-  const user = getUser();
+  const _user = getUser();
   if (newOrder.length === 0) {
     return { type: 'ok', data: undefined };
   }

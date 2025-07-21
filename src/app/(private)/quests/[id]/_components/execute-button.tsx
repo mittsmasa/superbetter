@@ -12,22 +12,20 @@ export const ExecuteButton = ({ questId }: { questId: string }) => {
   useGlassScreen(isPending);
   const { add: toast } = useToast();
   return (
-    <>
-      <form
-        action={async () => {
-          startTransition(async () => {
-            const response = await postQuestHistory(questId);
-            if (response.type === 'error') {
-              throw new Error(response.error.message);
-            }
-            toast({ message: 'クエストにいどんだ！' });
-          });
-        }}
-      >
-        <Button type="submit" disabled={isPending}>
-          <div className={css({ width: '[230px]' })}>いどんだ！</div>
-        </Button>
-      </form>
-    </>
+    <form
+      action={async () => {
+        startTransition(async () => {
+          const response = await postQuestHistory(questId);
+          if (response.type === 'error') {
+            throw new Error(response.error.message);
+          }
+          toast({ message: 'クエストにいどんだ！' });
+        });
+      }}
+    >
+      <Button type="submit" disabled={isPending}>
+        <div className={css({ width: '[230px]' })}>いどんだ！</div>
+      </Button>
+    </form>
   );
 };
