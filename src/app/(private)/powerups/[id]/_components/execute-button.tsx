@@ -12,22 +12,20 @@ export const ExecuteButton = ({ powerupId }: { powerupId: string }) => {
   useGlassScreen(isPending);
   const { add: toast } = useToast();
   return (
-    <>
-      <form
-        action={async () => {
-          startTransition(async () => {
-            const response = await postPowerupHistory(powerupId);
-            if (response.type === 'error') {
-              throw new Error(response.error.message);
-            }
-            toast({ message: 'パワーアップアイテムをつかった！' });
-          });
-        }}
-      >
-        <Button type="submit" disabled={isPending}>
-          <div className={css({ width: '[230px]' })}>つかった！</div>
-        </Button>
-      </form>
-    </>
+    <form
+      action={async () => {
+        startTransition(async () => {
+          const response = await postPowerupHistory(powerupId);
+          if (response.type === 'error') {
+            throw new Error(response.error.message);
+          }
+          toast({ message: 'パワーアップアイテムをつかった！' });
+        });
+      }}
+    >
+      <Button type="submit" disabled={isPending}>
+        <div className={css({ width: '[230px]' })}>つかった！</div>
+      </Button>
+    </form>
   );
 };

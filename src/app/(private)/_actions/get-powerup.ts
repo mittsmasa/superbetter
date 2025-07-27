@@ -41,7 +41,7 @@ export const getPowerup = async (
     { type: 'not-found' | 'unknown'; message: string }
   >
 > => {
-  const user = await getUser();
+  const _user = await getUser();
   try {
     const pup = await db.query.powerups.findFirst({
       where: (powerup) => eq(powerup.id, powerupId),

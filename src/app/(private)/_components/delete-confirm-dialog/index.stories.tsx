@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { fn } from 'storybook/test';
 import { useEffect } from 'react';
+import { fn } from 'storybook/test';
 import { useDialog } from '@/hooks/dialog';
 import { DeleteConfirmDialog } from '.';
 

@@ -11,7 +11,7 @@ export const reorderPowerups = async (
   newOrder: { id: string }[],
 ): Promise<Result<undefined, { type: 'unknown'; message: string }>> => {
   console.log(newOrder);
-  const user = getUser();
+  const _user = getUser();
   if (newOrder.length === 0) {
     return { type: 'ok', data: undefined };
   }

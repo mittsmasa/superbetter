@@ -41,7 +41,7 @@ export const getVillain = async (
     { type: 'not-found' | 'unknown'; message: string }
   >
 > => {
-  const user = await getUser();
+  const _user = await getUser();
   try {
     const v = await db.query.villains.findFirst({
       where: (villain) => eq(villain.id, villainId),
