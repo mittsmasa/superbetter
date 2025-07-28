@@ -31,7 +31,7 @@
     "date-fns": "4.1.0",
     "dotenv": "17.2.1",
     "drizzle-orm": "0.44.3",
-    "motion": "12.23.9",
+    "motion": "12.23.11",
     "mysql2": "3.14.2",
     "next": "15.4.4",
     "next-auth": "5.0.0-beta.29",
