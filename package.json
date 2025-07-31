@@ -26,13 +26,13 @@
   "dependencies": {
     "@auth/drizzle-adapter": "1.10.0",
     "@date-fns/tz": "1.2.0",
-    "@floating-ui/react": "0.27.14",
+    "@floating-ui/react": "0.27.15",
     "@serwist/next": "9.1.1",
     "date-fns": "4.1.0",
     "dotenv": "17.2.1",
-    "drizzle-orm": "0.44.3",
-    "motion": "12.23.11",
-    "mysql2": "3.14.2",
+    "drizzle-orm": "0.44.4",
+    "motion": "12.23.12",
+    "mysql2": "3.14.3",
     "next": "15.4.4",
     "next-auth": "5.0.0-beta.29",
     "react": "19.1.1",
@@ -41,7 +41,7 @@
     "server-only": "0.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.2",
+    "@biomejs/biome": "2.1.3",
     "@pandacss/dev": "0.54.0",
     "@storybook/nextjs": "9.0.18",
     "@svgr/webpack": "8.1.0",
