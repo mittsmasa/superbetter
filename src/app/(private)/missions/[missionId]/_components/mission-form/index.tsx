@@ -69,7 +69,7 @@ export const MissionForm = ({ entities }: { entities: AllEntities }) => {
           })}
         >
           <Button disabled={isPending} type="submit">
-            つかった / いどんだ / たたかった
+            {isPending ? '送信中...' : 'つかった / いどんだ / たたかった'}
           </Button>
         </div>
       </div>
