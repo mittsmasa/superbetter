@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import type { ReactNode } from 'react';
+import { type ReactNode, useTransition } from 'react';
 import { Android, ScriptText, Zap } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { Radio } from '@/components/radio';
@@ -13,6 +13,7 @@ import { getEntity, getEntityValue } from '../../_utils/converter';
 
 export const MissionForm = ({ entities }: { entities: AllEntities }) => {
   const { powerups, quests, villains, LIMIT } = entities;
+  const [isPending, startTransition] = useTransition();
   return (
     <form
       action={async (a) => {
@@ -21,7 +22,9 @@ export const MissionForm = ({ entities }: { entities: AllEntities }) => {
           return;
         }
         const entity = getEntity(val);
-        await postEntityHistory(entity);
+        startTransition(async () => {
+          await postEntityHistory(entity);
+        });
       }}
     >
       <div
@@ -65,7 +68,9 @@ export const MissionForm = ({ entities }: { entities: AllEntities }) => {
             py: '8px',
           })}
         >
-          <Button type="submit">つかった / いどんだ / たたかった</Button>
+          <Button disabled={isPending} type="submit">
+            つかった / いどんだ / たたかった
+          </Button>
         </div>
       </div>
     </form>
