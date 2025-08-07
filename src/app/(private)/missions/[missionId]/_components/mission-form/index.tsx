@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { type ReactNode, useTransition } from 'react';
-import { Android, ScriptText, Zap } from '@/assets/icons';
+import { useTransition } from 'react';
 import { Button } from '@/components/button';
 import { Radio } from '@/components/radio';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
+import { IconMap } from '../../../../_components/entity-icon/entity-icon-map';
 import type { AllEntities } from '../../_actions/get-all-entities';
 import { postEntityHistory } from '../../_actions/post-entity-history';
 import { getEntity, getEntityValue } from '../../_utils/converter';
@@ -115,7 +115,7 @@ const EntityList = ({
             gap: '8px',
           })}
         >
-          {Icon[type]}
+          {IconMap[type]}
           <p
             className={css({
               textStyle: 'Body.secondary',
@@ -155,13 +155,6 @@ const EntityList = ({
     </div>
   );
 };
-
-const Icon = {
-  powerup: <Zap className={css({ width: '[20px]' })} />,
-  quest: <ScriptText className={css({ width: '[20px]' })} />,
-  villain: <Android className={css({ width: '[20px]' })} />,
-  epicwin: <>未定</>,
-} as const satisfies Record<EntityType, ReactNode>;
 
 const Label = {
   powerup: 'パワーアップ',
