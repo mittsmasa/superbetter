@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { motion, useAnimation } from 'motion/react';
+import { useEffect, useMemo, useRef } from 'react';
 import { neonCurrentColor } from '@/assets/style';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
@@ -12,8 +13,20 @@ export type MissionEntity = {
 };
 
 export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
-  const Icon = IconImpl[itemType];
-  const IconWithAnimation = motion.create(Icon);
+  const prevRef = useRef<boolean>(completed);
+  const controls = useAnimation();
+  const IconWithAnimation = useMemo(
+    () => motion.create(IconImpl[itemType]),
+    [itemType],
+  );
+
+  useEffect(() => {
+    if (completed !== prevRef.current) {
+      void controls.start({
+        scale: [1, 1.3, 1],
+      });
+    }
+  }, [completed, controls]);
   return (
     <IconWithAnimation
       className={css(
@@ -27,10 +40,11 @@ export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
                   ? 'entity.villain'
                   : 'entity.disabled'
             : 'entity.disabled',
-          transition: '[color 0.8s ease-in-out]',
         },
         completed && neonCurrentColor,
       )}
+      animate={controls}
+      transition={{ duration: 0.8 }}
     />
   );
 };
