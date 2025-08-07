@@ -77,3 +77,10 @@ Core tables: users, quests, powerups, villains, epicwins, missions, with corresp
 - Uses NextAuth.js v5 with multiple providers
 - Protected routes under `(private)` directory
 - Server actions for data mutations
+
+## Slash Commands
+
+### Implementation Guidelines
+- When implementing slash commands in `.claude/commands/` directory, write all content in English
+- Use English for descriptions, comments, and documentation within command files
+- This ensures consistency and maintainability across command implementations

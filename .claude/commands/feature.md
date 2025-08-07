@@ -5,6 +5,8 @@ allowed-tools: ["Bash"]
 
 Creating a new branch from main for developing the feature "$ARGUMENTS".
 
+**Note**: This command only creates and checks out a new branch. It does not start implementation planning or actual implementation work. Please proceed with implementation tasks separately after branch creation.
+
 I will:
 1. Translate "$ARGUMENTS" from Japanese to English
 2. Convert it to a proper git branch name format (lowercase, hyphen-separated)
