@@ -26,52 +26,57 @@ export const MissionForm = ({ entities }: { entities: AllEntities }) => {
           await postEntityHistory(entity);
         });
       }}
+      className={css({
+        display: 'flex',
+        flexDirection: 'column',
+        height: '[100%]',
+      })}
     >
       <div
         className={css({
+          flex: '1',
+          minHeight: '[0]',
+          overflowY: 'auto',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          padding: '16px',
         })}
       >
-        <div
-          className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
-          })}
-        >
-          <EntityList
-            type="powerup"
-            entities={powerups.records}
-            showMore={powerups.count > LIMIT}
-            showMoreLink="/powerups"
-          />
-          <EntityList
-            type="quest"
-            entities={quests.records}
-            showMore={quests.count > LIMIT}
-            showMoreLink="/quests"
-          />
-          <EntityList
-            type="villain"
-            entities={villains.records}
-            showMore={villains.count > LIMIT}
-            showMoreLink="/villains"
-          />
-        </div>
-        <div
-          className={css({
-            backgroundColor: 'background',
-            display: 'flex',
-            justifyContent: 'center',
-            py: '8px',
-          })}
-        >
-          <Button disabled={isPending} type="submit">
-            {isPending ? '送信中...' : 'つかった / いどんだ / たたかった'}
-          </Button>
-        </div>
+        <EntityList
+          type="powerup"
+          entities={powerups.records}
+          showMore={powerups.count > LIMIT}
+          showMoreLink="/powerups"
+        />
+        <EntityList
+          type="quest"
+          entities={quests.records}
+          showMore={quests.count > LIMIT}
+          showMoreLink="/quests"
+        />
+        <EntityList
+          type="villain"
+          entities={villains.records}
+          showMore={villains.count > LIMIT}
+          showMoreLink="/villains"
+        />
+      </div>
+      <div
+        className={css({
+          position: 'sticky',
+          bottom: 0,
+          backgroundColor: 'background',
+          display: 'flex',
+          justifyContent: 'center',
+          padding: '16px',
+          borderTop: '1px solid',
+          borderColor: 'interactive.border',
+        })}
+      >
+        <Button disabled={isPending} type="submit">
+          {isPending ? '送信中...' : 'つかった / いどんだ / たたかった'}
+        </Button>
       </div>
     </form>
   );
