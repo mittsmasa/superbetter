@@ -1,7 +1,10 @@
-import { Android, ScriptText, Zap } from '@/assets/icons';
+'use client';
+
+import { motion } from 'motion/react';
 import { neonCurrentColor } from '@/assets/style';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
+import { IconImpl } from './entity-icon-map';
 
 export type MissionEntity = {
   itemType: EntityType;
@@ -9,47 +12,25 @@ export type MissionEntity = {
 };
 
 export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
-  switch (itemType) {
-    case 'quest':
-      return (
-        <ScriptText
-          className={css(
-            {
-              color: completed ? 'entity.quest' : 'entity.disabled',
-              animation: completed ? 'entityPulse 0.7s ease-out' : 'none',
-              transition: '[color 0.8s ease-in-out]',
-            },
-            completed && neonCurrentColor,
-          )}
-        />
-      );
-    case 'powerup':
-      return (
-        <Zap
-          className={css(
-            {
-              color: completed ? 'entity.powerup' : 'entity.disabled',
-              animation: completed ? 'entityPulse 0.7s ease-out' : 'none',
-              transition: '[color 0.8s ease-in-out]',
-            },
-            completed && neonCurrentColor,
-          )}
-        />
-      );
-    case 'villain':
-      return (
-        <Android
-          className={css(
-            {
-              color: completed ? 'entity.villain' : 'entity.disabled',
-              animation: completed ? 'entityPulse 0.7s ease-out' : 'none',
-              transition: '[color 0.8s ease-in-out]',
-            },
-            completed && neonCurrentColor,
-          )}
-        />
-      );
-    default:
-      return null;
-  }
+  const Icon = IconImpl[itemType];
+  const IconWithAnimation = motion.create(Icon);
+  return (
+    <IconWithAnimation
+      className={css(
+        {
+          color: completed
+            ? itemType === 'powerup'
+              ? 'entity.powerup'
+              : itemType === 'quest'
+                ? 'entity.quest'
+                : itemType === 'villain'
+                  ? 'entity.villain'
+                  : 'entity.disabled'
+            : 'entity.disabled',
+          transition: '[color 0.8s ease-in-out]',
+        },
+        completed && neonCurrentColor,
+      )}
+    />
+  );
 };
