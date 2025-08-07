@@ -3,15 +3,15 @@ description: "Generate implementation plan and save it to .plan directory"
 allowed-tools: ["Write", "Task", "Bash"]
 ---
 
-「$ARGUMENTS」の実装方針を作成し、.plan ディレクトリに保存します。
+Generate a detailed implementation plan for "$ARGUMENTS" and save it to the .plan directory.
 
-以下の内容を含む詳細な実装方針を作成します：
+The implementation plan will include the following comprehensive sections:
 
-1. **要件分析**: プロンプトの内容を分析し、実装すべき機能を整理
-2. **技術選択**: 使用する技術・ライブラリ・フレームワーク
-3. **実装手順**: ステップバイステップの実装計画
-4. **ファイル構成**: 作成・変更が必要なファイルとその役割
-5. **テスト方針**: テストの実装方法と検証項目
-6. **注意点**: 実装時の注意事項や考慮すべきポイント
+1. **Requirements Analysis**: Analyze the prompt content and organize features to be implemented
+2. **Technology Selection**: Technologies, libraries, and frameworks to be used
+3. **Implementation Steps**: Step-by-step implementation plan
+4. **File Structure**: Files to be created/modified and their roles
+5. **Testing Strategy**: Testing implementation methods and verification items
+6. **Important Notes**: Implementation considerations and points to keep in mind
 
-!Task general-purpose "現在の日時をベースにしたファイル名（plan-YYYYMMDD-HHMMSS.md形式）で、「$ARGUMENTS」に関する詳細な実装方針をMarkdown形式で作成し、.planディレクトリに保存してください。実装方針には要件分析、技術選択、実装手順、ファイル構成、テスト方針、注意点を含めてください。"
+!Task general-purpose "Create a detailed implementation plan for '$ARGUMENTS' in Markdown format and save it to the .plan directory with a timestamp-based filename (plan-YYYYMMDD-HHMMSS.md format). The implementation plan should include requirements analysis, technology selection, implementation steps, file structure, testing strategy, and important notes."
