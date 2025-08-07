@@ -137,3 +137,7 @@ styled-system-studio
 # Serwist
 public/sw*
 public/swe-worker*
+
+# Plan files (keep directory, ignore contents)
+.plan/*
+!.plan/.gitkeep
