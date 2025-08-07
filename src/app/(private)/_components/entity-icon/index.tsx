@@ -16,6 +16,7 @@ export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
           className={css(
             {
               color: completed ? 'entity.quest' : 'entity.disabled',
+              animation: completed ? 'entityPulse 0.7s ease-out' : 'none',
               transition: '[color 0.8s ease-in-out]',
             },
             completed && neonCurrentColor,
@@ -28,6 +29,7 @@ export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
           className={css(
             {
               color: completed ? 'entity.powerup' : 'entity.disabled',
+              animation: completed ? 'entityPulse 0.7s ease-out' : 'none',
               transition: '[color 0.8s ease-in-out]',
             },
             completed && neonCurrentColor,
@@ -40,6 +42,7 @@ export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
           className={css(
             {
               color: completed ? 'entity.villain' : 'entity.disabled',
+              animation: completed ? 'entityPulse 0.7s ease-out' : 'none',
               transition: '[color 0.8s ease-in-out]',
             },
             completed && neonCurrentColor,

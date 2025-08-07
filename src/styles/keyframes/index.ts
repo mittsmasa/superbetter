@@ -6,4 +6,15 @@ export const keyframes = defineKeyframes({
       clipPath: 'inset(0 -1ch 0 0)',
     },
   },
+  entityPulse: {
+    '0%': {
+      transform: 'scale(1)',
+    },
+    '50%': {
+      transform: 'scale(1.4)',
+    },
+    '100%': {
+      transform: 'scale(1)',
+    },
+  },
 });
