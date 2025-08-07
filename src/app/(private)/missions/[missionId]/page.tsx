@@ -74,7 +74,14 @@ const Page = async (props: { params: Promise<{ missionId: string }> }) => {
             />
           </div>
         </div>
-        <MissionForm entities={entities} />
+        <div
+          className={css({
+            flex: '1',
+            minHeight: '[0]',
+          })}
+        >
+          <MissionForm entities={entities} />
+        </div>
       </div>
     </main>
   );
