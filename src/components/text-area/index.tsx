@@ -9,13 +9,13 @@ export const TextArea = ({
   ComponentProps<'textarea'>,
   'type' | 'className'
 >) => {
-  const { rows = 5 } = props;
   const id = useId();
   return (
     <div
       className={css({
         display: 'flex',
         flexDirection: 'column',
+        height: '[100%]',
         gap: '4px',
       })}
     >
@@ -24,11 +24,10 @@ export const TextArea = ({
       </label>
       <textarea
         {...props}
-        rows={rows}
         id={id}
         className={cx(
           pixelBorder({ borderWidth: 2, borderColor: 'interactive.border' }),
-          css({ padding: '4px', textStyle: 'Body.primary' }),
+          css({ padding: '4px', textStyle: 'Body.primary', flex: '1' }),
         )}
       />
     </div>
