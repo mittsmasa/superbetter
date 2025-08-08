@@ -64,6 +64,7 @@ export const EditVillainButton = ({
               className={css({
                 display: 'flex',
                 flexDirection: 'column',
+                flex: '1',
                 gap: '12px',
               })}
             >
