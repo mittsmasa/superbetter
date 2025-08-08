@@ -9,6 +9,7 @@ const meta = {
     children: 'ボタン',
     onClick: fn(),
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
 
 export default meta;
