@@ -27,4 +27,5 @@ export { default as ScriptText } from './pixel-icons/script-text.svg';
 export { default as Sort } from './pixel-icons/sort.svg';
 export { default as Sun } from './pixel-icons/sun.svg';
 export { default as Trash } from './pixel-icons/trash.svg';
+export { default as Trophy } from './pixel-icons/trophy.svg';
 export { default as Zap } from './pixel-icons/zap.svg';

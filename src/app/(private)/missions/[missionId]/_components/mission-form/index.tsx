@@ -160,5 +160,5 @@ const Label = {
   powerup: 'パワーアップ',
   quest: 'クエスト',
   villain: 'ヴィラン',
-  epicwin: '未定',
+  epicwin: 'エピックウィン',
 } as const satisfies Record<EntityType, string>;
