@@ -36,7 +36,6 @@ export default async function Home() {
         {todayAchievement && (
           <TodayAdventureLog achievement={todayAchievement} />
         )}
-        <EpicWinSection />
         <div
           className={css({
             display: 'flex',
@@ -58,6 +57,7 @@ export default async function Home() {
             />
           ))}
         </div>
+        <EpicWinSection />
       </div>
     </main>
   );

@@ -16,7 +16,6 @@ export const EpicWinSection = async () => {
         padding: '8px',
       })}
     >
-      {/* Heading */}
       <div
         className={css({
           display: 'flex',
@@ -36,23 +35,18 @@ export const EpicWinSection = async () => {
           エピックウィン
         </h2>
       </div>
-
-      {/* Content Container */}
-      <div
-        className={css({
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          alignSelf: 'stretch',
-          padding: '4px',
-        })}
-      >
+      <div>
         {epicWins.length === 0 ? (
-          // Empty state - show add button
-          <AddEpicWinButton />
+          <div
+            className={css({
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px',
+            })}
+          >
+            <AddEpicWinButton />
+          </div>
         ) : (
-          // Data exists - show list
           <EpicWinList epicWins={epicWins} />
         )}
       </div>
