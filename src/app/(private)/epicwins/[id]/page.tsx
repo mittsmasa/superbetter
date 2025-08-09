@@ -2,7 +2,7 @@ import { Header } from '@/app/(private)/_components/header';
 import { css } from '@/styled-system/css';
 import { getEpicWin } from '../../_actions/epicwin';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';
-import { EditEpicWinButton } from './_components/edit-epic-win-button';
+import { EditEpicWinButton } from './_components/edit-epicwin-button';
 import { ExecuteButton } from './_components/execute-button';
 
 const Page = async (props: {

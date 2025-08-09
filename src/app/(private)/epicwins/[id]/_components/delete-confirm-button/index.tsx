@@ -5,7 +5,7 @@ import { DeleteConfirmDialog } from '@/app/(private)/_components/delete-confirm-
 import { Archive } from '@/assets/icons';
 import { IconButtonWithLabel } from '@/components/icon-button/with-label';
 import { useDialog } from '@/hooks/dialog';
-import { archiveEpicWin } from '../../_actions/archive-epic-win';
+import { archiveEpicWin } from '../../_actions/archive-epicwin';
 
 export const DeleteConfirmButton = (props: { id: string; name: string }) => {
   const deleteConfirm = useDialog();
@@ -27,7 +27,7 @@ export const DeleteConfirmButton = (props: { id: string; name: string }) => {
           if (res.type === 'error') {
             throw new Error(res.error.message);
           }
-          router.push('/epic-wins');
+          router.push('/epicwins');
           deleteConfirm.close();
         }}
       />
