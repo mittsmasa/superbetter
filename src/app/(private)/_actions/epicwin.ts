@@ -12,7 +12,7 @@ export const getEpicWins = async () => {
   return await db
     .select()
     .from(epicwins)
-    .where(eq(epicwins.userId, user.id))
+    .where(and(eq(epicwins.userId, user.id), eq(epicwins.archived, false)))
     .orderBy(epicwins.createdAt);
 };
 

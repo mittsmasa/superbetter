@@ -71,30 +71,6 @@ const Page = async (props: {
               {epicwin.data.description}
             </p>
           )}
-          {epicwin.data.archived && (
-            <div
-              className={css({
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                px: '8px',
-                py: '4px',
-                bg: 'cyan.100',
-                borderRadius: '4px',
-                border: '1px solid {colors.cyan.300}',
-              })}
-            >
-              <span
-                className={css({
-                  textStyle: 'Body.secondary',
-                  color: 'cyan.700',
-                  fontWeight: 'medium',
-                })}
-              >
-                ✨ 達成済み
-              </span>
-            </div>
-          )}
         </div>
       </div>
       <div
