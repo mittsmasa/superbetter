@@ -1,6 +1,7 @@
 import { css } from '@/styled-system/css';
 import { getMissions } from './_actions/get-mission';
 import { getWeeklyAchievements } from './_actions/get-weeklly-achievements';
+import { EpicWinSection } from './_components/epic-win-section';
 import { Mission } from './_components/mission';
 import { TodayAdventureLog } from './_components/today-adventure-log';
 import { WeeklyAchievement } from './_components/weekly-achievement';
@@ -35,6 +36,7 @@ export default async function Home() {
         {todayAchievement && (
           <TodayAdventureLog achievement={todayAchievement} />
         )}
+        <EpicWinSection />
         <div
           className={css({
             display: 'flex',
