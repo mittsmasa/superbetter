@@ -1,7 +1,7 @@
 import { css } from '@/styled-system/css';
-import { getEpicWins } from '../../_actions/epic-win';
-import { AddEpicWinButton } from './add-epic-win-button';
-import { EpicWinList } from './epic-win-list';
+import { getEpicWins } from '../../_actions/epicwin';
+import { AddEpicWinButton } from './add-epicwin-button';
+import { EpicWinList } from './epicwin-list';
 
 export const EpicWinSection = async () => {
   const epicWins = await getEpicWins();

@@ -16,7 +16,7 @@ export const EpicWinList = ({ epicWins }: { epicWins: EpicWin[] }) => {
       {epicWins.map((epicWin) => (
         <EntityLink
           key={epicWin.id}
-          href={`/epic-wins/${epicWin.id}`}
+          href={`/epicwins/${epicWin.id}`}
           title={
             <p
               className={css({

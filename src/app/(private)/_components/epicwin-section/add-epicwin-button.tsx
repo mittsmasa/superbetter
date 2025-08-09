@@ -7,7 +7,7 @@ import { TextArea } from '@/components/text-area';
 import { TextInput } from '@/components/text-input';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
-import { postEpicWin } from '../../_actions/epic-win';
+import { postEpicWin } from '../../_actions/epicwin';
 
 export const AddEpicWinButton = () => {
   const dialog = useDialog();
