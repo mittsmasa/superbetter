@@ -16,7 +16,7 @@ export const archiveEpicWin = async (args: {
       .update(epicwins)
       .set({ archived: true })
       .where(and(eq(epicwins.id, args.id), eq(epicwins.userId, user.id)));
-    revalidatePath('/epicwins');
+    revalidatePath('/');
   } catch (e) {
     console.error(e);
     return {

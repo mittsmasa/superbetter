@@ -27,7 +27,7 @@ export const DeleteConfirmButton = (props: { id: string; name: string }) => {
           if (res.type === 'error') {
             throw new Error(res.error.message);
           }
-          router.push('/epicwins');
+          router.push('/');
           deleteConfirm.close();
         }}
       />
