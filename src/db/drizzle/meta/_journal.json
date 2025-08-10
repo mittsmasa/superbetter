@@ -127,6 +127,13 @@
       "when": 1741608125549,
       "tag": "0017_known_scorpion",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "5",
+      "when": 1754706721327,
+      "tag": "0018_supreme_gorgon",
+      "breakpoints": true
     }
   ]
 }
