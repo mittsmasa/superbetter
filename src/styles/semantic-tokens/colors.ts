@@ -39,6 +39,7 @@ export const colorsSemanticTokens = defineSemanticTokens.colors({
     powerup: { value: '{colors.yellow.500}' },
     quest: { value: '{colors.cyan.500}' },
     villain: { value: '{colors.purple.600}' },
+    epicwin: { value: '{colors.orange.400}' },
     disabled: { value: '{colors.gray.500}' },
   },
   chart: {

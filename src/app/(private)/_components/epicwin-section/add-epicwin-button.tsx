@@ -1,29 +1,27 @@
 'use client';
 
 import { MissionEntities } from '@/app/(private)/_components/mission/entitity';
-import { AddBox } from '@/assets/icons';
 import { Button } from '@/components/button';
 import { Drawer } from '@/components/drawer';
-import { IconButtonWithLabel } from '@/components/icon-button/with-label';
 import { TextArea } from '@/components/text-area';
 import { TextInput } from '@/components/text-input';
 import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
-import { postQuest } from '../_actions/post-quest';
+import { postEpicWin } from '../../_actions/epicwin';
 
-export const AddQuestButton = () => {
+export const AddEpicWinButton = () => {
   const dialog = useDialog();
   return (
     <>
-      <IconButtonWithLabel onClick={dialog.show} label="ついか" size="md">
-        <AddBox />
-      </IconButtonWithLabel>
+      <Button onClick={dialog.show} variant="secondary">
+        エピックウィンをきめる
+      </Button>
       <Drawer ref={dialog.ref} onClose={dialog.close}>
         <form
           action={async (f) => {
             const name = f.get('item-name') as string | null;
             const description = f.get('item-desc') as string | null;
-            const res = await postQuest({ name: name ?? '', description });
+            const res = await postEpicWin({ title: name ?? '', description });
             if (res.type === 'ok') {
               dialog.close();
               return;
@@ -44,20 +42,20 @@ export const AddQuestButton = () => {
               gap: '12px',
             })}
           >
-            <h1>クエストをみつけよ</h1>
+            <h1>エピックウィンをきめよう</h1>
             <div
               className={css({
                 textStyle: 'Body.tertiary',
                 textAlign: 'center',
               })}
             >
-              <p>5分以内に着手できる小さな目標をつくろう</p>
-              <p>日々の小さな行動が、やがて大いなる目標への道となるであろう</p>
+              <p>クエストより達成がむずかしい目標をきめよう</p>
+              <p>壮大な目標が、やがて君の人生を変えるであろう</p>
             </div>
             <MissionEntities
               items={[
                 {
-                  itemType: 'quest',
+                  itemType: 'epicwin',
                   completed: true,
                 },
               ]}
@@ -76,8 +74,8 @@ export const AddQuestButton = () => {
           >
             <TextInput
               required
-              label="クエストめい *"
-              placeholder="クエストめい"
+              label="エピックウィンめい *"
+              placeholder="エピックウィンめい"
               name="item-name"
             />
             <TextArea

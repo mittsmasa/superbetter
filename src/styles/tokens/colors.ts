@@ -52,4 +52,16 @@ export const colorTokens = defineTokens.colors({
     800: { value: '#614593' },
     900: { value: '#52446F' },
   },
+  orange: {
+    50: { value: '#C2B5A8' },
+    100: { value: '#BEA289' },
+    200: { value: '#BE8E60' },
+    300: { value: '#BE7828' },
+    400: { value: '#BB6200' },
+    500: { value: '#AF4F00' },
+    600: { value: '#9B4400' },
+    700: { value: '#803F00' },
+    800: { value: '#643A06' },
+    900: { value: '#4A331D' },
+  },
 });

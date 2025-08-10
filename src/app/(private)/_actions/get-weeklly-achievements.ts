@@ -6,6 +6,8 @@ import { unionAll } from 'drizzle-orm/mysql-core';
 import { fixToUTC, getTZDate } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import {
+  epicwinHistories,
+  epicwins,
   missionConditions,
   missions,
   powerupHistories,
@@ -191,9 +193,29 @@ const getTimeSeriesAdventureLogs = async (
     )
     .orderBy(desc(villainHistories.createdAt));
 
-  const entities = await unionAll(powerupLogs, questLogs, villainLogs).orderBy(
-    desc(sql<string>`createdAt`),
-  );
+  const epicwinLogs = db
+    .select({
+      id: epicwinHistories.id,
+      type: sql<EntityType>`"epicwin"`.as('type'),
+      title: epicwins.title,
+      createdAt: epicwinHistories.createdAt,
+    })
+    .from(epicwinHistories)
+    .innerJoin(epicwins, eq(epicwinHistories.epicwinId, epicwins.id))
+    .where(
+      and(
+        eq(epicwins.userId, userId),
+        between(epicwinHistories.createdAt, from, to),
+      ),
+    )
+    .orderBy(desc(epicwinHistories.createdAt));
+
+  const entities = await unionAll(
+    powerupLogs,
+    questLogs,
+    villainLogs,
+    epicwinLogs,
+  ).orderBy(desc(sql<string>`createdAt`));
 
   const dateWithLog = Object.groupBy(
     entities.map((log) => ({

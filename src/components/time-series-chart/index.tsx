@@ -125,6 +125,7 @@ type ChartElement = {
   powerup: number;
   quest: number;
   villain: number;
+  epicwin: number;
 };
 
 export const TimeSeriesChart = ({
@@ -182,6 +183,13 @@ export const TimeSeriesChart = ({
           dataKey="villain"
           stackId="a"
           fill={token('colors.entity.villain')}
+          shape={(props: BarProps) => <NeonBar {...props} />}
+          onTouchStart={(_, index) => onClickBar(data[index].date)}
+        />
+        <Bar
+          dataKey="epicwin"
+          stackId="a"
+          fill={token('colors.entity.epicwin')}
           shape={(props: BarProps) => <NeonBar {...props} />}
           onTouchStart={(_, index) => onClickBar(data[index].date)}
         />

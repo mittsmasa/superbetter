@@ -13,6 +13,7 @@ export const TodayAdventureLog = async ({
         ...achievement.adventureLogs.filter((log) => log.type === 'powerup'),
         ...achievement.adventureLogs.filter((log) => log.type === 'quest'),
         ...achievement.adventureLogs.filter((log) => log.type === 'villain'),
+        ...achievement.adventureLogs.filter((log) => log.type === 'epicwin'),
       ]}
     />
   );
