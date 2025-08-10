@@ -38,7 +38,9 @@ export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
                 ? 'entity.quest'
                 : itemType === 'villain'
                   ? 'entity.villain'
-                  : 'entity.disabled'
+                  : itemType === 'epicwin'
+                    ? 'entity.epicwin'
+                    : 'entity.disabled'
             : 'entity.disabled',
         },
         completed && neonCurrentColor,
