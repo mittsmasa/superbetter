@@ -49,7 +49,7 @@ export const AddEpicWinButton = () => {
                 textAlign: 'center',
               })}
             >
-              <p>勇者よ、エピックウィンを決めよう</p>
+              <p>クエストより達成がむずかしい目標をきめよう</p>
               <p>壮大な目標が、やがて君の人生を変えるであろう</p>
             </div>
             <MissionEntities

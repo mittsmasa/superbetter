@@ -51,7 +51,7 @@ export const AddQuestButton = () => {
                 textAlign: 'center',
               })}
             >
-              <p>勇者よ、クエストを見つけ出し、成し遂げよ</p>
+              <p>5分以内に着手できる小さな目標をつくろう</p>
               <p>日々の小さな行動が、やがて大いなる目標への道となるであろう</p>
             </div>
             <MissionEntities
