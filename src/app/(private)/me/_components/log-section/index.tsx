@@ -23,6 +23,7 @@ export const LogSection = ({
         quest: d.adventureLogs.filter((log) => log.type === 'quest').length,
         powerup: d.adventureLogs.filter((log) => log.type === 'powerup').length,
         villain: d.adventureLogs.filter((log) => log.type === 'villain').length,
+        epicwin: d.adventureLogs.filter((log) => log.type === 'epicwin').length,
       })),
     [weeklyAchievement],
   );
