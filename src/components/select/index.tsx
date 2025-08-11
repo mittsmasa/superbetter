@@ -43,7 +43,7 @@ type SelectContextValue = {
   options: SelectOption[];
   activeIndex: number | null;
   setActiveIndex: (index: number | null) => void;
-  listRef: React.MutableRefObject<Array<HTMLElement | null>>;
+  listRef: React.RefObject<Array<HTMLElement | null>>;
   getItemProps: ReturnType<typeof useInteractions>['getItemProps'];
   getReferenceProps: ReturnType<typeof useInteractions>['getReferenceProps'];
   getFloatingProps: ReturnType<typeof useInteractions>['getFloatingProps'];
@@ -229,7 +229,7 @@ const Trigger = ({
           className={css({
             marginLeft: '[8px]',
             transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-            transition: '[transform_0.2s]',
+            transition: '[transform 0.2s]',
           })}
         >
           ▼
@@ -311,7 +311,11 @@ const Item = ({ value, children, disabled = false }: SelectItemProps) => {
           : isSelected
             ? 'background.alt'
             : 'background',
-        color: disabled ? 'foreground.disabled' : 'foreground',
+        color: disabled
+          ? 'foreground.disabled'
+          : isSelected
+            ? 'foreground.alt'
+            : 'foreground.primary',
         _hover: disabled
           ? {}
           : {
