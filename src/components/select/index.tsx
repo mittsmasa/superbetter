@@ -319,6 +319,7 @@ const Item = ({ value, children, disabled = false }: SelectItemProps) => {
         _hover: disabled
           ? {}
           : {
+              color: 'foreground.alt',
               backgroundColor: 'background.alt',
             },
       })}
