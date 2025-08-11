@@ -38,7 +38,7 @@ export const getPosNegScores = async (): Promise<
         previous,
       },
     };
-  } catch (error) {
+  } catch (_error) {
     return {
       type: 'error',
       error: { type: 'unknown', message: 'unknown error' },

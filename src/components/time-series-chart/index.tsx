@@ -150,6 +150,7 @@ export const TimeSeriesChart = ({
           tickLine={false}
           tick={(props: ComponentProps<typeof CustomXTick>) => {
             const customProp = data.find((d) => d.date === props.payload.value);
+            // biome-ignore lint/complexity/noUselessFragments: null を返したいが、型制約を優先して framgent を返す
             if (!customProp) return <></>;
             return <CustomXTick {...props} custom={customProp} />;
           }}
