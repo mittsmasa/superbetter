@@ -51,10 +51,10 @@
     "@types/react-dom": "19.1.7",
     "drizzle-kit": "0.31.4",
     "drizzle-seed": "0.3.1",
-    "lefthook": "1.12.2",
+    "lefthook": "1.12.3",
     "serwist": "9.1.1",
     "storybook": "9.1.2",
-    "tsx": "4.20.3",
+    "tsx": "4.20.4",
     "typescript": "5.9.2",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.2.4"
