@@ -46,7 +46,7 @@
     "@storybook/addon-docs": "9.1.2",
     "@storybook/nextjs": "9.1.2",
     "@svgr/webpack": "8.1.0",
-    "@types/node": "22.17.1",
+    "@types/node": "22.17.2",
     "@types/react": "19.1.10",
     "@types/react-dom": "19.1.7",
     "drizzle-kit": "0.31.4",
