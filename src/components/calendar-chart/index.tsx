@@ -77,18 +77,10 @@ export interface CalendarChartProps {
    */
   onClick?: (date: Date, index: number) => void;
   /**
-   * 各日のセルに適用するカスタムスタイル
-   * セルの状態や日付に基づいてスタイルを動的に決定可能
+   * 各日のセルに適用するカスタムクラス名
+   * セルの状態や日付に基づいてクラス名を動的に決定可能
    */
-  cellStyle?: (
-    date: Date,
-    index: number,
-  ) => {
-    backgroundColor?: string;
-    borderColor?: string;
-    opacity?: number;
-    [key: string]: string | number | undefined;
-  };
+  cellStyle?: (date: Date, index: number) => string;
   /**
    * セルのサイズとギャップサイズ
    * @default 'md'
@@ -106,12 +98,7 @@ interface CalendarCellProps {
   index: number;
   size: Size;
   cellClassName: string;
-  style?: {
-    backgroundColor?: string;
-    borderColor?: string;
-    opacity?: number;
-    [key: string]: string | number | undefined;
-  };
+  customClassName?: string;
   onClick?: (date: Date, index: number) => void;
 }
 
@@ -119,7 +106,7 @@ const CalendarCell = ({
   date,
   index,
   cellClassName,
-  style,
+  customClassName,
   onClick,
 }: CalendarCellProps) => {
   const feeling = useTapFeeling();
@@ -139,11 +126,8 @@ const CalendarCell = ({
         }),
         cellClassName,
         css(feeling.cssRaw),
+        customClassName,
       )}
-      style={{
-        backgroundColor: style?.backgroundColor,
-        opacity: style?.opacity,
-      }}
     >
       {date.getDate()}
     </button>
@@ -224,7 +208,7 @@ export const CalendarChart = ({
           );
         }
 
-        const style = cellStyle?.(date, index);
+        const customClassName = cellStyle?.(date, index);
         return (
           <CalendarCell
             key={date.toISOString()}
@@ -232,7 +216,7 @@ export const CalendarChart = ({
             index={index}
             size={size}
             cellClassName={classes.cell || ''}
-            style={style}
+            customClassName={customClassName}
             onClick={onClick}
           />
         );
