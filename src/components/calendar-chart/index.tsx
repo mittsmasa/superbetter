@@ -91,16 +91,17 @@ const generateCalendarDaysForMonth = (
     }
 
     // 月の全ての日を追加
-    for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
-      days.push(new Date(day));
+    for (let date = 1; date <= lastDay.getDate(); date++) {
+      days.push(new Date(year, monthIndex, date));
     }
   } else {
     // 平日のみの場合は空白なしで月曜日から金曜日のみ
-    for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
-      const dayOfWeek = day.getDay();
+    for (let date = 1; date <= lastDay.getDate(); date++) {
+      const currentDay = new Date(year, monthIndex, date);
+      const dayOfWeek = currentDay.getDay();
       // 月曜日（1）から金曜日（5）のみ
       if (dayOfWeek >= 1 && dayOfWeek <= 5) {
-        days.push(new Date(day));
+        days.push(currentDay);
       }
     }
   }
