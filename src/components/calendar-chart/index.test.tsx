@@ -1,21 +1,36 @@
 import { describe, expect, it } from 'vitest';
 
-// CalendarChartのロジック部分をテストするためのヘルパー関数
-const generateDaysForMonth = (date: Date, includeWeekends: boolean): Date[] => {
+// CalendarChartのロジック部分をテストするためのヘルパー関数（月曜始まりカレンダー対応）
+const generateCalendarDaysForMonth = (
+  date: Date,
+  includeWeekends: boolean,
+): (Date | null)[] => {
   const year = date.getFullYear();
   const monthIndex = date.getMonth();
   const firstDay = new Date(year, monthIndex, 1);
   const lastDay = new Date(year, monthIndex + 1, 0);
 
-  const days: Date[] = [];
+  const days: (Date | null)[] = [];
 
-  for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
-    const dayOfWeek = day.getDay();
+  // 月の最初の日の曜日を取得（日曜日=0を月曜日=0に変換）
+  let firstDayOfWeek = firstDay.getDay();
+  firstDayOfWeek = firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1; // 月曜日を0とする
 
-    if (includeWeekends) {
-      // 全ての曜日を含める
+  if (includeWeekends) {
+    // 月曜日から始まるカレンダー形式
+    // 最初の週の空白を追加
+    for (let i = 0; i < firstDayOfWeek; i++) {
+      days.push(null);
+    }
+
+    // 月の全ての日を追加
+    for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
       days.push(new Date(day));
-    } else {
+    }
+  } else {
+    // 平日のみの場合は空白なしで月曜日から金曜日のみ
+    for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
+      const dayOfWeek = day.getDay();
       // 月曜日（1）から金曜日（5）のみ
       if (dayOfWeek >= 1 && dayOfWeek <= 5) {
         days.push(new Date(day));
@@ -30,30 +45,36 @@ describe('CalendarChart logic', () => {
   describe('平日のみ表示', () => {
     it('2024年1月の平日が正しく生成される', () => {
       const month = new Date(2024, 0, 1); // 2024年1月
-      const weekdays = generateDaysForMonth(month, false);
+      const weekdays = generateCalendarDaysForMonth(month, false);
+      const actualWeekdays = weekdays.filter(
+        (day): day is Date => day !== null,
+      );
 
       // 2024年1月の平日は23日
-      expect(weekdays).toHaveLength(23);
+      expect(actualWeekdays).toHaveLength(23);
 
       // 最初の平日は1月1日（月曜日）
-      expect(weekdays[0].getDate()).toBe(1);
-      expect(weekdays[0].getDay()).toBe(1); // 月曜日
+      expect(actualWeekdays[0]?.getDate()).toBe(1);
+      expect(actualWeekdays[0]?.getDay()).toBe(1); // 月曜日
 
       // 最後の平日は1月31日（水曜日）
-      expect(weekdays[weekdays.length - 1].getDate()).toBe(31);
-      expect(weekdays[weekdays.length - 1].getDay()).toBe(3); // 水曜日
+      expect(actualWeekdays[actualWeekdays.length - 1]?.getDate()).toBe(31);
+      expect(actualWeekdays[actualWeekdays.length - 1]?.getDay()).toBe(3); // 水曜日
     });
 
     it('週末が除外される', () => {
       const month = new Date(2024, 5, 1); // 2024年6月（土曜日から開始）
-      const weekdays = generateDaysForMonth(month, false);
+      const weekdays = generateCalendarDaysForMonth(month, false);
+      const actualWeekdays = weekdays.filter(
+        (day): day is Date => day !== null,
+      );
 
       // 6月1日（土）と6月2日（日）は除外される
-      expect(weekdays[0].getDate()).toBe(3); // 最初の平日は3日（月曜日）
-      expect(weekdays[0].getDay()).toBe(1); // 月曜日
+      expect(actualWeekdays[0]?.getDate()).toBe(3); // 最初の平日は3日（月曜日）
+      expect(actualWeekdays[0]?.getDay()).toBe(1); // 月曜日
 
       // すべて平日であることを確認
-      for (const day of weekdays) {
+      for (const day of actualWeekdays) {
         const dayOfWeek = day.getDay();
         expect(dayOfWeek).toBeGreaterThanOrEqual(1);
         expect(dayOfWeek).toBeLessThanOrEqual(5);
@@ -64,8 +85,13 @@ describe('CalendarChart logic', () => {
       const leapYear = new Date(2024, 1, 1); // 2024年2月（うるう年）
       const regularYear = new Date(2023, 1, 1); // 2023年2月（平年）
 
-      const leapWeekdays = generateDaysForMonth(leapYear, false);
-      const regularWeekdays = generateDaysForMonth(regularYear, false);
+      const leapWeekdays = generateCalendarDaysForMonth(leapYear, false).filter(
+        (day): day is Date => day !== null,
+      );
+      const regularWeekdays = generateCalendarDaysForMonth(
+        regularYear,
+        false,
+      ).filter((day): day is Date => day !== null);
 
       // うるう年の2月は平年より平日が多い（または同じ）
       expect(leapWeekdays.length).toBeGreaterThanOrEqual(
@@ -87,7 +113,10 @@ describe('CalendarChart logic', () => {
       ];
 
       const weekdayCounts = months.map(
-        (month) => generateDaysForMonth(month, false).length,
+        (month) =>
+          generateCalendarDaysForMonth(month, false).filter(
+            (day): day is Date => day !== null,
+          ).length,
       );
 
       // すべて正の値
@@ -106,7 +135,9 @@ describe('CalendarChart logic', () => {
   describe('土日を含む表示', () => {
     it('2024年1月の全ての日が正しく生成される', () => {
       const month = new Date(2024, 0, 1); // 2024年1月
-      const allDays = generateDaysForMonth(month, true);
+      const allDays = generateCalendarDaysForMonth(month, true).filter(
+        (day): day is Date => day !== null,
+      );
 
       // 2024年1月は31日
       expect(allDays).toHaveLength(31);
@@ -122,7 +153,9 @@ describe('CalendarChart logic', () => {
 
     it('土日が含まれる', () => {
       const month = new Date(2024, 0, 1); // 2024年1月
-      const allDays = generateDaysForMonth(month, true);
+      const allDays = generateCalendarDaysForMonth(month, true).filter(
+        (day): day is Date => day !== null,
+      );
 
       // 土日が含まれていることを確認
       const weekends = allDays.filter((day) => {
@@ -135,8 +168,12 @@ describe('CalendarChart logic', () => {
 
     it('平日のみと土日含む場合で日数が異なる', () => {
       const month = new Date(2024, 0, 1); // 2024年1月
-      const weekdaysOnly = generateDaysForMonth(month, false);
-      const allDays = generateDaysForMonth(month, true);
+      const weekdaysOnly = generateCalendarDaysForMonth(month, false).filter(
+        (day): day is Date => day !== null,
+      );
+      const allDays = generateCalendarDaysForMonth(month, true).filter(
+        (day): day is Date => day !== null,
+      );
 
       expect(allDays.length).toBeGreaterThan(weekdaysOnly.length);
       expect(weekdaysOnly).toHaveLength(23); // 平日のみ
@@ -147,7 +184,9 @@ describe('CalendarChart logic', () => {
   describe('日付のフォーマット', () => {
     it('日付オブジェクトが正しい年月日を持つ（平日のみ）', () => {
       const month = new Date(2024, 2, 1); // 2024年3月
-      const weekdays = generateDaysForMonth(month, false);
+      const weekdays = generateCalendarDaysForMonth(month, false).filter(
+        (day): day is Date => day !== null,
+      );
 
       // すべて2024年3月の日付
       for (const day of weekdays) {
@@ -157,15 +196,17 @@ describe('CalendarChart logic', () => {
 
       // 日付は昇順
       for (let i = 1; i < weekdays.length; i++) {
-        expect(weekdays[i].getTime()).toBeGreaterThan(
-          weekdays[i - 1].getTime(),
+        expect(weekdays[i]?.getTime()).toBeGreaterThan(
+          weekdays[i - 1]?.getTime(),
         );
       }
     });
 
     it('日付オブジェクトが正しい年月日を持つ（土日含む）', () => {
       const month = new Date(2024, 2, 1); // 2024年3月
-      const allDays = generateDaysForMonth(month, true);
+      const allDays = generateCalendarDaysForMonth(month, true).filter(
+        (day): day is Date => day !== null,
+      );
 
       // すべて2024年3月の日付
       for (const day of allDays) {
@@ -175,8 +216,32 @@ describe('CalendarChart logic', () => {
 
       // 日付は昇順
       for (let i = 1; i < allDays.length; i++) {
-        expect(allDays[i].getTime()).toBeGreaterThan(allDays[i - 1].getTime());
+        expect(allDays[i]?.getTime()).toBeGreaterThan(
+          allDays[i - 1]?.getTime(),
+        );
       }
+    });
+
+    it('月曜始まりカレンダーの空白セルテスト', () => {
+      // 日曜日から始まる月（空白6セル）
+      const sunday = new Date(2024, 8, 1); // 2024年9月1日は日曜日
+      const sundayCalendar = generateCalendarDaysForMonth(sunday, true);
+      let sundayNulls = 0;
+      for (const day of sundayCalendar) {
+        if (day === null) sundayNulls++;
+        else break;
+      }
+      expect(sundayNulls).toBe(6); // 日曜日は月曜から6位置目
+
+      // 火曜日から始まる月（空白1セル）
+      const tuesday = new Date(2024, 9, 1); // 2024年10月1日は火曜日
+      const tuesdayCalendar = generateCalendarDaysForMonth(tuesday, true);
+      let tuesdayNulls = 0;
+      for (const day of tuesdayCalendar) {
+        if (day === null) tuesdayNulls++;
+        else break;
+      }
+      expect(tuesdayNulls).toBe(1); // 火曜日は月曜から1位置目
     });
   });
 });

@@ -154,3 +154,37 @@ export const WeekendLayoutTest = {
     },
   },
 } satisfies Story;
+
+export const MondayStartCalendar = {
+  args: {
+    month: new Date(2024, 8, 1), // 2024年9月（日曜日スタート、月曜始まりで6つの空白セル）
+    includeWeekends: true,
+    size: 'lg',
+    cellStyle: (date) => {
+      const dayOfWeek = date.getDay();
+      const isFirstWeek = date.getDate() <= 7;
+
+      // 最初の週を強調表示
+      if (isFirstWeek) {
+        return {
+          backgroundColor: '#fff3e0',
+          borderColor: '#f57c00',
+          fontWeight: 'bold',
+        };
+      }
+
+      // 週末は薄い色
+      if (dayOfWeek === 0 || dayOfWeek === 6) {
+        return {
+          backgroundColor: '#f5f5f5',
+          borderColor: '#999',
+        };
+      }
+
+      return {
+        backgroundColor: '#ffffff',
+        borderColor: '#ddd',
+      };
+    },
+  },
+} satisfies Story;
