@@ -65,6 +65,49 @@ const calendarChart = sva({
   },
 });
 
+/**
+ * 月ごとの日付データを生成（月曜始まりのカレンダー形式）
+ */
+const generateCalendarDaysForMonth = (
+  date: Date,
+  includeWeekends: boolean,
+): (Date | null)[] => {
+  const year = date.getFullYear();
+  const monthIndex = date.getMonth();
+  const firstDay = new Date(year, monthIndex, 1);
+  const lastDay = new Date(year, monthIndex + 1, 0);
+
+  const days: (Date | null)[] = [];
+
+  // 月の最初の日の曜日を取得（日曜日=0を月曜日=0に変換）
+  let firstDayOfWeek = firstDay.getDay();
+  firstDayOfWeek = firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1; // 月曜日を0とする
+
+  if (includeWeekends) {
+    // 月曜日から始まるカレンダー形式
+    // 最初の週の空白を追加
+    for (let i = 0; i < firstDayOfWeek; i++) {
+      days.push(null);
+    }
+
+    // 月の全ての日を追加
+    for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
+      days.push(new Date(day));
+    }
+  } else {
+    // 平日のみの場合は空白なしで月曜日から金曜日のみ
+    for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
+      const dayOfWeek = day.getDay();
+      // 月曜日（1）から金曜日（5）のみ
+      if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+        days.push(new Date(day));
+      }
+    }
+  }
+
+  return days;
+};
+
 export interface CalendarChartProps {
   /**
    * 表示する月
@@ -144,47 +187,6 @@ export const CalendarChart = ({
   size = 'md',
   includeWeekends = true,
 }: CalendarChartProps) => {
-  // 月ごとの日付データを生成（月曜始まりのカレンダー形式）
-  const generateCalendarDaysForMonth = (
-    date: Date,
-    includeWeekends: boolean,
-  ): (Date | null)[] => {
-    const year = date.getFullYear();
-    const monthIndex = date.getMonth();
-    const firstDay = new Date(year, monthIndex, 1);
-    const lastDay = new Date(year, monthIndex + 1, 0);
-
-    const days: (Date | null)[] = [];
-
-    // 月の最初の日の曜日を取得（日曜日=0を月曜日=0に変換）
-    let firstDayOfWeek = firstDay.getDay();
-    firstDayOfWeek = firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1; // 月曜日を0とする
-
-    if (includeWeekends) {
-      // 月曜日から始まるカレンダー形式
-      // 最初の週の空白を追加
-      for (let i = 0; i < firstDayOfWeek; i++) {
-        days.push(null);
-      }
-
-      // 月の全ての日を追加
-      for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
-        days.push(new Date(day));
-      }
-    } else {
-      // 平日のみの場合は空白なしで月曜日から金曜日のみ
-      for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
-        const dayOfWeek = day.getDay();
-        // 月曜日（1）から金曜日（5）のみ
-        if (dayOfWeek >= 1 && dayOfWeek <= 5) {
-          days.push(new Date(day));
-        }
-      }
-    }
-
-    return days;
-  };
-
   const days = generateCalendarDaysForMonth(month, includeWeekends);
   const columnsCount = includeWeekends ? 7 : 5;
   const classes = calendarChart({ size });
