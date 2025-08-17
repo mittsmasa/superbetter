@@ -68,7 +68,7 @@ const calendarChart = sva({
 /**
  * 月ごとの日付データを生成（月曜始まりのカレンダー形式）
  */
-const generateCalendarDaysForMonth = (
+export const generateCalendarDaysForMonth = (
   date: Date,
   includeWeekends: boolean,
 ): (Date | null)[] => {
