@@ -42,7 +42,11 @@
         "useImportType": "error",
         "useExportType": "error",
         "noUselessElse": "error",
-        "useShorthandFunctionType": "error"
+        "useShorthandFunctionType": "error",
+        "useConsistentObjectDefinitions": {
+          "level": "error",
+          "options": { "syntax": "shorthand" }
+        }
       },
       "correctness": {
         "noUnusedImports": "error",
@@ -55,19 +59,17 @@
         "useLiteralKeys": "off"
       },
       "suspicious": {
-        "noArrayIndexKey": "off"
+        "noArrayIndexKey": "off",
+        "noBitwiseOperators": "error",
+        "noTsIgnore": "error"
       },
       "nursery": {
-        "noAwaitInLoop": "on",
-        "noBitwiseOperators": "error",
         "noFloatingPromises": "error",
-        "noImportCycles": "on",
-        "noTsIgnore": "error",
-        "noUnwantedPolyfillio": "error",
-        "useConsistentObjectDefinition": {
-          "level": "error",
-          "options": { "syntax": "shorthand" }
-        }
+        "noImportCycles": "on"
+      },
+      "performance": {
+        "noAwaitInLoops": "error",
+        "noUnwantedPolyfillio": "error"
       }
     }
   },
