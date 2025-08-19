@@ -33,7 +33,7 @@
     "drizzle-orm": "0.44.4",
     "motion": "12.23.12",
     "mysql2": "3.14.3",
-    "next": "15.4.6",
+    "next": "15.4.7",
     "next-auth": "5.0.0-beta.29",
     "react": "19.1.1",
     "react-dom": "19.1.1",
