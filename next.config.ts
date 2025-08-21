@@ -8,6 +8,7 @@ const withSerwist = withSerwistInit({
 });
 
 const nextConfig: NextConfig = {
+  typedRoutes: true,
   turbopack: {
     rules: {
       '*.svg': {

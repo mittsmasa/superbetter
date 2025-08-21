@@ -8,11 +8,11 @@ import { pixelBorder } from '@/styled-system/patterns';
 import type { ColorToken } from '@/styled-system/tokens';
 import type { ConditionalValue } from '@/styled-system/types';
 
-export const MotionLink = ({
+export const MotionLink = <T extends string>({
   pixelBorderColor,
   disabled = false,
   ...props
-}: Omit<ComponentProps<typeof Link>, 'className'> & {
+}: Omit<ComponentProps<typeof Link<T>>, 'className'> & {
   pixelBorderColor?: ConditionalValue<ColorToken>;
   disabled?: boolean;
 }) => {
