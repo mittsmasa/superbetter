@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useTransition } from 'react';
+import { type ComponentProps, useTransition } from 'react';
 import { Button } from '@/components/button';
 import { Radio } from '@/components/radio';
 import type { EntityType } from '@/db/types/mission';
@@ -82,7 +82,7 @@ export const MissionForm = ({ entities }: { entities: AllEntities }) => {
   );
 };
 
-const EntityList = ({
+const EntityList = <T extends string>({
   type,
   entities,
   showMore,
@@ -91,7 +91,7 @@ const EntityList = ({
   type: EntityType;
   entities: { id: string; title: string }[];
   showMore: boolean;
-  showMoreLink: string;
+  showMoreLink: ComponentProps<typeof Link<T>>['href'];
 }) => {
   return (
     <div

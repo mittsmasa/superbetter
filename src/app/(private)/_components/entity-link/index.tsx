@@ -3,14 +3,14 @@ import { Menu } from '@/assets/icons';
 import { MotionLink } from '@/components/motion-link';
 import { css } from '@/styled-system/css';
 
-export const EntityLink = ({
+export const EntityLink = <T extends string>({
   href,
   disabled,
   title,
   description,
   reorderHandleSlot,
 }: {
-  href: ComponentProps<typeof MotionLink>['href'];
+  href: ComponentProps<typeof MotionLink<T>>['href'];
   disabled?: ComponentProps<typeof MotionLink>['disabled'];
   title: ReactNode;
   description?: string | null;
