@@ -5,10 +5,7 @@ import { DeleteConfirmButton } from './_components/delete-confirm-button';
 import { EditVillainButton } from './_components/edit-villain-button';
 import { ExecuteButton } from './_components/execute-button';
 
-const Page = async (props: {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) => {
+const Page = async (props: PageProps<'/villains/[id]'>) => {
   const { id: villainId } = await props.params;
   const villain = await getVillain(villainId);
 

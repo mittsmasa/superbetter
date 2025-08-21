@@ -5,12 +5,11 @@ import { css } from '@/styled-system/css';
 
 const VERCEL_ENV = process.env.NEXT_PUBLIC_VERCEL_ENV;
 
-const Login = async ({
-  searchParams,
-}: {
-  searchParams: Promise<{ redirectTo?: string }>;
-}) => {
-  const { redirectTo } = await searchParams;
+const Login = async (props: PageProps<'/login'>) => {
+  const { redirectTo } = await props.searchParams;
+  if (Array.isArray(redirectTo)) {
+    throw new Error('Invalid redirectTo parameter');
+  }
   return (
     <main
       className={css({

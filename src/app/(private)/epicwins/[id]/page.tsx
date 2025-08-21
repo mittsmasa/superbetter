@@ -5,10 +5,7 @@ import { DeleteConfirmButton } from './_components/delete-confirm-button';
 import { EditEpicWinButton } from './_components/edit-epicwin-button';
 import { ExecuteButton } from './_components/execute-button';
 
-const Page = async (props: {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) => {
+const Page = async (props: PageProps<'/epicwins/[id]'>) => {
   const { id: epicwinId } = await props.params;
   const epicwin = await getEpicWin({ id: epicwinId });
 

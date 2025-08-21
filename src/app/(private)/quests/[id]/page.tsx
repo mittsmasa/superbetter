@@ -5,10 +5,7 @@ import { DeleteConfirmButton } from './_components/delete-confirm-button';
 import { EditQuestButton } from './_components/edit-quest-button';
 import { ExecuteButton } from './_components/execute-button';
 
-const Page = async (props: {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) => {
+const Page = async (props: PageProps<'/quests/[id]'>) => {
   const { id: questId } = await props.params;
   const quest = await getQuest(questId);
 

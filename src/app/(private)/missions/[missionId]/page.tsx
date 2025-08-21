@@ -5,7 +5,7 @@ import { Header } from '../../_components/header';
 import { getAllEntities } from './_actions/get-all-entities';
 import { MissionForm } from './_components/mission-form';
 
-const Page = async (props: { params: Promise<{ missionId: string }> }) => {
+const Page = async (props: PageProps<'/missions/[missionId]'>) => {
   const { missionId } = await props.params;
   const mission = await getMission(missionId);
   if (mission.type === 'error') {
