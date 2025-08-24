@@ -34,11 +34,11 @@ export const getTimeSeriesPosNegScores = async (
     .orderBy(desc(testResults.createdAt));
 
   const scoresByDate = Object.groupBy(
-    results.map((result: { answer: unknown; createdAt: Date }) => ({
+    results.map((result) => ({
       datetime: dateFormatter.format(result.createdAt),
-      answer: result.answer as PosNegAnswer,
+      answer: result.answer,
     })),
-    (item: { datetime: string; answer: PosNegAnswer }) => item.datetime,
+    (item) => item.datetime,
   );
 
   return Object.entries(scoresByDate).map(([datetime, scores]) => ({
