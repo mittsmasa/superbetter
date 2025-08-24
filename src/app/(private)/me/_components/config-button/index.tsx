@@ -4,7 +4,7 @@ import { signOut } from '@/app/(private)/_actions/signout';
 import { Logout, MoreVertical } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
 import { Popover } from '@/components/popover';
-import { css } from '@/styled-system/css';
+import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
 
 export const ConfigButton = () => {
@@ -27,7 +27,10 @@ export const ConfigButton = () => {
             {...getFloatingProps()}
             style={floatingStyles}
             ref={refs.setFloating}
-            className={pixelBorder({})}
+            className={cx(
+              pixelBorder({}),
+              css({ backgroundColor: 'background' }),
+            )}
           >
             <button
               type="button"

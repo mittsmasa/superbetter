@@ -14,7 +14,7 @@ export const LogSection = ({
   const [selectedDate, setSelectedDate] = useState(
     () => weeklyAchievement.find((d) => d.isToday)?.dateString,
   );
-  const [showPosNegRatio, setShowPosNegRatio] = useState(false);
+  const [showPosNegRatio, setShowPosNegRatio] = useState(true);
 
   const hasPosNegData = useMemo(
     () => weeklyAchievement.some((d) => d.posNegScore !== undefined),
