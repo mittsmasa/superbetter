@@ -14,6 +14,12 @@ export const LogSection = ({
   const [selectedDate, setSelectedDate] = useState(
     () => weeklyAchievement.find((d) => d.isToday)?.dateString,
   );
+  const [showPosNegRatio, setShowPosNegRatio] = useState(false);
+
+  const hasPosNegData = useMemo(
+    () => weeklyAchievement.some((d) => d.posNegScore !== undefined),
+    [weeklyAchievement],
+  );
   const chartData = useMemo(
     () =>
       weeklyAchievement.map((d) => ({
@@ -24,6 +30,7 @@ export const LogSection = ({
         powerup: d.adventureLogs.filter((log) => log.type === 'powerup').length,
         villain: d.adventureLogs.filter((log) => log.type === 'villain').length,
         epicwin: d.adventureLogs.filter((log) => log.type === 'epicwin').length,
+        posNegRatio: d.posNegScore?.posNegRatio,
       })),
     [weeklyAchievement],
   );
@@ -38,8 +45,38 @@ export const LogSection = ({
         gap: '8px',
       })}
     >
-      <h2 className={css({ textStyle: 'Heading.primary' })}>冒険ログ</h2>
-      <TimeSeriesChart onClickBar={setSelectedDate} data={chartData} />
+      <div
+        className={css({
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        })}
+      >
+        <h2 className={css({ textStyle: 'Heading.primary' })}>冒険ログ</h2>
+        {hasPosNegData && (
+          <label
+            className={css({
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              cursor: 'pointer',
+              textStyle: 'Body.secondary',
+            })}
+          >
+            <input
+              type="checkbox"
+              checked={showPosNegRatio}
+              onChange={(e) => setShowPosNegRatio(e.target.checked)}
+            />
+            魔力測定
+          </label>
+        )}
+      </div>
+      <TimeSeriesChart
+        onClickBar={setSelectedDate}
+        data={chartData}
+        showPosNegRatio={showPosNegRatio}
+      />
       {achievement && (
         <AdventureLog
           heading={achievement.isToday ? '本日' : `${achievement.dateString}`}

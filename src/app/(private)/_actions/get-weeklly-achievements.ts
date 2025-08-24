@@ -18,6 +18,7 @@ import {
   villains,
 } from '@/db/schema/superbetter';
 import type { EntityType } from '@/db/types/mission';
+import { getTimeSeriesPosNegScores } from './_utils/pos-neg-data';
 import { getUser } from './get-user';
 import type { AdventureLog } from './types/adventure-log';
 import type { Result } from './types/result';
@@ -90,6 +91,12 @@ export const getWeeklyAchievements = async (): Promise<
       sundayEnd,
     );
 
+    const posNegScores = await getTimeSeriesPosNegScores(
+      user.id,
+      mondayStart,
+      sundayEnd,
+    );
+
     const weekelyAchievements: WeekelyAchievements = Array.from({
       length: 7,
     })
@@ -104,6 +111,9 @@ export const getWeeklyAchievements = async (): Promise<
             entities.find((entity) => entity.datetime === datetimeString)
               ?.adventureLogs ?? [],
           status: 'no-data',
+          posNegScore: posNegScores.find(
+            (score) => score.datetime === datetimeString,
+          )?.score,
         } satisfies DailyAchievements;
       })
       .map((achievement) => {
