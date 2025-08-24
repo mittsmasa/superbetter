@@ -14,13 +14,11 @@ import {
   powerups,
   questHistories,
   quests,
-  testResults,
-  testTypes,
   villainHistories,
   villains,
 } from '@/db/schema/superbetter';
 import type { EntityType } from '@/db/types/mission';
-import type { PosNegAnswer } from '@/db/types/test';
+import { getTimeSeriesPosNegScores } from './_utils/pos-neg-data';
 import { getUser } from './get-user';
 import type { AdventureLog } from './types/adventure-log';
 import type { Result } from './types/result';
@@ -251,43 +249,4 @@ const getTimeSeriesAdventureLogs = async (
         }) ?? [],
     };
   });
-};
-
-const getTimeSeriesPosNegScores = async (
-  userId: string,
-  from: Date,
-  to: Date,
-): Promise<{ datetime: string; score: PosNegAnswer['answer'] }[]> => {
-  const results = await db
-    .select({
-      answer: testResults.answer,
-      createdAt: testResults.createdAt,
-    })
-    .from(testTypes)
-    .innerJoin(testResults, eq(testTypes.id, testResults.testTypeId))
-    .where(
-      and(
-        eq(testTypes.name, 'pos-neg'),
-        eq(testResults.userId, userId),
-        between(testResults.createdAt, from, to),
-      ),
-    )
-    .orderBy(desc(testResults.createdAt));
-
-  const scoresByDate = Object.groupBy(
-    results.map((result: { answer: unknown; createdAt: Date }) => ({
-      datetime: dateFormatter.format(result.createdAt),
-      answer: result.answer as PosNegAnswer,
-    })),
-    (item: { datetime: string; answer: PosNegAnswer }) => item.datetime,
-  );
-
-  return Object.entries(scoresByDate).map(([datetime, scores]) => ({
-    datetime,
-    score: scores?.[0]?.answer.answer ?? {
-      positive: 0,
-      negative: 0,
-      posNegRatio: 0,
-    },
-  }));
 };

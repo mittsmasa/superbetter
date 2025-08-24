@@ -1,11 +1,9 @@
 import 'server-only';
 
 import { addDays, endOfDay, getDay, startOfDay } from 'date-fns';
-import { and, between, desc, eq } from 'drizzle-orm';
 import { fixToUTC, getTZDate } from '@/app/_utils/date';
-import { db } from '@/db/client';
-import { testResults, testTypes } from '@/db/schema/superbetter';
 import type { PosNegAnswer } from '@/db/types/test';
+import { getTimeSeriesPosNegScores } from './_utils/pos-neg-data';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
 
@@ -36,30 +34,10 @@ export const getWeeklyPosNegScores = async (): Promise<
   const user = await getUser();
 
   try {
-    const results = await db
-      .select({
-        id: testResults.id,
-        answer: testResults.answer,
-        createdAt: testResults.createdAt,
-      })
-      .from(testTypes)
-      .where(
-        and(
-          eq(testTypes.name, 'pos-neg'),
-          eq(testResults.userId, user.id),
-          between(testResults.createdAt, mondayStart, sundayEnd),
-        ),
-      )
-      .innerJoin(testResults, eq(testTypes.id, testResults.testTypeId))
-      .orderBy(desc(testResults.createdAt));
-
-    const resultsByDate = Object.groupBy(
-      results.map((result) => ({
-        ...result,
-        dateString: dateFormatter.format(result.createdAt),
-        answer: result.answer as PosNegAnswer,
-      })),
-      (item) => item.dateString,
+    const posNegScores = await getTimeSeriesPosNegScores(
+      user.id,
+      mondayStart,
+      sundayEnd,
     );
 
     const weeklyScores: WeeklyPosNegScores = Array.from({
@@ -67,13 +45,14 @@ export const getWeeklyPosNegScores = async (): Promise<
     }).map((_, i) => {
       const datetime = addDays(mondayStart, i);
       const datetimeString = dateFormatter.format(datetime);
-      const dayResults = resultsByDate[datetimeString];
-      const latestResult = dayResults?.[0];
+      const scoreData = posNegScores.find(
+        (score) => score.datetime === datetimeString,
+      );
 
       return {
         date: datetime,
         dateString: datetimeString,
-        posNegScore: latestResult?.answer.answer,
+        posNegScore: scoreData?.score,
       };
     });
 
