@@ -6,6 +6,8 @@ import {
   BarChart,
   type BarProps,
   CartesianGrid,
+  ComposedChart,
+  Line,
   ResponsiveContainer,
   XAxis,
   YAxis,
@@ -126,22 +128,120 @@ type ChartElement = {
   quest: number;
   villain: number;
   epicwin: number;
+  posNegRatio?: number;
 };
 
 export const TimeSeriesChart = ({
   onClickBar,
   data,
+  showPosNegRatio = false,
 }: {
   onClickBar: (date: string) => void;
   data: ChartElement[];
+  showPosNegRatio?: boolean;
 }) => {
+  if (showPosNegRatio) {
+    return (
+      <ResponsiveContainer width="100%" height={150}>
+        <ComposedChart
+          data={data}
+          barCategoryGap={4}
+          style={{ overflow: 'visible' }}
+          margin={{ top: 4, right: -20, left: -20, bottom: 12 }}
+        >
+          <XAxis
+            interval={0}
+            dataKey="date"
+            axisLine={false}
+            tickLine={false}
+            tick={(props: ComponentProps<typeof CustomXTick>) => {
+              const customProp = data.find(
+                (d) => d.date === props.payload.value,
+              );
+              // biome-ignore lint/complexity/noUselessFragments: Rechartsの型制約により空fragmentが必要
+              if (!customProp) return <></>;
+              return <CustomXTick {...props} custom={customProp} />;
+            }}
+          />
+          <YAxis
+            yAxisId="left"
+            orientation="left"
+            axisLine={false}
+            tickLine={false}
+            domain={[0, 'dataMax']}
+            tick={{ fill: token('colors.foreground.disabled'), fontSize: 14 }}
+          />
+          <YAxis
+            yAxisId="right"
+            orientation="right"
+            axisLine={false}
+            tickLine={false}
+            domain={[0, 1]}
+            tick={{ fill: token('colors.foreground.disabled'), fontSize: 14 }}
+          />
+          <CartesianGrid
+            vertical={false}
+            stroke={token('colors.chart.grid')}
+            strokeDasharray="5 5"
+          />
+          <Bar
+            yAxisId="left"
+            fill={token('colors.entity.powerup')}
+            dataKey="powerup"
+            stackId="a"
+            shape={(props: BarProps) => <NeonBar {...props} />}
+            onTouchStart={(_, index) => onClickBar(data[index].date)}
+          />
+          <Bar
+            yAxisId="left"
+            dataKey="quest"
+            stackId="a"
+            fill={token('colors.entity.quest')}
+            shape={(props: BarProps) => <NeonBar {...props} />}
+            onTouchStart={(_, index) => onClickBar(data[index].date)}
+          />
+          <Bar
+            yAxisId="left"
+            dataKey="villain"
+            stackId="a"
+            fill={token('colors.entity.villain')}
+            shape={(props: BarProps) => <NeonBar {...props} />}
+            onTouchStart={(_, index) => onClickBar(data[index].date)}
+          />
+          <Bar
+            yAxisId="left"
+            dataKey="epicwin"
+            stackId="a"
+            fill={token('colors.entity.epicwin')}
+            shape={(props: BarProps) => <NeonBar {...props} />}
+            onTouchStart={(_, index) => onClickBar(data[index].date)}
+          />
+          <Line
+            yAxisId="right"
+            type="monotone"
+            dataKey="posNegRatio"
+            stroke={token('colors.foreground')}
+            strokeWidth={2}
+            dot={{
+              fill: token('colors.foreground'),
+              strokeWidth: 1,
+              stroke: token('colors.background'),
+              r: 4,
+            }}
+            connectNulls={true}
+          />
+        </ComposedChart>
+      </ResponsiveContainer>
+    );
+  }
+
   return (
     <ResponsiveContainer width="100%" height={150}>
       <BarChart
         data={data}
         barCategoryGap={4}
         style={{ overflow: 'visible' }}
-        margin={{ top: 4, right: 16, left: -30, bottom: 12 }}
+        margin={{ top: 4, right: 40, left: -20, bottom: 12 }}
       >
         <XAxis
           interval={0}
@@ -150,7 +250,7 @@ export const TimeSeriesChart = ({
           tickLine={false}
           tick={(props: ComponentProps<typeof CustomXTick>) => {
             const customProp = data.find((d) => d.date === props.payload.value);
-            // biome-ignore lint/complexity/noUselessFragments: null を返したいが、型制約を優先して framgent を返す
+            // biome-ignore lint/complexity/noUselessFragments: Rechartsの型制約により空fragmentが必要
             if (!customProp) return <></>;
             return <CustomXTick {...props} custom={customProp} />;
           }}
@@ -159,7 +259,7 @@ export const TimeSeriesChart = ({
           axisLine={false}
           tickLine={false}
           domain={[0, 'dataMax']}
-          tick={{ fill: token('colors.foreground.disabled') }}
+          tick={{ fill: token('colors.foreground.disabled'), fontSize: 14 }}
         />
         <CartesianGrid
           vertical={false}
