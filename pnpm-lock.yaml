@@ -27,8 +27,8 @@ importers:
         specifier: 17.2.1
         version: 17.2.1
       drizzle-orm:
-        specifier: 0.44.4
-        version: 0.44.4(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)
+        specifier: 0.44.5
+        version: 0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)
       motion:
         specifier: 12.23.12
         version: 12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -83,7 +83,7 @@ importers:
         version: 0.31.4
       drizzle-seed:
         specifier: 0.3.1
-        version: 0.3.1(drizzle-orm@0.44.4(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3))
+        version: 0.3.1(drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3))
       lefthook:
         specifier: 1.12.3
         version: 1.12.3
@@ -2573,8 +2573,8 @@ packages:
     resolution: {integrity: sha512-tCPWVZWZqWVx2XUsVpJRnH9Mx0ClVOf5YUHerZ5so1OKSlqww4zy1R5ksEdGRcO3tM3zj0PYN6V48TbQCL1RfA==}
     hasBin: true
 
-  drizzle-orm@0.44.4:
-    resolution: {integrity: sha512-ZyzKFpTC/Ut3fIqc2c0dPZ6nhchQXriTsqTNs4ayRgl6sZcFlMs9QZKPSHXK4bdOf41GHGWf+FrpcDDYwW+W6Q==}
+  drizzle-orm@0.44.5:
+    resolution: {integrity: sha512-jBe37K7d8ZSKptdKfakQFdeljtu3P2Cbo7tJoJSVZADzIKOBo9IAJPOmMsH2bZl90bZgh8FQlD8BjxXA/zuBkQ==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -7436,17 +7436,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.4(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3):
+  drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3):
     optionalDependencies:
       '@tidbcloud/serverless': 0.2.0
       gel: 2.0.0
       mysql2: 3.14.3
 
-  drizzle-seed@0.3.1(drizzle-orm@0.44.4(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)):
+  drizzle-seed@0.3.1(drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)):
     dependencies:
       pure-rand: 6.1.0
     optionalDependencies:
-      drizzle-orm: 0.44.4(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)
+      drizzle-orm: 0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)
 
   dunder-proto@1.0.1:
     dependencies:
