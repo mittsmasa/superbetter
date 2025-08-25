@@ -16,10 +16,6 @@ export const LogSection = ({
   );
   const [showPosNegRatio, setShowPosNegRatio] = useState(true);
 
-  const hasPosNegData = useMemo(
-    () => weeklyAchievement.some((d) => d.posNegScore !== undefined),
-    [weeklyAchievement],
-  );
   const chartData = useMemo(
     () =>
       weeklyAchievement.map((d) => ({
@@ -53,24 +49,22 @@ export const LogSection = ({
         })}
       >
         <h2 className={css({ textStyle: 'Heading.primary' })}>冒険ログ</h2>
-        {hasPosNegData && (
-          <label
-            className={css({
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              cursor: 'pointer',
-              textStyle: 'Body.secondary',
-            })}
-          >
-            <input
-              type="checkbox"
-              checked={showPosNegRatio}
-              onChange={(e) => setShowPosNegRatio(e.target.checked)}
-            />
-            魔力測定
-          </label>
-        )}
+        <label
+          className={css({
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            cursor: 'pointer',
+            textStyle: 'Body.secondary',
+          })}
+        >
+          <input
+            type="checkbox"
+            checked={showPosNegRatio}
+            onChange={(e) => setShowPosNegRatio(e.target.checked)}
+          />
+          魔力測定
+        </label>
       </div>
       <TimeSeriesChart
         onClickBar={setSelectedDate}
