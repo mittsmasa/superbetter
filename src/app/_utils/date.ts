@@ -36,3 +36,14 @@ export const getDateTimeFormat = (datetime: Date, timeZone = 'Asia/Tokyo') => {
 
   return { day, date };
 };
+
+const dateFormatter = new Intl.DateTimeFormat('ja-JP', {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  timeZone: 'Asia/Tokyo',
+});
+
+export const getDateString = (date: Date) => {
+  return dateFormatter.format(date);
+};
