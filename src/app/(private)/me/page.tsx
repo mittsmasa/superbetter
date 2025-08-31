@@ -1,5 +1,6 @@
 import { CheckList, CloudSun } from '@/assets/icons';
 import { css } from '@/styled-system/css';
+import { getMonthlyAchievements } from '../_actions/get-monthly-achievements';
 import { getWeeklyAchievements } from '../_actions/get-weeklly-achievements';
 import { EntityLink } from '../_components/entity-link';
 import { getPosNegScores } from './_actions/get-pos-neg-scores';
@@ -7,9 +8,16 @@ import { ConfigButton } from './_components/config-button';
 import { LogSection } from './_components/log-section';
 
 const Page = async () => {
-  const achievement = await getWeeklyAchievements();
-  if (achievement.type === 'error') {
-    throw new Error(achievement.error.message);
+  const [weeklyResult, monthlyResult] = await Promise.all([
+    getWeeklyAchievements(),
+    getMonthlyAchievements(),
+  ]);
+
+  if (weeklyResult.type === 'error') {
+    throw new Error(weeklyResult.error.message);
+  }
+  if (monthlyResult.type === 'error') {
+    throw new Error(monthlyResult.error.message);
   }
 
   return (
@@ -41,7 +49,10 @@ const Page = async () => {
           padding: '8px',
         })}
       >
-        <LogSection weeklyAchievement={achievement.data} />
+        <LogSection
+          weeklyAchievement={weeklyResult.data}
+          monthlyAchievement={monthlyResult.data}
+        />
         <ScanSection />
       </div>
     </main>
