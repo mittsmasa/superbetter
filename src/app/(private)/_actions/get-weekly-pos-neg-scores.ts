@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { addDays, endOfDay, getDay, startOfDay } from 'date-fns';
-import { fixToUTC, getTZDate } from '@/app/_utils/date';
+import { fixToUTC, getDateString, getTZDate } from '@/app/_utils/date';
 import type { PosNegAnswer } from '@/db/types/test';
 import { getTimeSeriesPosNegScores } from './_utils/pos-neg-data';
 import { getUser } from './get-user';
@@ -14,13 +14,6 @@ export type DailyPosNegScore = {
 };
 
 export type WeeklyPosNegScores = DailyPosNegScore[];
-
-const dateFormatter = new Intl.DateTimeFormat('ja-JP', {
-  year: 'numeric',
-  month: 'numeric',
-  day: 'numeric',
-  timeZone: 'Asia/Tokyo',
-});
 
 export const getWeeklyPosNegScores = async (): Promise<
   Result<WeeklyPosNegScores, { type: 'unknown'; message: string }>
@@ -44,7 +37,7 @@ export const getWeeklyPosNegScores = async (): Promise<
       length: 7,
     }).map((_, i) => {
       const datetime = addDays(mondayStart, i);
-      const datetimeString = dateFormatter.format(datetime);
+      const datetimeString = getDateString(datetime);
       const scoreData = posNegScores.find(
         (score) => score.datetime === datetimeString,
       );
