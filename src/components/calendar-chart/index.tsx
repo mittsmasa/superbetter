@@ -21,9 +21,6 @@ const calendarChart = sva({
       textStyle: 'Body.primary',
       fontSize: '12px',
       backgroundColor: 'background',
-      _hover: {
-        backgroundColor: 'interactive.background.hover',
-      },
       _active: {
         transform: 'scale(0.95)',
       },

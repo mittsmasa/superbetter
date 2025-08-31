@@ -1,16 +1,10 @@
 import 'server-only';
 
 import { and, between, desc, eq } from 'drizzle-orm';
+import { getDateString } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import { testResults, testTypes } from '@/db/schema/superbetter';
 import type { PosNegAnswer } from '@/db/types/test';
-
-const dateFormatter = new Intl.DateTimeFormat('ja-JP', {
-  year: 'numeric',
-  month: 'numeric',
-  day: 'numeric',
-  timeZone: 'Asia/Tokyo',
-});
 
 export const getTimeSeriesPosNegScores = async (
   userId: string,
@@ -35,7 +29,7 @@ export const getTimeSeriesPosNegScores = async (
 
   const scoresByDate = Object.groupBy(
     results.map((result) => ({
-      datetime: dateFormatter.format(result.createdAt),
+      datetime: getDateString(result.createdAt),
       answer: result.answer,
     })),
     (item) => item.datetime,
