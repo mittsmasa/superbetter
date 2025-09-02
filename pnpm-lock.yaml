@@ -28,13 +28,13 @@ importers:
         version: 17.2.1
       drizzle-orm:
         specifier: 0.44.5
-        version: 0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)
+        version: 0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.4)
       motion:
         specifier: 12.23.12
         version: 12.23.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       mysql2:
-        specifier: 3.14.3
-        version: 3.14.3
+        specifier: 3.14.4
+        version: 3.14.4
       next:
         specifier: 15.5.2
         version: 15.5.2(@babel/core@7.26.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -83,7 +83,7 @@ importers:
         version: 0.31.4
       drizzle-seed:
         specifier: 0.3.1
-        version: 0.3.1(drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3))
+        version: 0.3.1(drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.4))
       lefthook:
         specifier: 1.12.3
         version: 1.12.3
@@ -3043,8 +3043,8 @@ packages:
   https-browserify@1.0.0:
     resolution: {integrity: sha512-J+FkSdyD+0mA0N+81tMotaRMfSL9SGi+xpD3T6YApKsc3bGSXJlfXri3VyFOeYkfLRQisDk1W+jIFFKBeUBbBg==}
 
-  iconv-lite@0.6.3:
-    resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
+  iconv-lite@0.7.0:
+    resolution: {integrity: sha512-cf6L2Ds3h57VVmkZe+Pn+5APsT7FpqJtEhhieDCvrE2MK5Qk9MyffgQyuxQTm6BChfeZNtcOLHp9IcWRVcIcBQ==}
     engines: {node: '>=0.10.0'}
 
   icss-utils@5.1.0:
@@ -3520,8 +3520,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  mysql2@3.14.3:
-    resolution: {integrity: sha512-fD6MLV8XJ1KiNFIF0bS7Msl8eZyhlTDCDl75ajU5SJtpdx9ZPEACulJcqJWr1Y8OYyxsFc4j3+nflpmhxCU5aQ==}
+  mysql2@3.14.4:
+    resolution: {integrity: sha512-Cs/jx3WZPNrYHVz+Iunp9ziahaG5uFMvD2R8Zlmc194AqXNxt9HBNu7ZsPYrUtmJsF0egETCWIdMIYAwOGjL1w==}
     engines: {node: '>= 8.0'}
 
   named-placeholders@1.1.3:
@@ -7436,17 +7436,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3):
+  drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.4):
     optionalDependencies:
       '@tidbcloud/serverless': 0.2.0
       gel: 2.0.0
-      mysql2: 3.14.3
+      mysql2: 3.14.4
 
-  drizzle-seed@0.3.1(drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)):
+  drizzle-seed@0.3.1(drizzle-orm@0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.4)):
     dependencies:
       pure-rand: 6.1.0
     optionalDependencies:
-      drizzle-orm: 0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.3)
+      drizzle-orm: 0.44.5(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.14.4)
 
   dunder-proto@1.0.1:
     dependencies:
@@ -7875,7 +7875,7 @@ snapshots:
 
   https-browserify@1.0.0: {}
 
-  iconv-lite@0.6.3:
+  iconv-lite@0.7.0:
     dependencies:
       safer-buffer: 2.1.2
 
@@ -8249,12 +8249,12 @@ snapshots:
 
   ms@2.1.3: {}
 
-  mysql2@3.14.3:
+  mysql2@3.14.4:
     dependencies:
       aws-ssl-profiles: 1.1.2
       denque: 2.1.0
       generate-function: 2.3.1
-      iconv-lite: 0.6.3
+      iconv-lite: 0.7.0
       long: 5.2.3
       lru.min: 1.1.1
       named-placeholders: 1.1.3
