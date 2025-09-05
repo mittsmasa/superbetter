@@ -41,7 +41,7 @@
     "server-only": "0.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.2",
+    "@biomejs/biome": "2.2.3",
     "@pandacss/dev": "1.2.0",
     "@storybook/addon-docs": "9.1.4",
     "@storybook/nextjs": "9.1.4",
