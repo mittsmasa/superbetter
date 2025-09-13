@@ -26,7 +26,7 @@ export const Drawer = ({
         height: '[90%]',
         margin: '[auto auto 0]',
         transitionTimingFunction: 'ease',
-        transitionProperty: 'display, overlay, opacity, transform',
+        transitionProperty: '[display, overlay, opacity, transform]',
         transitionDuration: '0.3s',
         transitionBehavior: 'allow-discrete',
         opacity: 0,
