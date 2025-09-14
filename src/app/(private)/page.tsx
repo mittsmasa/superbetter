@@ -15,7 +15,7 @@ export default async function Home() {
   if (weeklyAchievement.type === 'error') {
     throw new Error(weeklyAchievement.error.message);
   }
-  const todayAchievement = weeklyAchievement.data.find((d: any) => d.isToday);
+  const todayAchievement = weeklyAchievement.data.find((d) => d.isToday);
   return (
     <main
       className={css({
