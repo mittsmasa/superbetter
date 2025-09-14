@@ -1,4 +1,4 @@
-import { CheckList, CloudSun } from '@/assets/icons';
+import { CheckList, CloudSun, Trophy } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import { getMonthlyAchievements } from '../_actions/get-monthly-achievements';
 import { getWeeklyAchievements } from '../_actions/get-weeklly-achievements';
@@ -53,6 +53,7 @@ const Page = async () => {
           weeklyAchievement={weeklyResult.data}
           monthlyAchievement={monthlyResult.data}
         />
+        <AchievementsSection />
         <ScanSection />
       </div>
     </main>
@@ -60,6 +61,46 @@ const Page = async () => {
 };
 
 export default Page;
+
+const AchievementsSection = () => {
+  return (
+    <div
+      className={css({
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+      })}
+    >
+      <h2 className={css({ textStyle: 'Heading.primary' })}>実績</h2>
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+        })}
+      >
+        <EntityLink
+          href="/achievements"
+          title={
+            <div
+              className={css({
+                alignItems: 'center',
+                display: 'flex',
+                gap: '8px',
+              })}
+            >
+              <Trophy className={css({ width: '[20px]', height: '[20px]' })} />
+              <span className={css({ textStyle: 'Body.primary' })}>
+                実績を確認する
+              </span>
+            </div>
+          }
+          description="これまで達成した Epic Win のリストとデイリーミッション連続達成日数を確認できます。"
+        />
+      </div>
+    </div>
+  );
+};
 
 const ScanSection = async () => {
   const posNegScore = await getPosNegScores();
