@@ -1,6 +1,6 @@
 import { css } from '@/styled-system/css';
 import { getMissions } from './_actions/get-mission';
-import { getWeeklyAchievements } from './_actions/get-weeklly-achievements';
+import { getWeeklyAchievements } from './_actions/get-weekly-achievements';
 import { EpicWinSection } from './_components/epicwin-section';
 import { Mission } from './_components/mission';
 import { TodayAdventureLog } from './_components/today-adventure-log';
@@ -15,7 +15,7 @@ export default async function Home() {
   if (weeklyAchievement.type === 'error') {
     throw new Error(weeklyAchievement.error.message);
   }
-  const todayAchievement = weeklyAchievement.data.find((d) => d.isToday);
+  const todayAchievement = weeklyAchievement.data.find((d: any) => d.isToday);
   return (
     <main
       className={css({

@@ -4,22 +4,18 @@ import { and, desc, eq, isNotNull } from 'drizzle-orm';
 import { db } from '@/db/client';
 import { epicwinHistories, epicwins } from '@/db/schema/superbetter';
 import { getUser } from './get-user';
+import type { AchievedEpicWin, AchievementError } from './types/achievements';
 import type { Result } from './types/result';
 
-export type AchievedEpicWin = {
-  id: string;
-  title: string;
-  description: string | null;
-  achievedAt: Date;
-};
-
 export const getAchievedEpicWins = async (): Promise<
-  Result<AchievedEpicWin[], { type: 'unknown'; message: string }>
+  Result<AchievedEpicWin[], AchievementError>
 > => {
   const user = await getUser();
 
   try {
-    const achievedEpicWins = await db
+    // archived = trueは「達成済み」を表す
+    // Epic Winは一度達成されると自動的にarchivedになる
+    const completedEpicWinsList = await db
       .select({
         id: epicwins.id,
         title: epicwins.title,
@@ -31,18 +27,45 @@ export const getAchievedEpicWins = async (): Promise<
       .where(
         and(
           eq(epicwins.userId, user.id),
-          eq(epicwins.archived, true),
+          eq(epicwins.archived, true), // 達成済みのEpic Winsのみ
           isNotNull(epicwinHistories.createdAt),
         ),
       )
-      .orderBy(desc(epicwinHistories.createdAt));
+      .orderBy(desc(epicwinHistories.createdAt)); // 最新の達成から表示
 
-    return { type: 'ok', data: achievedEpicWins };
-  } catch (e) {
-    console.error(e);
+    return { type: 'ok', data: completedEpicWinsList };
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : 'Unknown database error';
+    console.error('Failed to fetch achieved Epic Wins:', {
+      error: errorMessage,
+      userId: user.id,
+      timestamp: new Date().toISOString(),
+    });
+
+    // データベースエラーの判定
+    if (
+      error instanceof Error &&
+      (error.message.includes('database') ||
+        error.message.includes('connection') ||
+        error.message.includes('query'))
+    ) {
+      return {
+        type: 'error',
+        error: {
+          type: 'database',
+          message: 'Failed to fetch achieved Epic Wins',
+          cause: errorMessage,
+        },
+      };
+    }
+
     return {
       type: 'error',
-      error: { type: 'unknown', message: 'unknown error' },
+      error: {
+        type: 'unknown',
+        message: 'Unexpected error while fetching Epic Wins',
+      },
     };
   }
 };

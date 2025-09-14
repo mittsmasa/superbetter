@@ -2,6 +2,7 @@ import { Calendar } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import { getAchievedEpicWins } from '../_actions/get-achieved-epicwins';
 import { getDailyMissionStreak } from '../_actions/get-daily-mission-streak';
+import type { AchievedEpicWin } from '../_actions/types/achievements';
 import { EntityIcon } from '../_components/entity-icon';
 
 const Page = async () => {
@@ -106,16 +107,7 @@ const StreakSection = ({ streak }: { streak: number }) => {
   );
 };
 
-const EpicWinsSection = ({
-  epicWins,
-}: {
-  epicWins: Array<{
-    id: string;
-    title: string;
-    description: string | null;
-    achievedAt: Date;
-  }>;
-}) => {
+const EpicWinsSection = ({ epicWins }: { epicWins: AchievedEpicWin[] }) => {
   return (
     <section
       className={css({
