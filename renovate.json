@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "monorepo:storybook", ":automergePatch"],
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
       "matchDepTypes": ["dependencies", "devDependencies"],
