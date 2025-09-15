@@ -7,6 +7,7 @@ const meta = {
     date: new Date('2024-12-30'),
     dateString: '2024-12-30',
     adventureLogs: [],
+    isToday: false,
   },
 } satisfies Meta<typeof DailyAchievement>;
 
