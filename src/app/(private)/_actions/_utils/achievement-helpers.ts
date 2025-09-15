@@ -196,6 +196,7 @@ export const buildDailyAchievements = async (
         posNegScore: posNegScores.find(
           (score) => score.datetime === datetimeString,
         )?.score,
+        isToday: false,
       } satisfies DailyAchievements;
     })
     .map((achievement) => {

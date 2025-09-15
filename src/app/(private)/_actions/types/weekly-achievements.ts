@@ -7,7 +7,7 @@ export type DailyAchievements = {
   date: Date;
   adventureLogs: AdventureLog[];
   status: 'no-data' | 'achieved' | 'not-achieved';
-  isToday?: boolean;
+  isToday: boolean;
   posNegScore?: PosNegAnswer['answer'];
 };
 
