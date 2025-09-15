@@ -1,25 +1,16 @@
-import { Calendar } from '@/assets/icons';
 import { css } from '@/styled-system/css';
 import { getAchievedEpicWins } from '../_actions/get-achieved-epicwins';
-import { getDailyMissionStreak } from '../_actions/get-daily-mission-streak';
 import type { AchievedEpicWin } from '../_actions/types/achievements';
 import { EntityIcon } from '../_components/entity-icon';
 
 const Page = async () => {
-  const [achievedEpicWinsResult, streakResult] = await Promise.all([
-    getAchievedEpicWins(),
-    getDailyMissionStreak(),
-  ]);
+  const achievedEpicWinsResult = await getAchievedEpicWins();
 
   if (achievedEpicWinsResult.type === 'error') {
     throw new Error(achievedEpicWinsResult.error.message);
   }
-  if (streakResult.type === 'error') {
-    throw new Error(streakResult.error.message);
-  }
 
   const achievedEpicWins = achievedEpicWinsResult.data;
-  const streak = streakResult.data.streak;
 
   return (
     <main
@@ -48,7 +39,6 @@ const Page = async () => {
           padding: '8px',
         })}
       >
-        <StreakSection streak={streak} />
         <EpicWinsSection epicWins={achievedEpicWins} />
       </div>
     </main>
@@ -56,56 +46,6 @@ const Page = async () => {
 };
 
 export default Page;
-
-const StreakSection = ({ streak }: { streak: number }) => {
-  return (
-    <section
-      className={css({
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '8px',
-      })}
-    >
-      <h2 className={css({ textStyle: 'Heading.primary' })}>連続達成記録</h2>
-      <div
-        className={css({
-          backgroundColor: 'background',
-          borderRadius: '8px',
-          padding: '16px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-        })}
-      >
-        <Calendar
-          className={css({
-            width: '[24px]',
-            height: '[24px]',
-            color: streak > 0 ? 'foreground.primary' : 'foreground.secondary',
-          })}
-        />
-        <div className={css({ flex: '1' })}>
-          <div
-            className={css({
-              textStyle: 'Body.primary',
-              marginBottom: '[4px]',
-            })}
-          >
-            デイリーミッション連続達成
-          </div>
-          <div
-            className={css({
-              textStyle: 'Heading.secondary',
-              color: streak > 0 ? 'foreground.primary' : 'foreground.secondary',
-            })}
-          >
-            {streak}日
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const EpicWinsSection = ({ epicWins }: { epicWins: AchievedEpicWin[] }) => {
   return (
