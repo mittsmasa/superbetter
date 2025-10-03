@@ -29,7 +29,7 @@
     "@floating-ui/react": "0.27.16",
     "@serwist/next": "9.2.1",
     "date-fns": "4.1.0",
-    "dotenv": "17.2.2",
+    "dotenv": "17.2.3",
     "drizzle-orm": "0.44.5",
     "motion": "12.23.22",
     "mysql2": "3.15.1",
@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
-    "@pandacss/dev": "1.4.0",
+    "@pandacss/dev": "1.4.1",
     "@storybook/addon-docs": "9.1.8",
     "@storybook/nextjs": "9.1.8",
     "@svgr/webpack": "8.1.0",
