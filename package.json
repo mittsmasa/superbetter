@@ -30,7 +30,7 @@
     "@serwist/next": "9.2.1",
     "date-fns": "4.1.0",
     "dotenv": "17.2.3",
-    "drizzle-orm": "0.44.5",
+    "drizzle-orm": "0.44.6",
     "motion": "12.23.22",
     "mysql2": "3.15.1",
     "next": "15.5.4",
@@ -41,7 +41,7 @@
     "server-only": "0.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.4",
+    "@biomejs/biome": "2.2.5",
     "@pandacss/dev": "1.4.1",
     "@storybook/addon-docs": "9.1.10",
     "@storybook/nextjs": "9.1.10",
