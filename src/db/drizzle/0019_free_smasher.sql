@@ -1,0 +1,1 @@
+ALTER TABLE `account` MODIFY COLUMN `access_token` text;
