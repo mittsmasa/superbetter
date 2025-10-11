@@ -28,13 +28,13 @@ importers:
         version: 17.2.3
       drizzle-orm:
         specifier: 0.44.6
-        version: 0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.1)
+        version: 0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.2)
       motion:
         specifier: 12.23.22
         version: 12.23.22(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       mysql2:
-        specifier: 3.15.1
-        version: 3.15.1
+        specifier: 3.15.2
+        version: 3.15.2
       next:
         specifier: 15.5.4
         version: 15.5.4(@babel/core@7.26.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -83,7 +83,7 @@ importers:
         version: 0.31.5
       drizzle-seed:
         specifier: 0.3.1
-        version: 0.3.1(drizzle-orm@0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.1))
+        version: 0.3.1(drizzle-orm@0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.2))
       lefthook:
         specifier: 1.13.6
         version: 1.13.6
@@ -3508,8 +3508,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  mysql2@3.15.1:
-    resolution: {integrity: sha512-WZMIRZstT2MFfouEaDz/AGFnGi1A2GwaDe7XvKTdRJEYiAHbOrh4S3d8KFmQeh11U85G+BFjIvS1Di5alusZsw==}
+  mysql2@3.15.2:
+    resolution: {integrity: sha512-kFm5+jbwR5mC+lo+3Cy46eHiykWSpUtTLOH3GE+AR7GeLq8PgfJcvpMiyVWk9/O53DjQsqm6a3VOOfq7gYWFRg==}
     engines: {node: '>= 8.0'}
 
   named-placeholders@1.1.3:
@@ -7409,17 +7409,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.1):
+  drizzle-orm@0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.2):
     optionalDependencies:
       '@tidbcloud/serverless': 0.2.0
       gel: 2.0.0
-      mysql2: 3.15.1
+      mysql2: 3.15.2
 
-  drizzle-seed@0.3.1(drizzle-orm@0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.1)):
+  drizzle-seed@0.3.1(drizzle-orm@0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.2)):
     dependencies:
       pure-rand: 6.1.0
     optionalDependencies:
-      drizzle-orm: 0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.1)
+      drizzle-orm: 0.44.6(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(mysql2@3.15.2)
 
   dunder-proto@1.0.1:
     dependencies:
@@ -8222,7 +8222,7 @@ snapshots:
 
   ms@2.1.3: {}
 
-  mysql2@3.15.1:
+  mysql2@3.15.2:
     dependencies:
       aws-ssl-profiles: 1.1.2
       denque: 2.1.0
