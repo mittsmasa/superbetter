@@ -24,7 +24,7 @@
     "type-check": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@auth/drizzle-adapter": "1.10.0",
+    "@auth/drizzle-adapter": "1.11.0",
     "@date-fns/tz": "1.4.1",
     "@floating-ui/react": "0.27.16",
     "@serwist/next": "9.2.1",
