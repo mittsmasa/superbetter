@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.6",
-    "@pandacss/dev": "1.4.2",
+    "@pandacss/dev": "1.4.3",
     "@storybook/addon-docs": "9.1.13",
     "@storybook/nextjs": "9.1.13",
     "@svgr/webpack": "8.1.0",
