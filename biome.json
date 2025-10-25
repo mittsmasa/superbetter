@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!public/sw.js"]
+    "includes": ["**", "!public/sw.js", "!next-env.d.ts"]
   },
   "formatter": {
     "enabled": true,
