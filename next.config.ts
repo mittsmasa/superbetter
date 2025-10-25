@@ -17,15 +17,6 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  webpack: (config) => {
-    // For svgr
-    config.module.rules.push({
-      test: /\.svg$/i,
-      use: ['@svgr/webpack'],
-    });
-
-    return config;
-  },
 };
 
 export default withSerwist(nextConfig);
