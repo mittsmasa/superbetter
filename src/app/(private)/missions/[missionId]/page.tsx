@@ -30,49 +30,47 @@ const Page = async (props: PageProps<'/missions/[missionId]'>) => {
           gap: '12px',
         })}
       >
+        <Header />
+        <div
+          className={css({
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '12px',
+            padding: '8px',
+          })}
+        >
+          <h1 className={css({ textStyle: 'Heading.primary' })}>
+            {mission.data.title}
+          </h1>
+          <div>
+            {mission.data.description?.split('\n').map((line, i) => (
+              <p
+                key={i}
+                className={css({
+                  textAlign: 'center',
+                  textStyle: 'Body.secondary',
+                })}
+              >
+                {line}
+              </p>
+            ))}
+          </div>
+        </div>
         <div
           className={css({
             backgroundColor: 'background',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
             position: 'sticky',
             top: 0,
+            padding: '8px',
           })}
         >
-          <Header />
-          <div
-            className={css({
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '12px',
-              padding: '8px',
-            })}
-          >
-            <h1 className={css({ textStyle: 'Heading.primary' })}>
-              {mission.data.title}
-            </h1>
-            <div>
-              {mission.data.description?.split('\n').map((line, i) => (
-                <p
-                  key={i}
-                  className={css({
-                    textAlign: 'center',
-                    textStyle: 'Body.secondary',
-                  })}
-                >
-                  {line}
-                </p>
-              ))}
-            </div>
-            <MissionEntities
-              items={mission.data.missionConditions.map((mc) => ({
-                id: mc.id,
-                itemType: mc.itemType,
-                completed: mc.completed,
-              }))}
-            />
-          </div>
+          <MissionEntities
+            items={mission.data.missionConditions.map((mc) => ({
+              id: mc.id,
+              itemType: mc.itemType,
+              completed: mc.completed,
+            }))}
+          />
         </div>
         <div
           className={css({

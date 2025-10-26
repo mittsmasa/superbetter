@@ -30,6 +30,13 @@ export const MissionForm = ({ entities }: { entities: AllEntities }) => {
         display: 'flex',
         flexDirection: 'column',
         height: '[100%]',
+        // div:last-child is submit button container
+        '& > div:last-child': {
+          display: 'none',
+        },
+        '&:has(input:checked) > div:last-child': {
+          display: 'flex',
+        },
       })}
     >
       <div
