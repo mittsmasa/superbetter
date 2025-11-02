@@ -88,8 +88,8 @@ importers:
         specifier: 2.0.2
         version: 2.0.2
       next-devtools-mcp:
-        specifier: 0.2.2
-        version: 0.2.2(esbuild@0.25.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
+        specifier: 0.2.3
+        version: 0.2.3(esbuild@0.25.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
       serwist:
         specifier: 9.2.1
         version: 9.2.1(typescript@5.9.3)
@@ -4117,8 +4117,8 @@ packages:
       nodemailer:
         optional: true
 
-  next-devtools-mcp@0.2.2:
-    resolution: {integrity: sha512-gQpKKwT4ceMCkamy5KUgs81+YxOy0t2xFATyvMfwBBbqLs5WJM0Kmbb2ZTXrqoueT8jjPWerczIZ8J5xa47h/A==}
+  next-devtools-mcp@0.2.3:
+    resolution: {integrity: sha512-st4A1S5EB+eExCc5U9RD2/SlMshw6S7STlYLuwYnO1GZ0XujExr6271CaPJhEX+LgoDcUuXkW5Zqq5klX5Sylg==}
     hasBin: true
 
   next@16.0.1:
@@ -8944,7 +8944,7 @@ snapshots:
       node-abort-controller: 3.1.1
       schema-utils: 3.3.0
       semver: 7.7.2
-      tapable: 2.2.1
+      tapable: 2.3.0
       typescript: 5.9.3
       webpack: 5.102.1(@swc/core@1.11.24)(esbuild@0.25.5)
 
@@ -8961,7 +8961,7 @@ snapshots:
       node-abort-controller: 3.1.1
       schema-utils: 3.3.0
       semver: 7.7.2
-      tapable: 2.2.1
+      tapable: 2.3.0
       typescript: 5.9.3
       webpack: 5.97.1(@swc/core@1.11.24)(esbuild@0.25.5)
 
@@ -9684,7 +9684,7 @@ snapshots:
       next: 16.0.1(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
 
-  next-devtools-mcp@0.2.2(esbuild@0.25.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3):
+  next-devtools-mcp@0.2.3(esbuild@0.25.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3):
     dependencies:
       '@modelcontextprotocol/sdk': 1.20.0
       xmcp: 0.3.6(esbuild@0.25.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)(zod@3.25.76)
@@ -10740,7 +10740,7 @@ snapshots:
   terser@5.37.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
-      acorn: 8.14.0
+      acorn: 8.15.0
       commander: 2.20.3
       source-map-support: 0.5.21
 
