@@ -4,10 +4,10 @@ import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 
 export const IconMap = {
-  powerup: <Zap className={css({ width: '[20px]' })} />,
-  quest: <ScriptText className={css({ width: '[20px]' })} />,
-  villain: <Android className={css({ width: '[20px]' })} />,
-  epicwin: <Trophy className={css({ width: '[20px]' })} />,
+  powerup: <Zap size={20} />,
+  quest: <ScriptText size={20} />,
+  villain: <Android size={20} />,
+  epicwin: <Trophy size={20} />,
 } as const satisfies Record<EntityType, ReactNode>;
 
 export const IconImpl = {

@@ -120,7 +120,7 @@ const Toast = ({ id, message }: ToastProps) => {
     >
       <div>{message}</div>
       <IconButton onClick={() => removeToast(id)} size="sm">
-        <Close className={css({ width: '[20px]', height: '[20px]' })} />
+        <Close size={20} />
       </IconButton>
     </motion.li>
   );

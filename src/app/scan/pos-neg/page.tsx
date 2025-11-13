@@ -37,7 +37,7 @@ const Page = () => {
               gap: '12px',
             })}
           >
-            <CheckList className={css({ width: '[24px]', height: '[24px]' })} />
+            <CheckList size={24} />
             <h1 className={css({ textStyle: 'Body.primary' })}>魔力測定</h1>
           </div>
           <p

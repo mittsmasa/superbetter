@@ -96,7 +96,7 @@ export const EntityLinkReorderHandle = ({
         onPointerUp?.(e);
       }}
     >
-      <Menu className={css({ width: '[24px]', height: '[24px]' })} />
+      <Menu size={24} />
     </div>
   );
 };

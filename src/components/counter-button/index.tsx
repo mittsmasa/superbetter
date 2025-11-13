@@ -145,7 +145,7 @@ export const CounterButton = ({ name, label, onChange }: Props) => {
       </button>
       {count > 0 && (
         <IconButton type="button" onClick={handleReset}>
-          <Reload className={css({ width: '[20px]', height: '[20px]' })} />
+          <Reload size={20} />
         </IconButton>
       )}
       <input type="hidden" name={name} value={count} />

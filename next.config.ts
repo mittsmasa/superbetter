@@ -9,14 +9,7 @@ const withSerwist = withSerwistInit({
 
 const nextConfig: NextConfig = {
   typedRoutes: true,
-  turbopack: {
-    rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.js',
-      },
-    },
-  },
+  turbopack: {},
 };
 
 export default withSerwist(nextConfig);

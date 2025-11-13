@@ -27,26 +27,33 @@ export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
       });
     }
   }, [completed, controls]);
+  const colorToken = completed
+    ? itemType === 'powerup'
+      ? 'colors.entity.powerup'
+      : itemType === 'quest'
+        ? 'colors.entity.quest'
+        : itemType === 'villain'
+          ? 'colors.entity.villain'
+          : itemType === 'epicwin'
+            ? 'colors.entity.epicwin'
+            : 'colors.entity.disabled'
+    : 'colors.entity.disabled';
+
   return (
-    <IconWithAnimation
+    <div
       className={css(
         {
-          color: completed
-            ? itemType === 'powerup'
-              ? 'entity.powerup'
-              : itemType === 'quest'
-                ? 'entity.quest'
-                : itemType === 'villain'
-                  ? 'entity.villain'
-                  : itemType === 'epicwin'
-                    ? 'entity.epicwin'
-                    : 'entity.disabled'
-            : 'entity.disabled',
+          display: 'inline-flex',
         },
         completed && neonCurrentColor,
       )}
-      animate={controls}
-      transition={{ duration: 0.8 }}
-    />
+    >
+      <IconWithAnimation
+        color={colorToken}
+        size={24}
+        animate={controls}
+        transition={{ duration: 0.8 }}
+      />
+    </div>
   );
 };

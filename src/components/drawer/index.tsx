@@ -63,7 +63,7 @@ export const Drawer = ({
           })}
         >
           <IconButton onClick={onClose}>
-            <Close className={css({ width: '[24px]', height: '[24px]' })} />
+            <Close size={24} />
           </IconButton>
         </div>
         <div className={css({ flex: '1', minHeight: '[0]', padding: '12px' })}>

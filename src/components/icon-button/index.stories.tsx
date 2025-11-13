@@ -8,7 +8,7 @@ const meta = {
   args: {
     type: 'button',
     onClick: fn(),
-    children: <AbTesting />,
+    children: <AbTesting size={24} />,
   },
 } satisfies Meta<typeof IconButton>;
 

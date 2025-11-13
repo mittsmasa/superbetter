@@ -24,7 +24,7 @@ export const WithIcon = {
       <div
         className={css({ alignItems: 'center', display: 'flex', gap: '10px' })}
       >
-        <AbTesting className={css({ width: '[20px]' })} /> Test
+        <AbTesting size={20} /> Test
       </div>
     ),
   },

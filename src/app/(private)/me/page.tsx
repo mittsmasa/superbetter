@@ -89,7 +89,7 @@ const AchievementsSection = () => {
                 gap: '8px',
               })}
             >
-              <Trophy className={css({ width: '[20px]', height: '[20px]' })} />
+              <Trophy size={20} />
               <span className={css({ textStyle: 'Body.primary' })}>
                 実績を確認する
               </span>
@@ -140,17 +140,13 @@ const ScanSection = async () => {
                   gap: '8px',
                 })}
               >
-                <CheckList
-                  className={css({ width: '[20px]', height: '[20px]' })}
-                />
+                <CheckList size={20} />
                 <span className={css({ textStyle: 'Body.primary' })}>
                   魔力測定
                 </span>
               </div>
               <span className={css({ display: 'flex', gap: '8px' })}>
-                <CloudSun
-                  className={css({ width: '[20px]', height: '[20px]' })}
-                />
+                <CloudSun size={20} />
                 {posNegScore.data.latest?.posNegRatio.toFixed(1) ?? '未測定'}
               </span>
             </div>
