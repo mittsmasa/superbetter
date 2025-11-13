@@ -14,7 +14,8 @@ export type MissionEntity = {
 };
 
 export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
-  const prevRef = useRef<boolean>(completed);
+  // FIXME: アニメーションがこわれてる
+  const prevRef = useRef(completed);
   const controls = useAnimation();
   const IconWithAnimation = useMemo(
     () => motion.create(IconImpl[itemType]),
@@ -22,10 +23,11 @@ export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
   );
 
   useEffect(() => {
-    if (completed !== prevRef.current) {
+    if (completed !== prevRef.current && completed === true) {
       void controls.start({
         scale: [1, 1.3, 1],
       });
+      prevRef.current = completed;
     }
   }, [completed, controls]);
   const colorToken = completed
