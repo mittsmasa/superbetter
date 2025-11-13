@@ -105,7 +105,7 @@ export const NumberInput = ({
         aria-label="減少"
         {...feeling.props}
       >
-        <Minus className={css({ width: '[18px]', height: '[18px]' })} />
+        <Minus size={18} />
       </IconButton>
       <input
         name={name}
@@ -134,7 +134,7 @@ export const NumberInput = ({
         aria-label="増加"
         {...feeling.props}
       >
-        <Plus className={css({ width: '[18px]', height: '[18px]' })} />
+        <Plus size={18} />
       </IconButton>
     </div>
   );

@@ -49,7 +49,7 @@ export const PosNegScoreForm = () => {
             gap: '12px',
           })}
         >
-          <Sun className={css({ width: '[20px]', height: '[20px]' })} />
+          <Sun size={20} />
           <h1 className={css({ textStyle: 'Body.secondary' })}>
             ポジティブ感情
           </h1>
@@ -99,7 +99,7 @@ export const PosNegScoreForm = () => {
             gap: '12px',
           })}
         >
-          <Cloud className={css({ width: '[20px]', height: '[20px]' })} />
+          <Cloud size={20} />
           <h1 className={css({ textStyle: 'Body.secondary' })}>
             ネガティブ感情
           </h1>

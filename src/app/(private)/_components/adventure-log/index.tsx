@@ -42,9 +42,7 @@ export const AdventureLog = ({
               gap: '8px',
             })}
           >
-            <span className={css({ width: '[18px]', height: '[18px]' })}>
-              <EntityIcon itemType={log.type} completed />
-            </span>
+            <EntityIcon itemType={log.type} completed size={18} />
             <p className={css({ textStyle: 'Body.tertiary' })}>{log.title}</p>
           </div>
         ))}

@@ -40,9 +40,7 @@ const Page = () => {
                     textStyle: 'Heading.primary',
                   })}
                 >
-                  <CheckList
-                    className={css({ width: '[20px]', height: '[20px]' })}
-                  />
+                  <CheckList size={20} />
                   <span>魔力測定</span>
                 </div>
               </div>

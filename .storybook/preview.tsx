@@ -1,5 +1,5 @@
 import '../src/app/globals.css';
-import type { Preview } from '@storybook/nextjs';
+import type { Preview } from '@storybook/nextjs-vite';
 import Script from 'next/script';
 import { pixelMPlus } from '../src/fonts';
 

@@ -25,7 +25,7 @@ export const FooterNavigation = () => {
         active={pathname === '/' || pathname.startsWith('/missions')}
         onClick={() => router.push('/')}
       >
-        <Calendar className={css({ width: '[24px]' })} />
+        <Calendar size={24} />
       </IconButtonWithLabel>
       <IconButtonWithLabel
         type="button"
@@ -34,7 +34,7 @@ export const FooterNavigation = () => {
         active={pathname.startsWith('/powerups')}
         onClick={() => router.push('/powerups')}
       >
-        <Zap className={css({ width: '[24px]' })} />
+        <Zap size={24} />
       </IconButtonWithLabel>
       <IconButtonWithLabel
         type="button"
@@ -43,7 +43,7 @@ export const FooterNavigation = () => {
         active={pathname.startsWith('/quests')}
         onClick={() => router.push('/quests')}
       >
-        <ScriptText className={css({ width: '[24px]' })} />
+        <ScriptText size={24} />
       </IconButtonWithLabel>
       <IconButtonWithLabel
         type="button"
@@ -52,7 +52,7 @@ export const FooterNavigation = () => {
         active={pathname.startsWith('/villains')}
         onClick={() => router.push('/villains')}
       >
-        <Android className={css({ width: '[24px]' })} />
+        <Android size={24} />
       </IconButtonWithLabel>
       <IconButtonWithLabel
         type="button"
@@ -61,7 +61,7 @@ export const FooterNavigation = () => {
         active={pathname.startsWith('/me')}
         onClick={() => router.push('/me')}
       >
-        <Human className={css({ width: '[24px]' })} />
+        <Human size={24} />
       </IconButtonWithLabel>
     </div>
   );

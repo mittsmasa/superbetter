@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/nextjs';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { fn } from 'storybook/test';
 import { AbTesting } from '@/assets/icons';
 import { IconButton } from '.';
@@ -8,7 +8,7 @@ const meta = {
   args: {
     type: 'button',
     onClick: fn(),
-    children: <AbTesting />,
+    children: <AbTesting size={24} />,
   },
 } satisfies Meta<typeof IconButton>;
 

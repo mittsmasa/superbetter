@@ -36,17 +36,9 @@ export const Mission = ({
         >
           <p>{title}</p>
           {completed ? (
-            <CheckGradient
-              className={css({ width: '[28px]', height: '[28px]' })}
-            />
+            <CheckGradient size={28} />
           ) : (
-            <RadioOn
-              className={css({
-                width: '[28px]',
-                height: '[28px]',
-                color: 'entity.disabled',
-              })}
-            />
+            <RadioOn size={28} color="colors.entity.disabled" />
           )}
         </div>
         <MissionEntities items={items} />

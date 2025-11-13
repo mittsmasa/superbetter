@@ -27,9 +27,7 @@ export const Header = ({
       <div>
         {withBackButton && (
           <IconButton onClick={() => router.back()}>
-            <ChevlonLeft
-              className={css({ width: '[24px]', height: '[24px]' })}
-            />
+            <ChevlonLeft size={24} />
           </IconButton>
         )}
       </div>

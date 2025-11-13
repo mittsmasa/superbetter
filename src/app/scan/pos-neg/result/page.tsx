@@ -53,9 +53,7 @@ const Page = async () => {
                     textStyle: 'Heading.primary',
                   })}
                 >
-                  <CheckList
-                    className={css({ width: '[20px]', height: '[20px]' })}
-                  />
+                  <CheckList size={20} />
                   <span>魔力測定 結果</span>
                 </div>
               </div>
@@ -94,7 +92,7 @@ const Page = async () => {
                   gap: '4px',
                 })}
               >
-                <Sun className={css({ width: '[18px]', height: '[18px]' })} />
+                <Sun size={18} />
                 <span>ポジティブ感情</span>
               </div>
               <span>
@@ -120,7 +118,7 @@ const Page = async () => {
                   gap: '4px',
                 })}
               >
-                <Cloud className={css({ width: '[18px]', height: '[18px]' })} />
+                <Cloud size={18} />
                 <span>ネガティブ感情</span>
               </div>
               <span>
@@ -152,9 +150,7 @@ const Page = async () => {
                   gap: '4px',
                 })}
               >
-                <CloudSun
-                  className={css({ width: '[18px]', height: '[18px]' })}
-                />
+                <CloudSun size={18} />
                 <span>ポジネガ比</span>
               </div>
               <span className={css({ textStyle: 'Body.primary' })}>
