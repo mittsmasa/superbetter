@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useAnimation } from 'motion/react';
-import { useEffect, useMemo, useRef } from 'react';
+import { type ComponentProps, useEffect, useMemo, useRef } from 'react';
 import { neonCurrentColor } from '@/assets/style';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
@@ -10,6 +10,7 @@ import { IconImpl } from './entity-icon-map';
 export type MissionEntity = {
   itemType: EntityType;
   completed: boolean;
+  size?: ComponentProps<(typeof IconImpl)[EntityType]>['size'];
 };
 
 export const EntityIcon = ({ itemType, completed }: MissionEntity) => {

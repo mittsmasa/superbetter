@@ -95,10 +95,9 @@ for (const icon of iconsToGenerate) {
 }
 
 // Generate index file
-const indexContent =
-  iconsToGenerate
-    .map((icon) => `export { ${icon.name} } from './${icon.name}';`)
-    .join('\n') + '\n';
+const indexContent = `${iconsToGenerate
+  .map((icon) => `export { ${icon.name} } from './${icon.name}';`)
+  .join('\n')}\n`;
 
 writeFileSync(
   resolve(process.cwd(), 'src/components/icons/index.ts'),

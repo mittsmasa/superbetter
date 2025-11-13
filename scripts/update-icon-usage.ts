@@ -24,7 +24,7 @@ function updateFile(filePath: string): boolean {
   // -> <Icon size={XX} />
   const pattern1 =
     /<([A-Z][a-zA-Z0-9]*)\s+className=\{css\(\{\s*width:\s*'\[(\d+)px\]',?\s*height:\s*'\[\d+px\]'\s*\}\)\}\s*\/>/g;
-  const newContent1 = content.replace(pattern1, (match, iconName, size) => {
+  const newContent1 = content.replace(pattern1, (_match, iconName, size) => {
     modified = true;
     return `<${iconName} size={${size}} />`;
   });
@@ -33,10 +33,13 @@ function updateFile(filePath: string): boolean {
   // -> <Icon size={XX} />
   const pattern2 =
     /<([A-Z][a-zA-Z0-9]*)\s+className=\{css\(\{\s*width:\s*'\[(\d+)px\]'\s*\}\)\}\s*\/>/g;
-  const newContent2 = newContent1.replace(pattern2, (match, iconName, size) => {
-    modified = true;
-    return `<${iconName} size={${size}} />`;
-  });
+  const newContent2 = newContent1.replace(
+    pattern2,
+    (_match, iconName, size) => {
+      modified = true;
+      return `<${iconName} size={${size}} />`;
+    },
+  );
 
   // Pattern 3: Multi-line patterns
   // <Icon
@@ -44,18 +47,24 @@ function updateFile(filePath: string): boolean {
   // />
   const pattern3 =
     /<([A-Z][a-zA-Z0-9]*)\s+className=\{css\(\{\s*width:\s*'\[(\d+)px\]',?\s*height:\s*'\[\d+px\]'\s*\}\)\}\s*>/g;
-  const newContent3 = newContent2.replace(pattern3, (match, iconName, size) => {
-    modified = true;
-    return `<${iconName} size={${size}}>`;
-  });
+  const newContent3 = newContent2.replace(
+    pattern3,
+    (_match, iconName, size) => {
+      modified = true;
+      return `<${iconName} size={${size}}>`;
+    },
+  );
 
   // Pattern 4: Multi-line with only width
   const pattern4 =
     /<([A-Z][a-zA-Z0-9]*)\s+className=\{css\(\{\s*width:\s*'\[(\d+)px\]'\s*\}\)\}\s*>/g;
-  const newContent4 = newContent3.replace(pattern4, (match, iconName, size) => {
-    modified = true;
-    return `<${iconName} size={${size}}>`;
-  });
+  const newContent4 = newContent3.replace(
+    pattern4,
+    (_match, iconName, size) => {
+      modified = true;
+      return `<${iconName} size={${size}}>`;
+    },
+  );
 
   if (modified) {
     writeFileSync(filePath, newContent4, 'utf-8');

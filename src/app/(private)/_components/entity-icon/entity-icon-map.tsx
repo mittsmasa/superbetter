@@ -1,7 +1,6 @@
 import type { FC, ReactNode } from 'react';
 import { Android, ScriptText, Trophy, Zap } from '@/assets/icons';
 import type { EntityType } from '@/db/types/mission';
-import { css } from '@/styled-system/css';
 
 export const IconMap = {
   powerup: <Zap size={20} />,
