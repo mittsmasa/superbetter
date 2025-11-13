@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/nextjs';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { useEffect } from 'react';
 import { fn } from 'storybook/test';
 import { useDialog } from '@/hooks/dialog';

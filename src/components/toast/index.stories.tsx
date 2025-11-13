@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/nextjs';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Toaster, ToastProvider, useToast } from '.';
 
 const ToastButton = ({ message }: { message: string }) => {
