@@ -1,5 +1,6 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { createAuthMiddleware } from 'better-auth/api';
 import { nextCookies } from 'better-auth/next-js';
 import { createInitialEntity } from '@/app/(private)/_server-only/create-initial-entity';
 import { db } from '@/db/client';
@@ -16,10 +17,14 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
     },
   },
-  async onSignUp(user: { id?: string }) {
-    if (user.id) {
-      await createInitialEntity(user.id);
-    }
+  hooks: {
+    after: createAuthMiddleware(async (ctx) => {
+      // サインアップ時（新規セッション作成時）に初期エンティティを作成
+      const newSession = ctx.context.newSession;
+      if (newSession) {
+        await createInitialEntity(newSession.user.id);
+      }
+    }),
   },
   // フィールドマッピング設定（トップレベル）
   user: {
