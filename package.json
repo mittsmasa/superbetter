@@ -28,6 +28,7 @@
     "@date-fns/tz": "1.4.1",
     "@floating-ui/react": "0.27.16",
     "@serwist/next": "9.2.1",
+    "better-auth": "1.3.34",
     "date-fns": "4.1.0",
     "dotenv": "17.2.3",
     "drizzle-orm": "0.44.7",

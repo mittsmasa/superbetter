@@ -1,9 +1,14 @@
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { auth } from '@/auth';
 import { db } from '@/db/client';
+import { auth } from '@/lib/auth';
 
 export const getUser = async () => {
-  const session = await auth();
+  // BetterAuth APIを使用
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
   if (!session?.user) {
     console.info('user not logged in');
     return redirect('/login');

@@ -141,6 +141,13 @@
       "when": 1760097192612,
       "tag": "0019_free_smasher",
       "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "5",
+      "when": 1763183366290,
+      "tag": "0020_slimy_wolfpack",
+      "breakpoints": true
     }
   ]
 }
