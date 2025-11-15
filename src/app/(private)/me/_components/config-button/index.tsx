@@ -1,13 +1,22 @@
 'use client';
 
-import { signOut } from '@/app/(private)/_actions/signout';
+import { useRouter } from 'next/navigation';
 import { Logout, MoreVertical } from '@/assets/icons';
 import { IconButton } from '@/components/icon-button';
 import { Popover } from '@/components/popover';
+import { authClient } from '@/lib/auth-client';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
 
 export const ConfigButton = () => {
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await authClient.signOut();
+    router.push('/login');
+    router.refresh();
+  };
+
   return (
     <Popover.Root>
       <Popover.Trigger
@@ -32,9 +41,7 @@ export const ConfigButton = () => {
           >
             <button
               type="button"
-              onClick={async () => {
-                await signOut();
-              }}
+              onClick={handleSignOut}
               className={css({
                 alignItems: 'center',
                 display: 'flex',

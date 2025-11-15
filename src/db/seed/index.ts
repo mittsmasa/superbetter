@@ -5,7 +5,7 @@ import { db, schema } from '../client';
 dotenv.config();
 
 const main = async () => {
-  await seed(db, { users: schema.users }).refine((f) => ({
+  await seed(db, { users: schema.user }).refine((f) => ({
     users: {
       count: 1,
       columns: {

@@ -1,0 +1,1 @@
+ALTER TABLE `account` MODIFY COLUMN `type` varchar(255) NOT NULL DEFAULT 'oauth';

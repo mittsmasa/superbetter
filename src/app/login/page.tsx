@@ -1,9 +1,5 @@
-import { CredentialsForm } from '@/components/auth/credentials-form';
 import { GoogleButton } from '@/components/auth/google-button';
-import { MagicLinksForm } from '@/components/auth/magic-links-form';
 import { css } from '@/styled-system/css';
-
-const VERCEL_ENV = process.env.NEXT_PUBLIC_VERCEL_ENV;
 
 const Login = async (props: PageProps<'/login'>) => {
   const { redirectTo } = await props.searchParams;
@@ -34,9 +30,7 @@ const Login = async (props: PageProps<'/login'>) => {
         <br />
         あらたな世界のとびらはここにある
       </p>
-      <MagicLinksForm />
       <GoogleButton redirectTo={redirectTo} />
-      {VERCEL_ENV !== 'production' && <CredentialsForm />}
     </main>
   );
 };

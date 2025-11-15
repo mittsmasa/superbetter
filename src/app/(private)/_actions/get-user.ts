@@ -1,9 +1,14 @@
+import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { auth } from '@/auth';
 import { db } from '@/db/client';
+import { auth } from '@/lib/auth';
 
 export const getUser = async () => {
-  const session = await auth();
+  // BetterAuth APIを使用
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
   if (!session?.user) {
     console.info('user not logged in');
     return redirect('/login');
@@ -14,11 +19,11 @@ export const getUser = async () => {
     return redirect('/login');
   }
 
-  const user = await db.query.users.findFirst({
+  const user = await db.query.user.findFirst({
     columns: {
       id: true,
     },
-    where: (users, { eq }) => eq(users.email, email),
+    where: (user, { eq }) => eq(user.email, email),
   });
   if (!user) {
     console.error('user not found in db');
