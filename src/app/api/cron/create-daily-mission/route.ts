@@ -2,7 +2,7 @@ import { and, between, eq } from 'drizzle-orm';
 import { type NextRequest, NextResponse } from 'next/server';
 import { getStartAndEndOfDay } from '@/app/_utils/date';
 import { db } from '@/db/client';
-import { users } from '@/db/schema/auth';
+import { user } from '@/db/schema/auth';
 import { missionConditions, missions } from '@/db/schema/superbetter';
 
 /**
@@ -120,7 +120,7 @@ export async function GET(request: NextRequest) {
 
   try {
     // 全ユーザーを取得
-    const allUsers = await db.select().from(users);
+    const allUsers = await db.select().from(user);
 
     // 各ユーザーに対してデイリーミッションを作成
     const results = await Promise.allSettled(

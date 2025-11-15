@@ -10,12 +10,12 @@ import {
 } from 'drizzle-orm/mysql-core';
 import type { EntityType, MissionCondition } from '../types/mission';
 import type { TestAnswer, TestName } from '../types/test';
-import { users } from './auth';
+import { user } from './auth';
 
 export const userProfile = table('userProfile', {
   userId: varchar('userId', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => user.id, { onDelete: 'cascade' }),
   challenge: varchar('challenge', { length: 255 }),
   values: varchar('values', { length: 255 }),
   hiddenIdentity: varchar('hiddenIdentity', { length: 255 }),
@@ -29,7 +29,7 @@ export const quests = table('quest', {
   description: text('description'),
   userId: varchar('userId', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => user.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
   order: int('order').notNull().default(0),
@@ -66,7 +66,7 @@ export const powerups = table('powerup', {
   description: text('description'),
   userId: varchar('userId', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => user.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
   order: int('order').notNull().default(0),
@@ -103,7 +103,7 @@ export const villains = table('villain', {
   description: text('description'),
   userId: varchar('userId', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => user.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
   order: int('order').notNull().default(0),
@@ -140,7 +140,7 @@ export const epicwins = table('epicwin', {
   description: text('description'),
   userId: varchar('userId', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => user.id, { onDelete: 'cascade' }),
   count: int('count').notNull().default(0),
   archived: boolean('archived').notNull().default(false),
   createdAt: datetime('createdAt', { mode: 'date', fsp: 3 })
@@ -176,7 +176,7 @@ export const missions = table('mission', {
   description: text('description'),
   userId: varchar('userId', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => user.id, { onDelete: 'cascade' }),
   type: enumField('type', [
     'system-daily',
     'system-weekly',
@@ -237,7 +237,7 @@ export const testResults = table('testResult', {
     .$defaultFn(() => crypto.randomUUID()),
   userId: varchar('userId', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => user.id, { onDelete: 'cascade' }),
   testTypeId: varchar('testTypeId', { length: 255 })
     .notNull()
     .references(() => testTypes.id, { onDelete: 'cascade' }),

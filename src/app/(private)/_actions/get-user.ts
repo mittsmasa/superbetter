@@ -19,11 +19,11 @@ export const getUser = async () => {
     return redirect('/login');
   }
 
-  const user = await db.query.users.findFirst({
+  const user = await db.query.user.findFirst({
     columns: {
       id: true,
     },
-    where: (users, { eq }) => eq(users.email, email),
+    where: (user, { eq }) => eq(user.email, email),
   });
   if (!user) {
     console.error('user not found in db');

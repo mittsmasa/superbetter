@@ -1,14 +1,20 @@
-import { signOut } from '@/auth';
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { authClient } from '@/lib/auth-client';
 
 export const SignOut = () => {
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await authClient.signOut();
+    router.push('/login');
+    router.refresh();
+  };
+
   return (
-    <form
-      action={async () => {
-        'use server';
-        await signOut({ redirectTo: '/login' });
-      }}
-    >
-      <button type="submit">Sign out</button>
-    </form>
+    <button type="button" onClick={handleSignOut}>
+      Sign out
+    </button>
   );
 };

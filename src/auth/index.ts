@@ -5,7 +5,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import Google from 'next-auth/providers/google';
 import { createInitialEntity } from '@/app/(private)/_server-only/create-initial-entity';
-import { users } from '@/db/schema/auth';
+import { user } from '@/db/schema/auth';
 import { db } from '../db/client';
 
 const config = {
@@ -35,23 +35,23 @@ const config = {
       },
       authorize: async (credentials) => {
         // logic to verify if the user exists
-        const user = await db.query.users.findFirst({
+        const foundUser = await db.query.user.findFirst({
           columns: {
             id: true,
             email: true,
           },
           where: and(
-            eq(users.email, credentials.email as string),
-            eq(users.password, credentials.password as string),
+            eq(user.email, credentials.email as string),
+            eq(user.password, credentials.password as string),
           ),
         });
-        if (!user) {
+        if (!foundUser) {
           // No user found, so this is their first attempt to login
           // Optionally, this is also the place you could do a user registration
           throw new Error('Invalid credentials.');
         }
         // return user object with their profile data
-        return user;
+        return foundUser;
       },
     }),
   ],

@@ -11,7 +11,7 @@ import type { AdapterAccountType } from 'next-auth/adapters';
 
 // Phase 2用スキーマ: 既存の主キーとカラムを保持しつつ、新規カラムを追加
 
-export const users = table('user', {
+export const user = table('user', {
   id: varchar('id', { length: 255 })
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID()),
@@ -22,14 +22,21 @@ export const users = table('user', {
   // Phase 2で追加: 一時カラム
   emailVerifiedTemp: boolean('emailVerifiedTemp').default(false),
   image: varchar('image', { length: 255 }),
+  createdAt: timestamp('createdAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .defaultNow(),
+  updatedAt: timestamp('updatedAt', { mode: 'date', fsp: 3 })
+    .notNull()
+    .defaultNow()
+    .$onUpdate(() => new Date()),
 });
 
 // セッションテーブル: 既存の主キー(sessionToken)を保持
-export const sessions = table('session', {
+export const session = table('session', {
   sessionToken: varchar('sessionToken', { length: 255 }).primaryKey(),
   userId: varchar('userId', { length: 255 })
     .notNull()
-    .references(() => users.id, { onDelete: 'cascade' }),
+    .references(() => user.id, { onDelete: 'cascade' }),
   expires: timestamp('expires', { mode: 'date', fsp: 3 }).notNull(),
   // 新規カラム
   id: varchar('id', { length: 36 }).$defaultFn(() => crypto.randomUUID()),
@@ -45,16 +52,17 @@ export const sessions = table('session', {
 });
 
 // アカウントテーブル: 既存の複合主キーを保持
-export const accounts = table(
+export const account = table(
   'account',
   {
     userId: varchar('userId', { length: 255 })
       .notNull()
-      .references(() => users.id, { onDelete: 'cascade' }),
+      .references(() => user.id, { onDelete: 'cascade' }),
     // Phase 4まで保持するカラム
     type: varchar('type', { length: 255 })
       .$type<AdapterAccountType>()
-      .notNull(),
+      .notNull()
+      .default('oauth'),
     provider: varchar('provider', { length: 255 }).notNull(),
     providerAccountId: varchar('providerAccountId', { length: 255 }).notNull(),
     refresh_token: varchar('refresh_token', { length: 255 }),
@@ -87,7 +95,7 @@ export const accounts = table(
 );
 
 // 検証トークンテーブル: 既存の複合主キーを保持
-export const verificationTokens = table(
+export const verification = table(
   'verificationToken',
   {
     identifier: varchar('identifier', { length: 255 }).notNull(),
@@ -116,7 +124,7 @@ export const authenticators = table(
     credentialID: varchar('credentialID', { length: 255 }).notNull().unique(),
     userId: varchar('userId', { length: 255 })
       .notNull()
-      .references(() => users.id, { onDelete: 'cascade' }),
+      .references(() => user.id, { onDelete: 'cascade' }),
     providerAccountId: varchar('providerAccountId', { length: 255 }).notNull(),
     credentialPublicKey: varchar('credentialPublicKey', {
       length: 255,

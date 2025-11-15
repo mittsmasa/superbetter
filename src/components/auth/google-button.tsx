@@ -1,15 +1,19 @@
-import { signIn } from '@/auth';
+'use client';
+
+import { authClient } from '@/lib/auth-client';
 import { Button } from '../button';
 
 export const GoogleButton = ({ redirectTo }: { redirectTo?: string }) => {
+  const handleGoogleLogin = async () => {
+    await authClient.signIn.social({
+      provider: 'google',
+      callbackURL: redirectTo ?? '/',
+    });
+  };
+
   return (
-    <form
-      action={async () => {
-        'use server';
-        await signIn('google', { redirectTo: redirectTo ?? '/' });
-      }}
-    >
-      <Button type="submit">Googleでサインイン</Button>
-    </form>
+    <Button type="button" onClick={handleGoogleLogin}>
+      Googleでサインイン
+    </Button>
   );
 };

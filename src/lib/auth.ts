@@ -26,6 +26,11 @@ export const auth = betterAuth({
     },
   },
   // フィールドマッピング設定（トップレベル）
+  user: {
+    fields: {
+      emailVerified: 'emailVerifiedTemp',
+    },
+  },
   session: {
     fields: {
       token: 'sessionToken',
@@ -38,8 +43,14 @@ export const auth = betterAuth({
       accountId: 'providerAccountId',
       refreshToken: 'refresh_token',
       accessToken: 'access_token',
-      accessTokenExpiresAt: 'expires_at',
+      accessTokenExpiresAt: 'refreshTokenExpiresAt',
       idToken: 'id_token',
+    },
+  },
+  verification: {
+    fields: {
+      value: 'token',
+      expiresAt: 'expires',
     },
   },
   plugins: [nextCookies()],
