@@ -10,20 +10,16 @@ export const auth = betterAuth({
     provider: 'mysql',
     schema,
   }),
-  emailAndPassword: {
-    enabled: true,
-    minPasswordLength: 8,
-    async onSignUp(user: { id?: string }) {
-      if (user.id) {
-        await createInitialEntity(user.id);
-      }
-    },
-  },
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
     },
+  },
+  async onSignUp(user: { id?: string }) {
+    if (user.id) {
+      await createInitialEntity(user.id);
+    }
   },
   // フィールドマッピング設定（トップレベル）
   user: {

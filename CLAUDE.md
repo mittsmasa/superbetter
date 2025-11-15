@@ -38,7 +38,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Framework**: Next.js 15 with App Router
 - **Styling**: PandaCSS with custom design system
 - **Database**: MySQL with Drizzle ORM
-- **Authentication**: NextAuth.js v5
+- **Authentication**: BetterAuth with Google OAuth
 - **Testing**: Vitest
 - **Linting**: Biome
 - **Package Manager**: pnpm
@@ -74,9 +74,10 @@ Core tables: users, quests, powerups, villains, epicwins, missions, with corresp
 - Follow naming: PascalCase for components, camelCase for props
 
 ### Authentication
-- Uses NextAuth.js v5 with multiple providers
+- Uses BetterAuth with Google OAuth provider
 - Protected routes under `(private)` directory
 - Server actions for data mutations
+- Session management with database strategy
 
 ## Slash Commands
 

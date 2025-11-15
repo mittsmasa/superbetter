@@ -7,9 +7,8 @@ import {
   timestamp,
   varchar,
 } from 'drizzle-orm/mysql-core';
-import type { AdapterAccountType } from 'next-auth/adapters';
 
-// Phase 2用スキーマ: 既存の主キーとカラムを保持しつつ、新規カラムを追加
+// BetterAuth用スキーマ: 既存の主キーとカラムを保持しつつ、新規カラムを追加
 
 export const user = table('user', {
   id: varchar('id', { length: 255 })
@@ -59,10 +58,7 @@ export const account = table(
       .notNull()
       .references(() => user.id, { onDelete: 'cascade' }),
     // Phase 4まで保持するカラム
-    type: varchar('type', { length: 255 })
-      .$type<AdapterAccountType>()
-      .notNull()
-      .default('oauth'),
+    type: varchar('type', { length: 255 }).notNull().default('oauth'),
     provider: varchar('provider', { length: 255 }).notNull(),
     providerAccountId: varchar('providerAccountId', { length: 255 }).notNull(),
     refresh_token: varchar('refresh_token', { length: 255 }),
