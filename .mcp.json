@@ -10,7 +10,7 @@
       ]
     },
     "storybook-mcp": {
-      "transport": "http",
+      "type": "http",
       "url": "http://localhost:6006/mcp"
     },
     "next-devtools": {
