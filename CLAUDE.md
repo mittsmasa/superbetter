@@ -79,6 +79,67 @@ Core tables: users, quests, powerups, villains, epicwins, missions, with corresp
 - Server actions for data mutations
 - Session management with database strategy
 
+## Implementation Checklists
+
+### Component Implementation
+When creating or modifying UI components, follow this checklist:
+
+- [ ] Create directory under `src/components/[component-name]/`
+- [ ] Create `index.tsx` with component implementation
+- [ ] Use PandaCSS `css()` function for styling
+- [ ] Follow textStyle patterns (e.g., `textStyle: 'Heading.primary'`)
+- [ ] Use `pixelBorder` utility for consistent borders
+- [ ] Add TypeScript types (use `PropsWithChildren` for wrapper components)
+- [ ] Create `index.stories.tsx` with Storybook story
+- [ ] Export component with proper types
+- [ ] Run `pnpm check:fix` for linting
+- [ ] Test in Storybook (`pnpm storybook`)
+
+### Entity/Feature Implementation
+When adding new SuperBetter entities or features:
+
+- [ ] Define schema in `src/db/schema/superbetter.ts`
+  - [ ] Create main table (e.g., `quests`, `powerups`)
+  - [ ] Create corresponding history table (e.g., `questHistory`, `powerupHistory`)
+- [ ] Create server actions in `src/app/(private)/_actions/`
+  - [ ] `get-[entity].ts` - Fetch data
+  - [ ] `post-[entity]-history.ts` - Track activities
+- [ ] Set up route directory `src/app/(private)/[entity]/`
+  - [ ] `page.tsx` - List view
+  - [ ] `[id]/page.tsx` - Detail view
+  - [ ] `_actions/` - Entity-specific server actions
+  - [ ] `_components/` - Entity-specific UI components
+- [ ] Generate migration: `pnpm drizzle:gen`
+- [ ] Review generated SQL in `src/db/drizzle/`
+- [ ] Apply migration: `pnpm drizzle:migrate`
+- [ ] Run type checking: `pnpm type-check`
+- [ ] Test functionality with authentication
+
+### Infrastructure Changes
+For system-wide changes (auth, database schema, configuration):
+
+- [ ] Review security implications
+- [ ] Update environment variables if needed (`.env`, `.env.example`)
+- [ ] Modify configurations:
+  - [ ] `src/lib/auth.ts` for authentication changes
+  - [ ] `src/db/schema/` for database schema changes
+  - [ ] `drizzle.config.ts` for Drizzle ORM configuration
+- [ ] Create migration files: `pnpm drizzle:gen`
+- [ ] Test migration on local database
+- [ ] Update documentation in CLAUDE.md or README
+- [ ] Run full type check: `pnpm type-check`
+- [ ] Run linting: `pnpm check:fix`
+- [ ] Consider backward compatibility
+
+### Quality Assurance
+Always run these checks before committing:
+
+- [ ] Type checking: `pnpm type-check`
+- [ ] Linting and formatting: `pnpm check:fix`
+- [ ] Tests: `pnpm test` (if applicable)
+- [ ] Visual testing in Storybook (for UI changes)
+- [ ] Manual testing with authentication flow
+
 ## Slash Commands
 
 ### Implementation Guidelines
