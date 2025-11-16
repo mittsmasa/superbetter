@@ -5,6 +5,10 @@ allowed-tools: ["Read", "Write", "Edit", "Task", "Bash", "Glob", "Grep", "mcp__f
 
 Execute Reconciliation Loop for component "$ARGUMENTS" to align implementation with ideal state.
 
+Component can be located in:
+- `src/components/` - Shared UI components
+- `src/app/**/_components/` - App-specific components
+
 ## Reconciliation Loop Concept
 
 This command implements "Agentic Coding = Reconciliation Loop" pattern:
@@ -18,13 +22,14 @@ This command implements "Agentic Coding = Reconciliation Loop" pattern:
 ## Implementation Steps
 
 ### Step 1: Collect Ideal State
-1. **Figma Design**: Fetch design data via Figma MCP
-2. **Specification**: Read `src/components/$ARGUMENTS/$ARGUMENTS.spec.md`
-3. **Expected Stories**: Parse requirements for Storybook variants
+1. **Component Location**: Search in `src/components/` and `src/app/**/_components/`
+2. **Figma Design**: Fetch design data via Figma MCP
+3. **Specification**: Read component spec file if exists
+4. **Expected Stories**: Parse requirements for Storybook variants
 
 ### Step 2: Capture Current State
-1. **Component Implementation**: Read `src/components/$ARGUMENTS/index.tsx`
-2. **Current Stories**: Read `src/components/$ARGUMENTS/index.stories.tsx`
+1. **Component Implementation**: Read `{COMPONENT_PATH}/index.tsx`
+2. **Current Stories**: Read `{COMPONENT_PATH}/index.stories.tsx`
 3. **Visual State**: Launch Storybook and capture screenshots via Chrome DevTools MCP
 
 ### Step 3: Analyze Differences
@@ -52,23 +57,31 @@ This command implements "Agentic Coding = Reconciliation Loop" pattern:
 
 **Phase 1: Collect Ideal State**
 
-1. Check if specification file exists: 'src/components/$ARGUMENTS/$ARGUMENTS.spec.md'
+1. Locate component directory:
+   - Search for component in both locations:
+     - 'src/components/$ARGUMENTS/'
+     - 'src/app/**/_components/$ARGUMENTS/' (use Glob tool to search)
+   - If found in multiple locations, ask user which one to reconcile
+   - If not found, ask user for the correct path
+   - Store the located path as COMPONENT_PATH for subsequent steps
+
+2. Check if specification file exists: '{COMPONENT_PATH}/$ARGUMENTS.spec.md'
    - If not exists, create a template and ask user to fill Figma URL and requirements
    - If exists, read it to extract:
      - Figma design URL and node ID
      - Requirements checklist
      - Expected visual states/variants
 
-2. If Figma URL is provided in spec:
+3. If Figma URL is provided in spec:
    - Use mcp__framelink-figma__get_figma_data to fetch design data
    - Extract style information (colors, typography, spacing, layout)
    - Note: Convert Figma styles to PandaCSS format later
 
 **Phase 2: Capture Current State**
 
-1. Read current implementation:
-   - 'src/components/$ARGUMENTS/index.tsx'
-   - 'src/components/$ARGUMENTS/index.stories.tsx'
+1. Read current implementation using COMPONENT_PATH from Phase 1:
+   - '{COMPONENT_PATH}/index.tsx'
+   - '{COMPONENT_PATH}/index.stories.tsx'
 
 2. Analyze current implementation:
    - Props and TypeScript types
@@ -119,13 +132,14 @@ Ask user:
 
 Based on user confirmation:
 
-1. **Update Component Implementation**:
-   - Modify 'src/components/$ARGUMENTS/index.tsx'
+1. **Update Component Implementation** using COMPONENT_PATH from Phase 1:
+   - Modify '{COMPONENT_PATH}/index.tsx'
    - Apply PandaCSS style corrections
    - Add missing props/features
    - Follow project patterns (textStyle, pixelBorder, etc.)
 
 2. **Update Storybook Stories**:
+   - Modify '{COMPONENT_PATH}/index.stories.tsx'
    - Add missing story variants
    - Update existing stories if needed
    - Ensure proper meta configuration
