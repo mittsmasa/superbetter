@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "next-devtools": {
-      "command": "pnpm",
-      "args": ["exec", "next-devtools-mcp"]
-    }
-  }
-}

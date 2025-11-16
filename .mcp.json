@@ -1,13 +1,21 @@
 {
   "mcpServers": {
     "framelink-figma": {
-      "command": "npx",
+      "command": "pnpx",
       "args": [
         "-y",
         "figma-developer-mcp",
         "--figma-api-key=${FIGMA_API_KEY}",
         "--stdio"
       ]
+    },
+    "storybook-mcp": {
+      "transport": "http",
+      "url": "http://localhost:6006/mcp"
+    },
+    "next-devtools": {
+      "command": "pnpm",
+      "args": ["exec", "next-devtools-mcp"]
     }
   }
 }
