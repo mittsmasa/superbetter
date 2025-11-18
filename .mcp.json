@@ -16,6 +16,10 @@
     "next-devtools": {
       "command": "pnpm",
       "args": ["exec", "next-devtools-mcp"]
+    },
+    "chrome-devtools": {
+      "command": "pnpm",
+      "args": ["exec", "chrome-devtools-mcp"]
     }
   }
 }
