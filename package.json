@@ -48,7 +48,7 @@
     "@types/node": "24.10.1",
     "@types/react": "19.2.6",
     "@types/react-dom": "19.2.3",
-    "chrome-devtools-mcp": "0.10.1",
+    "chrome-devtools-mcp": "0.10.2",
     "drizzle-kit": "0.31.7",
     "drizzle-seed": "0.3.1",
     "lefthook": "2.0.4",
