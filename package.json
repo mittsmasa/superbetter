@@ -52,7 +52,7 @@
     "drizzle-kit": "0.31.7",
     "drizzle-seed": "0.3.1",
     "lefthook": "2.0.4",
-    "next-devtools-mcp": "0.3.4",
+    "next-devtools-mcp": "0.3.5",
     "serwist": "9.2.3",
     "storybook": "10.0.8",
     "tsx": "4.20.6",
