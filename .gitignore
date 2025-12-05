@@ -141,3 +141,7 @@ public/swe-worker*
 # Plan files (keep directory, ignore contents)
 .plan/*
 !.plan/.gitkeep
+
+# Visual regression testing
+.vitest-attachments/
+__screenshots__
