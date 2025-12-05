@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "check": "biome check",
-    "test": "vitest",
+    "test": "vitest --project=browser",
     "test:visual": "vitest run --project=vrt",
     "test:visual:update": "vitest run --update --project=vrt",
     "test:visual:ui": "vitest --ui --project=vrt",
