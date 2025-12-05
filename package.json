@@ -51,7 +51,7 @@
     "chrome-devtools-mcp": "0.10.2",
     "drizzle-kit": "0.31.7",
     "drizzle-seed": "0.3.1",
-    "lefthook": "2.0.4",
+    "lefthook": "2.0.5",
     "next-devtools-mcp": "0.3.5",
     "serwist": "9.2.3",
     "storybook": "10.0.8",
@@ -59,7 +59,7 @@
     "typescript": "5.9.3",
     "vite": "7.2.6",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.14"
+    "vitest": "4.0.15"
   },
   "packageManager": "pnpm@10.23.0"
 }
