@@ -61,6 +61,7 @@ export const CompactSize = {
 } satisfies Story;
 
 export const CurrentMonth = {
+  tags: ['skip-vrt'],
   args: {
     month: new Date(), // 現在の月
     cellStyle: (date) => {
