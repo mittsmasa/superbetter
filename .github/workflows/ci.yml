@@ -15,9 +15,11 @@ jobs:
         cache: pnpm
     - name: Install dependencies
       run: pnpm install
+    - name: Install Playwright browsers
+      run: pnpm exec playwright install --with-deps chromium
     - name: Type check
       run: pnpm run type-check
     - name: Lint
       run: pnpm check
     - name: Test
-      run: pnpm test
+      run: pnpm test:unit

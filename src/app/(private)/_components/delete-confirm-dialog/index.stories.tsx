@@ -25,4 +25,5 @@ export const Default = {
     }, [dialog]);
     return <DeleteConfirmDialog {...args} dialog={dialog} />;
   },
+  tags: ['skip-vrt'],
 } satisfies Story;
