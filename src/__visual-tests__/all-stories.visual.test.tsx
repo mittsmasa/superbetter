@@ -55,9 +55,19 @@ for (const [filePath, storyModule] of Object.entries(storyFiles)) {
 
 /**
  * ファイルパスからコンポーネント名を抽出
+ * index.stories.tsxの場合はディレクトリ名のみ、それ以外はディレクトリ名-ファイル名を返す
  */
 function extractComponentName(filePath: string): string {
   const parts = filePath.split('/').filter((p) => p !== '..');
   const storyFileIndex = parts.findIndex((p) => p.endsWith('.stories.tsx'));
-  return parts[storyFileIndex - 1] || 'unknown';
+  const dirName = parts[storyFileIndex - 1] || 'unknown';
+
+  // ストーリーファイル名を取得（.stories.tsxを除く）
+  const fileName = parts[storyFileIndex].replace('.stories.tsx', '');
+
+  // index.stories.tsx の場合はディレクトリ名のみ、それ以外はディレクトリ名-ファイル名
+  if (fileName === 'index') {
+    return dirName;
+  }
+  return `${dirName}-${fileName}`;
 }
