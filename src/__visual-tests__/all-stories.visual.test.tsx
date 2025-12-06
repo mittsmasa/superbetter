@@ -57,29 +57,27 @@ for (const [filePath, storyModule] of Object.entries(storyFiles)) {
   const composedStories = composeStories(storyModule);
 
   // 各ストーリーをテスト化
-  for (const [storyName, Story] of Object.entries(composedStories)) {
-    // StoryをReactコンポーネントとして型アサーション
-    const StoryComponent = Story as React.ComponentType;
-    const storyWithMethods = Story as {
+  for (const [storyName, Story] of Object.entries<
+    React.ComponentType & {
       tags?: string[];
       run?: () => Promise<void>;
-    };
-
+    }
+  >(composedStories)) {
     // skip-vrtタグがある場合はスキップ
-    if (storyWithMethods.tags?.includes('skip-vrt')) {
+    if (Story.tags?.includes('skip-vrt')) {
       continue;
     }
 
     test(`${componentName} - ${storyName}`, async () => {
       // 1. Story.run()でStorybookのplay関数などを実行
-      if (storyWithMethods.run) {
-        await storyWithMethods.run();
+      if (Story.run) {
+        await Story.run();
       }
 
       // 2. 16px padding のラッパー要素でレンダリング
       const { container } = await render(
-        <div className={css({ padding: '16px' })}>
-          <StoryComponent />
+        <div className={css({ padding: '16px', margin: '[16px]' })}>
+          <Story />
         </div>,
       );
 
