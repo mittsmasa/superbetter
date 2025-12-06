@@ -22,4 +22,4 @@ jobs:
     - name: Lint
       run: pnpm check
     - name: Test
-      run: pnpm test
+      run: pnpm test:unit

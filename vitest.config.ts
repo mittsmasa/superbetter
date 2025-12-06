@@ -11,21 +11,11 @@ export default defineConfig({
     projects: [
       {
         extends: true,
-        plugins: [react()],
+        plugins: [],
         test: {
-          name: 'browser',
+          name: 'unit',
           include: ['src/**/*.test.{ts,tsx}'],
-          browser: {
-            provider: playwright({
-              contextOptions: {
-                timezoneId: 'JST',
-              },
-            }),
-            enabled: true,
-            headless: true,
-            screenshotFailures: false,
-            instances: [{ browser: 'chromium' }],
-          },
+          exclude: ['src/__visual-tests__/**'],
         },
       },
       {
