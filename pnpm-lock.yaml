@@ -27,8 +27,8 @@ importers:
         specifier: 17.2.3
         version: 17.2.3
       drizzle-orm:
-        specifier: 0.44.7
-        version: 0.44.7(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3)
+        specifier: 0.45.0
+        version: 0.45.0(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3)
       motion:
         specifier: 12.23.25
         version: 12.23.25(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
@@ -85,14 +85,14 @@ importers:
         specifier: 4.0.15
         version: 4.0.15(playwright@1.57.0)(vite@7.2.6(@types/node@24.10.1)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.15)
       chrome-devtools-mcp:
-        specifier: 0.10.2
-        version: 0.10.2
+        specifier: 0.11.0
+        version: 0.11.0
       drizzle-kit:
         specifier: 0.31.8
         version: 0.31.8
       drizzle-seed:
         specifier: 0.3.1
-        version: 0.3.1(drizzle-orm@0.44.7(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3))
+        version: 0.3.1(drizzle-orm@0.45.0(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3))
       lefthook:
         specifier: 2.0.7
         version: 2.0.7
@@ -1853,8 +1853,8 @@ packages:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
     engines: {node: '>= 14.16.0'}
 
-  chrome-devtools-mcp@0.10.2:
-    resolution: {integrity: sha512-GvwA9Ity2tS1peVvZXTtl6DmpAPWPjKA451nb9qn9+re/v7IcchcmVIdTdOy3hCrkTbglNwPj/wwGPZ9x2IYvQ==}
+  chrome-devtools-mcp@0.11.0:
+    resolution: {integrity: sha512-0O1UQhb/E6VIzk+PoqDJRF/3jdjmMOS6XsuHndaSekD0p+tAW9zgRCm7lLfugyI9EyjkpY5WYwKmR2gMgtZcnw==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=23}
     hasBin: true
 
@@ -2050,8 +2050,8 @@ packages:
     resolution: {integrity: sha512-O9EC/miwdnRDY10qRxM8P3Pg8hXe3LyU4ZipReKOgTwn4OqANmftj8XJz1UPUAS6NMHf0E2htjsbQujUTkncCg==}
     hasBin: true
 
-  drizzle-orm@0.44.7:
-    resolution: {integrity: sha512-quIpnYznjU9lHshEOAYLoZ9s3jweleHlZIAWR/jX9gAWNg/JhQ1wj0KGRf7/Zm+obRrYd9GjPVJg790QY9N5AQ==}
+  drizzle-orm@0.45.0:
+    resolution: {integrity: sha512-lyd9VRk3SXKRjV/gQckQzmJgkoYMvVG3A2JAV0vh3L+Lwk+v9+rK5Gj0H22y+ZBmxsrRBgJ5/RbQCN7DWd1dtQ==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=4'
@@ -5544,7 +5544,7 @@ snapshots:
     dependencies:
       readdirp: 4.1.1
 
-  chrome-devtools-mcp@0.10.2: {}
+  chrome-devtools-mcp@0.11.0: {}
 
   chrome-trace-event@1.0.4:
     optional: true
@@ -5688,7 +5688,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.44.7(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3):
+  drizzle-orm@0.45.0(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3):
     optionalDependencies:
       '@opentelemetry/api': 1.9.0
       '@tidbcloud/serverless': 0.2.0
@@ -5696,11 +5696,11 @@ snapshots:
       kysely: 0.28.8
       mysql2: 3.15.3
 
-  drizzle-seed@0.3.1(drizzle-orm@0.44.7(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3)):
+  drizzle-seed@0.3.1(drizzle-orm@0.45.0(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3)):
     dependencies:
       pure-rand: 6.1.0
     optionalDependencies:
-      drizzle-orm: 0.44.7(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3)
+      drizzle-orm: 0.45.0(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.15.3)
 
   dunder-proto@1.0.1:
     dependencies:
