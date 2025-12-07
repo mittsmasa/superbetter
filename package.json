@@ -55,7 +55,7 @@
     "@vitest/browser": "4.0.15",
     "@vitest/browser-playwright": "4.0.15",
     "chrome-devtools-mcp": "0.10.2",
-    "drizzle-kit": "0.31.7",
+    "drizzle-kit": "0.31.8",
     "drizzle-seed": "0.3.1",
     "lefthook": "2.0.7",
     "next-devtools-mcp": "0.3.5",
