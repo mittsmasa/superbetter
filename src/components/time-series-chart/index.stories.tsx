@@ -11,6 +11,7 @@ const meta = {
       <div
         className={css({
           height: '[fit-content]',
+          width: '[400px]',
           backgroundColor: 'background',
         })}
       >
