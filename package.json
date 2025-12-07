@@ -6,7 +6,10 @@
   "scripts": {
     "build": "next build",
     "check": "biome check",
-    "test": "vitest",
+    "test:unit": "vitest --project=unit",
+    "test:visual": "vitest run --project=vrt",
+    "test:visual:update": "vitest run --update --project=vrt",
+    "test:visual:ui": "vitest --ui --project=vrt",
     "check:fix": "biome check --write",
     "drizzle:gen": "drizzle-kit generate",
     "drizzle:migrate": "drizzle-kit migrate",
@@ -48,18 +51,23 @@
     "@types/node": "24.10.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.1.1",
+    "@vitest/browser": "4.0.15",
+    "@vitest/browser-playwright": "4.0.15",
     "chrome-devtools-mcp": "0.10.2",
     "drizzle-kit": "0.31.7",
     "drizzle-seed": "0.3.1",
     "lefthook": "2.0.7",
     "next-devtools-mcp": "0.3.5",
+    "playwright": "1.57.0",
     "serwist": "9.2.3",
     "storybook": "10.1.4",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
     "vite": "7.2.6",
     "vite-tsconfig-paths": "5.1.4",
-    "vitest": "4.0.15"
+    "vitest": "4.0.15",
+    "vitest-browser-react": "2.0.2"
   },
   "packageManager": "pnpm@10.24.0"
 }

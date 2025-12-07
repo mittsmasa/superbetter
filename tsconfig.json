@@ -21,7 +21,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["@serwist/next/typings"]
+    "types": ["@serwist/next/typings", "vitest/globals", "vite/client"]
   },
   "include": [
     "src/types/*.d.ts",
@@ -30,7 +30,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".storybook/*.tsx",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".storybook/vitest-browser.setup.ts"
   ],
   "exclude": ["node_modules", "src/public/sw.js"]
 }
