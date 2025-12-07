@@ -3,6 +3,11 @@ name: Visual Regression Testing
 on:
   pull_request:
 
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
 jobs:
   vrt:
     runs-on: ubuntu-latest
@@ -11,6 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -42,7 +49,6 @@ jobs:
 
       - name: Checkout base commit
         run: |
-          git fetch origin ${{ steps.base.outputs.sha }}
           git checkout ${{ steps.base.outputs.sha }}
 
       - name: Install dependencies (for base commit)
