@@ -41,7 +41,7 @@ export default defineConfig({
                 },
               },
             ],
-            screenshotFailures: false,
+            screenshotFailures: process.env.CI === 'true',
             expect: {
               toMatchScreenshot: {
                 comparatorName: 'pixelmatch',

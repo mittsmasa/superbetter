@@ -3,6 +3,7 @@ import { Loading } from '.';
 
 const meta = {
   component: Loading,
+  tags: ['skip-vrt'],
 } satisfies Meta<typeof Loading>;
 
 export default meta;

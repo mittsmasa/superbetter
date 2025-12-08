@@ -10,6 +10,13 @@ export default meta;
 type Story = StoryObj<typeof FooterNavigation>;
 
 export const Default = {
+  decorators: [
+    (Story) => (
+      <div style={{ width: '400px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     nextjs: {
       navigation: {
