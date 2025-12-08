@@ -58,7 +58,7 @@
     "drizzle-kit": "0.31.8",
     "drizzle-seed": "0.3.1",
     "lefthook": "2.0.8",
-    "next-devtools-mcp": "0.3.5",
+    "next-devtools-mcp": "0.3.6",
     "playwright": "1.57.0",
     "serwist": "9.2.3",
     "storybook": "10.1.4",
