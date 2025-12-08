@@ -81,6 +81,7 @@ jobs:
           path: .vitest-attachments/**/*-diff-*.png
           if-no-files-found: ignore
           retention-days: 3
+          include-hidden-files: true
 
       - name: Upload VRT actual images
         if: always()
@@ -90,6 +91,7 @@ jobs:
           path: .vitest-attachments/**/*-actual-*.png
           if-no-files-found: ignore
           retention-days: 3
+          include-hidden-files: true
 
       - name: Create VRT summary
         if: always()
