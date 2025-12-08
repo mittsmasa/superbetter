@@ -73,6 +73,16 @@ jobs:
           echo "exit_code=$VRT_EXIT_CODE" >> $GITHUB_OUTPUT
           exit 0
 
+      - name: Debug - List vitest attachments
+        if: always()
+        run: |
+          echo "=== Listing .vitest-attachments directory ==="
+          if [ -d .vitest-attachments ]; then
+            find .vitest-attachments -type f -name "*.png" | head -20
+          else
+            echo "Directory .vitest-attachments does not exist"
+          fi
+
       - name: Upload VRT diff images
         if: always()
         uses: actions/upload-artifact@v4
