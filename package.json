@@ -48,7 +48,7 @@
     "@storybook/addon-docs": "10.1.4",
     "@storybook/addon-mcp": "0.1.5",
     "@storybook/nextjs-vite": "10.1.4",
-    "@types/node": "24.10.1",
+    "@types/node": "24.10.2",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.2",
