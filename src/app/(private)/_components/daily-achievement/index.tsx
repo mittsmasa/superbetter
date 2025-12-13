@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getDateTimeFormat } from '@/app/_utils/date';
 import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { cva, cx } from '@/styled-system/css';
@@ -34,16 +35,19 @@ export const DailyAchievement = ({
   isToday,
 }: DailyAchievements) => {
   const { day, date } = getDateTimeFormat(_date);
+  const dateForUrl = _date.toISOString().split('T')[0];
 
   return (
-    <div
-      className={cx(
-        wrapper({ status }),
-        isToday && pixelBorder({ borderColor: 'interactive.border.alt' }),
-      )}
-    >
-      <p>{day}</p>
-      <p>{date}</p>
-    </div>
+    <Link href={`/history/${dateForUrl}`}>
+      <div
+        className={cx(
+          wrapper({ status }),
+          isToday && pixelBorder({ borderColor: 'interactive.border.alt' }),
+        )}
+      >
+        <p>{day}</p>
+        <p>{date}</p>
+      </div>
+    </Link>
   );
 };
