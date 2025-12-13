@@ -22,8 +22,8 @@
     "dev:utc": "TZ='Etc/UTC' next dev",
     "prepare": "panda codegen",
     "start": "next start",
-    "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build",
+    "storybook": "storybook dev -p 6006 --no-version-updates",
+    "storybook:build": "storybook build --quiet",
     "type-check": "next typegen && tsc --noEmit"
   },
   "dependencies": {
