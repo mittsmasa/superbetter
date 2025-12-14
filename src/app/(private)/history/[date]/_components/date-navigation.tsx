@@ -1,5 +1,6 @@
 'use client';
 
+import { getTZDate } from '@/app/_utils/date';
 import { ChevlonLeft } from '@/components/icons';
 import { MotionLink } from '@/components/motion-link';
 import { css } from '@/styled-system/css';
@@ -8,12 +9,19 @@ type DateNavigationProps = {
   currentDate: Date;
 };
 
-const formatDateForUrl = (date: Date) => date.toISOString().split('T')[0];
+const formatDateForUrl = (date: Date) => {
+  const jstDate = getTZDate(date);
+  const year = jstDate.getFullYear();
+  const month = String(jstDate.getMonth() + 1).padStart(2, '0');
+  const day = String(jstDate.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
 const formatDateForDisplay = (date: Date) => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
+  const jstDate = getTZDate(date);
+  const year = jstDate.getFullYear();
+  const month = String(jstDate.getMonth() + 1).padStart(2, '0');
+  const day = String(jstDate.getDate()).padStart(2, '0');
   return `${year}/${month}/${day}`;
 };
 

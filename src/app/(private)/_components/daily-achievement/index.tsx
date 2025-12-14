@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getDateTimeFormat } from '@/app/_utils/date';
+import { getDateTimeFormat, getTZDate } from '@/app/_utils/date';
 import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { cva, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
@@ -29,13 +29,21 @@ const wrapper = cva({
   },
 });
 
+const formatDateForUrl = (date: Date) => {
+  const jstDate = getTZDate(date);
+  const year = jstDate.getFullYear();
+  const month = String(jstDate.getMonth() + 1).padStart(2, '0');
+  const day = String(jstDate.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
 export const DailyAchievement = ({
   date: _date,
   status,
   isToday,
 }: DailyAchievements) => {
   const { day, date } = getDateTimeFormat(_date);
-  const dateForUrl = _date.toISOString().split('T')[0];
+  const dateForUrl = formatDateForUrl(_date);
 
   return (
     <Link href={`/history/${dateForUrl}`}>
