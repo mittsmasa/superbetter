@@ -1,17 +1,30 @@
 import { and, eq, gt, inArray, or, sql } from 'drizzle-orm';
 import type { db } from '@/db/client';
-import { missionConditions, missions } from '@/db/schema/superbetter';
+import {
+  epicwinHistories,
+  epicwins,
+  missionConditions,
+  missions,
+  powerupHistories,
+  powerups,
+  questHistories,
+  quests,
+  villainHistories,
+  villains,
+} from '@/db/schema/superbetter';
 
 export const updateMissionConditions = async ({
   transaction: tx,
   userId,
   itemType,
   itemId,
+  historyCreatedAt,
 }: {
   transaction: Parameters<Parameters<typeof db.transaction>['0']>['0'];
   userId: string;
   itemType: (typeof missionConditions.$inferSelect)['itemType'];
   itemId?: string;
+  historyCreatedAt?: Date;
 }) => {
   const tragetMissons = await tx
     .select({
@@ -28,7 +41,9 @@ export const updateMissionConditions = async ({
     .innerJoin(missionConditions, eq(missions.id, missionConditions.missionId))
     .where(
       and(
-        gt(missions.deadline, new Date()),
+        historyCreatedAt
+          ? sql`DATE(${missions.deadline}) = DATE(${historyCreatedAt})`
+          : gt(missions.deadline, new Date()),
         eq(missions.userId, userId),
         eq(missionConditions.completed, false),
         eq(missionConditions.itemType, itemType),
@@ -52,4 +67,211 @@ export const updateMissionConditions = async ({
         tragetMissons.map((m) => m.missionConditionId),
       ),
     );
+};
+
+export const revertMissionConditionsIfNeeded = async ({
+  transaction: tx,
+  userId,
+  itemType,
+  itemId,
+  historyCreatedAt,
+}: {
+  transaction: Parameters<Parameters<typeof db.transaction>['0']>['0'];
+  userId: string;
+  itemType: (typeof missionConditions.$inferSelect)['itemType'];
+  itemId: string;
+  historyCreatedAt?: Date;
+}) => {
+  // 削除後の履歴総数を取得（その日付に限定）
+  let historyCount = 0;
+
+  if (itemType === 'powerup') {
+    const [result] = await tx
+      .select({ count: sql<number>`COUNT(*)` })
+      .from(powerupHistories)
+      .innerJoin(powerups, eq(powerupHistories.powerupId, powerups.id))
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(powerups.userId, userId),
+              sql`DATE(${powerupHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : eq(powerups.userId, userId),
+      );
+    historyCount = result?.count ?? 0;
+  } else if (itemType === 'quest') {
+    const [result] = await tx
+      .select({ count: sql<number>`COUNT(*)` })
+      .from(questHistories)
+      .innerJoin(quests, eq(questHistories.questId, quests.id))
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(quests.userId, userId),
+              sql`DATE(${questHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : eq(quests.userId, userId),
+      );
+    historyCount = result?.count ?? 0;
+  } else if (itemType === 'villain') {
+    const [result] = await tx
+      .select({ count: sql<number>`COUNT(*)` })
+      .from(villainHistories)
+      .innerJoin(villains, eq(villainHistories.villainId, villains.id))
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(villains.userId, userId),
+              sql`DATE(${villainHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : eq(villains.userId, userId),
+      );
+    historyCount = result?.count ?? 0;
+  } else if (itemType === 'epicwin') {
+    const [result] = await tx
+      .select({ count: sql<number>`COUNT(*)` })
+      .from(epicwinHistories)
+      .innerJoin(epicwins, eq(epicwinHistories.epicwinId, epicwins.id))
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(epicwins.userId, userId),
+              sql`DATE(${epicwinHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : eq(epicwins.userId, userId),
+      );
+    historyCount = result?.count ?? 0;
+  }
+
+  // conditionType='any' の completed = true の missionCondition を処理
+  const anyConditions = await tx
+    .select({ id: missionConditions.id })
+    .from(missions)
+    .innerJoin(missionConditions, eq(missions.id, missionConditions.missionId))
+    .where(
+      and(
+        historyCreatedAt
+          ? sql`DATE(${missions.deadline}) = DATE(${historyCreatedAt})`
+          : gt(missions.deadline, new Date()),
+        eq(missions.userId, userId),
+        eq(missionConditions.completed, true),
+        eq(missionConditions.itemType, itemType),
+        eq(missionConditions.conditionType, 'any'),
+      ),
+    );
+
+  const anyCompletedCount = anyConditions.length;
+  const anyRevertCount = Math.max(0, anyCompletedCount - historyCount);
+
+  if (anyRevertCount > 0) {
+    await tx
+      .update(missionConditions)
+      .set({ completed: false })
+      .where(
+        inArray(
+          missionConditions.id,
+          anyConditions.slice(0, anyRevertCount).map((c) => c.id),
+        ),
+      );
+  }
+
+  // conditionType='specific' の completed = true の missionCondition を処理（その日付に限定）
+  let specificHistoryCount = 0;
+
+  if (itemType === 'powerup') {
+    const [result] = await tx
+      .select({ count: sql<number>`COUNT(*)` })
+      .from(powerupHistories)
+      .innerJoin(powerups, eq(powerupHistories.powerupId, powerups.id))
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(powerups.id, itemId),
+              eq(powerups.userId, userId),
+              sql`DATE(${powerupHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : and(eq(powerups.id, itemId), eq(powerups.userId, userId)),
+      );
+    specificHistoryCount = result?.count ?? 0;
+  } else if (itemType === 'quest') {
+    const [result] = await tx
+      .select({ count: sql<number>`COUNT(*)` })
+      .from(questHistories)
+      .innerJoin(quests, eq(questHistories.questId, quests.id))
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(quests.id, itemId),
+              eq(quests.userId, userId),
+              sql`DATE(${questHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : and(eq(quests.id, itemId), eq(quests.userId, userId)),
+      );
+    specificHistoryCount = result?.count ?? 0;
+  } else if (itemType === 'villain') {
+    const [result] = await tx
+      .select({ count: sql<number>`COUNT(*)` })
+      .from(villainHistories)
+      .innerJoin(villains, eq(villainHistories.villainId, villains.id))
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(villains.id, itemId),
+              eq(villains.userId, userId),
+              sql`DATE(${villainHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : and(eq(villains.id, itemId), eq(villains.userId, userId)),
+      );
+    specificHistoryCount = result?.count ?? 0;
+  } else if (itemType === 'epicwin') {
+    const [result] = await tx
+      .select({ count: sql<number>`COUNT(*)` })
+      .from(epicwinHistories)
+      .innerJoin(epicwins, eq(epicwinHistories.epicwinId, epicwins.id))
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(epicwins.id, itemId),
+              eq(epicwins.userId, userId),
+              sql`DATE(${epicwinHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : and(eq(epicwins.id, itemId), eq(epicwins.userId, userId)),
+      );
+    specificHistoryCount = result?.count ?? 0;
+  }
+
+  const specificConditions = await tx
+    .select({ id: missionConditions.id })
+    .from(missions)
+    .innerJoin(missionConditions, eq(missions.id, missionConditions.missionId))
+    .where(
+      and(
+        historyCreatedAt
+          ? sql`DATE(${missions.deadline}) = DATE(${historyCreatedAt})`
+          : gt(missions.deadline, new Date()),
+        eq(missions.userId, userId),
+        eq(missionConditions.completed, true),
+        eq(missionConditions.itemType, itemType),
+        eq(missionConditions.conditionType, 'specific'),
+        eq(missionConditions.itemId, itemId),
+      ),
+    );
+
+  const specificCompletedCount = specificConditions.length;
+  const specificRevertCount = Math.max(
+    0,
+    specificCompletedCount - specificHistoryCount,
+  );
+
+  if (specificRevertCount > 0) {
+    await tx
+      .update(missionConditions)
+      .set({ completed: false })
+      .where(
+        inArray(
+          missionConditions.id,
+          specificConditions.slice(0, specificRevertCount).map((c) => c.id),
+        ),
+      );
+  }
 };

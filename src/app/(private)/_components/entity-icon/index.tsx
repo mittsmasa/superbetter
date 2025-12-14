@@ -13,7 +13,7 @@ export type MissionEntity = {
   size?: ComponentProps<(typeof IconImpl)[EntityType]>['size'];
 };
 
-export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
+export const EntityIcon = ({ itemType, completed, size }: MissionEntity) => {
   // FIXME: アニメーションがこわれてる
   const prevRef = useRef(completed);
   const controls = useAnimation();
@@ -53,7 +53,7 @@ export const EntityIcon = ({ itemType, completed }: MissionEntity) => {
     >
       <IconWithAnimation
         color={colorToken}
-        size={24}
+        size={size}
         animate={controls}
         transition={{ duration: 0.8 }}
       />

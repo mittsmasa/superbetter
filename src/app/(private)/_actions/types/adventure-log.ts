@@ -4,4 +4,5 @@ export type AdventureLog = {
   id: string;
   type: EntityType;
   title: string;
+  createdAt: Date;
 };
