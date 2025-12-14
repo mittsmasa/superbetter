@@ -1,10 +1,14 @@
 'use server';
 
 import { getDateString, getStartAndEndOfDay } from '@/app/_utils/date';
-import { getTimeSeriesAdventureLogs } from '@/app/(private)/_actions/_utils/achievement-helpers';
+import {
+  getMissionsWithConditions,
+  getTimeSeriesAdventureLogs,
+} from '@/app/(private)/_actions/_utils/achievement-helpers';
 import { isEditableDate } from '@/app/(private)/_actions/_utils/editable-date';
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
+import type { missionConditions, missions } from '@/db/schema/superbetter';
 import type { EntityType } from '@/db/types/mission';
 
 export const getDailyEntityHistories = async (
@@ -21,6 +25,9 @@ export const getDailyEntityHistories = async (
         title: string;
         createdAt: Date;
       }[];
+      dailyMission?: typeof missions.$inferSelect & {
+        missionConditions: (typeof missionConditions.$inferSelect)[];
+      };
     },
     { type: 'unknown'; message: string }
   >
@@ -29,8 +36,14 @@ export const getDailyEntityHistories = async (
   const { start, end } = getStartAndEndOfDay(date);
 
   try {
-    const logs = await getTimeSeriesAdventureLogs(user.id, start, end);
+    const [logs, dailyMissions] = await Promise.all([
+      getTimeSeriesAdventureLogs(user.id, start, end),
+      getMissionsWithConditions(user.id, start, end),
+    ]);
     const adventureLogs = logs[0]?.adventureLogs ?? [];
+    const dailyMission = dailyMissions.find(
+      (m) => getDateString(m.deadline ?? new Date(0)) === getDateString(date),
+    );
 
     return {
       type: 'ok',
@@ -39,6 +52,7 @@ export const getDailyEntityHistories = async (
         dateString: logs[0]?.datetime ?? getDateString(date),
         isEditable: isEditableDate(date),
         adventureLogs,
+        dailyMission,
       },
     };
   } catch (e) {

@@ -2,6 +2,7 @@
 
 import { and, eq, sql } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';
+import { revertMissionConditionsIfNeeded } from '@/app/_utils/sql/mission';
 import { isEditableDate } from '@/app/(private)/_actions/_utils/editable-date';
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
@@ -51,6 +52,14 @@ export const deletePowerupHistory = async (
         .update(powerups)
         .set({ count: sql`${powerups.count} - 1` })
         .where(eq(powerups.id, powerup.id));
+
+      // デイリーミッションの条件を更新
+      await revertMissionConditionsIfNeeded({
+        transaction: tx,
+        userId: user.id,
+        itemType: 'powerup',
+        itemId: powerup.id,
+      });
     });
 
     revalidatePath('/');
