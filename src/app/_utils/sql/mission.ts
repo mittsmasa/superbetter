@@ -82,7 +82,7 @@ export const revertMissionConditionsIfNeeded = async ({
   itemId: string;
   historyCreatedAt?: Date;
 }) => {
-  // 削除後の履歴総数を取得
+  // 削除後の履歴総数を取得（その日付に限定）
   let historyCount = 0;
 
   if (itemType === 'powerup') {
@@ -90,28 +90,56 @@ export const revertMissionConditionsIfNeeded = async ({
       .select({ count: sql<number>`COUNT(*)` })
       .from(powerupHistories)
       .innerJoin(powerups, eq(powerupHistories.powerupId, powerups.id))
-      .where(eq(powerups.userId, userId));
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(powerups.userId, userId),
+              sql`DATE(${powerupHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : eq(powerups.userId, userId),
+      );
     historyCount = result?.count ?? 0;
   } else if (itemType === 'quest') {
     const [result] = await tx
       .select({ count: sql<number>`COUNT(*)` })
       .from(questHistories)
       .innerJoin(quests, eq(questHistories.questId, quests.id))
-      .where(eq(quests.userId, userId));
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(quests.userId, userId),
+              sql`DATE(${questHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : eq(quests.userId, userId),
+      );
     historyCount = result?.count ?? 0;
   } else if (itemType === 'villain') {
     const [result] = await tx
       .select({ count: sql<number>`COUNT(*)` })
       .from(villainHistories)
       .innerJoin(villains, eq(villainHistories.villainId, villains.id))
-      .where(eq(villains.userId, userId));
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(villains.userId, userId),
+              sql`DATE(${villainHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : eq(villains.userId, userId),
+      );
     historyCount = result?.count ?? 0;
   } else if (itemType === 'epicwin') {
     const [result] = await tx
       .select({ count: sql<number>`COUNT(*)` })
       .from(epicwinHistories)
       .innerJoin(epicwins, eq(epicwinHistories.epicwinId, epicwins.id))
-      .where(eq(epicwins.userId, userId));
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(epicwins.userId, userId),
+              sql`DATE(${epicwinHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : eq(epicwins.userId, userId),
+      );
     historyCount = result?.count ?? 0;
   }
 
@@ -147,7 +175,7 @@ export const revertMissionConditionsIfNeeded = async ({
       );
   }
 
-  // conditionType='specific' の completed = true の missionCondition を処理
+  // conditionType='specific' の completed = true の missionCondition を処理（その日付に限定）
   let specificHistoryCount = 0;
 
   if (itemType === 'powerup') {
@@ -155,28 +183,60 @@ export const revertMissionConditionsIfNeeded = async ({
       .select({ count: sql<number>`COUNT(*)` })
       .from(powerupHistories)
       .innerJoin(powerups, eq(powerupHistories.powerupId, powerups.id))
-      .where(and(eq(powerups.id, itemId), eq(powerups.userId, userId)));
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(powerups.id, itemId),
+              eq(powerups.userId, userId),
+              sql`DATE(${powerupHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : and(eq(powerups.id, itemId), eq(powerups.userId, userId)),
+      );
     specificHistoryCount = result?.count ?? 0;
   } else if (itemType === 'quest') {
     const [result] = await tx
       .select({ count: sql<number>`COUNT(*)` })
       .from(questHistories)
       .innerJoin(quests, eq(questHistories.questId, quests.id))
-      .where(and(eq(quests.id, itemId), eq(quests.userId, userId)));
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(quests.id, itemId),
+              eq(quests.userId, userId),
+              sql`DATE(${questHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : and(eq(quests.id, itemId), eq(quests.userId, userId)),
+      );
     specificHistoryCount = result?.count ?? 0;
   } else if (itemType === 'villain') {
     const [result] = await tx
       .select({ count: sql<number>`COUNT(*)` })
       .from(villainHistories)
       .innerJoin(villains, eq(villainHistories.villainId, villains.id))
-      .where(and(eq(villains.id, itemId), eq(villains.userId, userId)));
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(villains.id, itemId),
+              eq(villains.userId, userId),
+              sql`DATE(${villainHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : and(eq(villains.id, itemId), eq(villains.userId, userId)),
+      );
     specificHistoryCount = result?.count ?? 0;
   } else if (itemType === 'epicwin') {
     const [result] = await tx
       .select({ count: sql<number>`COUNT(*)` })
       .from(epicwinHistories)
       .innerJoin(epicwins, eq(epicwinHistories.epicwinId, epicwins.id))
-      .where(and(eq(epicwins.id, itemId), eq(epicwins.userId, userId)));
+      .where(
+        historyCreatedAt
+          ? and(
+              eq(epicwins.id, itemId),
+              eq(epicwins.userId, userId),
+              sql`DATE(${epicwinHistories.createdAt}) = DATE(${historyCreatedAt})`,
+            )
+          : and(eq(epicwins.id, itemId), eq(epicwins.userId, userId)),
+      );
     specificHistoryCount = result?.count ?? 0;
   }
 
