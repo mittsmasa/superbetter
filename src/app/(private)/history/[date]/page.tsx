@@ -33,18 +33,21 @@ const Page = async (props: PageProps) => {
           entityType="powerup"
           histories={powerups}
           isEditable={isEditable}
+          targetDate={date}
         />
         <EntityHistorySection
           title="Quests"
           entityType="quest"
           histories={quests}
           isEditable={isEditable}
+          targetDate={date}
         />
         <EntityHistorySection
           title="Villains"
           entityType="villain"
           histories={villains}
           isEditable={isEditable}
+          targetDate={date}
         />
       </div>
     </main>

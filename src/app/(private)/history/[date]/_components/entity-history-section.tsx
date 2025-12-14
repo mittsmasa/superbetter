@@ -16,6 +16,7 @@ type EntityHistorySectionProps = {
   entityType: EntityType;
   histories: EntityHistoryLog[];
   isEditable: boolean;
+  targetDate: Date;
 };
 
 export const EntityHistorySection = async ({
@@ -23,6 +24,7 @@ export const EntityHistorySection = async ({
   entityType,
   histories,
   isEditable,
+  targetDate,
 }: EntityHistorySectionProps) => {
   // 編集可能な場合のみ、追加可能なエンティティ一覧を取得
   let availableEntities: { id: string; title: string }[] = [];
@@ -52,6 +54,7 @@ export const EntityHistorySection = async ({
       histories={histories}
       isEditable={isEditable}
       availableEntities={availableEntities}
+      targetDate={targetDate}
     />
   );
 };

@@ -17,6 +17,7 @@ type EntityHistorySectionContentProps = {
   histories: EntityHistoryLog[];
   isEditable: boolean;
   availableEntities: { id: string; title: string }[];
+  targetDate: Date;
 };
 
 export const EntityHistorySectionContent = ({
@@ -25,6 +26,7 @@ export const EntityHistorySectionContent = ({
   histories,
   isEditable,
   availableEntities,
+  targetDate,
 }: EntityHistorySectionContentProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { ref, show, close } = useDialog();
@@ -89,6 +91,7 @@ export const EntityHistorySectionContent = ({
             key={history.id}
             history={history}
             isEditable={isEditable}
+            targetDate={targetDate}
           />
         ))}
       </div>
@@ -98,6 +101,7 @@ export const EntityHistorySectionContent = ({
           entityType={entityType}
           entities={availableEntities}
           onAddComplete={() => setIsDrawerOpen(false)}
+          targetDate={targetDate}
         />
       </Drawer>
     </div>

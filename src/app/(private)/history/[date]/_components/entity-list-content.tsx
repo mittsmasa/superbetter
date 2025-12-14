@@ -2,6 +2,9 @@
 
 import { motion } from 'motion/react';
 import { useState, useTransition } from 'react';
+import { postPowerupHistoryAtDate } from '@/app/(private)/_actions/post-powerup-history-at-date';
+import { postQuestHistoryAtDate } from '@/app/(private)/_actions/post-quest-history-at-date';
+import { postVillainHistoryAtDate } from '@/app/(private)/_actions/post-villain-history-at-date';
 import { IconButton } from '@/components/icon-button';
 import { Plus } from '@/components/icons';
 import { useToast } from '@/components/toast';
@@ -13,25 +16,40 @@ type EntityListContentProps = {
   entityType: EntityType;
   entities: { id: string; title: string }[];
   onAddComplete: () => void;
+  targetDate: Date;
 };
 
 export const EntityListContent = ({
   entityType,
   entities,
   onAddComplete,
+  targetDate,
 }: EntityListContentProps) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const { add: addToast } = useToast();
 
-  const handleAdd = (_entityId: string) => {
+  const handleAdd = (entityId: string) => {
     startTransition(async () => {
-      // TODO: Phase 2で実装するpostアクションを呼び出す
-      // 仮実装: 成功として処理
-      await new Promise((resolve) => setTimeout(resolve, 300));
+      let result:
+        | Awaited<ReturnType<typeof postQuestHistoryAtDate>>
+        | Awaited<ReturnType<typeof postPowerupHistoryAtDate>>
+        | Awaited<ReturnType<typeof postVillainHistoryAtDate>>
+        | undefined;
+      if (entityType === 'quest') {
+        result = await postQuestHistoryAtDate(entityId, targetDate);
+      } else if (entityType === 'powerup') {
+        result = await postPowerupHistoryAtDate(entityId, targetDate);
+      } else if (entityType === 'villain') {
+        result = await postVillainHistoryAtDate(entityId, targetDate);
+      }
 
-      addToast({ message: '追加しました' });
-      onAddComplete();
+      if (result?.type === 'ok') {
+        addToast({ message: '追加しました' });
+        onAddComplete();
+      } else {
+        addToast({ message: result?.error.message || '追加に失敗しました' });
+      }
     });
   };
 

@@ -2,6 +2,9 @@
 
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState, useTransition } from 'react';
+import { deletePowerupHistory } from '@/app/(private)/_actions/delete-powerup-history';
+import { deleteQuestHistory } from '@/app/(private)/_actions/delete-quest-history';
+import { deleteVillainHistory } from '@/app/(private)/_actions/delete-villain-history';
 import { IconButton } from '@/components/icon-button';
 import { Close, Trash } from '@/components/icons';
 import { useToast } from '@/components/toast';
@@ -17,11 +20,13 @@ type EntityHistoryItemProps = {
     createdAt: Date;
   };
   isEditable: boolean;
+  targetDate: Date;
 };
 
 export const EntityHistoryItem = ({
   history,
   isEditable,
+  targetDate,
 }: EntityHistoryItemProps) => {
   const [isDeleteVisible, setIsDeleteVisible] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -50,12 +55,25 @@ export const EntityHistoryItem = ({
   const handleDelete = (e: React.MouseEvent) => {
     e.stopPropagation();
     startTransition(async () => {
-      // TODO: Phase 2で実装するdeleteアクションを呼び出す
-      // 仮実装: 成功として処理
-      await new Promise((resolve) => setTimeout(resolve, 300));
+      let result:
+        | Awaited<ReturnType<typeof deleteQuestHistory>>
+        | Awaited<ReturnType<typeof deletePowerupHistory>>
+        | Awaited<ReturnType<typeof deleteVillainHistory>>
+        | undefined;
+      if (history.type === 'quest') {
+        result = await deleteQuestHistory(history.id, targetDate);
+      } else if (history.type === 'powerup') {
+        result = await deletePowerupHistory(history.id, targetDate);
+      } else if (history.type === 'villain') {
+        result = await deleteVillainHistory(history.id, targetDate);
+      }
 
-      addToast({ message: '削除しました' });
-      setIsDeleteVisible(false);
+      if (result?.type === 'ok') {
+        addToast({ message: '削除しました' });
+        setIsDeleteVisible(false);
+      } else {
+        addToast({ message: result?.error.message || '削除に失敗しました' });
+      }
     });
   };
 

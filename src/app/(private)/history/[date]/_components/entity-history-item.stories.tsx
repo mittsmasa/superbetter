@@ -11,6 +11,7 @@ const meta = {
       createdAt: new Date('2025-12-13T12:00:00'),
     },
     isEditable: true,
+    targetDate: new Date('2025-12-13'),
   },
   tags: ['autodocs'],
   decorators: [
