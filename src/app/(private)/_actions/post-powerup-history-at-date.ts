@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { updateMissionConditions } from '@/app/_utils/sql/mission';
 import { createNoonDate } from '@/app/(private)/_actions/_utils/create-noon-date';
 import { isEditableDate } from '@/app/(private)/_actions/_utils/editable-date';
+import { createDailyMissionForDate } from '@/app/(private)/_actions/create-daily-mission-for-date';
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
@@ -26,6 +27,9 @@ export const postPowerupHistoryAtDate = async (
   }
 
   try {
+    // その日付のデイリーミッションが存在しなければ作成
+    await createDailyMissionForDate(targetDate);
+
     const noonDate = createNoonDate(targetDate);
 
     const historyId = await db.transaction(async (tx) => {
