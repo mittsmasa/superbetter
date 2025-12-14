@@ -52,6 +52,7 @@ export const postPowerupHistoryAtDate = async (
         userId: user.id,
         itemType: 'powerup',
         itemId: powerupId,
+        historyCreatedAt: noonDate,
       });
 
       return historyId;

@@ -18,11 +18,13 @@ export const updateMissionConditions = async ({
   userId,
   itemType,
   itemId,
+  historyCreatedAt,
 }: {
   transaction: Parameters<Parameters<typeof db.transaction>['0']>['0'];
   userId: string;
   itemType: (typeof missionConditions.$inferSelect)['itemType'];
   itemId?: string;
+  historyCreatedAt?: Date;
 }) => {
   const tragetMissons = await tx
     .select({
@@ -39,7 +41,9 @@ export const updateMissionConditions = async ({
     .innerJoin(missionConditions, eq(missions.id, missionConditions.missionId))
     .where(
       and(
-        gt(missions.deadline, new Date()),
+        historyCreatedAt
+          ? sql`DATE(${missions.deadline}) = DATE(${historyCreatedAt})`
+          : gt(missions.deadline, new Date()),
         eq(missions.userId, userId),
         eq(missionConditions.completed, false),
         eq(missionConditions.itemType, itemType),

@@ -52,6 +52,7 @@ export const postQuestHistoryAtDate = async (
         userId: user.id,
         itemType: 'quest',
         itemId: questId,
+        historyCreatedAt: noonDate,
       });
 
       return historyId;

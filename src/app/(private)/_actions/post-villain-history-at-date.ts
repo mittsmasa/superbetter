@@ -52,6 +52,7 @@ export const postVillainHistoryAtDate = async (
         userId: user.id,
         itemType: 'villain',
         itemId: villainId,
+        historyCreatedAt: noonDate,
       });
 
       return historyId;
