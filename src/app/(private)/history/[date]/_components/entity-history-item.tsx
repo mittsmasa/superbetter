@@ -97,9 +97,11 @@ export const EntityHistoryItem = ({
           backgroundColor: 'background',
         })}
       >
-        <EntityIcon itemType={history.type} completed size={24} />
+        <EntityIcon itemType={history.type} completed size={18} />
         <div className={css({ flex: '1' })}>
-          <p className={css({ textStyle: 'Body.primary' })}>{history.title}</p>
+          <p className={css({ textStyle: 'Body.secondary' })}>
+            {history.title}
+          </p>
         </div>
         {isEditable && (
           <IconButton

@@ -1,5 +1,6 @@
 import { getDailyEntityHistories } from '@/app/(private)/_actions/get-daily-entity-histories';
 import { Header } from '@/app/(private)/_components/header';
+import { css } from '@/styled-system/css';
 import { DateNavigation } from './_components/date-navigation';
 import { EntityHistorySection } from './_components/entity-history-section';
 
@@ -27,23 +28,29 @@ const Page = async (props: PageProps) => {
     <main>
       <Header />
       <DateNavigation currentDate={date} />
-      <div>
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '24px',
+        })}
+      >
         <EntityHistorySection
-          title="Powerups"
+          title="パワーアップアイテム"
           entityType="powerup"
           histories={powerups}
           isEditable={isEditable}
           targetDate={date}
         />
         <EntityHistorySection
-          title="Quests"
+          title="クエスト"
           entityType="quest"
           histories={quests}
           isEditable={isEditable}
           targetDate={date}
         />
         <EntityHistorySection
-          title="Villains"
+          title="ヴィラン"
           entityType="villain"
           histories={villains}
           isEditable={isEditable}
