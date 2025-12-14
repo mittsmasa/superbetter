@@ -9,7 +9,8 @@ import { IconButton } from '@/components/icon-button';
 import { Close, Trash } from '@/components/icons';
 import { useToast } from '@/components/toast';
 import type { EntityType } from '@/db/types/mission';
-import { css } from '@/styled-system/css';
+import { css, cx } from '@/styled-system/css';
+import { pixelBorder } from '@/styled-system/patterns';
 import { EntityIcon } from '../../../_components/entity-icon';
 
 type EntityHistoryItemProps = {
@@ -36,6 +37,7 @@ export const EntityHistoryItem = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      event.stopPropagation();
       if (
         deleteAreaRef.current &&
         !deleteAreaRef.current.contains(event.target as Node)
@@ -81,37 +83,43 @@ export const EntityHistoryItem = ({
     <div
       className={css({
         position: 'relative',
-        overflow: 'hidden',
       })}
     >
-      <motion.div
+      <motion.button
         layout
         initial={false}
-        animate={{ x: isDeleteVisible ? -60 : 0 }}
+        animate={{ x: isDeleteVisible ? -40 : 0 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className={css({
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          padding: '8px',
-          backgroundColor: 'background',
-        })}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsDeleteVisible(true);
+        }}
+        className={cx(
+          pixelBorder({
+            borderWidth: 2,
+            borderColor: 'interactive.border',
+          }),
+          css({
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '4px',
+            backgroundColor: 'interactive.background',
+            cursor: 'pointer',
+            width: '[100%]',
+          }),
+        )}
       >
         <EntityIcon itemType={history.type} completed size={18} />
         <div className={css({ flex: '1' })}>
-          <p className={css({ textStyle: 'Body.secondary' })}>
+          <p
+            className={css({ textStyle: 'Body.secondary', textAlign: 'left' })}
+          >
             {history.title}
           </p>
         </div>
-        {isEditable && (
-          <IconButton
-            onClick={() => setIsDeleteVisible((prev) => !prev)}
-            size="sm"
-          >
-            <Close size={20} />
-          </IconButton>
-        )}
-      </motion.div>
+        {isEditable && <Close size={20} />}
+      </motion.button>
 
       {isDeleteVisible && (
         <div
