@@ -59,6 +59,7 @@ export const deletePowerupHistory = async (
         userId: user.id,
         itemType: 'powerup',
         itemId: powerup.id,
+        historyCreatedAt: history.createdAt,
       });
     });
 

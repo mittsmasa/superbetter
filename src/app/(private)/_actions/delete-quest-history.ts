@@ -54,6 +54,7 @@ export const deleteQuestHistory = async (
         userId: user.id,
         itemType: 'quest',
         itemId: quest.id,
+        historyCreatedAt: history.createdAt,
       });
     });
 

@@ -59,6 +59,7 @@ export const deleteVillainHistory = async (
         userId: user.id,
         itemType: 'villain',
         itemId: villain.id,
+        historyCreatedAt: history.createdAt,
       });
     });
 
