@@ -85,7 +85,7 @@ jobs:
 
       - name: Upload VRT diff images
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: vrt-diff-images
           path: .vitest-attachments/**/*-diff-*.png
@@ -95,7 +95,7 @@ jobs:
 
       - name: Upload VRT actual images
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: vrt-actual-images
           path: .vitest-attachments/**/*-actual-*.png
