@@ -57,7 +57,7 @@
     "chrome-devtools-mcp": "0.12.1",
     "drizzle-kit": "0.31.8",
     "drizzle-seed": "0.3.1",
-    "lefthook": "2.0.12",
+    "lefthook": "2.0.13",
     "next-devtools-mcp": "0.3.7",
     "playwright": "1.57.0",
     "serwist": "9.2.3",
