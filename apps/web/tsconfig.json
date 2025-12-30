@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["@serwist/next/typings", "vitest/globals", "vite/client"],
+    "lib": ["dom", "dom.iterable", "esnext", "webworker"]
+  },
+  "include": [
+    "src/types/*.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".storybook/*.tsx",
+    ".next/dev/types/**/*.ts",
+    ".storybook/vitest-browser.setup.ts"
+  ],
+  "exclude": ["node_modules", "src/public/sw.js"]
+}

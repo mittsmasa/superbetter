@@ -1,0 +1,48 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "DB_HOST",
+    "DB_PORT",
+    "DB_USERNAME",
+    "DB_PASSWORD",
+    "DB_DATABASE",
+    "DB_TYPE",
+    "BETTER_AUTH_SECRET"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "dependsOn": ["build"]
+    },
+    "type-check": {},
+    "test": {},
+    "test:unit": {},
+    "test:integration": {},
+    "test:integration:run": {},
+    "test:visual": {},
+    "test:visual:update": {},
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "storybook:build": {
+      "outputs": ["storybook-static/**"]
+    },
+    "prepare": {},
+    "drizzle:gen": {},
+    "drizzle:migrate": {},
+    "drizzle:push": {},
+    "drizzle:studio": {
+      "cache": false,
+      "persistent": true
+    },
+    "drizzle:seed": {}
+  }
+}
