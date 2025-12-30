@@ -8,7 +8,6 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     setupFiles: ['./vitest.setup.ts'],
-    globalSetup: ['./vitest-global.setup.ts'],
     projects: [
       {
         extends: true,
@@ -16,7 +15,10 @@ export default defineConfig({
         test: {
           name: 'unit',
           include: ['src/**/*.test.{ts,tsx}'],
-          exclude: ['src/__visual-tests__/**'],
+          exclude: [
+            'src/__visual-tests__/**',
+            'src/**/*.integration.test.{ts,tsx}',
+          ],
         },
       },
       {
@@ -67,6 +69,7 @@ export default defineConfig({
           maxWorkers: 1,
           testTimeout: 30000,
           hookTimeout: 30000,
+          globalSetup: ['./vitest-global.setup.ts'],
           setupFiles: ['./vitest.integration.setup.ts'],
         },
       },
