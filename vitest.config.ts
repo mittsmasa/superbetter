@@ -15,7 +15,10 @@ export default defineConfig({
         test: {
           name: 'unit',
           include: ['src/**/*.test.{ts,tsx}'],
-          exclude: ['src/__visual-tests__/**'],
+          exclude: [
+            'src/__visual-tests__/**',
+            'src/**/*.integration.test.{ts,tsx}',
+          ],
         },
       },
       {
@@ -51,6 +54,23 @@ export default defineConfig({
               },
             },
           },
+        },
+      },
+      {
+        extends: true,
+        plugins: [],
+        test: {
+          name: 'integration',
+          include: ['src/**/*.integration.test.{ts,tsx}'],
+          exclude: ['src/__visual-tests__/**'],
+          environment: 'node',
+          pool: 'forks',
+          isolate: false,
+          maxWorkers: 1,
+          testTimeout: 60000,
+          hookTimeout: 60000,
+          globalSetup: ['./vitest-global.setup.ts'],
+          setupFiles: ['./vitest.integration.setup.ts'],
         },
       },
     ],
