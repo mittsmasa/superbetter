@@ -77,10 +77,10 @@ jobs:
         if: always()
         run: |
           echo "=== Listing .vitest-attachments directory ==="
-          if [ -d .vitest-attachments ]; then
-            find .vitest-attachments -type f -name "*.png" | head -20
+          if [ -d apps/web/.vitest-attachments ]; then
+            find apps/web/.vitest-attachments -type f -name "*.png" | head -20
           else
-            echo "Directory .vitest-attachments does not exist"
+            echo "Directory apps/web/.vitest-attachments does not exist"
           fi
 
       - name: Upload VRT diff images
@@ -88,7 +88,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: vrt-diff-images
-          path: .vitest-attachments/**/*-diff-*.png
+          path: apps/web/.vitest-attachments/**/*-diff-*.png
           if-no-files-found: ignore
           retention-days: 3
           include-hidden-files: true
@@ -98,7 +98,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: vrt-actual-images
-          path: .vitest-attachments/**/*-actual-*.png
+          path: apps/web/.vitest-attachments/**/*-actual-*.png
           if-no-files-found: ignore
           retention-days: 3
           include-hidden-files: true
