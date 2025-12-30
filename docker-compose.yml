@@ -7,4 +7,4 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./src/db/init:/docker-entrypoint-initdb.d
+      - ./apps/web/src/db/init:/docker-entrypoint-initdb.d
