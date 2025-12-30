@@ -1,4 +1,6 @@
 {
+  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "cd ../.. && pnpm turbo build --filter=@superbetter/web",
   "crons": [
     {
       "path": "/api/cron/create-daily-mission",
