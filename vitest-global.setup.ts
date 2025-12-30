@@ -1,9 +1,22 @@
 import dotenv from 'dotenv';
 import { execaCommandSync } from 'execa';
+import type { Connection } from 'mysql2/promise';
 import { createConnection } from 'mysql2/promise';
 
 // .env.testを読み込む
 dotenv.config({ path: '.env.test', override: true });
+
+/**
+ * DB名のバリデーション（SQLインジェクション対策）
+ */
+function validateDbName(name: string): string {
+  if (!/^[a-zA-Z0-9_]+$/.test(name)) {
+    throw new Error(
+      `Invalid database name: ${name}. Only alphanumeric and underscore allowed.`,
+    );
+  }
+  return name;
+}
 
 export default async function globalSetup() {
   console.log('🚀 Global setup: テスト用DBをセットアップ中...');
@@ -15,16 +28,18 @@ export default async function globalSetup() {
     password: process.env.DB_PASSWORD || 'root',
   };
 
-  const dbName = process.env.DB_DATABASE || 'superbetter_test';
+  const dbName = validateDbName(process.env.DB_DATABASE || 'superbetter_test');
+
+  let connection: Connection | null = null;
+  let connection2: Connection | null = null;
 
   try {
     // MySQL接続
-    const connection = await createConnection(dbConfig);
+    connection = await createConnection(dbConfig);
 
     // テスト用DBを作成（既に存在する場合はスキップ）
     console.log(`📦 Creating database: ${dbName}`);
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${dbName}\``);
-    await connection.end();
 
     // マイグレーション実行
     console.log('🔄 Running migrations...');
@@ -38,12 +53,11 @@ export default async function globalSetup() {
 
     // ユーザーテーブルをクリアしてからシード実行
     console.log('🗑️  Clearing user table...');
-    const connection2 = await createConnection({
+    connection2 = await createConnection({
       ...dbConfig,
       database: dbName,
     });
     await connection2.query('DELETE FROM user');
-    await connection2.end();
 
     // シード実行
     console.log('🌱 Running seeds...');
@@ -59,5 +73,9 @@ export default async function globalSetup() {
   } catch (error) {
     console.error('❌ Global setup failed:', error);
     throw error;
+  } finally {
+    // コネクションを確実にクローズ
+    await connection?.end();
+    await connection2?.end();
   }
 }

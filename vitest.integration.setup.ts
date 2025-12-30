@@ -15,10 +15,8 @@ import {
 } from '@/db/schema/superbetter';
 
 // .env.testを読み込み（src/db/client.tsより前に実行される必要がある）
+// TZもここで設定される
 dotenv.config({ path: '.env.test', override: true });
-
-// タイムゾーンをUTCに設定
-process.env.TZ = 'UTC';
 
 // server-onlyパッケージをモック（テスト環境ではサーバーコンポーネントとして扱う）
 vi.mock('server-only', () => ({}));
