@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "check": "biome check",
-    "test": "vitest --project=integration",
+    "test": "vitest",
     "test:unit": "vitest --project=unit",
     "test:integration": "vitest --project=integration",
     "test:integration:run": "vitest run --project=integration",
@@ -28,10 +28,7 @@
     "start": "next start",
     "storybook": "storybook dev -p 6006 --no-version-updates",
     "storybook:build": "storybook build --quiet",
-    "type-check": "next typegen && tsc --noEmit",
-    "similarity:check": "similarity-ts --threshold 0.85 --min-lines 10 'src/app/(private)'",
-    "similarity:check:actions": "similarity-ts --threshold 0.90 --min-lines 5 'src/app/(private)/_actions'",
-    "similarity:check:components": "similarity-ts --threshold 0.85 --min-lines 10 'src/app/(private)/*/_components'"
+    "type-check": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "@date-fns/tz": "1.4.1",

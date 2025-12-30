@@ -142,12 +142,6 @@ public/swe-worker*
 .plan/*
 !.plan/.gitkeep
 
-# Claude plans
-.claude/plans/
-
 # Visual regression testing
 .vitest-attachments/
 __screenshots__
-
-# Similarity reports
-.similarity/

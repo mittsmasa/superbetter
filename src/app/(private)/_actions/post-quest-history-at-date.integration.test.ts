@@ -8,11 +8,6 @@ vi.mock('@/app/(private)/_actions/get-user', () => ({
   getUser: vi.fn(),
 }));
 
-// next/headersをモック
-vi.mock('next/headers', () => ({
-  headers: vi.fn().mockResolvedValue(new Headers()),
-}));
-
 // next/cacheをモック
 vi.mock('next/cache', () => ({
   revalidatePath: vi.fn(),
