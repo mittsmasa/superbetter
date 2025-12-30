@@ -6,8 +6,12 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
+  resolve: {
+    conditions: ['react-server'],
+  },
   test: {
     setupFiles: ['./vitest.setup.ts'],
+    globalSetup: ['./vitest-global.setup.ts'],
     projects: [
       {
         extends: true,
@@ -51,6 +55,26 @@ export default defineConfig({
               },
             },
           },
+        },
+      },
+      {
+        extends: true,
+        plugins: [],
+        test: {
+          name: 'integration',
+          include: ['src/**/*.integration.test.{ts,tsx}'],
+          exclude: ['src/__visual-tests__/**'],
+          environment: 'node',
+          pool: 'forks',
+          // @ts-expect-error - poolOptions型定義がVitest 4.xで未対応
+          poolOptions: {
+            forks: {
+              singleFork: true, // DB競合を防ぐため順次実行
+            },
+          },
+          testTimeout: 30000,
+          hookTimeout: 30000,
+          setupFiles: ['./vitest.integration.setup.ts'],
         },
       },
     ],
