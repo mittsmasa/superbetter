@@ -40,7 +40,7 @@ jobs:
 
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm --filter @superbetter/web exec playwright install --with-deps chromium
 
       - name: Get PR base commit
         id: base
