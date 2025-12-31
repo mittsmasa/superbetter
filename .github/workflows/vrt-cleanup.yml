@@ -1,0 +1,46 @@
+name: Cleanup VRT Reports
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v6
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Remove VRT report directory
+        run: |
+          PR_DIR="pr-${{ github.event.pull_request.number }}"
+          if [ -d "$PR_DIR" ]; then
+            rm -rf "$PR_DIR"
+            echo "Removed directory: $PR_DIR"
+          else
+            echo "Directory not found: $PR_DIR"
+          fi
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          PR_DIR="pr-${{ github.event.pull_request.number }}"
+
+          # Check if there are any changes to commit
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git add -A
+          git commit -m "chore: cleanup VRT report for PR #${{ github.event.pull_request.number }}"
+          git push origin gh-pages
