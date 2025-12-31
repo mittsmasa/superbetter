@@ -1,0 +1,184 @@
+{
+  "summary": {
+    "total": 34,
+    "passed": 33,
+    "failed": 1,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "testName": "button - Default",
+      "status": "passed",
+      "duration": 529.5
+    },
+    {
+      "testName": "button - Disabled",
+      "status": "passed",
+      "duration": 377
+    },
+    {
+      "testName": "button - Secondary",
+      "status": "passed",
+      "duration": 366.1000000000058
+    },
+    {
+      "testName": "button - SecondaryDisabled",
+      "status": "passed",
+      "duration": 366.6000000000058
+    },
+    {
+      "testName": "counter-button - Default",
+      "status": "passed",
+      "duration": 383.19999999998254
+    },
+    {
+      "testName": "dialog - Default",
+      "status": "passed",
+      "duration": 369.8999999999942
+    },
+    {
+      "testName": "components-drawer - Default",
+      "status": "passed",
+      "duration": 387.19999999998254
+    },
+    {
+      "testName": "example - Default",
+      "status": "failed",
+      "duration": 594,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\n5 pixels (ratio 0.01) differ.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/example-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-default-actual-chromium-linux.png\u001b[39m\n\u001b[2m\nDiff image:\n  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-default-diff-chromium-linux.png\u001b[22m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-default-actual-chromium-linux.png",
+      "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-default-diff-chromium-linux.png"
+    },
+    {
+      "testName": "example - WithIcon",
+      "status": "passed",
+      "duration": 364.5
+    },
+    {
+      "testName": "glass-screen - Default",
+      "status": "passed",
+      "duration": 366.5999999999767
+    },
+    {
+      "testName": "icon-button - Active",
+      "status": "passed",
+      "duration": 365.3999999999942
+    },
+    {
+      "testName": "icon-button - Default",
+      "status": "passed",
+      "duration": 366.3999999999942
+    },
+    {
+      "testName": "icon-button - Disabled",
+      "status": "passed",
+      "duration": 368.3999999999942
+    },
+    {
+      "testName": "icon-button-with-label - Default",
+      "status": "passed",
+      "duration": 366.20000000001164
+    },
+    {
+      "testName": "motion-link - Default",
+      "status": "passed",
+      "duration": 365.20000000001164
+    },
+    {
+      "testName": "navigation - Default",
+      "status": "passed",
+      "duration": 369.3999999999942
+    },
+    {
+      "testName": "number-input - Disabled",
+      "status": "passed",
+      "duration": 381.19999999998254
+    },
+    {
+      "testName": "number-input - Primary",
+      "status": "passed",
+      "duration": 383.70000000001164
+    },
+    {
+      "testName": "number-input - Secondary",
+      "status": "passed",
+      "duration": 382.8999999999942
+    },
+    {
+      "testName": "number-input - WithLabel",
+      "status": "passed",
+      "duration": 382.9000000000233
+    },
+    {
+      "testName": "number-input - WithMinMax",
+      "status": "passed",
+      "duration": 383.1000000000058
+    },
+    {
+      "testName": "number-input - WithStep",
+      "status": "passed",
+      "duration": 383
+    },
+    {
+      "testName": "popover - Default",
+      "status": "passed",
+      "duration": 366.5
+    },
+    {
+      "testName": "radio - Default",
+      "status": "passed",
+      "duration": 384.6000000000058
+    },
+    {
+      "testName": "reorder - Default",
+      "status": "passed",
+      "duration": 414.8999999999942
+    },
+    {
+      "testName": "select - Default",
+      "status": "passed",
+      "duration": 368.19999999998254
+    },
+    {
+      "testName": "select - ManyOptions",
+      "status": "passed",
+      "duration": 366.29999999998836
+    },
+    {
+      "testName": "select - WithDefaultValue",
+      "status": "passed",
+      "duration": 366.5
+    },
+    {
+      "testName": "select - WithOnValueChange",
+      "status": "passed",
+      "duration": 367.69999999998254
+    },
+    {
+      "testName": "select - WithoutLabel",
+      "status": "passed",
+      "duration": 364
+    },
+    {
+      "testName": "text-area - Default",
+      "status": "passed",
+      "duration": 385.79999999998836
+    },
+    {
+      "testName": "text-input - Default",
+      "status": "passed",
+      "duration": 381.3999999999942
+    },
+    {
+      "testName": "toast - Default",
+      "status": "passed",
+      "duration": 364.6000000000058
+    },
+    {
+      "testName": "toast - LongMessage",
+      "status": "passed",
+      "duration": 366.69999999998254
+    }
+  ],
+  "generatedAt": "2025-12-31T06:36:33.100Z"
+}
