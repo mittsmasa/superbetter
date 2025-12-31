@@ -2,10 +2,18 @@
  * Vitest VRT Reporter
  *
  * Custom reporter that generates HTML reports for VRT tests
+ * Compatible with Vitest 4.x
  */
 
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
+import type {
+  Reporter,
+  SerializedError,
+  TestCase,
+  TestModule,
+  TestRunEndReason,
+} from 'vitest/node';
 import { generateHTMLReport } from './html-generator';
 
 export interface VRTResult {
@@ -36,32 +44,13 @@ interface ReportData {
   generatedAt: string;
 }
 
-// Vitest reporter types - simplified for compatibility
-interface VitestFile {
-  filepath: string;
-  tasks?: VitestTask[];
-}
-
-interface VitestTask {
-  type?: string;
-  name: string;
-  mode?: string;
-  tasks?: VitestTask[];
-  result?: {
-    state?: string;
-    duration?: number;
-    errors?: Array<{ message?: string }>;
-  };
-}
-
 /**
- * VRT Reporter for Vitest
+ * VRT Reporter for Vitest 4.x
  */
-export default class VRTReporter {
+class VRTReporter implements Reporter {
   private results: VRTResult[] = [];
   private outputDir: string;
   private jsonOutputPath: string;
-  private rootDir: string = process.cwd();
 
   constructor(options: VRTReporterOptions = {}) {
     this.outputDir = options.outputDir || '.vitest-vrt-report';
@@ -73,73 +62,56 @@ export default class VRTReporter {
     this.results = [];
   }
 
-  onCollected(_files?: VitestFile[]): void {
-    // Initialize results collection
-  }
-
-  onTaskUpdate(_packs: [string, { state?: string }][]): void {
-    // Handle task updates if needed
-  }
-
-  async onFinished(files?: VitestFile[], _errors?: unknown[]): Promise<void> {
-    if (!files) return;
-
-    // Process all test files
-    for (const file of files) {
-      this.processFile(file);
+  /**
+   * Called after all tests have finished running (Vitest 4.x API)
+   */
+  async onTestRunEnd(
+    testModules: ReadonlyArray<TestModule>,
+    _unhandledErrors: ReadonlyArray<SerializedError>,
+    _reason: TestRunEndReason,
+  ): Promise<void> {
+    // Process all test modules
+    for (const testModule of testModules) {
+      this.processTestModule(testModule);
     }
 
     // Generate report after processing
     await this.generateReport();
   }
 
-  private processFile(file: VitestFile): void {
-    if (!file.tasks) return;
-
-    for (const task of file.tasks) {
-      this.processTask(task, file);
+  private processTestModule(testModule: TestModule): void {
+    // Get all tests from the module (including nested suites)
+    for (const task of testModule.children.allTests()) {
+      this.processTestCase(task);
     }
   }
 
-  private processTask(task: VitestTask, file: VitestFile): void {
-    // Handle nested test suites
-    if (task.tasks && task.tasks.length > 0) {
-      for (const subtask of task.tasks) {
-        this.processTask(subtask, file);
-      }
-      return;
-    }
-
-    // Only process actual test tasks
-    if (task.type !== 'test') return;
-
+  private processTestCase(testCase: TestCase): void {
+    const testResult = testCase.result();
     const result: VRTResult = {
-      testName: task.name,
-      status: this.getStatus(task),
-      duration: task.result?.duration,
+      testName: testCase.fullName,
+      status: this.getStatus(testResult?.state),
+      duration: testCase.diagnostic()?.duration,
     };
 
     // Extract error message if failed
-    if (task.result?.state === 'fail' && task.result.errors) {
-      result.error = task.result.errors
-        .map((e: { message?: string }) => e.message || String(e))
+    if (testResult?.state === 'failed' && testResult.errors) {
+      result.error = testResult.errors
+        .map((e) => e.message || String(e))
         .join('\n');
 
-      // Try to extract screenshot paths from error or attachments
-      this.extractScreenshotPaths(result, task, file);
+      // Try to extract screenshot paths from error
+      this.extractScreenshotPaths(result, testResult.errors);
     }
 
     this.results.push(result);
   }
 
-  private getStatus(task: VitestTask): 'passed' | 'failed' | 'skipped' {
-    if (task.mode === 'skip' || task.result?.state === 'skip') {
-      return 'skipped';
-    }
-    if (task.result?.state === 'pass') {
+  private getStatus(state?: string): 'passed' | 'failed' | 'skipped' {
+    if (state === 'passed') {
       return 'passed';
     }
-    if (task.result?.state === 'fail') {
+    if (state === 'failed') {
       return 'failed';
     }
     return 'skipped';
@@ -147,22 +119,11 @@ export default class VRTReporter {
 
   private extractScreenshotPaths(
     result: VRTResult,
-    task: VitestTask,
-    _file: VitestFile,
+    errors: ReadonlyArray<{ message?: string }>,
   ): void {
-    // Parse error message to extract screenshot paths
-    // Vitest browser mode includes paths in the error message
-    const errorMessage = task.result?.errors
-      ?.map((e) => e.message || '')
-      .join('\n');
+    const errorMessage = errors.map((e) => e.message || '').join('\n');
 
     if (!errorMessage) return;
-
-    // Extract paths from error message patterns like:
-    // "Expected: /path/to/expected.png"
-    // "Actual: /path/to/actual.png"
-    // "Diff: /path/to/diff.png"
-    // Or patterns like: "Screenshot: /path/to/screenshot.png"
 
     // Pattern for vitest browser screenshot paths
     const actualMatch = errorMessage.match(
@@ -176,7 +137,6 @@ export default class VRTReporter {
     );
 
     // Also try to find paths in attachments directory structure
-    // Common pattern: .vitest-attachments/{test-name}/{screenshot-name}
     const attachmentPathMatch = errorMessage.match(
       /\.vitest-attachments[^\s"'\n]+\.png/g,
     );
@@ -209,18 +169,6 @@ export default class VRTReporter {
         }
       }
     }
-  }
-
-  async onWatcherRerun(): Promise<void> {
-    this.results = [];
-  }
-
-  async onWatcherStart(): Promise<void> {
-    // Called when watcher starts
-  }
-
-  async onFinishedReportGeneration(): Promise<void> {
-    await this.generateReport();
   }
 
   private async generateReport(): Promise<void> {
@@ -262,3 +210,5 @@ export default class VRTReporter {
     }
   }
 }
+
+export default VRTReporter;
