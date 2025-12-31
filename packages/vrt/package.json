@@ -1,0 +1,38 @@
+{
+  "name": "@superbetter/vrt",
+  "version": "0.1.0",
+  "description": "Storybook + Vitest Browser Mode VRT environment for Next.js/Vite + React",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./setup": "./src/setup/vitest-setup.ts",
+    "./storybook": "./src/storybook/index.tsx",
+    "./reporter": "./src/reporter/index.ts",
+    "./types": "./src/types.ts"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@vitest/browser-playwright": ">=4.0.15 <5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "storybook": "^10.0.0",
+    "vite": "^7.0.0",
+    "vitest": ">=4.0.15 <5.0.0",
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.2"
+  },
+  "author": "SuperBetter Team",
+  "license": "UNLICENSED",
+  "private": true
+}

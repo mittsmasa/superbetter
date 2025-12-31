@@ -1,8 +1,10 @@
-import 'dotenv/config';
+import nextEnv from '@next/env';
 import { drizzle } from 'drizzle-orm/mysql2';
 import { createPool } from 'mysql2/promise';
 import * as authScehma from './schema/auth';
 import * as sbSchema from './schema/superbetter';
+
+nextEnv.loadEnvConfig(process.cwd());
 
 export const schema = { ...authScehma, ...sbSchema };
 

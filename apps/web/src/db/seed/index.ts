@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
+import nextEnv from '@next/env';
 import { seed } from 'drizzle-seed';
 import { db, schema } from '../client';
 
-dotenv.config();
+nextEnv.loadEnvConfig(process.cwd());
 
 const main = async () => {
   await seed(db, { users: schema.user }).refine((f) => ({

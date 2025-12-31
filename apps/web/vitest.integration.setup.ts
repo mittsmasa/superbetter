@@ -1,4 +1,3 @@
-import dotenv from 'dotenv';
 import { beforeAll, beforeEach, vi } from 'vitest';
 import { db } from '@/db/client';
 import {
@@ -16,7 +15,6 @@ import {
 
 // .env.testを読み込み（src/db/client.tsより前に実行される必要がある）
 // TZもここで設定される
-dotenv.config({ path: '.env.test', override: true });
 
 // server-onlyパッケージをモック（テスト環境ではサーバーコンポーネントとして扱う）
 vi.mock('server-only', () => ({}));
