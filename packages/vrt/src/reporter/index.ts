@@ -146,13 +146,69 @@ export default class VRTReporter {
   }
 
   private extractScreenshotPaths(
-    _result: VRTResult,
-    _task: VitestTask,
+    result: VRTResult,
+    task: VitestTask,
     _file: VitestFile,
   ): void {
-    // Try to find attachments directory for this test
-    // This is a simplified approach - in practice you might need to
-    // parse the error message or check file system for actual paths
+    // Parse error message to extract screenshot paths
+    // Vitest browser mode includes paths in the error message
+    const errorMessage = task.result?.errors
+      ?.map((e) => e.message || '')
+      .join('\n');
+
+    if (!errorMessage) return;
+
+    // Extract paths from error message patterns like:
+    // "Expected: /path/to/expected.png"
+    // "Actual: /path/to/actual.png"
+    // "Diff: /path/to/diff.png"
+    // Or patterns like: "Screenshot: /path/to/screenshot.png"
+
+    // Pattern for vitest browser screenshot paths
+    const actualMatch = errorMessage.match(
+      /actual[:\s]+["']?([^"'\s\n]+\.png)["']?/i,
+    );
+    const expectedMatch = errorMessage.match(
+      /expected[:\s]+["']?([^"'\s\n]+\.png)["']?/i,
+    );
+    const diffMatch = errorMessage.match(
+      /diff[:\s]+["']?([^"'\s\n]+\.png)["']?/i,
+    );
+
+    // Also try to find paths in attachments directory structure
+    // Common pattern: .vitest-attachments/{test-name}/{screenshot-name}
+    const attachmentPathMatch = errorMessage.match(
+      /\.vitest-attachments[^\s"'\n]+\.png/g,
+    );
+
+    if (actualMatch?.[1]) {
+      result.actualPath = actualMatch[1];
+    }
+    if (expectedMatch?.[1]) {
+      result.expectedPath = expectedMatch[1];
+    }
+    if (diffMatch?.[1]) {
+      result.diffPath = diffMatch[1];
+    }
+
+    // If we found attachment paths but not specific types, try to categorize them
+    if (attachmentPathMatch && attachmentPathMatch.length > 0) {
+      for (const attachPath of attachmentPathMatch) {
+        if (attachPath.includes('-actual-') || attachPath.includes('actual')) {
+          result.actualPath = result.actualPath || attachPath;
+        } else if (
+          attachPath.includes('-diff-') ||
+          attachPath.includes('diff')
+        ) {
+          result.diffPath = result.diffPath || attachPath;
+        } else if (
+          attachPath.includes('-expected-') ||
+          attachPath.includes('expected')
+        ) {
+          result.expectedPath = result.expectedPath || attachPath;
+        }
+      }
+    }
   }
 
   async onWatcherRerun(): Promise<void> {

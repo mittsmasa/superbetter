@@ -51,7 +51,6 @@ export function defineVRTTests(
     fileNameFormatter = (comp, name) => `${comp}-${name.toLowerCase()}.png`,
     shouldSkip = defaultShouldSkip,
   } = options;
-  // Note: testNameFormatter は将来の拡張用に予約されています
 
   // Process each story file
   for (const [filePath, storyModule] of Object.entries(storyFiles)) {
@@ -62,8 +61,19 @@ export function defineVRTTests(
     // If no title, derive from file path
     if (!componentName) {
       // Extract component name from path like "../components/button/index.stories.tsx"
-      const match = filePath.match(/\/([^/]+)\/[^/]*\.stories\.[tj]sx?$/);
-      componentName = match?.[1] ?? 'Unknown';
+      // or "../components/icon-button/with-label.stories.tsx"
+      const match = filePath.match(/\/([^/]+)\/([^/]+)\.stories\.[tj]sx?$/);
+      if (match) {
+        const [, dirName, fileName] = match;
+        // If the file is not index.stories.tsx, include the file name
+        if (fileName !== 'index') {
+          componentName = `${dirName}-${fileName}`;
+        } else {
+          componentName = dirName;
+        }
+      } else {
+        componentName = 'Unknown';
+      }
     }
 
     if (!componentName || componentName === 'Unknown') {

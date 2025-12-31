@@ -67,7 +67,7 @@ jobs:
       # VRT 実行 (HTML レポート自動生成)
       - name: Run VRT with HTML reporter
         continue-on-error: true
-        run: pnpm test:visual || true
+        run: pnpm test:visual
 
       # VRT レポートをアーティファクトとしてアップロード
       - name: Upload VRT report

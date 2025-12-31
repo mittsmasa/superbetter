@@ -44,8 +44,6 @@ export interface DefineVRTTestsOptions {
   fileNameFormatter?: (componentName: string, storyName: string) => string;
   /** Custom function to skip stories */
   shouldSkip?: (story: ComposedStory) => boolean;
-  /** Custom test name formatter */
-  testNameFormatter?: (componentName: string, storyName: string) => string;
 }
 
 export interface TestVRTStoryOptions {
