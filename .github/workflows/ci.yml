@@ -15,6 +15,13 @@ jobs:
         cache: pnpm
     - name: Install dependencies
       run: pnpm install
+    - name: Start database
+      run: docker compose up -d
+    - name: Wait for database
+      run: |
+        until docker compose exec -T db mysqladmin ping -h localhost -proot --silent; do
+          sleep 1
+        done
     - name: Install Playwright browsers
       run: pnpm --filter @superbetter/web exec playwright install --with-deps chromium
     - name: Type check
@@ -23,3 +30,5 @@ jobs:
       run: pnpm check
     - name: Test
       run: pnpm test:unit
+    - name: Integration Test
+      run: pnpm test:integration
