@@ -148,7 +148,7 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(react@19.2.3)
       storybook:
-        specifier: ^10.0.8
+        specifier: ^10.1.10
         version: 10.1.10(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       vite:
         specifier: ^7.0.8
