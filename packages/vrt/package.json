@@ -24,7 +24,7 @@
     "storybook": "^10.0.8",
     "vite": "^7.0.8",
     "vitest": ">=4.0.15 <5.0.0",
-    "playwright": "^1.40.1"
+    "playwright": "^1.57.0"
   },
   "devDependencies": {
     "@types/node": "^22.19.3",
