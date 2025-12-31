@@ -1,10 +1,6 @@
-import dotenv from 'dotenv';
 import { execaCommandSync } from 'execa';
 import type { Connection } from 'mysql2/promise';
 import { createConnection } from 'mysql2/promise';
-
-// .env.testを読み込む
-dotenv.config({ path: '.env.test', override: true });
 
 /**
  * DB名のバリデーション（SQLインジェクション対策）

@@ -144,6 +144,7 @@ public/swe-worker*
 
 # Visual regression testing
 .vitest-attachments/
+.vitest-vrt-report/
 __screenshots__
 
 # Turborepo

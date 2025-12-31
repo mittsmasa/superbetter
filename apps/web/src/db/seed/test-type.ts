@@ -1,9 +1,9 @@
-import dotenv from 'dotenv';
+import nextEnv from '@next/env';
 import { sql } from 'drizzle-orm';
 import { db } from '../client';
 import { testTypes } from '../schema/superbetter';
 
-dotenv.config();
+nextEnv.loadEnvConfig(process.cwd());
 
 const main = async () => {
   await db
