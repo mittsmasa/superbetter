@@ -1,0 +1,184 @@
+{
+  "summary": {
+    "total": 34,
+    "passed": 33,
+    "failed": 1,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "testName": "button - Default",
+      "status": "passed",
+      "duration": 532.2000000000116
+    },
+    {
+      "testName": "button - Disabled",
+      "status": "passed",
+      "duration": 376.70000000001164
+    },
+    {
+      "testName": "button - Secondary",
+      "status": "passed",
+      "duration": 366.3999999999942
+    },
+    {
+      "testName": "button - SecondaryDisabled",
+      "status": "passed",
+      "duration": 367.1000000000058
+    },
+    {
+      "testName": "counter-button - Default",
+      "status": "passed",
+      "duration": 381.70000000001164
+    },
+    {
+      "testName": "dialog - Default",
+      "status": "passed",
+      "duration": 369.30000000001746
+    },
+    {
+      "testName": "components-drawer - Default",
+      "status": "passed",
+      "duration": 366
+    },
+    {
+      "testName": "example - Default",
+      "status": "passed",
+      "duration": 363.79999999998836
+    },
+    {
+      "testName": "example - WithIcon",
+      "status": "failed",
+      "duration": 588.1000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\n13 pixels (ratio 0.01) differ.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/example-withicon-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-actual-chromium-linux.png\u001b[39m\n\u001b[2m\nDiff image:\n  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-diff-chromium-linux.png\u001b[22m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-actual-chromium-linux.png",
+      "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-diff-chromium-linux.png"
+    },
+    {
+      "testName": "glass-screen - Default",
+      "status": "passed",
+      "duration": 379.19999999998254
+    },
+    {
+      "testName": "icon-button - Active",
+      "status": "passed",
+      "duration": 365.3999999999942
+    },
+    {
+      "testName": "icon-button - Default",
+      "status": "passed",
+      "duration": 365.69999999998254
+    },
+    {
+      "testName": "icon-button - Disabled",
+      "status": "passed",
+      "duration": 366.8999999999942
+    },
+    {
+      "testName": "icon-button-with-label - Default",
+      "status": "passed",
+      "duration": 369.5999999999767
+    },
+    {
+      "testName": "motion-link - Default",
+      "status": "passed",
+      "duration": 363.70000000001164
+    },
+    {
+      "testName": "navigation - Default",
+      "status": "passed",
+      "duration": 370.20000000001164
+    },
+    {
+      "testName": "number-input - Disabled",
+      "status": "passed",
+      "duration": 380.5
+    },
+    {
+      "testName": "number-input - Primary",
+      "status": "passed",
+      "duration": 383.29999999998836
+    },
+    {
+      "testName": "number-input - Secondary",
+      "status": "passed",
+      "duration": 383.5
+    },
+    {
+      "testName": "number-input - WithLabel",
+      "status": "passed",
+      "duration": 383.0999999999767
+    },
+    {
+      "testName": "number-input - WithMinMax",
+      "status": "passed",
+      "duration": 382.8999999999651
+    },
+    {
+      "testName": "number-input - WithStep",
+      "status": "passed",
+      "duration": 383.29999999998836
+    },
+    {
+      "testName": "popover - Default",
+      "status": "passed",
+      "duration": 365.5
+    },
+    {
+      "testName": "radio - Default",
+      "status": "passed",
+      "duration": 385
+    },
+    {
+      "testName": "reorder - Default",
+      "status": "passed",
+      "duration": 400.1000000000349
+    },
+    {
+      "testName": "select - Default",
+      "status": "passed",
+      "duration": 366.6000000000349
+    },
+    {
+      "testName": "select - ManyOptions",
+      "status": "passed",
+      "duration": 366.79999999998836
+    },
+    {
+      "testName": "select - WithDefaultValue",
+      "status": "passed",
+      "duration": 366.0999999999767
+    },
+    {
+      "testName": "select - WithOnValueChange",
+      "status": "passed",
+      "duration": 366.5999999999767
+    },
+    {
+      "testName": "select - WithoutLabel",
+      "status": "passed",
+      "duration": 365
+    },
+    {
+      "testName": "text-area - Default",
+      "status": "passed",
+      "duration": 385.4000000000233
+    },
+    {
+      "testName": "text-input - Default",
+      "status": "passed",
+      "duration": 382.4000000000233
+    },
+    {
+      "testName": "toast - Default",
+      "status": "passed",
+      "duration": 364.20000000001164
+    },
+    {
+      "testName": "toast - LongMessage",
+      "status": "passed",
+      "duration": 366.5
+    }
+  ],
+  "generatedAt": "2025-12-31T06:37:50.705Z"
+}
