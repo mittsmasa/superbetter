@@ -4,6 +4,60 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@floating-ui/react':
+      specifier: 0.27.16
+      version: 0.27.16
+    '@pandacss/dev':
+      specifier: 1.7.2
+      version: 1.7.2
+    '@storybook/addon-docs':
+      specifier: 10.1.10
+      version: 10.1.10
+    '@types/node':
+      specifier: 24.10.4
+      version: 24.10.4
+    '@types/react':
+      specifier: 19.2.7
+      version: 19.2.7
+    '@types/react-dom':
+      specifier: 19.2.3
+      version: 19.2.3
+    '@vitest/browser':
+      specifier: 4.0.16
+      version: 4.0.16
+    '@vitest/browser-playwright':
+      specifier: 4.0.16
+      version: 4.0.16
+    motion:
+      specifier: 12.23.26
+      version: 12.23.26
+    playwright:
+      specifier: 1.57.0
+      version: 1.57.0
+    react:
+      specifier: 19.2.3
+      version: 19.2.3
+    react-dom:
+      specifier: 19.2.3
+      version: 19.2.3
+    storybook:
+      specifier: 10.1.10
+      version: 10.1.10
+    typescript:
+      specifier: 5.9.3
+      version: 5.9.3
+    vite:
+      specifier: 7.3.0
+      version: 7.3.0
+    vite-tsconfig-paths:
+      specifier: 6.0.3
+      version: 6.0.3
+    vitest:
+      specifier: 4.0.16
+      version: 4.0.16
+
 importers:
 
   .:
@@ -18,7 +72,7 @@ importers:
         specifier: 2.7.2
         version: 2.7.2
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
   apps/web:
@@ -27,7 +81,7 @@ importers:
         specifier: 1.4.1
         version: 1.4.1
       '@floating-ui/react':
-        specifier: 0.27.16
+        specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@next/env':
         specifier: 16.1.1
@@ -48,7 +102,7 @@ importers:
         specifier: 0.45.1
         version: 0.45.1(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.16.0)
       motion:
-        specifier: 12.23.26
+        specifier: 'catalog:'
         version: 12.23.26(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       mysql2:
         specifier: 3.16.0
@@ -57,10 +111,10 @@ importers:
         specifier: 16.1.1
         version: 16.1.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react:
-        specifier: 19.2.3
+        specifier: 'catalog:'
         version: 19.2.3
       react-dom:
-        specifier: 19.2.3
+        specifier: 'catalog:'
         version: 19.2.3(react@19.2.3)
       recharts:
         specifier: 3.6.0
@@ -70,10 +124,10 @@ importers:
         version: 0.0.1
     devDependencies:
       '@pandacss/dev':
-        specifier: 1.7.2
+        specifier: 'catalog:'
         version: 1.7.2(typescript@5.9.3)
       '@storybook/addon-docs':
-        specifier: 10.1.10
+        specifier: 'catalog:'
         version: 10.1.10(@types/react@19.2.7)(esbuild@0.25.5)(rollup@4.53.2)(storybook@10.1.10(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(webpack@5.102.1(esbuild@0.25.5))
       '@storybook/addon-mcp':
         specifier: 0.1.6
@@ -85,22 +139,22 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vrt
       '@types/node':
-        specifier: 24.10.4
+        specifier: 'catalog:'
         version: 24.10.4
       '@types/react':
-        specifier: 19.2.7
+        specifier: 'catalog:'
         version: 19.2.7
       '@types/react-dom':
-        specifier: 19.2.3
+        specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.7)
       '@vitejs/plugin-react':
         specifier: 5.1.2
         version: 5.1.2(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))
       '@vitest/browser':
-        specifier: 4.0.16
+        specifier: 'catalog:'
         version: 4.0.16(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)
       '@vitest/browser-playwright':
-        specifier: 4.0.16
+        specifier: 'catalog:'
         version: 4.0.16(playwright@1.57.0)(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)
       drizzle-kit:
         specifier: 0.31.8
@@ -112,25 +166,25 @@ importers:
         specifier: 9.6.1
         version: 9.6.1
       playwright:
-        specifier: 1.57.0
+        specifier: 'catalog:'
         version: 1.57.0
       serwist:
         specifier: 9.4.2
         version: 9.4.2(typescript@5.9.3)
       storybook:
-        specifier: 10.1.10
+        specifier: 'catalog:'
         version: 10.1.10(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       tsx:
         specifier: 4.21.0
         version: 4.21.0
       vite:
-        specifier: 7.3.0
+        specifier: 'catalog:'
         version: 7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
       vite-tsconfig-paths:
-        specifier: 6.0.3
+        specifier: 'catalog:'
         version: 6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))
       vitest:
-        specifier: 4.0.16
+        specifier: 'catalog:'
         version: 4.0.16(@opentelemetry/api@1.9.0)(@types/node@24.10.4)(@vitest/browser-playwright@4.0.16)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
       vitest-browser-react:
         specifier: 2.0.2
@@ -139,84 +193,84 @@ importers:
   packages/ui:
     dependencies:
       '@floating-ui/react':
-        specifier: 0.27.16
+        specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       motion:
-        specifier: 12.23.26
+        specifier: 'catalog:'
         version: 12.23.26(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react:
-        specifier: ^19.0.3
+        specifier: 'catalog:'
         version: 19.2.3
       react-dom:
-        specifier: ^19.0.3
+        specifier: 'catalog:'
         version: 19.2.3(react@19.2.3)
     devDependencies:
       '@pandacss/dev':
-        specifier: 1.7.2
+        specifier: 'catalog:'
         version: 1.7.2(typescript@5.9.3)
       '@storybook/addon-docs':
-        specifier: 10.1.10
+        specifier: 'catalog:'
         version: 10.1.10(@types/react@19.2.7)(esbuild@0.27.1)(rollup@4.53.2)(storybook@10.1.10(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(webpack@5.102.1(esbuild@0.27.1))
       '@storybook/react-vite':
         specifier: 10.1.10
         version: 10.1.10(esbuild@0.27.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.53.2)(storybook@10.1.10(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(webpack@5.102.1(esbuild@0.27.1))
       '@types/react':
-        specifier: 19.2.7
+        specifier: 'catalog:'
         version: 19.2.7
       '@types/react-dom':
-        specifier: 19.2.3
+        specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.7)
       storybook:
-        specifier: 10.1.10
+        specifier: 'catalog:'
         version: 10.1.10(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       tsup:
         specifier: 8.5.1
         version: 8.5.1(jiti@1.21.7)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)
       typescript:
-        specifier: 5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
       vite:
-        specifier: 7.3.0
+        specifier: 'catalog:'
         version: 7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
       vite-tsconfig-paths:
-        specifier: 6.0.3
+        specifier: 'catalog:'
         version: 6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))
 
   packages/vrt:
     dependencies:
       '@vitest/browser-playwright':
-        specifier: '>=4.0.15 <5.0.0'
-        version: 4.0.16(playwright@1.57.0)(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)
+        specifier: 'catalog:'
+        version: 4.0.16(playwright@1.57.0)(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)
       playwright:
-        specifier: ^1.57.0
+        specifier: 'catalog:'
         version: 1.57.0
       react:
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.3
       react-dom:
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.3(react@19.2.3)
       storybook:
-        specifier: ^10.1.10
+        specifier: 'catalog:'
         version: 10.1.10(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       vite:
-        specifier: ^7.3.0
-        version: 7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
+        specifier: 'catalog:'
+        version: 7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
       vitest:
-        specifier: '>=4.0.15 <5.0.0'
-        version: 4.0.16(@opentelemetry/api@1.9.0)(@types/node@22.19.3)(@vitest/browser-playwright@4.0.16)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
+        specifier: 'catalog:'
+        version: 4.0.16(@opentelemetry/api@1.9.0)(@types/node@24.10.4)(@vitest/browser-playwright@4.0.16)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
     devDependencies:
       '@types/node':
-        specifier: ^22.19.3
-        version: 22.19.3
+        specifier: 'catalog:'
+        version: 24.10.4
       '@types/react':
-        specifier: ^19.2.7
+        specifier: 'catalog:'
         version: 19.2.7
       '@types/react-dom':
-        specifier: ^19.2.3
+        specifier: 'catalog:'
         version: 19.2.3(@types/react@19.2.7)
       typescript:
-        specifier: ^5.9.3
+        specifier: 'catalog:'
         version: 5.9.3
 
 packages:
@@ -1574,9 +1628,6 @@ packages:
 
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
-
-  '@types/node@22.19.3':
-    resolution: {integrity: sha512-1N9SBnWYOJTrNZCdh/yJE+t910Y128BoyY+zBLWhL3r0TYzlTmFdXrPwHL9DyFZmlEXNQQolTZh3KHV31QDhyA==}
 
   '@types/node@24.10.4':
     resolution: {integrity: sha512-vnDVpYPMzs4wunl27jHrfmwojOGKya0xyM3sH+UE5iv5uPS6vX7UIoh6m+vQc5LGBq52HBKPIn/zcSZVzeDEZg==}
@@ -3621,9 +3672,6 @@ packages:
   ufo@1.6.1:
     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
 
-  undici-types@6.21.0:
-    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
-
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
@@ -5160,10 +5208,6 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@22.19.3':
-    dependencies:
-      undici-types: 6.21.0
-
   '@types/node@24.10.4':
     dependencies:
       undici-types: 7.16.0
@@ -5198,19 +5242,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/browser-playwright@4.0.16(playwright@1.57.0)(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)':
-    dependencies:
-      '@vitest/browser': 4.0.16(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)
-      '@vitest/mocker': 4.0.16(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))
-      playwright: 1.57.0
-      tinyrainbow: 3.0.3
-      vitest: 4.0.16(@opentelemetry/api@1.9.0)(@types/node@22.19.3)(@vitest/browser-playwright@4.0.16)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
-    transitivePeerDependencies:
-      - bufferutil
-      - msw
-      - utf-8-validate
-      - vite
-
   '@vitest/browser-playwright@4.0.16(playwright@1.57.0)(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)':
     dependencies:
       '@vitest/browser': 4.0.16(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)
@@ -5218,23 +5249,6 @@ snapshots:
       playwright: 1.57.0
       tinyrainbow: 3.0.3
       vitest: 4.0.16(@opentelemetry/api@1.9.0)(@types/node@24.10.4)(@vitest/browser-playwright@4.0.16)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
-    transitivePeerDependencies:
-      - bufferutil
-      - msw
-      - utf-8-validate
-      - vite
-
-  '@vitest/browser@4.0.16(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)':
-    dependencies:
-      '@vitest/mocker': 4.0.16(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))
-      '@vitest/utils': 4.0.16
-      magic-string: 0.30.21
-      pixelmatch: 7.1.0
-      pngjs: 7.0.0
-      sirv: 3.0.2
-      tinyrainbow: 3.0.3
-      vitest: 4.0.16(@opentelemetry/api@1.9.0)(@types/node@22.19.3)(@vitest/browser-playwright@4.0.16)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
-      ws: 8.18.3
     transitivePeerDependencies:
       - bufferutil
       - msw
@@ -5282,14 +5296,6 @@ snapshots:
       magic-string: 0.30.21
     optionalDependencies:
       vite: 7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
-
-  '@vitest/mocker@4.0.16(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))':
-    dependencies:
-      '@vitest/spy': 4.0.16
-      estree-walker: 3.0.3
-      magic-string: 0.30.21
-    optionalDependencies:
-      vite: 7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
 
   '@vitest/mocker@4.0.16(vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))':
     dependencies:
@@ -6146,7 +6152,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.19.3
+      '@types/node': 24.10.4
       merge-stream: 2.0.0
       supports-color: 8.1.1
     optional: true
@@ -7141,8 +7147,6 @@ snapshots:
 
   ufo@1.6.1: {}
 
-  undici-types@6.21.0: {}
-
   undici-types@7.16.0: {}
 
   unicorn-magic@0.3.0: {}
@@ -7234,22 +7238,6 @@ snapshots:
       - supports-color
       - typescript
 
-  vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0):
-    dependencies:
-      esbuild: 0.27.1
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
-      postcss: 8.5.6
-      rollup: 4.53.2
-      tinyglobby: 0.2.15
-    optionalDependencies:
-      '@types/node': 22.19.3
-      fsevents: 2.3.3
-      jiti: 1.21.7
-      lightningcss: 1.30.2
-      terser: 5.37.0
-      tsx: 4.21.0
-
   vite@7.3.0(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0):
     dependencies:
       esbuild: 0.27.1
@@ -7274,45 +7262,6 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.7
       '@types/react-dom': 19.2.3(@types/react@19.2.7)
-
-  vitest@4.0.16(@opentelemetry/api@1.9.0)(@types/node@22.19.3)(@vitest/browser-playwright@4.0.16)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0):
-    dependencies:
-      '@vitest/expect': 4.0.16
-      '@vitest/mocker': 4.0.16(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))
-      '@vitest/pretty-format': 4.0.16
-      '@vitest/runner': 4.0.16
-      '@vitest/snapshot': 4.0.16
-      '@vitest/spy': 4.0.16
-      '@vitest/utils': 4.0.16
-      es-module-lexer: 1.7.0
-      expect-type: 1.2.2
-      magic-string: 0.30.21
-      obug: 2.1.1
-      pathe: 2.0.3
-      picomatch: 4.0.3
-      std-env: 3.10.0
-      tinybench: 2.9.0
-      tinyexec: 1.0.2
-      tinyglobby: 0.2.15
-      tinyrainbow: 3.0.3
-      vite: 7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0)
-      why-is-node-running: 2.3.0
-    optionalDependencies:
-      '@opentelemetry/api': 1.9.0
-      '@types/node': 22.19.3
-      '@vitest/browser-playwright': 4.0.16(playwright@1.57.0)(vite@7.3.0(@types/node@22.19.3)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(vitest@4.0.16)
-    transitivePeerDependencies:
-      - jiti
-      - less
-      - lightningcss
-      - msw
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - terser
-      - tsx
-      - yaml
 
   vitest@4.0.16(@opentelemetry/api@1.9.0)(@types/node@24.10.4)(@vitest/browser-playwright@4.0.16)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0):
     dependencies:
