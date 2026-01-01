@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { useDialog } from '@superbetter/ui';
 import { useEffect } from 'react';
 import { fn } from 'storybook/test';
-import { useDialog } from '@/hooks/dialog';
 import { DeleteConfirmDialog } from '.';
 
 const meta = {

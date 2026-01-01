@@ -1,10 +1,9 @@
 'use client';
 
+import { IconButtonWithLabel, useDialog } from '@superbetter/ui';
 import { useRouter } from 'next/navigation';
 import { DeleteConfirmDialog } from '@/app/(private)/_components/delete-confirm-dialog';
 import { Archive } from '@/assets/icons';
-import { IconButtonWithLabel } from '@/components/icon-button/with-label';
-import { useDialog } from '@/hooks/dialog';
 import { archiveQuest } from '../../_actions/archive-quest';
 
 export const DeleteConfirmButton = (props: { id: string; name: string }) => {

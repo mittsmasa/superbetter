@@ -1,17 +1,17 @@
+import { MotionLink } from '@superbetter/ui';
 import type { ComponentProps, ReactNode } from 'react';
 import { Menu } from '@/assets/icons';
-import { MotionLink } from '@/components/motion-link';
 import { css } from '@/styled-system/css';
 
-export const EntityLink = <T extends string>({
+export const EntityLink = ({
   href,
   disabled,
   title,
   description,
   reorderHandleSlot,
 }: {
-  href: ComponentProps<typeof MotionLink<T>>['href'];
-  disabled?: ComponentProps<typeof MotionLink>['disabled'];
+  href: string;
+  disabled?: boolean;
   title: ReactNode;
   description?: string | null;
   reorderHandleSlot?: ReactNode;

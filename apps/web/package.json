@@ -29,6 +29,7 @@
     "storybook:build": "storybook build --quiet"
   },
   "dependencies": {
+    "@superbetter/ui": "workspace:*",
     "@date-fns/tz": "1.4.1",
     "@floating-ui/react": "0.27.16",
     "@next/env": "16.1.1",

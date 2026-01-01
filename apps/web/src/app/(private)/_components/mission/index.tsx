@@ -1,5 +1,5 @@
+import { MotionLink } from '@superbetter/ui';
 import { CheckGradient, RadioOn } from '@/assets/icons';
-import { MotionLink } from '@/components/motion-link';
 import { css } from '@/styled-system/css';
 import type { MissionEntity } from '../entity-icon';
 import { MissionEntities } from './entitity';

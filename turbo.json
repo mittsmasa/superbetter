@@ -35,7 +35,9 @@
     "storybook:build": {
       "outputs": ["storybook-static/**"]
     },
-    "prepare": {},
+    "prepare": {
+      "dependsOn": ["^prepare"]
+    },
     "drizzle:gen": {},
     "drizzle:migrate": {},
     "drizzle:push": {},

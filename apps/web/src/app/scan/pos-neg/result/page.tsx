@@ -1,6 +1,6 @@
+import { ButtonLink } from '@superbetter/ui';
 import { Header } from '@/app/(private)/_components/header';
 import { CheckList, Cloud, CloudSun, Sun } from '@/assets/icons';
-import { ButtonLink } from '@/components/button';
 import { css } from '@/styled-system/css';
 import { getPosNegScores } from '../../../(private)/me/_actions/get-pos-neg-scores';
 

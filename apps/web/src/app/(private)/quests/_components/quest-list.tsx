@@ -1,8 +1,8 @@
 'use client';
 
+import { Reorder } from '@superbetter/ui';
 import { useEffect, useState } from 'react';
 import { useSortable } from '@/app/_components/sortable/provider';
-import { Reorder } from '@/components/reorder';
 import {
   EntityLink,
   EntityLinkReorderHandle,

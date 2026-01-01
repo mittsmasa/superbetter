@@ -1,0 +1,59 @@
+{
+  "name": "@superbetter/ui",
+  "version": "0.1.0",
+  "description": "SuperBetter UI component library",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./dist/index.js"
+    },
+    "./preset": {
+      "types": "./src/preset.ts",
+      "import": "./dist/preset.js"
+    },
+    "./hooks": {
+      "types": "./src/hooks/index.ts",
+      "import": "./dist/hooks/index.js"
+    },
+    "./icons": {
+      "types": "./src/components/icons/index.ts",
+      "import": "./dist/icons/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepare": "panda codegen && pnpm build",
+    "type-check": "tsc --noEmit",
+    "storybook": "storybook dev -p 6007 --no-version-updates",
+    "storybook:build": "storybook build --quiet"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@floating-ui/react": "0.27.16",
+    "motion": "12.23.26"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "1.7.2",
+    "@storybook/addon-docs": "10.1.10",
+    "@storybook/react-vite": "10.1.10",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "storybook": "10.1.10",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3",
+    "vite": "7.3.0",
+    "vite-tsconfig-paths": "6.0.3"
+  },
+  "author": "SuperBetter Team",
+  "license": "UNLICENSED",
+  "private": true
+}

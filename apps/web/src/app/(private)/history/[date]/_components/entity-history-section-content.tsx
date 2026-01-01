@@ -1,10 +1,8 @@
 'use client';
 
-import { Drawer } from '@/components/drawer';
-import { IconButton } from '@/components/icon-button';
-import { AddBox } from '@/components/icons';
+import { Drawer, IconButton, useDialog } from '@superbetter/ui';
+import { AddBox } from '@superbetter/ui/icons';
 import type { EntityType } from '@/db/types/mission';
-import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 import { EntityHistoryItem } from './entity-history-item';
 import type { EntityHistoryLog } from './entity-history-section';

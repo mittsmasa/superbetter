@@ -1,8 +1,8 @@
 'use client';
 
+import { Button } from '@superbetter/ui';
 import Image from 'next/image';
 import Cat from '@/app/icon.png';
-import { Button } from '@/components/button';
 import { useIsClient } from '@/hooks/check/client';
 import { css } from '@/styled-system/css';
 

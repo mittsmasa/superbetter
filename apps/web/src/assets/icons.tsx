@@ -30,4 +30,4 @@ export {
   Trash,
   Trophy,
   Zap,
-} from '@/components/icons';
+} from '@superbetter/ui/icons';

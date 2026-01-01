@@ -1,15 +1,15 @@
 import { defineConfig } from '@pandacss/dev';
-import { keyframes } from '@/styles/keyframes';
-import * as patterns from '@/styles/patterns';
-import { semanticTokens } from '@/styles/semantic-tokens';
-import { textStyles } from '@/styles/text-styles';
-import { tokens } from '@/styles/tokens';
+import { uiPreset } from '@superbetter/ui/preset';
 
 export default defineConfig({
+  presets: [uiPreset],
   strictTokens: true,
   strictPropertyValues: true,
   preflight: true,
-  include: ['./src/**/*.{js,jsx,ts,tsx}'],
+  include: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/@superbetter/ui/src/**/*.{js,jsx,ts,tsx}',
+  ],
   exclude: [],
   globalCss: {
     body: {
@@ -20,12 +20,5 @@ export default defineConfig({
       boxSizing: 'border-box',
     },
   },
-  theme: {
-    tokens,
-    semanticTokens,
-    textStyles,
-    keyframes,
-  },
-  patterns,
   outdir: 'src/styled-system',
 });

@@ -1,9 +1,9 @@
 'use client';
 
+import { IconButton } from '@superbetter/ui';
 import { useRouter } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { ChevlonLeft } from '@/assets/icons';
-import { IconButton } from '@/components/icon-button';
 import { css } from '@/styled-system/css';
 
 export const Header = ({

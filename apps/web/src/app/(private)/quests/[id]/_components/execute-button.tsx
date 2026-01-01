@@ -1,10 +1,8 @@
 'use client';
 
+import { Button, useGlassScreen, useToast } from '@superbetter/ui';
 import { useTransition } from 'react';
 import { postQuestHistory } from '@/app/(private)/_actions/post-quest-history';
-import { Button } from '@/components/button';
-import { useGlassScreen } from '@/components/glass-screen';
-import { useToast } from '@/components/toast';
 import { css } from '@/styled-system/css';
 
 export const ExecuteButton = ({ questId }: { questId: string }) => {

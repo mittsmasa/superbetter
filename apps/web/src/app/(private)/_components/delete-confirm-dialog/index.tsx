@@ -1,7 +1,6 @@
 'use client';
-import { Button } from '@/components/button';
-import { Dialog } from '@/components/dialog';
-import type { useDialog } from '@/hooks/dialog';
+import type { useDialog } from '@superbetter/ui';
+import { Button, Dialog } from '@superbetter/ui';
 
 import { css } from '@/styled-system/css';
 

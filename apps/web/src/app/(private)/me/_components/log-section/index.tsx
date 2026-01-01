@@ -1,12 +1,12 @@
 'use client';
 
+import { Select } from '@superbetter/ui';
 import { useMemo, useState } from 'react';
 import { getDateString } from '@/app/_utils/date';
 import type { MonthlyAchievements } from '@/app/(private)/_actions/get-monthly-achievements';
 import type { WeekelyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { AdventureLog } from '@/app/(private)/_components/adventure-log';
 import { CalendarChart } from '@/components/calendar-chart';
-import { Select } from '@/components/select';
 import { TimeSeriesChart } from '@/components/time-series-chart';
 import { css } from '@/styled-system/css';
 import { usePeriodAchievements } from './hooks/use-period-achievements';
