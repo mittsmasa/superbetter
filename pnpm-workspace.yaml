@@ -1,3 +1,35 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+
+catalog:
+  # React
+  react: 19.2.3
+  react-dom: 19.2.3
+
+  # TypeScript
+  typescript: 5.9.3
+  '@types/react': 19.2.7
+  '@types/react-dom': 19.2.3
+  '@types/node': 24.10.4
+
+  # PandaCSS
+  '@pandacss/dev': 1.7.2
+
+  # Storybook
+  storybook: 10.1.10
+  '@storybook/addon-docs': 10.1.10
+
+  # Vite
+  vite: 7.3.0
+  vite-tsconfig-paths: 6.0.3
+
+  # UI Libraries
+  '@floating-ui/react': 0.27.16
+  motion: 12.23.26
+
+  # Testing
+  vitest: 4.0.16
+  '@vitest/browser': 4.0.16
+  '@vitest/browser-playwright': 4.0.16
+  playwright: 1.57.0

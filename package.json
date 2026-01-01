@@ -28,7 +28,7 @@
     "@biomejs/biome": "2.3.10",
     "lefthook": "2.0.13",
     "turbo": "2.7.2",
-    "typescript": "5.9.3"
+    "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.26.2"
 }

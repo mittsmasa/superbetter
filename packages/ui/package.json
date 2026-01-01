@@ -34,24 +34,24 @@
     "storybook:build": "storybook build --quiet"
   },
   "peerDependencies": {
-    "react": "^19.0.3",
-    "react-dom": "^19.0.3"
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "dependencies": {
-    "@floating-ui/react": "0.27.16",
-    "motion": "12.23.26"
+    "@floating-ui/react": "catalog:",
+    "motion": "catalog:"
   },
   "devDependencies": {
-    "@pandacss/dev": "1.7.2",
-    "@storybook/addon-docs": "10.1.10",
+    "@pandacss/dev": "catalog:",
+    "@storybook/addon-docs": "catalog:",
     "@storybook/react-vite": "10.1.10",
-    "@types/react": "19.2.7",
-    "@types/react-dom": "19.2.3",
-    "storybook": "10.1.10",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "storybook": "catalog:",
     "tsup": "8.5.1",
-    "typescript": "5.9.3",
-    "vite": "7.3.0",
-    "vite-tsconfig-paths": "6.0.3"
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-tsconfig-paths": "catalog:"
   },
   "author": "SuperBetter Team",
   "license": "UNLICENSED",
