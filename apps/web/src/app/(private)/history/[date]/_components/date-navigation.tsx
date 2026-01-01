@@ -1,7 +1,7 @@
 'use client';
 
+import { ChevlonLeft } from '@superbetter/ui/icons';
 import { getTZDate } from '@/app/_utils/date';
-import { ChevlonLeft } from '@/components/icons';
 import { MotionLink } from '@/components/motion-link';
 import { css } from '@/styled-system/css';
 

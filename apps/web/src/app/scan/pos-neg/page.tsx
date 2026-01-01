@@ -1,6 +1,6 @@
+import { ButtonLink } from '@superbetter/ui';
 import { Header } from '@/app/(private)/_components/header';
 import { CheckList } from '@/assets/icons';
-import { ButtonLink } from '@/components/button';
 import { css } from '@/styled-system/css';
 
 const Page = () => {

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { GlassScreenProvider } from '@/components/glass-screen';
-import { Toaster, ToastProvider } from '@/components/toast';
+import { GlassScreenProvider, Toaster, ToastProvider } from '@superbetter/ui';
 import { pixelMPlus } from '@/fonts';
 import { css } from '@/styled-system/css';
 import { SortableProvider } from './_components/sortable/provider';

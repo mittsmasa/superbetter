@@ -1,14 +1,16 @@
 'use client';
 
+import {
+  Button,
+  Drawer,
+  IconButtonWithLabel,
+  TextArea,
+  TextInput,
+  useDialog,
+} from '@superbetter/ui';
 import { useTransition } from 'react';
 import { editQuest } from '@/app/(private)/quests/_actions/edit-quest';
 import { Edit } from '@/assets/icons';
-import { Button } from '@/components/button';
-import { Drawer } from '@/components/drawer';
-import { IconButtonWithLabel } from '@/components/icon-button/with-label';
-import { TextArea } from '@/components/text-area';
-import { TextInput } from '@/components/text-input';
-import { useDialog } from '@/hooks/dialog';
 import { css } from '@/styled-system/css';
 
 export const EditQuestButton = ({

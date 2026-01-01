@@ -1,9 +1,8 @@
 'use client';
 
+import { IconButton, Popover } from '@superbetter/ui';
 import { useRouter } from 'next/navigation';
 import { Logout, MoreVertical } from '@/assets/icons';
-import { IconButton } from '@/components/icon-button';
-import { Popover } from '@/components/popover';
 import { authClient } from '@/lib/auth-client';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';

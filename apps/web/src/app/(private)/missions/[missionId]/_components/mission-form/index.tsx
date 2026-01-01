@@ -1,9 +1,8 @@
 'use client';
 
+import { Button, Radio } from '@superbetter/ui';
 import Link from 'next/link';
 import { type ComponentProps, useTransition } from 'react';
-import { Button } from '@/components/button';
-import { Radio } from '@/components/radio';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
 import { IconMap } from '../../../../_components/entity-icon/entity-icon-map';

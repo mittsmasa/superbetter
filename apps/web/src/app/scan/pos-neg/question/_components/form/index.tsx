@@ -1,10 +1,8 @@
 'use client';
+import { Button, CounterButton, useGlassScreen } from '@superbetter/ui';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import { Cloud, Sun } from '@/assets/icons';
-import { Button } from '@/components/button';
-import { CounterButton } from '@/components/counter-button';
-import { useGlassScreen } from '@/components/glass-screen';
 import { css } from '@/styled-system/css';
 import { postPosNegScore } from '../../_actions/pos-neg-score';
 

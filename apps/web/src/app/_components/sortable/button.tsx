@@ -1,7 +1,7 @@
 'use client';
 
+import { IconButtonWithLabel } from '@superbetter/ui';
 import { Sort } from '@/assets/icons';
-import { IconButtonWithLabel } from '@/components/icon-button/with-label';
 import { useSortable, useSortableToggle } from './provider';
 
 export const SortableButton = () => {

@@ -1,10 +1,8 @@
 'use client';
 
+import { Button, useGlassScreen, useToast } from '@superbetter/ui';
 import { useTransition } from 'react';
 import { postPowerupHistory } from '@/app/(private)/_actions/post-powerup-history';
-import { Button } from '@/components/button';
-import { useGlassScreen } from '@/components/glass-screen';
-import { useToast } from '@/components/toast';
 import { css } from '@/styled-system/css';
 
 export const ExecuteButton = ({ powerupId }: { powerupId: string }) => {

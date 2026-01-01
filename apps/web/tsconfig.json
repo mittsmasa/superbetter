@@ -22,5 +22,5 @@
     ".next/dev/types/**/*.ts",
     ".storybook/vitest-browser.setup.ts"
   ],
-  "exclude": ["node_modules", "src/public/sw.js"]
+  "exclude": ["node_modules", "src/public/sw.js", "../../packages/ui"]
 }
