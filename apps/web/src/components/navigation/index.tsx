@@ -1,8 +1,8 @@
 'use client';
 
+import { IconButtonWithLabel } from '@superbetter/ui';
 import { usePathname, useRouter } from 'next/navigation';
 import { Android, Calendar, Human, ScriptText, Zap } from '@/assets/icons';
-import { IconButtonWithLabel } from '@/components/icon-button/with-label';
 import { css } from '@/styled-system/css';
 
 export const FooterNavigation = () => {

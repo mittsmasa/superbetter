@@ -1,7 +1,7 @@
 'use client';
 
+import { Button } from '@superbetter/ui';
 import { authClient } from '@/lib/auth-client';
-import { Button } from '../button';
 
 export const GoogleButton = ({ redirectTo }: { redirectTo?: string }) => {
   const handleGoogleLogin = async () => {
