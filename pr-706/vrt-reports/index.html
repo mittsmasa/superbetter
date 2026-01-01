@@ -256,15 +256,15 @@
     <h1>VRT Test Report</h1>
     <div class="stats">
       <div class="stat">
-        <div class="stat-value">34</div>
+        <div class="stat-value">3</div>
         <div class="stat-label">Total Tests</div>
       </div>
       <div class="stat passed">
-        <div class="stat-value">34</div>
+        <div class="stat-value">2</div>
         <div class="stat-label">Passed</div>
       </div>
       <div class="stat failed">
-        <div class="stat-value">0</div>
+        <div class="stat-value">1</div>
         <div class="stat-label">Failed</div>
       </div>
       <div class="stat skipped">
@@ -277,92 +277,63 @@
   <div class="container">
     <div class="filters">
       <span style="font-weight: 500;">Filter:</span>
-      <button class="filter-button" data-filter="all">All (34)</button>
-      <button class="filter-button active" data-filter="failed">Failed (0)</button>
-      <button class="filter-button" data-filter="passed">Passed (34)</button>
+      <button class="filter-button" data-filter="all">All (3)</button>
+      <button class="filter-button active" data-filter="failed">Failed (1)</button>
+      <button class="filter-button" data-filter="passed">Passed (2)</button>
       <button class="filter-button" data-filter="skipped">Skipped (0)</button>
     </div>
 
     <div class="results">
       
-      
-    <div class="result-card passed" data-status="passed">
+    <div class="result-card failed" data-status="failed">
       <div class="result-header">
-        <div class="result-title">button - Default</div>
-        <div class="result-status passed">PASSED</div>
+        <div class="result-title">example - WithIcon</div>
+        <div class="result-status failed">FAILED</div>
       </div>
 
       
+        <div class="screenshots">
+          
 
+          
+            <div class="screenshot-container">
+              <div class="screenshot-label">Actual</div>
+              <div class="screenshot-wrapper">
+                <img src="screenshots/example-withicon-actual-chromium-linux.png" alt="Actual">
+              </div>
+            </div>
+          
+
+          
+            <div class="screenshot-container">
+              <div class="screenshot-label">Diff</div>
+              <div class="screenshot-wrapper">
+                <img src="screenshots/example-withicon-diff-chromium-linux.png" alt="Diff">
+              </div>
+            </div>
+          
+        </div>
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+Screenshot does not match the stored reference.
+2 pixels (ratio 0.01) differ.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/example-withicon-chromium-linux.png[39m
+
+Actual screenshot:
+  [31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-actual-chromium-linux.png[39m
+[2m
+Diff image:
+  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-diff-chromium-linux.png[22m
+</div>
       
     </div>
   
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">button - Disabled</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
       
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">button - Secondary</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">button - SecondaryDisabled</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">counter-button - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">dialog - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">components-drawer - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
     <div class="result-card passed" data-status="passed">
       <div class="result-header">
         <div class="result-title">example - Default</div>
@@ -376,282 +347,7 @@
   
     <div class="result-card passed" data-status="passed">
       <div class="result-header">
-        <div class="result-title">example - WithIcon</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">glass-screen - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">icon-button - Active</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">icon-button - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">icon-button - Disabled</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">icon-button-with-label - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">motion-link - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
         <div class="result-title">navigation - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">number-input - Disabled</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">number-input - Primary</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">number-input - Secondary</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">number-input - WithLabel</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">number-input - WithMinMax</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">number-input - WithStep</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">popover - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">radio - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">reorder - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">select - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">select - ManyOptions</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">select - WithDefaultValue</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">select - WithOnValueChange</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">select - WithoutLabel</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">text-area - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">text-input - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">toast - Default</div>
-        <div class="result-status passed">PASSED</div>
-      </div>
-
-      
-
-      
-    </div>
-  
-    <div class="result-card passed" data-status="passed">
-      <div class="result-header">
-        <div class="result-title">toast - LongMessage</div>
         <div class="result-status passed">PASSED</div>
       </div>
 
