@@ -34,8 +34,8 @@
     "storybook:build": "storybook build --quiet"
   },
   "peerDependencies": {
-    "react": "^19.0.3",
-    "react-dom": "^19.0.3"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "dependencies": {
     "@floating-ui/react": "0.27.16",
