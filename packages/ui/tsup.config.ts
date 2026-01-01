@@ -12,10 +12,13 @@ export default defineConfig({
   clean: true,
   external: ['react', 'react-dom', '@floating-ui/react', 'motion'],
   noExternal: [/styled-system/],
-  treeshake: true,
+  treeshake: false,
   splitting: false,
   sourcemap: true,
   esbuildOptions(options) {
     options.resolveExtensions = ['.mjs', '.js', '.ts', '.tsx', '.json'];
+    options.banner = {
+      js: "'use client';",
+    };
   },
 });
