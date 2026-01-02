@@ -1,0 +1,191 @@
+{
+  "summary": {
+    "total": 30,
+    "passed": 0,
+    "failed": 30,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "testName": "button - Default",
+      "status": "failed",
+      "duration": 694.1999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "button - Disabled",
+      "status": "failed",
+      "duration": 532.5,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-disabled-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "button - Secondary",
+      "status": "failed",
+      "duration": 534.1999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-secondary-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "button - SecondaryDisabled",
+      "status": "failed",
+      "duration": 533.8999999999942,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-secondarydisabled-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "counter-button - Default",
+      "status": "failed",
+      "duration": 548.6999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/counter-button-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "dialog - Default",
+      "status": "failed",
+      "duration": 532.8999999999942,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/dialog-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "components-drawer - Default",
+      "status": "failed",
+      "duration": 533.5999999999913,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/components-drawer-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "glass-screen - Default",
+      "status": "failed",
+      "duration": 532.8000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/glass-screen-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "icon-button - Active",
+      "status": "failed",
+      "duration": 533.8000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-active-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "icon-button - Default",
+      "status": "failed",
+      "duration": 534,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "icon-button - Disabled",
+      "status": "failed",
+      "duration": 532,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-disabled-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "motion-link - Default",
+      "status": "failed",
+      "duration": 533.5,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/motion-link-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "number-input - Disabled",
+      "status": "failed",
+      "duration": 551.4000000000087,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-disabled-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "number-input - Primary",
+      "status": "failed",
+      "duration": 548.6999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-primary-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "number-input - Secondary",
+      "status": "failed",
+      "duration": 550.3000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-secondary-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "number-input - WithLabel",
+      "status": "failed",
+      "duration": 550.8000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withlabel-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "number-input - WithMinMax",
+      "status": "failed",
+      "duration": 548.3999999999942,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withminmax-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "number-input - WithStep",
+      "status": "failed",
+      "duration": 550.2000000000116,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withstep-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "popover - Default",
+      "status": "failed",
+      "duration": 533.9000000000087,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/popover-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "radio - Default",
+      "status": "failed",
+      "duration": 550.3999999999942,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/radio-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "reorder - Default",
+      "status": "failed",
+      "duration": 531.1999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/reorder-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "select - Default",
+      "status": "failed",
+      "duration": 535.1999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "select - ManyOptions",
+      "status": "failed",
+      "duration": 533.6999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-manyoptions-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "select - WithDefaultValue",
+      "status": "failed",
+      "duration": 532.4000000000087,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withdefaultvalue-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "select - WithOnValueChange",
+      "status": "failed",
+      "duration": 533.3000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withonvaluechange-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "select - WithoutLabel",
+      "status": "failed",
+      "duration": 533.3000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withoutlabel-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "text-area - Default",
+      "status": "failed",
+      "duration": 549.8999999999942,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/text-area-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "text-input - Default",
+      "status": "failed",
+      "duration": 550.3000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/text-input-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "toast - Default",
+      "status": "failed",
+      "duration": 515.6000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/toast-default-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "toast - LongMessage",
+      "status": "failed",
+      "duration": 533.2999999999884,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/toast-longmessage-reference-chromium-linux.png\u001b[39m\n"
+    }
+  ],
+  "generatedAt": "2026-01-02T02:28:31.255Z"
+}
