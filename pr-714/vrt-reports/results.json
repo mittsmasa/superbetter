@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "testName": "example - Default",
+      "status": "passed",
+      "duration": 550.2999999999884
+    },
+    {
+      "testName": "example - WithIcon",
+      "status": "passed",
+      "duration": 377.5
+    },
+    {
+      "testName": "navigation - Default",
+      "status": "passed",
+      "duration": 385.8999999999942
+    }
+  ],
+  "generatedAt": "2026-01-02T05:03:47.259Z"
+}
