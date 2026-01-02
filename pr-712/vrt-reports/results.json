@@ -1,32 +1,26 @@
 {
   "summary": {
     "total": 3,
-    "passed": 1,
-    "failed": 2,
+    "passed": 3,
+    "failed": 0,
     "skipped": 0
   },
   "results": [
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 542.1999999999971
+      "duration": 544
     },
     {
       "testName": "example - WithIcon",
-      "status": "failed",
-      "duration": 594.1999999999971,
-      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\n2 pixels (ratio 0.01) differ.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/example-withicon-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-actual-chromium-linux.png\u001b[39m\n\u001b[2m\nDiff image:\n  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-diff-chromium-linux.png\u001b[22m\n",
-      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-actual-chromium-linux.png",
-      "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-diff-chromium-linux.png"
+      "status": "passed",
+      "duration": 374.6000000000058
     },
     {
       "testName": "navigation - Default",
-      "status": "failed",
-      "duration": 585.1000000000058,
-      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\n2 pixels (ratio 0.01) differ.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/navigation-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-actual-chromium-linux.png\u001b[39m\n\u001b[2m\nDiff image:\n  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-diff-chromium-linux.png\u001b[22m\n",
-      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-actual-chromium-linux.png",
-      "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-diff-chromium-linux.png"
+      "status": "passed",
+      "duration": 386.5999999999767
     }
   ],
-  "generatedAt": "2026-01-01T17:36:16.183Z"
+  "generatedAt": "2026-01-02T05:03:35.832Z"
 }
