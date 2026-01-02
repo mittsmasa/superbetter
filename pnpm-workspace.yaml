@@ -23,6 +23,7 @@ catalog:
   # Vite
   vite: 7.3.0
   vite-tsconfig-paths: 6.0.3
+  '@vitejs/plugin-react': 4.4.1
 
   # UI Libraries
   '@floating-ui/react': 0.27.16

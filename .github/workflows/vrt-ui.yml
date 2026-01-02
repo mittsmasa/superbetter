@@ -1,0 +1,175 @@
+name: Visual Regression Testing (UI Package)
+
+on:
+  pull_request:
+    paths:
+      - 'packages/ui/**'
+      - 'packages/vrt/**'
+      - '.github/workflows/vrt-ui.yml'
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  vrt-ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: package.json
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v5
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: pnpm --filter @superbetter/ui exec playwright install --with-deps chromium
+
+      - name: Get PR base commit
+        id: base
+        run: |
+          echo "sha=${{ github.event.pull_request.base.sha }}" >> $GITHUB_OUTPUT
+
+      - name: Checkout base commit
+        run: |
+          git checkout ${{ steps.base.outputs.sha }}
+
+      - name: Install dependencies (for base commit)
+        run: pnpm install
+
+      - name: Generate PandaCSS for UI package
+        run: pnpm --filter @superbetter/ui run prepare
+
+      - name: Generate expected screenshots at base commit
+        run: pnpm --filter @superbetter/ui run test:visual:update
+
+      - name: Checkout PR HEAD
+        run: |
+          git checkout ${{ github.event.pull_request.head.sha }}
+
+      - name: Install dependencies (for PR HEAD)
+        run: pnpm install
+
+      - name: Generate PandaCSS for UI package
+        run: pnpm --filter @superbetter/ui run prepare
+
+      # VRT 実行 (HTML レポート自動生成)
+      - name: Run VRT with HTML reporter
+        id: vrt
+        continue-on-error: true
+        run: pnpm --filter @superbetter/ui run test:visual
+
+      # VRT レポートを GitHub Pages にデプロイ
+      - name: Deploy VRT report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/ui/.vitest-vrt-report
+          destination_dir: pr-${{ github.event.pull_request.number }}/vrt-reports/ui
+          keep_files: true
+
+      # PR コメント投稿
+      - name: Comment PR with VRT results
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const reportPath = './packages/ui/.vitest-vrt-report/results.json';
+
+            // レポートファイルが存在しない場合はデフォルト値を使用
+            let total = 0, passed = 0, failed = 0, skipped = 0;
+
+            if (fs.existsSync(reportPath)) {
+              try {
+                const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+                total = report.summary?.total || 0;
+                passed = report.summary?.passed || 0;
+                failed = report.summary?.failed || 0;
+                skipped = report.summary?.skipped || 0;
+              } catch (e) {
+                console.log('Failed to parse VRT report:', e);
+              }
+            }
+
+            const prNumber = context.issue.number;
+            const pagesUrl = `https://mittsmasa.github.io/superbetter/pr-${prNumber}/vrt-reports/ui/`;
+
+            let status;
+            if (failed > 0) {
+              status = 'Failed';
+            } else if (total === 0) {
+              status = 'Error';
+            } else {
+              status = 'Passed';
+            }
+
+            let body = `## ${status === 'Passed' ? '✅' : status === 'Failed' ? '⚠️' : '❌'} Visual Regression Test Results (UI Package)\n\n`;
+            body += `| Total | Passed | Failed | Skipped |\n`;
+            body += `|-------|--------|--------|--------|\n`;
+            body += `| ${total} | ${passed} | ${failed} | ${skipped} |\n\n`;
+
+            if (failed > 0) {
+              body += `### 📸 Screenshot Differences Detected\n\n`;
+              body += `Visual differences were found in the UI package. Please review the diff images:\n\n`;
+              body += `**[View VRT Report](${pagesUrl})**\n\n`;
+              body += `**Note**: VRT failures do not block merging. Review the changes to ensure they are intentional.\n`;
+            } else if (total > 0) {
+              body += `All visual regression tests for UI package passed!\n\n`;
+              body += `**[View VRT Report](${pagesUrl})**\n`;
+            } else {
+              body += `No tests were executed. There might be an issue with the test setup.\n`;
+            }
+
+            body += `\n---\n`;
+            body += `📊 [Full VRT Report on GitHub Pages](${pagesUrl})\n`;
+
+            // 既存のVRTコメントを検索して更新（スパム防止）
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('Visual Regression Test Results (UI Package)')
+            );
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body,
+              });
+            }
