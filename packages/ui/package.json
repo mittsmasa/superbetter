@@ -31,7 +31,10 @@
     "prepare": "panda codegen && pnpm build",
     "type-check": "tsc --noEmit",
     "storybook": "storybook dev -p 6007 --no-version-updates",
-    "storybook:build": "storybook build --quiet"
+    "storybook:build": "storybook build --quiet",
+    "test:visual": "vitest run --project=vrt --reporter=default --reporter=@superbetter/vrt/reporter",
+    "test:visual:update": "vitest run --update --project=vrt",
+    "test:visual:ui": "vitest --ui --project=vrt"
   },
   "peerDependencies": {
     "react": "catalog:",
@@ -45,13 +48,19 @@
     "@pandacss/dev": "catalog:",
     "@storybook/addon-docs": "catalog:",
     "@storybook/react-vite": "10.1.10",
+    "@superbetter/vrt": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "@vitest/browser": "catalog:",
+    "@vitest/browser-playwright": "catalog:",
+    "playwright": "catalog:",
     "storybook": "catalog:",
     "tsup": "8.5.1",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-tsconfig-paths": "catalog:"
+    "vite-tsconfig-paths": "catalog:",
+    "vitest": "catalog:"
   },
   "author": "SuperBetter Team",
   "license": "UNLICENSED",
