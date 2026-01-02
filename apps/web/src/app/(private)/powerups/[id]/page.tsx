@@ -1,4 +1,4 @@
-import { Header } from '@/app/(private)/_components/header';
+import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
 import { getPowerup } from '../../_actions/get-powerup';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';

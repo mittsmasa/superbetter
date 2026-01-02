@@ -1,7 +1,7 @@
+import { EntityIcon } from '@/components/entity-icon';
 import { css } from '@/styled-system/css';
 import { getAchievedEpicWins } from '../_actions/get-achieved-epicwins';
 import type { AchievedEpicWin } from '../_actions/types/achievements';
-import { EntityIcon } from '../_components/entity-icon';
 
 const Page = async () => {
   const achievedEpicWinsResult = await getAchievedEpicWins();

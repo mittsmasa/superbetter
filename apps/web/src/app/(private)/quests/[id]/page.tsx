@@ -1,5 +1,5 @@
 import { getQuest } from '@/app/(private)/_actions/get-quest';
-import { Header } from '@/app/(private)/_components/header';
+import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';
 import { EditQuestButton } from './_components/edit-quest-button';

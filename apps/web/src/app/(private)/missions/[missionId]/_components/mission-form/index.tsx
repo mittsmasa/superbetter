@@ -3,9 +3,9 @@
 import { Button, Radio } from '@superbetter/ui';
 import Link from 'next/link';
 import { type ComponentProps, useTransition } from 'react';
+import { IconMap } from '@/components/entity-icon/entity-icon-map';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
-import { IconMap } from '../../../../_components/entity-icon/entity-icon-map';
 import type { AllEntities } from '../../_actions/get-all-entities';
 import { postEntityHistory } from '../../_actions/post-entity-history';
 import { getEntity, getEntityValue } from '../../_utils/converter';

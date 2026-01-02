@@ -1,4 +1,4 @@
-import { getStartAndEndOfDay } from '@/app/_utils/date';
+import { getStartAndEndOfDay } from '@/utils/date';
 
 export const isEditableDate = (targetDate: Date): boolean => {
   const now = new Date();

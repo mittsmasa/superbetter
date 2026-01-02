@@ -1,7 +1,7 @@
 import { getMission } from '@/app/(private)/_actions/get-mission';
-import { MissionEntities } from '@/app/(private)/_components/mission/entitity';
+import { Header } from '@/components/header';
+import { MissionEntities } from '@/components/mission/entitity';
 import { css } from '@/styled-system/css';
-import { Header } from '../../_components/header';
 import { getAllEntities } from './_actions/get-all-entities';
 import { MissionForm } from './_components/mission-form';
 

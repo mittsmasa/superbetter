@@ -3,10 +3,7 @@
 import { Reorder } from '@superbetter/ui';
 import { useEffect, useState } from 'react';
 import { useSortable } from '@/app/_components/sortable/provider';
-import {
-  EntityLink,
-  EntityLinkReorderHandle,
-} from '../../_components/entity-link';
+import { EntityLink, EntityLinkReorderHandle } from '@/components/entity-link';
 import { reorderVillains } from '../_actions/reorder-villains';
 
 export const VillainList = ({

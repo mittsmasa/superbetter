@@ -1,5 +1,5 @@
 import { getVillain } from '@/app/(private)/_actions/get-villain';
-import { Header } from '@/app/(private)/_components/header';
+import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';
 import { EditVillainButton } from './_components/edit-villain-button';

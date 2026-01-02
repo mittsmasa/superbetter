@@ -1,4 +1,4 @@
-import { EntityLink } from '@/app/(private)/_components/entity-link';
+import { EntityLink } from '@/components/entity-link';
 import type { epicwins } from '@/db/schema/superbetter';
 import { css } from '@/styled-system/css';
 

@@ -2,9 +2,9 @@ import 'server-only';
 
 import { and, between, eq } from 'drizzle-orm';
 import { cache } from 'react';
-import { getStartAndEndOfDay } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import { missionConditions, missions } from '@/db/schema/superbetter';
+import { getStartAndEndOfDay } from '@/utils/date';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
 

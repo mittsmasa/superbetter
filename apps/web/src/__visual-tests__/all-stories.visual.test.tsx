@@ -15,7 +15,9 @@ const storyFiles = import.meta.glob<Record<string, unknown>>(
     // サーバーサイド依存（drizzle, better-auth等）を持つコンポーネントを除外
     '!../components/calendar-chart/**',
     '!../components/time-series-chart/**',
-    // app/(private) 配下はサーバーサイドコードへの依存があるため除外
+    // サーバーアクションへの依存があるコンポーネントを除外
+    '!../components/entity-history-item/**',
+    // app配下のサーバーサイドコードを除外（移動済みコンポーネントはcomponents配下にあるため問題なし）
     '!../app/**',
   ],
   {

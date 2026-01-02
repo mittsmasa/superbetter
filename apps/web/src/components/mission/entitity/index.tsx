@@ -1,8 +1,9 @@
 import { css } from '@/styled-system/css';
-import { EntityIcon, type MissionEntity } from '../../entity-icon';
+import type { EntityIconProps } from '../../entity-icon';
+import { EntityIcon } from '../../entity-icon';
 import { sortMissionEntities } from './sort-mission-entities';
 
-export const MissionEntities = (props: { items: MissionEntity[] }) => {
+export const MissionEntities = (props: { items: EntityIconProps[] }) => {
   return (
     <div
       className={css({

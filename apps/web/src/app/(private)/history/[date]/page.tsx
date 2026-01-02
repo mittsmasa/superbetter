@@ -1,7 +1,7 @@
 import { getDailyEntityHistories } from '@/app/(private)/_actions/get-daily-entity-histories';
-import { Header } from '@/app/(private)/_components/header';
+import { DateNavigation } from '@/components/date-navigation';
+import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
-import { DateNavigation } from './_components/date-navigation';
 import { EntityHistorySection } from './_components/entity-history-section';
 
 type PageProps = {

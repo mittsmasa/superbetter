@@ -1,4 +1,4 @@
-import { Header } from '@/app/(private)/_components/header';
+import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
 import { getEpicWin } from '../../_actions/epicwin';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';

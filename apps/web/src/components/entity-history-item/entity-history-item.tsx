@@ -7,10 +7,10 @@ import { useEffect, useRef, useState, useTransition } from 'react';
 import { deletePowerupHistory } from '@/app/(private)/_actions/delete-powerup-history';
 import { deleteQuestHistory } from '@/app/(private)/_actions/delete-quest-history';
 import { deleteVillainHistory } from '@/app/(private)/_actions/delete-villain-history';
-import type { EntityType } from '@/db/types/mission';
+import { EntityIcon } from '@/components/entity-icon';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
-import { EntityIcon } from '../../../_components/entity-icon';
+import type { EntityType } from '@/types/superbetter';
 
 type EntityHistoryItemProps = {
   history: {

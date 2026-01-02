@@ -1,8 +1,8 @@
 import { CheckList, CloudSun, Trophy } from '@/assets/icons';
+import { EntityLink } from '@/components/entity-link';
 import { css } from '@/styled-system/css';
 import { getMonthlyAchievements } from '../_actions/get-monthly-achievements';
 import { getWeeklyAchievements } from '../_actions/get-weekly-achievements';
-import { EntityLink } from '../_components/entity-link';
 import { getPosNegScores } from './_actions/get-pos-neg-scores';
 import { ConfigButton } from './_components/config-button';
 import { LogSection } from './_components/log-section';

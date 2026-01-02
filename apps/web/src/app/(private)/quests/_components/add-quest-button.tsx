@@ -8,8 +8,8 @@ import {
   TextInput,
   useDialog,
 } from '@superbetter/ui';
-import { MissionEntities } from '@/app/(private)/_components/mission/entitity';
 import { AddBox } from '@/assets/icons';
+import { MissionEntities } from '@/components/mission/entitity';
 import { css } from '@/styled-system/css';
 import { postQuest } from '../_actions/post-quest';
 

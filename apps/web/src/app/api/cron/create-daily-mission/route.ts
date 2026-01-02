@@ -1,9 +1,9 @@
 import { and, between, eq } from 'drizzle-orm';
 import { type NextRequest, NextResponse } from 'next/server';
-import { getStartAndEndOfDay } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import { user } from '@/db/schema/auth';
 import { missionConditions, missions } from '@/db/schema/superbetter';
+import { getStartAndEndOfDay } from '@/utils/date';
 
 /**
  * 認証されたVercel Cronからのみ実行されることを確認する

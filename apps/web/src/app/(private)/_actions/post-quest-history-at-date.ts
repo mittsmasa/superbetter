@@ -2,7 +2,6 @@
 
 import { and, eq, sql } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';
-import { updateMissionConditions } from '@/app/_utils/sql/mission';
 import { createNoonDate } from '@/app/(private)/_actions/_utils/create-noon-date';
 import { isEditableDate } from '@/app/(private)/_actions/_utils/editable-date';
 import { createDailyMissionForDate } from '@/app/(private)/_actions/create-daily-mission-for-date';
@@ -10,6 +9,7 @@ import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
 import { questHistories, quests } from '@/db/schema/superbetter';
+import { updateMissionConditions } from '@/utils/sql/mission';
 
 export const postQuestHistoryAtDate = async (
   questId: string,

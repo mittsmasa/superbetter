@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { getDateTimeFormat, getTZDate } from '@/app/_utils/date';
-import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { cva, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
+import type { DailyAchievement } from '@/types/superbetter';
+import { getDateTimeFormat, getTZDate } from '@/utils/date';
 
 const wrapper = cva({
   base: {
@@ -37,11 +37,11 @@ const formatDateForUrl = (date: Date) => {
   return `${year}-${month}-${day}`;
 };
 
-export const DailyAchievement = ({
+export const DailyAchievementCard = ({
   date: _date,
   status,
   isToday,
-}: DailyAchievements) => {
+}: DailyAchievement) => {
   const { day, date } = getDateTimeFormat(_date);
   const dateForUrl = formatDateForUrl(_date);
 

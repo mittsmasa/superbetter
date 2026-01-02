@@ -1,5 +1,5 @@
-import { Header } from '@/app/(private)/_components/header';
 import { CheckList } from '@/assets/icons';
+import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
 import { PosNegScoreForm } from './_components/form';
 

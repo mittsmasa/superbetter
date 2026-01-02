@@ -2,12 +2,12 @@
 
 import { and, eq, sql } from 'drizzle-orm';
 import { revalidatePath } from 'next/cache';
-import { revertMissionConditionsIfNeeded } from '@/app/_utils/sql/mission';
 import { isEditableDate } from '@/app/(private)/_actions/_utils/editable-date';
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
 import { villainHistories, villains } from '@/db/schema/superbetter';
+import { revertMissionConditionsIfNeeded } from '@/utils/sql/mission';
 
 export const deleteVillainHistory = async (
   historyId: string,

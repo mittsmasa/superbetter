@@ -3,7 +3,6 @@ import 'server-only';
 import { addDays } from 'date-fns';
 import { and, asc, between, desc, eq, sql } from 'drizzle-orm';
 import { unionAll } from 'drizzle-orm/mysql-core';
-import { getDateString } from '@/app/_utils/date';
 import { db } from '@/db/client';
 import {
   epicwinHistories,
@@ -18,6 +17,7 @@ import {
   villains,
 } from '@/db/schema/superbetter';
 import type { EntityType } from '@/db/types/mission';
+import { getDateString } from '@/utils/date';
 import type { AdventureLog } from '../types/adventure-log';
 import type { DailyAchievements } from '../types/weekly-achievements';
 import { getTimeSeriesPosNegScores } from './pos-neg-data';
