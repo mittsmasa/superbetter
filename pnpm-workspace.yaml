@@ -17,8 +17,8 @@ catalog:
   '@pandacss/dev': 1.7.2
 
   # Storybook
-  storybook: 10.1.10
-  '@storybook/addon-docs': 10.1.10
+  storybook: 10.1.11
+  '@storybook/addon-docs': 10.1.11
 
   # Vite
   vite: 7.3.0
