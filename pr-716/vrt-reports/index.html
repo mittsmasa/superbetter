@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VRT Test Report</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: #2c3e50;
+      color: white;
+      padding: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
+
+    .stat.passed .stat-value { color: #27ae60; }
+    .stat.failed .stat-value { color: #e74c3c; }
+    .stat.skipped .stat-value { color: #f39c12; }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .filters {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .filter-button {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-button.active {
+      background: #3498db;
+      color: white;
+      border-color: #3498db;
+    }
+
+    .filter-button:hover {
+      border-color: #3498db;
+    }
+
+    .results {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .result-card {
+      background: white;
+      border-radius: 4px;
+      padding: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .result-card.failed {
+      border-left: 4px solid #e74c3c;
+    }
+
+    .result-card.passed {
+      border-left: 4px solid #27ae60;
+    }
+
+    .result-card.skipped {
+      border-left: 4px solid #f39c12;
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .result-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .result-status {
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .result-status.passed {
+      background: #d5f4e6;
+      color: #27ae60;
+    }
+
+    .result-status.failed {
+      background: #fadbd8;
+      color: #e74c3c;
+    }
+
+    .result-status.skipped {
+      background: #fef5e7;
+      color: #f39c12;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .screenshot-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .screenshot-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .screenshot-wrapper {
+      position: relative;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #f9f9f9;
+      max-height: 120px;
+    }
+
+    .screenshot-wrapper img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.2s;
+    }
+
+    .screenshot-wrapper img:hover {
+      transform: scale(1.02);
+    }
+
+    .error-message {
+      background: #fadbd8;
+      border: 1px solid #e74c3c;
+      border-radius: 4px;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      font-family: monospace;
+      font-size: 0.875rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #666;
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Modal for zoomed images */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>VRT Test Report</h1>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">17</div>
+        <div class="stat-label">Total Tests</div>
+      </div>
+      <div class="stat passed">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Passed</div>
+      </div>
+      <div class="stat failed">
+        <div class="stat-value">16</div>
+        <div class="stat-label">Failed</div>
+      </div>
+      <div class="stat skipped">
+        <div class="stat-value">0</div>
+        <div class="stat-label">Skipped</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filters">
+      <span style="font-weight: 500;">Filter:</span>
+      <button class="filter-button" data-filter="all">All (17)</button>
+      <button class="filter-button active" data-filter="failed">Failed (16)</button>
+      <button class="filter-button" data-filter="passed">Passed (1)</button>
+      <button class="filter-button" data-filter="skipped">Skipped (0)</button>
+    </div>
+
+    <div class="results">
+      
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">adventure-log - Default</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/adventure-log-default-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">daily-achievement - Achieved</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/daily-achievement-achieved-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">daily-achievement - Default</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/daily-achievement-default-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">daily-achievement - NoData</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/daily-achievement-nodata-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">daily-achievement - Today</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/daily-achievement-today-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">date-navigation-date-navigation - Default</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/date-navigation-date-navigation-default-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">date-navigation-date-navigation - DifferentDate</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+        <div class="screenshots">
+          
+
+          
+
+          
+            <div class="screenshot-container">
+              <div class="screenshot-label">Diff</div>
+              <div class="screenshot-wrapper">
+                <img src="screenshots/date-navigation-date-navigation-differentdate-reference-chromium-linux.png" alt="Diff">
+              </div>
+            </div>
+          
+        </div>
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/date-navigation-date-navigation-differentdate-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">entity-icon - AllTypes</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-icon-alltypes-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">entity-icon - Default</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-icon-default-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">entity-icon - WithAnimation</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-icon-withanimation-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">entity-link - Default</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-default-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">example - WithIcon</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+        <div class="screenshots">
+          
+
+          
+            <div class="screenshot-container">
+              <div class="screenshot-label">Actual</div>
+              <div class="screenshot-wrapper">
+                <img src="screenshots/example-withicon-actual-chromium-linux.png" alt="Actual">
+              </div>
+            </div>
+          
+
+          
+            <div class="screenshot-container">
+              <div class="screenshot-label">Diff</div>
+              <div class="screenshot-wrapper">
+                <img src="screenshots/example-withicon-diff-chromium-linux.png" alt="Diff">
+              </div>
+            </div>
+          
+        </div>
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+Screenshot does not match the stored reference.
+2 pixels (ratio 0.01) differ.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/example-withicon-chromium-linux.png[39m
+
+Actual screenshot:
+  [31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-actual-chromium-linux.png[39m
+[2m
+Diff image:
+  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-diff-chromium-linux.png[22m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">header - Default</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">mission - Default</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/mission-default-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">mission - Incomplete</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+No existing reference screenshot found.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/mission-incomplete-reference-chromium-linux.png[39m
+</div>
+      
+    </div>
+  
+    <div class="result-card failed" data-status="failed">
+      <div class="result-header">
+        <div class="result-title">navigation - Default</div>
+        <div class="result-status failed">FAILED</div>
+      </div>
+
+      
+        <div class="screenshots">
+          
+
+          
+            <div class="screenshot-container">
+              <div class="screenshot-label">Actual</div>
+              <div class="screenshot-wrapper">
+                <img src="screenshots/navigation-default-actual-chromium-linux.png" alt="Actual">
+              </div>
+            </div>
+          
+
+          
+            <div class="screenshot-container">
+              <div class="screenshot-label">Diff</div>
+              <div class="screenshot-wrapper">
+                <img src="screenshots/navigation-default-diff-chromium-linux.png" alt="Diff">
+              </div>
+            </div>
+          
+        </div>
+      
+
+      
+        <div class="error-message">[2mexpect([22m[31melement[39m[2m).[22mtoMatchScreenshot[2m()[22m
+
+Screenshot does not match the stored reference.
+2 pixels (ratio 0.01) differ.
+
+Reference screenshot:
+  [32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/navigation-default-chromium-linux.png[39m
+
+Actual screenshot:
+  [31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-actual-chromium-linux.png[39m
+[2m
+Diff image:
+  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-diff-chromium-linux.png[22m
+</div>
+      
+    </div>
+  
+      
+    <div class="result-card passed" data-status="passed">
+      <div class="result-header">
+        <div class="result-title">example - Default</div>
+        <div class="result-status passed">PASSED</div>
+      </div>
+
+      
+
+      
+    </div>
+  
+      
+    </div>
+
+    
+  </div>
+
+  <!-- Image zoom modal -->
+  <div class="modal" id="imageModal">
+    <button class="modal-close" onclick="closeModal()">x</button>
+    <img id="modalImage" src="" alt="Zoomed screenshot">
+  </div>
+
+  <script>
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const resultCards = document.querySelectorAll('.result-card');
+
+    function applyFilter(filter) {
+      resultCards.forEach(card => {
+        if (filter === 'all' || card.dataset.status === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+
+        // Update active state
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter results
+        applyFilter(filter);
+      });
+    });
+
+    // Apply default filter (failed) on page load
+    applyFilter('failed');
+
+    // Image zoom functionality
+    function openModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = imageSrc;
+      modal.classList.add('active');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('active');
+    }
+
+    // Close modal on click outside image
+    document.getElementById('imageModal').addEventListener('click', (e) => {
+      if (e.target.id === 'imageModal') {
+        closeModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Add click handlers to screenshots
+    document.querySelectorAll('.screenshot-wrapper img').forEach(img => {
+      img.addEventListener('click', () => openModal(img.src));
+    });
+  </script>
+</body>
+</html>
