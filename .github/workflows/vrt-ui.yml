@@ -7,6 +7,10 @@ on:
       - 'packages/vrt/**'
       - '.github/workflows/vrt-ui.yml'
 
+concurrency:
+  group: gh-pages-deploy-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pull-requests: write

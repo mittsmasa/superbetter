@@ -3,6 +3,10 @@ name: Visual Regression Testing
 on:
   pull_request:
 
+concurrency:
+  group: gh-pages-deploy-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pull-requests: write
