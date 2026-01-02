@@ -47,7 +47,7 @@
   "devDependencies": {
     "@pandacss/dev": "catalog:",
     "@storybook/addon-docs": "catalog:",
-    "@storybook/react-vite": "10.1.10",
+    "@storybook/react-vite": "10.1.11",
     "@superbetter/vrt": "workspace:*",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",

@@ -49,7 +49,7 @@
     "@pandacss/dev": "catalog:",
     "@storybook/addon-docs": "catalog:",
     "@storybook/addon-mcp": "0.1.6",
-    "@storybook/nextjs-vite": "10.1.10",
+    "@storybook/nextjs-vite": "10.1.11",
     "@superbetter/vrt": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
