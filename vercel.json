@@ -1,4 +1,0 @@
-{
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm --filter @superbetter/ui run prepare && pnpm --filter @superbetter/web run prepare && pnpm --filter @superbetter/web run build"
-}
