@@ -3,6 +3,7 @@ import { playwright } from '@vitest/browser-playwright';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineProject } from 'vitest/config';
 
+// Vitest configuration for Visual Regression Testing
 export default defineProject({
   define: {
     'process.env': JSON.stringify({ TZ: 'UTC' }),
