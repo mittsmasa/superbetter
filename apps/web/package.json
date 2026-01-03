@@ -34,7 +34,7 @@
     "@floating-ui/react": "catalog:",
     "@next/env": "16.1.1",
     "@serwist/next": "9.4.2",
-    "better-auth": "1.4.9",
+    "better-auth": "1.4.10",
     "date-fns": "4.1.0",
     "drizzle-orm": "0.45.1",
     "motion": "catalog:",
