@@ -149,3 +149,5 @@ __screenshots__
 
 # Turborepo
 .turbo
+.vercel
+.env*.local

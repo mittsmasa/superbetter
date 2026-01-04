@@ -6,19 +6,27 @@
   "exports": {
     ".": {
       "types": "./src/index.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./preset": {
       "types": "./src/preset.ts",
-      "import": "./dist/preset.js"
+      "import": "./dist/preset.js",
+      "require": "./dist/preset.js",
+      "default": "./dist/preset.js"
     },
     "./hooks": {
       "types": "./src/hooks/index.ts",
-      "import": "./dist/hooks/index.js"
+      "import": "./dist/hooks/index.js",
+      "require": "./dist/hooks/index.js",
+      "default": "./dist/hooks/index.js"
     },
     "./icons": {
       "types": "./src/components/icons/index.ts",
-      "import": "./dist/icons/index.js"
+      "import": "./dist/icons/index.js",
+      "require": "./dist/icons/index.js",
+      "default": "./dist/icons/index.js"
     }
   },
   "files": [
