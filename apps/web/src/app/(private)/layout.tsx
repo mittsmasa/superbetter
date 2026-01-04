@@ -18,6 +18,7 @@ const Layout = async ({ children }: PropsWithChildren) => {
           position: 'sticky',
           bottom: 0,
           padding: '8px',
+          pb: '[calc(8px + env(safe-area-inset-bottom))]',
           backgroundColor: 'background',
         })}
       >

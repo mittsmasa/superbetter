@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { GlassScreenProvider, Toaster, ToastProvider } from '@superbetter/ui';
 import { pixelMPlus } from '@/fonts';
@@ -44,6 +44,14 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
