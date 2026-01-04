@@ -7,7 +7,7 @@ import {
   TextInput,
   useDialog,
 } from '@superbetter/ui';
-import { MissionEntities } from '@/app/(private)/_components/mission/entitity';
+import { MissionEntities } from '@/components/mission/entitity';
 import { css } from '@/styled-system/css';
 import { postEpicWin } from '../../_actions/epicwin';
 

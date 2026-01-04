@@ -15,6 +15,51 @@ export default defineProject({
       'server-only': fileURLToPath(
         new URL('./.storybook/stubs/server-only.ts', import.meta.url),
       ),
+      mysql2: fileURLToPath(
+        new URL('./.storybook/stubs/mysql2.ts', import.meta.url),
+      ),
+      'mysql2/promise': fileURLToPath(
+        new URL('./.storybook/stubs/mysql2.ts', import.meta.url),
+      ),
+      'drizzle-orm': fileURLToPath(
+        new URL('./.storybook/stubs/drizzle-orm.ts', import.meta.url),
+      ),
+      'drizzle-orm/mysql-core': fileURLToPath(
+        new URL(
+          './.storybook/stubs/drizzle-orm-mysql-core.ts',
+          import.meta.url,
+        ),
+      ),
+      'drizzle-orm/mysql2': fileURLToPath(
+        new URL('./.storybook/stubs/drizzle-orm.ts', import.meta.url),
+      ),
+      '@/db': fileURLToPath(
+        new URL('./.storybook/stubs/db.ts', import.meta.url),
+      ),
+      '@/db/client': fileURLToPath(
+        new URL('./.storybook/stubs/db.ts', import.meta.url),
+      ),
+      '@/db/schema/auth': fileURLToPath(
+        new URL('./.storybook/stubs/db.ts', import.meta.url),
+      ),
+      '@/db/schema/superbetter': fileURLToPath(
+        new URL('./.storybook/stubs/db.ts', import.meta.url),
+      ),
+      '@/lib/auth': fileURLToPath(
+        new URL('./.storybook/stubs/better-auth.ts', import.meta.url),
+      ),
+      'better-auth': fileURLToPath(
+        new URL('./.storybook/stubs/better-auth.ts', import.meta.url),
+      ),
+      'better-auth/adapters/drizzle': fileURLToPath(
+        new URL('./.storybook/stubs/better-auth.ts', import.meta.url),
+      ),
+      'better-auth/api': fileURLToPath(
+        new URL('./.storybook/stubs/better-auth.ts', import.meta.url),
+      ),
+      'better-auth/next-js': fileURLToPath(
+        new URL('./.storybook/stubs/better-auth.ts', import.meta.url),
+      ),
     },
   },
   optimizeDeps: {
@@ -27,6 +72,10 @@ export default defineProject({
       'date-fns/endOfDay',
       'date-fns/startOfDay',
     ],
+    // VRTテストファイルのみをスキャン対象とする
+    entries: ['src/__visual-tests__/**/*.visual.test.{ts,tsx}'],
+    // サーバーサイド依存を除外
+    exclude: ['drizzle-orm', 'mysql2', 'better-auth', '@next/env'],
   },
   plugins: [tsconfigPaths(), react(), storybookNextJsPlugin()],
   test: {

@@ -2,9 +2,9 @@
 
 import { Drawer, IconButton, useDialog } from '@superbetter/ui';
 import { AddBox } from '@superbetter/ui/icons';
+import { EntityHistoryItem } from '@/components/entity-history-item';
 import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
-import { EntityHistoryItem } from './entity-history-item';
 import type { EntityHistoryLog } from './entity-history-section';
 import { EntityListContent } from './entity-list-content';
 

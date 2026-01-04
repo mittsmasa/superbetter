@@ -1,5 +1,5 @@
-import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
+import type { EntityType } from '@/types/superbetter';
 import { EntityIcon } from '../entity-icon';
 
 export const AdventureLog = ({

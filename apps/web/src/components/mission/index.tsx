@@ -1,7 +1,7 @@
 import { MotionLink } from '@superbetter/ui';
 import { CheckGradient, RadioOn } from '@/assets/icons';
+import type { EntityIconProps } from '@/components/entity-icon';
 import { css } from '@/styled-system/css';
-import type { MissionEntity } from '../entity-icon';
 import { MissionEntities } from './entitity';
 
 export const Mission = ({
@@ -11,7 +11,7 @@ export const Mission = ({
 }: {
   id: string;
   title: string;
-  items: MissionEntity[];
+  items: EntityIconProps[];
 }) => {
   const completed = items.every((item) => item.completed);
   return (

@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { DailyAchievement } from '.';
+import { DailyAchievementCard } from '.';
 
 const meta = {
-  component: DailyAchievement,
+  component: DailyAchievementCard,
   args: {
     date: new Date('2024-12-30'),
     dateString: '2024-12-30',
     adventureLogs: [],
   },
-} satisfies Meta<typeof DailyAchievement>;
+} satisfies Meta<typeof DailyAchievementCard>;
 
 export default meta;
 

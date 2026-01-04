@@ -1,6 +1,6 @@
 import { TZDate } from '@date-fns/tz';
 import { setHours } from 'date-fns/setHours';
-import { fixToUTC, getTZDate } from '@/app/_utils/date';
+import { fixToUTC, getTZDate } from '@/utils/date';
 
 /**
  * 指定された日付のJST正午（12:00:00）のDateオブジェクトを作成します

@@ -1,10 +1,10 @@
+import { Mission } from '@/components/mission';
+import { WeeklyAchievement } from '@/components/weekly-achievement';
 import { css } from '@/styled-system/css';
 import { getMissions } from './_actions/get-mission';
 import { getWeeklyAchievements } from './_actions/get-weekly-achievements';
 import { EpicWinSection } from './_components/epicwin-section';
-import { Mission } from './_components/mission';
 import { TodayAdventureLog } from './_components/today-adventure-log';
-import { WeeklyAchievement } from './_components/weekly-achievement';
 
 export default async function Home() {
   const missions = await getMissions();

@@ -3,17 +3,17 @@
 import { motion, useAnimation } from 'motion/react';
 import { type ComponentProps, useEffect, useMemo, useRef } from 'react';
 import { neonCurrentColor } from '@/assets/style';
-import type { EntityType } from '@/db/types/mission';
 import { css } from '@/styled-system/css';
+import type { EntityType } from '@/types/superbetter';
 import { IconImpl } from './entity-icon-map';
 
-export type MissionEntity = {
+export type EntityIconProps = {
   itemType: EntityType;
   completed: boolean;
   size?: ComponentProps<(typeof IconImpl)[EntityType]>['size'];
 };
 
-export const EntityIcon = ({ itemType, completed, size }: MissionEntity) => {
+export const EntityIcon = ({ itemType, completed, size }: EntityIconProps) => {
   // FIXME: アニメーションがこわれてる
   const prevRef = useRef(completed);
   const controls = useAnimation();

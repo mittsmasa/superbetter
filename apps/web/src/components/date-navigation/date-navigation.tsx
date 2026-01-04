@@ -2,8 +2,8 @@
 
 import { MotionLink } from '@superbetter/ui';
 import { ChevlonLeft } from '@superbetter/ui/icons';
-import { getTZDate } from '@/app/_utils/date';
 import { css } from '@/styled-system/css';
+import { getTZDate } from '@/utils/date';
 
 type DateNavigationProps = {
   currentDate: Date;

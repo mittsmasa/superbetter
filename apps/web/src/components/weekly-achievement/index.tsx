@@ -1,11 +1,11 @@
+import { DailyAchievementCard } from '@/components/daily-achievement';
 import { css } from '@/styled-system/css';
-import type { WeekelyAchievements } from '../../_actions/types/weekly-achievements';
-import { DailyAchievement } from '../daily-achievement';
+import type { WeeklyAchievements } from '@/types/superbetter';
 
 export const WeeklyAchievement = async ({
   weeklyAchievement,
 }: {
-  weeklyAchievement: WeekelyAchievements;
+  weeklyAchievement: WeeklyAchievements;
 }) => {
   return (
     <div
@@ -16,7 +16,7 @@ export const WeeklyAchievement = async ({
       })}
     >
       {weeklyAchievement.map((a) => (
-        <DailyAchievement key={a.dateString.toString()} {...a} />
+        <DailyAchievementCard key={a.dateString.toString()} {...a} />
       ))}
     </div>
   );

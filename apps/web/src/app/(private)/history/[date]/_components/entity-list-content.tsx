@@ -7,10 +7,10 @@ import { useEffect, useRef, useState, useTransition } from 'react';
 import { postPowerupHistoryAtDate } from '@/app/(private)/_actions/post-powerup-history-at-date';
 import { postQuestHistoryAtDate } from '@/app/(private)/_actions/post-quest-history-at-date';
 import { postVillainHistoryAtDate } from '@/app/(private)/_actions/post-villain-history-at-date';
+import { EntityIcon } from '@/components/entity-icon';
 import type { EntityType } from '@/db/types/mission';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
-import { EntityIcon } from '../../../_components/entity-icon';
 
 type EntityListContentProps = {
   entityType: EntityType;

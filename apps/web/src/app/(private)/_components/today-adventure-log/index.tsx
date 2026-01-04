@@ -1,5 +1,5 @@
+import { AdventureLog } from '@/components/adventure-log';
 import type { DailyAchievements } from '../../_actions/types/weekly-achievements';
-import { AdventureLog } from '../adventure-log';
 
 export const TodayAdventureLog = async ({
   achievement,

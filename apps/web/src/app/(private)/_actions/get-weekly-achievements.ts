@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { addDays, endOfDay, getDay, startOfDay } from 'date-fns';
-import { fixToUTC, getTZDate } from '@/app/_utils/date';
+import { fixToUTC, getTZDate } from '@/utils/date';
 import { buildDailyAchievements } from './_utils/achievement-helpers';
 import { getUser } from './get-user';
 import type { Result } from './types/result';
