@@ -130,7 +130,7 @@ jobs:
               status = 'Passed';
             }
 
-            let body = `## ${status === 'Passed' ? '✅' : status === 'Failed' ? '⚠️' : '❌'} Visual Regression Test Results (UI Package)\n\n`;
+            let body = `<!-- VRT-UI-COMMENT -->\n## ${status === 'Passed' ? '✅' : status === 'Failed' ? '⚠️' : '❌'} Visual Regression Test Results (UI Package)\n\n`;
             body += `| Total | Passed | Failed | Skipped |\n`;
             body += `|-------|--------|--------|--------|\n`;
             body += `| ${total} | ${passed} | ${failed} | ${skipped} |\n\n`;
@@ -159,7 +159,7 @@ jobs:
 
             const botComment = comments.find(comment =>
               comment.user.type === 'Bot' &&
-              comment.body.includes('Visual Regression Test Results (UI Package)')
+              comment.body.includes('<!-- VRT-UI-COMMENT -->')
             );
 
             if (botComment) {
