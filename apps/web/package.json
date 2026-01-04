@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "next build && serwist inject-manifest",
+    "build": "next build && serwist build",
     "dev": "next dev",
     "dev:utc": "TZ='Etc/UTC' next dev",
     "start": "next start",
