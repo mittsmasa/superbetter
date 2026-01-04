@@ -1,87 +1,87 @@
 {
   "summary": {
     "total": 17,
-    "passed": 1,
-    "failed": 16,
+    "passed": 2,
+    "failed": 15,
     "skipped": 0
   },
   "results": [
     {
       "testName": "adventure-log - Default",
       "status": "failed",
-      "duration": 746.5,
+      "duration": 775.8999999999942,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/adventure-log-default-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "failed",
-      "duration": 549.4000000000087,
+      "duration": 545,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/daily-achievement-achieved-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "daily-achievement - Default",
       "status": "failed",
-      "duration": 534.1999999999971,
+      "duration": 534.2000000000116,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/daily-achievement-default-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "failed",
-      "duration": 534.3000000000029,
+      "duration": 531.6999999999825,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/daily-achievement-nodata-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "daily-achievement - Today",
       "status": "failed",
-      "duration": 531.5,
+      "duration": 533.3999999999942,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/daily-achievement-today-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "failed",
-      "duration": 533.5,
+      "duration": 533.4000000000233,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/date-navigation-date-navigation-default-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "failed",
-      "duration": 533.6999999999971,
+      "duration": 533.3000000000175,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/date-navigation-date-navigation-differentdate-reference-chromium-linux.png\u001b[39m\n",
       "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/date-navigation-date-navigation-differentdate-reference-chromium-linux.png"
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "failed",
-      "duration": 534.1000000000058,
+      "duration": 536.1999999999825,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-icon-alltypes-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "entity-icon - Default",
       "status": "failed",
-      "duration": 535.5999999999913,
+      "duration": 530,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-icon-default-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "failed",
-      "duration": 546.5999999999913,
+      "duration": 534,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-icon-withanimation-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "entity-link - Default",
       "status": "failed",
-      "duration": 533.1000000000058,
+      "duration": 533.6999999999825,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-default-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 367.29999999998836
+      "duration": 366.1000000000058
     },
     {
       "testName": "example - WithIcon",
       "status": "failed",
-      "duration": 549.8999999999942,
+      "duration": 550.0999999999767,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\n2 pixels (ratio 0.01) differ.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/example-withicon-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-actual-chromium-linux.png\u001b[39m\n\u001b[2m\nDiff image:\n  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-diff-chromium-linux.png\u001b[22m\n",
       "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-actual-chromium-linux.png",
       "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/example-withicon-diff-chromium-linux.png"
@@ -89,29 +89,26 @@
     {
       "testName": "header - Default",
       "status": "failed",
-      "duration": 533.5,
+      "duration": 533.3000000000175,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "mission - Default",
       "status": "failed",
-      "duration": 569.5,
+      "duration": 550.1000000000058,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/mission-default-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "mission - Incomplete",
       "status": "failed",
-      "duration": 547.5,
+      "duration": 533.6000000000058,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/mission-incomplete-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "navigation - Default",
-      "status": "failed",
-      "duration": 599,
-      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\n2 pixels (ratio 0.01) differ.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/navigation-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-actual-chromium-linux.png\u001b[39m\n\u001b[2m\nDiff image:\n  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-diff-chromium-linux.png\u001b[22m\n",
-      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-actual-chromium-linux.png",
-      "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/navigation-default-diff-chromium-linux.png"
+      "status": "passed",
+      "duration": 366.3999999999942
     }
   ],
-  "generatedAt": "2026-01-03T02:13:34.164Z"
+  "generatedAt": "2026-01-04T10:21:03.401Z"
 }
