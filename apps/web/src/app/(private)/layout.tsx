@@ -12,13 +12,12 @@ const Layout = async ({ children }: PropsWithChildren) => {
         height: '[100%]',
       })}
     >
-      {children}
+      <div className={css({ flex: '1', overflow: 'hidden', minHeight: '[0]' })}>
+        {children}
+      </div>
       <div
         className={css({
-          position: 'sticky',
-          bottom: 0,
           padding: '8px',
-          pb: '[calc(8px + env(safe-area-inset-bottom))]',
           backgroundColor: 'background',
         })}
       >
