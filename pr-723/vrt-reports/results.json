@@ -9,88 +9,88 @@
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 562.8000000000175
+      "duration": 574.5999999999913
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 386.3999999999942
+      "duration": 382.29999999998836
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 379.6000000000058
+      "duration": 366.29999999998836
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 366.29999999998836
+      "duration": 366.59999999999127
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 367.29999999998836
+      "duration": 366.1000000000058
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 384
+      "duration": 366.59999999999127
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 365
+      "duration": 367.59999999999127
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 387.20000000001164
+      "duration": 386.1999999999971
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 377
+      "duration": 377.1000000000058
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 369
+      "duration": 368.1000000000058
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 381.79999999998836
+      "duration": 383.40000000000873
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 364.8999999999942
+      "duration": 363.5
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 366.5
+      "duration": 367.29999999998836
     },
     {
       "testName": "header - Default",
       "status": "passed",
-      "duration": 367.69999999998254
+      "duration": 366.3999999999942
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 370.6000000000058
+      "duration": 372.1999999999971
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 382.20000000001164
+      "duration": 381
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 381.0999999999767
+      "duration": 381.5
     }
   ],
-  "generatedAt": "2026-01-04T12:07:24.055Z"
+  "generatedAt": "2026-01-06T16:28:35.900Z"
 }
