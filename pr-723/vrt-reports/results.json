@@ -1,99 +1,96 @@
 {
   "summary": {
     "total": 17,
-    "passed": 16,
-    "failed": 1,
+    "passed": 17,
+    "failed": 0,
     "skipped": 0
   },
   "results": [
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 572.1000000000058
+      "duration": 583.7000000000116
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 398.1000000000058
+      "duration": 383.8999999999942
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 364.3999999999942
+      "duration": 366.30000000001746
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 366.20000000001164
+      "duration": 366
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 367.30000000001746
+      "duration": 367.6000000000058
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 368.80000000001746
+      "duration": 367
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 383
+      "duration": 366.1000000000058
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 387
+      "duration": 386.69999999998254
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 376.20000000001164
+      "duration": 377.70000000001164
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 384.8999999999942
+      "duration": 368.4000000000233
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 383
+      "duration": 365.9000000000233
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 364.19999999998254
+      "duration": 364.20000000001164
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 365.20000000001164
+      "duration": 366.69999999998254
     },
     {
       "testName": "header - Default",
-      "status": "failed",
-      "duration": 586.2000000000116,
-      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\n2 pixels (ratio 0.01) differ.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/header-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-actual-chromium-linux.png\u001b[39m\n\u001b[2m\nDiff image:\n  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-diff-chromium-linux.png\u001b[22m\n",
-      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-actual-chromium-linux.png",
-      "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-diff-chromium-linux.png"
+      "status": "passed",
+      "duration": 368
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 385.5
+      "duration": 370.29999999998836
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 382.19999999998254
+      "duration": 382.3999999999942
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 381.5
+      "duration": 382.70000000001164
     }
   ],
-  "generatedAt": "2026-01-08T12:32:49.638Z"
+  "generatedAt": "2026-01-08T12:36:24.226Z"
 }
