@@ -11,7 +11,7 @@
   ],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["prepare", "^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "dev": {
@@ -36,7 +36,8 @@
       "outputs": ["storybook-static/**"]
     },
     "prepare": {
-      "dependsOn": ["^prepare"]
+      "dependsOn": ["^prepare"],
+      "outputs": ["src/styled-system/**", "dist/**"]
     },
     "drizzle:gen": {},
     "drizzle:migrate": {},
