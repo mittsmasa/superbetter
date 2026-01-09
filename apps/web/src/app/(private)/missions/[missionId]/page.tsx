@@ -17,70 +17,54 @@ const Page = async (props: PageProps<'/missions/[missionId]'>) => {
       className={css({
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
-        gap: '16px',
+        gap: '12px',
         height: '[100%]',
         overflow: 'auto',
       })}
     >
+      <Header />
       <div
         className={css({
           display: 'flex',
           flexDirection: 'column',
           gap: '12px',
+          padding: '8px',
         })}
       >
-        <Header />
-        <div
-          className={css({
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            padding: '8px',
-          })}
-        >
-          <h1 className={css({ textStyle: 'Heading.primary' })}>
-            {mission.data.title}
-          </h1>
-          <div>
-            {mission.data.description?.split('\n').map((line, i) => (
-              <p
-                key={i}
-                className={css({
-                  textAlign: 'center',
-                  textStyle: 'Body.secondary',
-                })}
-              >
-                {line}
-              </p>
-            ))}
-          </div>
-        </div>
-        <div
-          className={css({
-            backgroundColor: 'background',
-            position: 'sticky',
-            top: 0,
-            padding: '8px',
-          })}
-        >
-          <MissionEntities
-            items={mission.data.missionConditions.map((mc) => ({
-              id: mc.id,
-              itemType: mc.itemType,
-              completed: mc.completed,
-            }))}
-          />
-        </div>
-        <div
-          className={css({
-            flex: '1',
-            minHeight: '[0]',
-          })}
-        >
-          <MissionForm entities={entities} />
+        <h1 className={css({ textStyle: 'Heading.primary' })}>
+          {mission.data.title}
+        </h1>
+        <div>
+          {mission.data.description?.split('\n').map((line, i) => (
+            <p
+              key={i}
+              className={css({
+                textAlign: 'center',
+                textStyle: 'Body.secondary',
+              })}
+            >
+              {line}
+            </p>
+          ))}
         </div>
       </div>
+      <div
+        className={css({
+          backgroundColor: 'background',
+          position: 'sticky',
+          top: 0,
+          padding: '8px',
+        })}
+      >
+        <MissionEntities
+          items={mission.data.missionConditions.map((mc) => ({
+            id: mc.id,
+            itemType: mc.itemType,
+            completed: mc.completed,
+          }))}
+        />
+      </div>
+      <MissionForm entities={entities} />
     </main>
   );
 };

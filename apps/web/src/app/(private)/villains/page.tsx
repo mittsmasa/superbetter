@@ -13,8 +13,9 @@ const Page = async () => {
     <main
       className={css({
         display: 'flex',
-        flex: '1',
         flexDirection: 'column',
+        height: '[100%]',
+        overflow: 'auto',
       })}
     >
       <div
