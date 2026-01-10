@@ -21,7 +21,7 @@ catalog:
   '@storybook/addon-docs': 10.1.11
 
   # Vite
-  vite: 7.3.0
+  vite: 7.3.1
   vite-tsconfig-paths: 6.0.3
   '@vitejs/plugin-react': 5.1.2
 
