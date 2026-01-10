@@ -9,7 +9,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["@serwist/next/typings", "vitest/globals", "vite/client"],
+    "types": ["vitest/globals", "vite/client"],
     "lib": ["dom", "dom.iterable", "esnext", "webworker"]
   },
   "include": [
