@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { GlassScreenProvider, Toaster, ToastProvider } from '@superbetter/ui';
+import { ViewportHeight } from '@/components/viewport-height';
 import { pixelMPlus } from '@/fonts';
 import { css } from '@/styled-system/css';
 import { SortableProvider } from './_components/sortable/provider';
@@ -62,7 +63,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={pixelMPlus.className}>
-      <body className={css({ height: '[100dvh]' })}>
+      <body className={css({ height: '[var(--app-height, 100dvh)]' })}>
+        <ViewportHeight />
         <GlassScreenProvider>
           <ToastProvider>
             <SortableProvider>{children}</SortableProvider>
