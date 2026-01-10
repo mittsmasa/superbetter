@@ -1,96 +1,99 @@
 {
   "summary": {
     "total": 17,
-    "passed": 17,
-    "failed": 0,
+    "passed": 16,
+    "failed": 1,
     "skipped": 0
   },
   "results": [
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 561.3999999999942
+      "duration": 566
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 387
+      "duration": 383.0999999999767
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 380.20000000001164
+      "duration": 367.1000000000058
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 366.5
+      "duration": 365.20000000001164
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 366.59999999999127
+      "duration": 367.3999999999942
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 368
+      "duration": 367.30000000001746
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 364.8000000000029
+      "duration": 365.80000000001746
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 387.90000000000873
+      "duration": 387.3999999999942
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 378.19999999998254
+      "duration": 376.70000000001164
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 366.30000000001746
+      "duration": 368.3999999999942
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 366.4000000000233
+      "duration": 366.19999999998254
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 365.30000000001746
+      "duration": 364.20000000001164
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 365.5999999999767
+      "duration": 366.79999999998836
     },
     {
       "testName": "header - Default",
-      "status": "passed",
-      "duration": 368.70000000001164
+      "status": "failed",
+      "duration": 585.7999999999884,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\n2 pixels (ratio 0.01) differ.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/header-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-actual-chromium-linux.png\u001b[39m\n\u001b[2m\nDiff image:\n  /home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-diff-chromium-linux.png\u001b[22m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-actual-chromium-linux.png",
+      "diffPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/header-default-diff-chromium-linux.png"
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 372.1000000000058
+      "duration": 385.70000000001164
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 380.4000000000233
+      "duration": 382.69999999998254
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 382.19999999998254
+      "duration": 381.8999999999942
     }
   ],
-  "generatedAt": "2026-01-10T11:33:52.224Z"
+  "generatedAt": "2026-01-10T11:51:57.525Z"
 }
