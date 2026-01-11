@@ -2,13 +2,12 @@
 
 import {
   Button,
-  CelebrationEffect,
   useGlassScreen,
   useToast,
+  useVibration,
 } from '@superbetter/ui';
 import { useTransition } from 'react';
 import { executeEpicWin } from '@/app/(private)/_actions/epicwin';
-import { useEntityFeedback } from '@/hooks/feedback';
 import { css } from '@/styled-system/css';
 
 export const ExecuteButton = ({
@@ -21,8 +20,7 @@ export const ExecuteButton = ({
   const [isPending, startTransition] = useTransition();
   useGlassScreen(isPending);
   const { add: toast } = useToast();
-  const { triggerFeedback, showCelebration, onCelebrationComplete, intensity } =
-    useEntityFeedback('epicwin');
+  const { vibrate } = useVibration();
 
   if (archived) {
     return (
@@ -46,36 +44,27 @@ export const ExecuteButton = ({
   }
 
   return (
-    <>
-      <form
-        action={async () => {
-          startTransition(async () => {
-            const response = await executeEpicWin({ id: epicwinId });
-            if (response.type === 'error') {
-              if (response.error.type === 'already-archived') {
-                toast({ message: 'このエピックウィンは既に達成済みです' });
-                return;
-              }
-              throw new Error(response.error.message);
+    <form
+      action={async () => {
+        startTransition(async () => {
+          const response = await executeEpicWin({ id: epicwinId });
+          if (response.type === 'error') {
+            if (response.error.type === 'already-archived') {
+              toast({ message: 'このエピックウィンは既に達成済みです' });
+              return;
             }
-            triggerFeedback();
-            toast({
-              message:
-                '🎉 エピックウィンを達成しました！おめでとうございます！',
-            });
+            throw new Error(response.error.message);
+          }
+          vibrate([50, 30, 50, 30, 100, 50, 200]);
+          toast({
+            message: '🎉 エピックウィンを達成しました！おめでとうございます！',
           });
-        }}
-      >
-        <Button type="submit" disabled={isPending}>
-          <div className={css({ width: '[230px]' })}>達成した！</div>
-        </Button>
-      </form>
-      {showCelebration && (
-        <CelebrationEffect
-          intensity={intensity}
-          onComplete={onCelebrationComplete}
-        />
-      )}
-    </>
+        });
+      }}
+    >
+      <Button type="submit" disabled={isPending}>
+        <div className={css({ width: '[230px]' })}>達成した！</div>
+      </Button>
+    </form>
   );
 };
