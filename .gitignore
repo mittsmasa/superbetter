@@ -151,3 +151,4 @@ __screenshots__
 .turbo
 .vercel
 .env*.local
+apps/web/public/sw.js
