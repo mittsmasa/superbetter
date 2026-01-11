@@ -32,6 +32,9 @@ const Page = async (props: PageProps<'/quests/[id]'>) => {
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          flex: '1',
+          overflow: 'auto',
+          minHeight: '[0]',
         })}
       >
         <Header
