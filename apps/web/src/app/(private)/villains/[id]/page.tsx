@@ -1,4 +1,6 @@
+import { getEntityStats } from '@/app/(private)/_actions/get-entity-stats';
 import { getVillain } from '@/app/(private)/_actions/get-villain';
+import { EntityStats } from '@/components/entity-stats';
 import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';
@@ -12,6 +14,12 @@ const Page = async (props: PageProps<'/villains/[id]'>) => {
   if (villain.type === 'error') {
     throw new Error(villain.error.message);
   }
+
+  const stats = await getEntityStats(
+    'villain',
+    villainId,
+    villain.data.createdAt,
+  );
 
   return (
     <main
@@ -28,6 +36,9 @@ const Page = async (props: PageProps<'/villains/[id]'>) => {
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          flex: '1',
+          overflow: 'auto',
+          minHeight: '[0]',
         })}
       >
         <Header
@@ -68,6 +79,14 @@ const Page = async (props: PageProps<'/villains/[id]'>) => {
             </p>
           )}
         </div>
+        {stats.type === 'ok' && (
+          <EntityStats
+            totalCount={villain.data.count}
+            weeklyCount={stats.data.weeklyCount}
+            daysSinceCreation={stats.data.daysSinceCreation}
+            lastExecutedAt={stats.data.lastExecutedAt}
+          />
+        )}
       </div>
       <div
         className={css({

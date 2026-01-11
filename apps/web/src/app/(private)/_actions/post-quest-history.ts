@@ -1,6 +1,7 @@
 'use server';
 
 import { and, eq, sql } from 'drizzle-orm';
+import { revalidatePath } from 'next/cache';
 import { getUser } from '@/app/(private)/_actions/get-user';
 import type { Result } from '@/app/(private)/_actions/types/result';
 import { db } from '@/db/client';
@@ -45,6 +46,7 @@ export const postQuestHistory = async (
         error: { type: 'unknown', message: 'unknown error' },
       };
     }
+    revalidatePath(`/quests/${questId}`);
     return { type: 'ok', data: { id: historyId } };
   } catch (e) {
     console.error(e);

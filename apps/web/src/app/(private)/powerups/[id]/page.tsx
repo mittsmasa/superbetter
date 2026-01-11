@@ -1,3 +1,5 @@
+import { getEntityStats } from '@/app/(private)/_actions/get-entity-stats';
+import { EntityStats } from '@/components/entity-stats';
 import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
 import { getPowerup } from '../../_actions/get-powerup';
@@ -12,6 +14,12 @@ const Page = async (props: PageProps<'/powerups/[id]'>) => {
   if (powerup.type === 'error') {
     throw new Error(powerup.error.message);
   }
+
+  const stats = await getEntityStats(
+    'powerup',
+    powerupId,
+    powerup.data.createdAt,
+  );
 
   return (
     <main
@@ -28,6 +36,9 @@ const Page = async (props: PageProps<'/powerups/[id]'>) => {
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
+          flex: '1',
+          overflow: 'auto',
+          minHeight: '[0]',
         })}
       >
         <Header
@@ -69,6 +80,14 @@ const Page = async (props: PageProps<'/powerups/[id]'>) => {
             </p>
           )}
         </div>
+        {stats.type === 'ok' && (
+          <EntityStats
+            totalCount={powerup.data.count}
+            weeklyCount={stats.data.weeklyCount}
+            daysSinceCreation={stats.data.daysSinceCreation}
+            lastExecutedAt={stats.data.lastExecutedAt}
+          />
+        )}
       </div>
       <div
         className={css({
