@@ -1,13 +1,9 @@
 'use client';
 
-import {
-  Button,
-  useGlassScreen,
-  useToast,
-  useVibration,
-} from '@superbetter/ui';
+import { Button, useGlassScreen, useToast } from '@superbetter/ui';
 import { useTransition } from 'react';
 import { executeEpicWin } from '@/app/(private)/_actions/epicwin';
+import { useEntityFeedback } from '@/hooks/feedback';
 import { css } from '@/styled-system/css';
 
 export const ExecuteButton = ({
@@ -20,7 +16,7 @@ export const ExecuteButton = ({
   const [isPending, startTransition] = useTransition();
   useGlassScreen(isPending);
   const { add: toast } = useToast();
-  const { vibrate } = useVibration();
+  const { triggerFeedback } = useEntityFeedback('epicwin');
 
   if (archived) {
     return (
@@ -55,7 +51,7 @@ export const ExecuteButton = ({
             }
             throw new Error(response.error.message);
           }
-          vibrate([50, 30, 50, 30, 100, 50, 200]);
+          triggerFeedback();
           toast({
             message: '🎉 エピックウィンを達成しました！おめでとうございます！',
           });
