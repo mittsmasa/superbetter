@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useIsClient } from '../../hooks/use-is-client';
 import { css } from '../../styled-system/css';
@@ -39,6 +39,8 @@ export const CelebrationEffect = ({
     generateParticles(particleCounts[intensity]),
   );
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -49,15 +51,16 @@ export const CelebrationEffect = ({
   }, []);
 
   useEffect(() => {
+    const duration = prefersReducedMotion ? 0 : 800;
+
     const timer = setTimeout(() => {
-      onComplete?.();
-    }, 800);
+      onCompleteRef.current?.();
+    }, duration);
 
     return () => clearTimeout(timer);
-  }, [onComplete]);
+  }, [prefersReducedMotion]);
 
   if (!isClient || prefersReducedMotion) {
-    onComplete?.();
     return null;
   }
 
