@@ -1,23 +1,16 @@
 import { CheckList, CloudSun, Trophy } from '@/assets/icons';
 import { EntityLink } from '@/components/entity-link';
 import { css } from '@/styled-system/css';
-import { getMonthlyAchievements } from '../_actions/get-monthly-achievements';
-import { getWeeklyAchievements } from '../_actions/get-weekly-achievements';
+import { getDynamicAchievements } from '../_actions/get-dynamic-achievements';
 import { getPosNegScores } from './_actions/get-pos-neg-scores';
 import { ConfigButton } from './_components/config-button';
 import { LogSection } from './_components/log-section';
 
 const Page = async () => {
-  const [weeklyResult, monthlyResult] = await Promise.all([
-    getWeeklyAchievements(),
-    getMonthlyAchievements(),
-  ]);
+  const dynamicResult = await getDynamicAchievements();
 
-  if (weeklyResult.type === 'error') {
-    throw new Error(weeklyResult.error.message);
-  }
-  if (monthlyResult.type === 'error') {
-    throw new Error(monthlyResult.error.message);
+  if (dynamicResult.type === 'error') {
+    throw new Error(dynamicResult.error.message);
   }
 
   return (
@@ -49,10 +42,7 @@ const Page = async () => {
           padding: '8px',
         })}
       >
-        <LogSection
-          weeklyAchievement={weeklyResult.data}
-          monthlyAchievement={monthlyResult.data}
-        />
+        <LogSection achievements={dynamicResult.data.data} />
         <AchievementsSection />
         <ScanSection />
       </div>

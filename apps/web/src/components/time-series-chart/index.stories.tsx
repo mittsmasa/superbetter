@@ -183,3 +183,61 @@ export const PosNegRatioTrend = {
     showPosNegRatio: true,
   },
 } satisfies Story;
+
+// 期間ごとのデータ生成ヘルパー
+const generatePeriodData = (days: number) => {
+  const today = new Date();
+  return Array.from({ length: days }, (_, i) => {
+    const date = new Date(today);
+    date.setDate(today.getDate() - (days - 1 - i));
+    const dateStr = date.toISOString().split('T')[0];
+    const isToday = i === days - 1;
+    const hasData = Math.random() > 0.2;
+    return {
+      date: dateStr,
+      powerup: hasData ? Math.floor(Math.random() * 5) : 0,
+      quest: hasData ? Math.floor(Math.random() * 4) : 0,
+      villain: hasData ? Math.floor(Math.random() * 3) : 0,
+      epicwin: hasData ? Math.floor(Math.random() * 2) : 0,
+      isToday,
+      status: hasData
+        ? Math.random() > 0.3
+          ? ('achieved' as const)
+          : ('not-achieved' as const)
+        : ('no-data' as const),
+      posNegRatio: hasData ? Math.random() * 0.6 + 0.3 : undefined,
+    };
+  });
+};
+
+export const TwoWeeks = {
+  args: {
+    data: generatePeriodData(14),
+    showPosNegRatio: true,
+  },
+  tags: ['!vrt'],
+} satisfies Story;
+
+export const OneMonth = {
+  args: {
+    data: generatePeriodData(31),
+    showPosNegRatio: true,
+  },
+  tags: ['!vrt'],
+} satisfies Story;
+
+export const TwoMonths = {
+  args: {
+    data: generatePeriodData(60),
+    showPosNegRatio: true,
+  },
+  tags: ['!vrt'],
+} satisfies Story;
+
+export const ThreeMonths = {
+  args: {
+    data: generatePeriodData(90),
+    showPosNegRatio: true,
+  },
+  tags: ['!vrt'],
+} satisfies Story;

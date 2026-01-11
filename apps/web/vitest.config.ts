@@ -16,6 +16,9 @@ export default defineConfig({
             'src/__visual-tests__/**',
             'src/**/*.integration.test.{ts,tsx}',
           ],
+          sequence: {
+            groupOrder: 1,
+          },
         },
       },
       // VRT は vitest.vrt.config.ts で設定
@@ -35,6 +38,9 @@ export default defineConfig({
           hookTimeout: 60000,
           globalSetup: ['./vitest-global.setup.ts'],
           setupFiles: ['./vitest.integration.setup.ts'],
+          sequence: {
+            groupOrder: 2,
+          },
         },
       },
     ],
