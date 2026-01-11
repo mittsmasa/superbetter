@@ -139,8 +139,8 @@ importers:
         specifier: 'catalog:'
         version: 10.1.11(@types/react@19.2.7)(esbuild@0.27.2)(rollup@4.53.2)(storybook@10.1.11(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(vite@7.3.1(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(webpack@5.102.1(esbuild@0.27.2))
       '@storybook/addon-mcp':
-        specifier: 0.1.6
-        version: 0.1.6(storybook@10.1.11(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)
+        specifier: 0.1.7
+        version: 0.1.7(storybook@10.1.11(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)
       '@storybook/nextjs-vite':
         specifier: 10.1.11
         version: 10.1.11(@babel/core@7.28.5)(esbuild@0.27.2)(next@16.1.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(rollup@4.53.2)(storybook@10.1.11(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.4)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(webpack@5.102.1(esbuild@0.27.2))
@@ -1800,8 +1800,8 @@ packages:
     peerDependencies:
       storybook: ^10.1.11
 
-  '@storybook/addon-mcp@0.1.6':
-    resolution: {integrity: sha512-+EagCHqwIb9tg3DKskEsXpsqQVnMljxgR5Tt3Bu0ZpWweB1HdMy+ok128gzNfTZ3r+5ljksr0q66YCEkrQwdDA==}
+  '@storybook/addon-mcp@0.1.7':
+    resolution: {integrity: sha512-bn5NypD5eMzLVy99WWLtUwY3YRrj3A/Du+LtldKyEd/INksLPW795YyabCLwIjipx9gzmK2l3NEmyUOpAmwNGw==}
     peerDependencies:
       storybook: ^9.1.16 || ^10.0.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0
 
@@ -1838,8 +1838,8 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@storybook/mcp@0.1.1':
-    resolution: {integrity: sha512-+AivFDms1XkY2VUvZBBYy0co5qvRh20eYXYwhaDPQXX2Q4y96arSkWn22e/l3DQwA9Ywzv481vj4gl4zPrCQkg==}
+  '@storybook/mcp@0.2.0':
+    resolution: {integrity: sha512-rz+PwL9xNBQuntn0qnBhwZtz9yjMS3AnBXQmctxz4es1Yh1b3cgQwi5nVDeb7uHdyqcNWzz8fJmDrmzrdKqubQ==}
 
   '@storybook/nextjs-vite@10.1.11':
     resolution: {integrity: sha512-IOX1GRWPfc6KuXGNM21TAP2UfwjVxg2Neb6f1GciPvMmwpN+1FaDn+TS1DGhXWofBcUW4RLdgzCDsyB2eXbq/g==}
@@ -6058,9 +6058,9 @@ snapshots:
       - vite
       - webpack
 
-  '@storybook/addon-mcp@0.1.6(storybook@10.1.11(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)':
+  '@storybook/addon-mcp@0.1.7(storybook@10.1.11(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)':
     dependencies:
-      '@storybook/mcp': 0.1.1(typescript@5.9.3)
+      '@storybook/mcp': 0.2.0(typescript@5.9.3)
       '@tmcp/adapter-valibot': 0.1.5(tmcp@1.18.1(typescript@5.9.3))(valibot@1.2.0(typescript@5.9.3))
       '@tmcp/transport-http': 0.8.2(tmcp@1.18.1(typescript@5.9.3))
       storybook: 10.1.11(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -6123,7 +6123,7 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@storybook/mcp@0.1.1(typescript@5.9.3)':
+  '@storybook/mcp@0.2.0(typescript@5.9.3)':
     dependencies:
       '@tmcp/adapter-valibot': 0.1.5(tmcp@1.18.1(typescript@5.9.3))(valibot@1.2.0(typescript@5.9.3))
       '@tmcp/transport-http': 0.8.2(tmcp@1.18.1(typescript@5.9.3))
