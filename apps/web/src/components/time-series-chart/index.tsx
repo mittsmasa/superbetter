@@ -1,6 +1,6 @@
 'use client';
 
-import { type ComponentProps, useId } from 'react';
+import { type ComponentProps, useId, useMemo } from 'react';
 import {
   Bar,
   BarChart,
@@ -15,16 +15,35 @@ import {
 import type { DailyAchievements } from '@/app/(private)/_actions/types/weekly-achievements';
 import { token } from '@/styled-system/tokens';
 
+const getTickInterval = (dataLength: number): number => {
+  if (dataLength <= 7) return 0;
+  if (dataLength <= 14) return 1;
+  if (dataLength <= 31) return 6;
+  if (dataLength <= 62) return 13;
+  return 29;
+};
+
+const getTickSize = (
+  dataLength: number,
+): { width: number; height: number; fontSize: number } => {
+  if (dataLength <= 7) return { width: 28, height: 40, fontSize: 14 };
+  if (dataLength <= 14) return { width: 24, height: 36, fontSize: 12 };
+  if (dataLength <= 31) return { width: 20, height: 32, fontSize: 11 };
+  return { width: 18, height: 28, fontSize: 10 };
+};
+
 const CustomXTick = ({
   x,
   y,
   payload,
   custom,
+  tickSize,
 }: {
   x: number;
   y: number;
   payload: { value: string };
   custom: ChartElement;
+  tickSize: { width: number; height: number; fontSize: number };
 }) => {
   const date = new Date(payload.value);
   const day = `${date.getDate()}`;
@@ -37,45 +56,50 @@ const CustomXTick = ({
       : custom.status === 'no-data'
         ? token('colors.foreground.disabled')
         : token('colors.foreground');
+
+  const halfWidth = tickSize.width / 2;
+  const innerWidth = tickSize.width - 4;
+  const innerHeight = tickSize.height - 4;
+
   return (
     <g transform={`translate(${x},${y})`}>
       {/* border */}
       <rect
-        x={-14}
+        x={-halfWidth}
         y={-6}
         fill={custom.isToday ? token('colors.foreground') : 'transparent'}
-        width={28}
-        height={40}
+        width={tickSize.width}
+        height={tickSize.height}
       />
       {/* background */}
       <rect
-        x={-12}
+        x={-halfWidth + 2}
         y={-4}
         fill={
           custom.status === 'achieved'
             ? token('colors.foreground')
             : token('colors.background')
         }
-        width={24}
-        height={36}
+        width={innerWidth}
+        height={innerHeight}
       />
       <text
         x={0}
         y={0}
-        dy={8}
+        dy={tickSize.fontSize * 0.6}
         textAnchor="middle"
         fill={textColor}
-        fontSize={14}
+        fontSize={tickSize.fontSize}
       >
         {day}
       </text>
       <text
         x={0}
-        y={20}
-        dy={8}
+        y={tickSize.fontSize + 4}
+        dy={tickSize.fontSize * 0.6}
         textAnchor="middle"
         fill={textColor}
-        fontSize={14}
+        fontSize={tickSize.fontSize}
       >
         {weekday}
       </text>
@@ -140,6 +164,12 @@ export const TimeSeriesChart = ({
   data: ChartElement[];
   showPosNegRatio?: boolean;
 }) => {
+  const tickInterval = useMemo(
+    () => getTickInterval(data.length),
+    [data.length],
+  );
+  const tickSize = useMemo(() => getTickSize(data.length), [data.length]);
+
   if (showPosNegRatio) {
     return (
       <ResponsiveContainer width="100%" height={150}>
@@ -150,7 +180,7 @@ export const TimeSeriesChart = ({
           margin={{ top: 4, right: -20, left: -20, bottom: 12 }}
         >
           <XAxis
-            interval={0}
+            interval={tickInterval}
             dataKey="date"
             axisLine={false}
             tickLine={false}
@@ -160,7 +190,13 @@ export const TimeSeriesChart = ({
               );
               // biome-ignore lint/complexity/noUselessFragments: Rechartsの型制約により空fragmentが必要
               if (!customProp) return <></>;
-              return <CustomXTick {...props} custom={customProp} />;
+              return (
+                <CustomXTick
+                  {...props}
+                  custom={customProp}
+                  tickSize={tickSize}
+                />
+              );
             }}
           />
           <YAxis
@@ -244,7 +280,7 @@ export const TimeSeriesChart = ({
         margin={{ top: 4, right: 40, left: -20, bottom: 12 }}
       >
         <XAxis
-          interval={0}
+          interval={tickInterval}
           dataKey="date"
           axisLine={false}
           tickLine={false}
@@ -252,7 +288,9 @@ export const TimeSeriesChart = ({
             const customProp = data.find((d) => d.date === props.payload.value);
             // biome-ignore lint/complexity/noUselessFragments: Rechartsの型制約により空fragmentが必要
             if (!customProp) return <></>;
-            return <CustomXTick {...props} custom={customProp} />;
+            return (
+              <CustomXTick {...props} custom={customProp} tickSize={tickSize} />
+            );
           }}
         />
         <YAxis
