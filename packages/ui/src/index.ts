@@ -1,5 +1,6 @@
 // Components
 export { Button, ButtonLink } from './components/button';
+export { CelebrationEffect } from './components/celebration-effect';
 export { CounterButton } from './components/counter-button';
 export { Dialog } from './components/dialog';
 export { Drawer } from './components/drawer';
