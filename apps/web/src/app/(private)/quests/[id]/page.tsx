@@ -1,4 +1,6 @@
+import { getEntityStats } from '@/app/(private)/_actions/get-entity-stats';
 import { getQuest } from '@/app/(private)/_actions/get-quest';
+import { EntityStats } from '@/components/entity-stats';
 import { Header } from '@/components/header';
 import { css } from '@/styled-system/css';
 import { DeleteConfirmButton } from './_components/delete-confirm-button';
@@ -12,6 +14,8 @@ const Page = async (props: PageProps<'/quests/[id]'>) => {
   if (quest.type === 'error') {
     throw new Error(quest.error.message);
   }
+
+  const stats = await getEntityStats('quest', questId, quest.data.createdAt);
 
   return (
     <main
@@ -65,6 +69,14 @@ const Page = async (props: PageProps<'/quests/[id]'>) => {
             </p>
           )}
         </div>
+        {stats.type === 'ok' && (
+          <EntityStats
+            totalCount={quest.data.count}
+            weeklyCount={stats.data.weeklyCount}
+            daysSinceCreation={stats.data.daysSinceCreation}
+            lastExecutedAt={stats.data.lastExecutedAt}
+          />
+        )}
       </div>
       <div
         className={css({
