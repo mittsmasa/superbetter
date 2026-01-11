@@ -32,9 +32,11 @@ const getTickSize = (
   return { width: 0, height: 20, fontSize: 11 };
 };
 
-// 日付文字列（YYYY-MM-DD）をローカルタイムゾーンの日付としてパース
+// 日付文字列をローカルタイムゾーンの日付としてパース
+// 対応フォーマット: YYYY/M/D または YYYY-MM-DD
 const parseDateString = (dateString: string): Date => {
-  const [year, month, day] = dateString.split('-').map(Number);
+  const separator = dateString.includes('/') ? '/' : '-';
+  const [year, month, day] = dateString.split(separator).map(Number);
   return new Date(year, month - 1, day);
 };
 
