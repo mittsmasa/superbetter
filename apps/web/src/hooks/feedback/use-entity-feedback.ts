@@ -12,12 +12,19 @@ const vibrationPatterns: Record<EntityType, number[]> = {
   epicwin: [50, 30, 50, 30, 100, 50, 200],
 };
 
-export const useEntityFeedback = (entityType: EntityType) => {
+export const useEntityFeedback = (defaultEntityType?: EntityType) => {
   const { vibrate } = useVibration();
 
-  const triggerFeedback = useCallback(() => {
-    vibrate(vibrationPatterns[entityType]);
-  }, [entityType, vibrate]);
+  const triggerFeedback = useCallback(
+    (entityType?: EntityType) => {
+      const type = entityType ?? defaultEntityType;
+      if (!type) {
+        return;
+      }
+      vibrate(vibrationPatterns[type]);
+    },
+    [defaultEntityType, vibrate],
+  );
 
   return { triggerFeedback };
 };
