@@ -1,0 +1,116 @@
+{
+  "summary": {
+    "total": 21,
+    "passed": 21,
+    "failed": 0,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "testName": "adventure-log - Default",
+      "status": "passed",
+      "duration": 561.3000000000466
+    },
+    {
+      "testName": "daily-achievement - Achieved",
+      "status": "passed",
+      "duration": 368.1000000000349
+    },
+    {
+      "testName": "daily-achievement - Default",
+      "status": "passed",
+      "duration": 366.5
+    },
+    {
+      "testName": "daily-achievement - NoData",
+      "status": "passed",
+      "duration": 366.30000000004657
+    },
+    {
+      "testName": "daily-achievement - Today",
+      "status": "passed",
+      "duration": 366.0999999999767
+    },
+    {
+      "testName": "date-navigation-date-navigation - Default",
+      "status": "passed",
+      "duration": 369
+    },
+    {
+      "testName": "date-navigation-date-navigation - DifferentDate",
+      "status": "passed",
+      "duration": 365.3999999999651
+    },
+    {
+      "testName": "entity-icon - AllTypes",
+      "status": "passed",
+      "duration": 388
+    },
+    {
+      "testName": "entity-icon - Default",
+      "status": "passed",
+      "duration": 376.5
+    },
+    {
+      "testName": "entity-icon - WithAnimation",
+      "status": "passed",
+      "duration": 369.5999999999767
+    },
+    {
+      "testName": "entity-link - Default",
+      "status": "passed",
+      "duration": 398.79999999998836
+    },
+    {
+      "testName": "entity-stats - Default",
+      "status": "passed",
+      "duration": 374.6000000000349
+    },
+    {
+      "testName": "entity-stats - HighActivity",
+      "status": "passed",
+      "duration": 382.20000000001164
+    },
+    {
+      "testName": "entity-stats - NeverExecuted",
+      "status": "passed",
+      "duration": 383.8999999999651
+    },
+    {
+      "testName": "entity-stats - NewEntity",
+      "status": "passed",
+      "duration": 385
+    },
+    {
+      "testName": "example - Default",
+      "status": "passed",
+      "duration": 370.1000000000349
+    },
+    {
+      "testName": "example - WithIcon",
+      "status": "passed",
+      "duration": 366.79999999998836
+    },
+    {
+      "testName": "header - Default",
+      "status": "passed",
+      "duration": 367.0999999999767
+    },
+    {
+      "testName": "mission - Default",
+      "status": "passed",
+      "duration": 372
+    },
+    {
+      "testName": "mission - Incomplete",
+      "status": "passed",
+      "duration": 381.79999999998836
+    },
+    {
+      "testName": "navigation - Default",
+      "status": "passed",
+      "duration": 382.0999999999767
+    }
+  ],
+  "generatedAt": "2026-01-13T00:51:07.915Z"
+}
