@@ -3,7 +3,9 @@
 import { Reorder } from '@superbetter/ui';
 import { useEffect, useState } from 'react';
 import { useSortable } from '@/app/_components/sortable/provider';
+import { postVillainHistory } from '@/app/(private)/_actions/post-villain-history';
 import { EntityLink, EntityLinkReorderHandle } from '@/components/entity-link';
+import { QuickExecuteButton } from '@/components/quick-execute-button';
 import { reorderVillains } from '../_actions/reorder-villains';
 
 export const VillainList = ({
@@ -31,16 +33,23 @@ export const VillainList = ({
         justifyContent: 'stretch',
       }}
     >
-      {orderedVillains.map((q) => (
+      {orderedVillains.map((v) => (
         <Reorder.ListItem
-          key={q.id}
-          value={q}
+          key={v.id}
+          value={v}
           renderItem={({ controls }) => (
             <EntityLink
-              href={`/villains/${q.id}`}
+              href={`/villains/${v.id}`}
               disabled={sortable}
-              title={q.title}
-              description={q.description}
+              title={v.title}
+              description={v.description}
+              enableQuickAction={!sortable}
+              quickActionSlot={
+                <QuickExecuteButton
+                  entityType="villain"
+                  onExecute={() => postVillainHistory(v.id)}
+                />
+              }
               reorderHandleSlot={
                 sortable && (
                   <EntityLinkReorderHandle

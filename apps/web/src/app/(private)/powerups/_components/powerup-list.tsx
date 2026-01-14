@@ -3,7 +3,9 @@
 import { Reorder } from '@superbetter/ui';
 import { useEffect, useState } from 'react';
 import { useSortable } from '@/app/_components/sortable/provider';
+import { postPowerupHistory } from '@/app/(private)/_actions/post-powerup-history';
 import { EntityLink, EntityLinkReorderHandle } from '@/components/entity-link';
+import { QuickExecuteButton } from '@/components/quick-execute-button';
 import { reorderPowerups } from '../_actions/reorder-powerups';
 
 export const PowerupList = ({
@@ -41,6 +43,13 @@ export const PowerupList = ({
               disabled={sortable}
               title={p.title}
               description={p.description}
+              enableQuickAction={!sortable}
+              quickActionSlot={
+                <QuickExecuteButton
+                  entityType="powerup"
+                  onExecute={() => postPowerupHistory(p.id)}
+                />
+              }
               reorderHandleSlot={
                 sortable && (
                   <EntityLinkReorderHandle
