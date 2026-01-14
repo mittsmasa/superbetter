@@ -1,0 +1,140 @@
+{
+  "summary": {
+    "total": 24,
+    "passed": 16,
+    "failed": 8,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "testName": "adventure-log - Default",
+      "status": "passed",
+      "duration": 560.6999999999825
+    },
+    {
+      "testName": "daily-achievement - Achieved",
+      "status": "passed",
+      "duration": 383.69999999998254
+    },
+    {
+      "testName": "daily-achievement - Default",
+      "status": "passed",
+      "duration": 363.8999999999942
+    },
+    {
+      "testName": "daily-achievement - NoData",
+      "status": "passed",
+      "duration": 366.70000000001164
+    },
+    {
+      "testName": "daily-achievement - Today",
+      "status": "passed",
+      "duration": 367.5
+    },
+    {
+      "testName": "date-navigation-date-navigation - Default",
+      "status": "passed",
+      "duration": 384.29999999998836
+    },
+    {
+      "testName": "date-navigation-date-navigation - DifferentDate",
+      "status": "passed",
+      "duration": 365.0999999999767
+    },
+    {
+      "testName": "entity-icon - AllTypes",
+      "status": "passed",
+      "duration": 389.70000000001164
+    },
+    {
+      "testName": "entity-icon - Default",
+      "status": "passed",
+      "duration": 374
+    },
+    {
+      "testName": "entity-icon - WithAnimation",
+      "status": "passed",
+      "duration": 370.3999999999942
+    },
+    {
+      "testName": "entity-link - Default",
+      "status": "failed",
+      "duration": 598.7000000000116,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×83px, but received 1200×113px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/entity-link-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "entity-link - Disabled",
+      "status": "failed",
+      "duration": 532.6999999999825,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-disabled-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "entity-link - LongDescription",
+      "status": "failed",
+      "duration": 536.5,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-longdescription-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "entity-link - WithQuickAction",
+      "status": "failed",
+      "duration": 530.2000000000116,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-withquickaction-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "entity-link - WithQuickActionLongDescription",
+      "status": "failed",
+      "duration": 537.3999999999942,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-withquickactionlongdescription-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "example - Default",
+      "status": "passed",
+      "duration": 359.3999999999942
+    },
+    {
+      "testName": "example - WithIcon",
+      "status": "passed",
+      "duration": 367.29999999998836
+    },
+    {
+      "testName": "header - Default",
+      "status": "passed",
+      "duration": 366.69999999998254
+    },
+    {
+      "testName": "mission - Default",
+      "status": "passed",
+      "duration": 372.70000000001164
+    },
+    {
+      "testName": "mission - Incomplete",
+      "status": "passed",
+      "duration": 384.1000000000058
+    },
+    {
+      "testName": "navigation - Default",
+      "status": "passed",
+      "duration": 378.30000000001746
+    },
+    {
+      "testName": "quick-execute-button - Powerup",
+      "status": "failed",
+      "duration": 533.3999999999942,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/quick-execute-button-powerup-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "quick-execute-button - Quest",
+      "status": "failed",
+      "duration": 532.2999999999884,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/quick-execute-button-quest-reference-chromium-linux.png\u001b[39m\n"
+    },
+    {
+      "testName": "quick-execute-button - Villain",
+      "status": "failed",
+      "duration": 533.6000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/quick-execute-button-villain-reference-chromium-linux.png\u001b[39m\n"
+    }
+  ],
+  "generatedAt": "2026-01-14T10:56:45.519Z"
+}
