@@ -30,7 +30,7 @@ catalog:
   motion: 12.24.12
 
   # Testing
-  vitest: 4.0.16
-  '@vitest/browser': 4.0.16
-  '@vitest/browser-playwright': 4.0.16
+  vitest: 4.0.17
+  '@vitest/browser': 4.0.17
+  '@vitest/browser-playwright': 4.0.17
   playwright: 1.57.0
