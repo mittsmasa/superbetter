@@ -37,7 +37,7 @@
     "date-fns": "4.1.0",
     "drizzle-orm": "0.45.1",
     "motion": "catalog:",
-    "mysql2": "3.16.0",
+    "mysql2": "3.16.1",
     "next": "16.1.2",
     "react": "catalog:",
     "react-dom": "catalog:",
