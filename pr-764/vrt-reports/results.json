@@ -9,152 +9,152 @@
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 564
+      "duration": 557.3000000000029
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 383.3999999999942
+      "duration": 386
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 365.8999999999942
+      "duration": 379.5
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 366.0999999999767
+      "duration": 366.1999999999971
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 368
+      "duration": 367
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 367.20000000001164
+      "duration": 368.6000000000058
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 365.30000000001746
+      "duration": 383.6000000000058
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 386.8999999999942
+      "duration": 386.09999999999127
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 360.6000000000058
+      "duration": 378.29999999998836
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 369.69999999998254
+      "duration": 383.8000000000029
     },
     {
       "testName": "entity-link - Default",
       "status": "failed",
-      "duration": 581.7000000000116,
+      "duration": 597.7000000000116,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×83px, but received 1200×113px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/entity-link-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-default-actual-chromium-linux.png\u001b[39m\n",
       "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-default-actual-chromium-linux.png"
     },
     {
       "testName": "entity-link - Disabled",
       "status": "failed",
-      "duration": 532.0999999999767,
+      "duration": 535.6999999999971,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-disabled-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "entity-link - LongDescription",
       "status": "failed",
-      "duration": 537.6000000000058,
+      "duration": 532.4000000000087,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-longdescription-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "entity-link - WithQuickAction",
       "status": "failed",
-      "duration": 529.7000000000116,
+      "duration": 533.1999999999971,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-withquickaction-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "entity-link - WithQuickActionLongDescription",
       "status": "failed",
-      "duration": 535.6999999999825,
+      "duration": 548.5,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/entity-link-withquickactionlongdescription-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "entity-stats - Default",
       "status": "passed",
-      "duration": 388
+      "duration": 372.6999999999971
     },
     {
       "testName": "entity-stats - HighActivity",
       "status": "passed",
-      "duration": 385.3999999999942
+      "duration": 383.70000000001164
     },
     {
       "testName": "entity-stats - NeverExecuted",
       "status": "passed",
-      "duration": 385
+      "duration": 382.5
     },
     {
       "testName": "entity-stats - NewEntity",
       "status": "passed",
-      "duration": 380.5
+      "duration": 383.1999999999971
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 357.29999999998836
+      "duration": 357.6999999999971
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 366.20000000001164
+      "duration": 367
     },
     {
       "testName": "header - Default",
       "status": "passed",
-      "duration": 365.80000000001746
+      "duration": 367.1999999999971
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 371.29999999998836
+      "duration": 371.1999999999971
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 365.79999999998836
+      "duration": 382.29999999998836
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 366.20000000001164
+      "duration": 381.79999999998836
     },
     {
       "testName": "quick-execute-button - Powerup",
       "status": "failed",
-      "duration": 531.8000000000175,
+      "duration": 532.3999999999942,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/quick-execute-button-powerup-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "quick-execute-button - Quest",
       "status": "failed",
-      "duration": 532.8999999999942,
+      "duration": 534.5,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/quick-execute-button-quest-reference-chromium-linux.png\u001b[39m\n"
     },
     {
       "testName": "quick-execute-button - Villain",
       "status": "failed",
-      "duration": 533.6000000000058,
+      "duration": 532.3000000000029,
       "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nNo existing reference screenshot found.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/apps/web/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/quick-execute-button-villain-reference-chromium-linux.png\u001b[39m\n"
     }
   ],
-  "generatedAt": "2026-01-25T00:55:38.229Z"
+  "generatedAt": "2026-01-25T02:59:31.976Z"
 }
