@@ -145,7 +145,7 @@ export const EntityLink = ({
                 justifyContent: 'center',
               })}
             >
-              <IconButton size="md" active>
+              <IconButton size="md">
                 <span
                   className={css({ transform: 'scaleX(-1)', display: 'flex' })}
                 >
