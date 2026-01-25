@@ -1,0 +1,221 @@
+{
+  "summary": {
+    "total": 30,
+    "passed": 0,
+    "failed": 30,
+    "skipped": 0
+  },
+  "results": [
+    {
+      "testName": "button - Default",
+      "status": "failed",
+      "duration": 708.1000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×35px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/button-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "button - Disabled",
+      "status": "failed",
+      "duration": 532.6000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×35px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/button-disabled-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-disabled-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-disabled-actual-chromium-linux.png"
+    },
+    {
+      "testName": "button - Secondary",
+      "status": "failed",
+      "duration": 532.6999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×35px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/button-secondary-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-secondary-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-secondary-actual-chromium-linux.png"
+    },
+    {
+      "testName": "button - SecondaryDisabled",
+      "status": "failed",
+      "duration": 549.4000000000087,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×35px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/button-secondarydisabled-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-secondarydisabled-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/button-secondarydisabled-actual-chromium-linux.png"
+    },
+    {
+      "testName": "counter-button - Default",
+      "status": "failed",
+      "duration": 550.3000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×27px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/counter-button-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/counter-button-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/counter-button-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "dialog - Default",
+      "status": "failed",
+      "duration": 550.8000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×60px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/dialog-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/dialog-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/dialog-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "components-drawer - Default",
+      "status": "failed",
+      "duration": 531.6000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×23px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/components-drawer-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/components-drawer-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/components-drawer-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "glass-screen - Default",
+      "status": "failed",
+      "duration": 533.3000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×35px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/glass-screen-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/glass-screen-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/glass-screen-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "icon-button - Active",
+      "status": "failed",
+      "duration": 550,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×31px, but received 1200×23px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/icon-button-active-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-active-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-active-actual-chromium-linux.png"
+    },
+    {
+      "testName": "icon-button - Default",
+      "status": "failed",
+      "duration": 533.6999999999971,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×31px, but received 1200×23px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/icon-button-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "icon-button - Disabled",
+      "status": "failed",
+      "duration": 532.3000000000029,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×31px, but received 1200×23px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/icon-button-disabled-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-disabled-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/icon-button-disabled-actual-chromium-linux.png"
+    },
+    {
+      "testName": "motion-link - Default",
+      "status": "failed",
+      "duration": 533.4000000000087,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×18px, but received 1200×23px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/motion-link-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/motion-link-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/motion-link-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "number-input - Disabled",
+      "status": "failed",
+      "duration": 550.6000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×26px, but received 1200×38px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/number-input-disabled-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-disabled-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-disabled-actual-chromium-linux.png"
+    },
+    {
+      "testName": "number-input - Primary",
+      "status": "failed",
+      "duration": 549.7999999999884,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×26px, but received 1200×38px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/number-input-primary-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-primary-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-primary-actual-chromium-linux.png"
+    },
+    {
+      "testName": "number-input - Secondary",
+      "status": "failed",
+      "duration": 566.7999999999884,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×26px, but received 1200×38px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/number-input-secondary-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-secondary-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-secondary-actual-chromium-linux.png"
+    },
+    {
+      "testName": "number-input - WithLabel",
+      "status": "failed",
+      "duration": 549.2000000000116,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×26px, but received 1200×38px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/number-input-withlabel-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withlabel-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withlabel-actual-chromium-linux.png"
+    },
+    {
+      "testName": "number-input - WithMinMax",
+      "status": "failed",
+      "duration": 549.7999999999884,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×26px, but received 1200×38px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/number-input-withminmax-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withminmax-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withminmax-actual-chromium-linux.png"
+    },
+    {
+      "testName": "number-input - WithStep",
+      "status": "failed",
+      "duration": 550.7000000000116,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×26px, but received 1200×38px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/number-input-withstep-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withstep-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/number-input-withstep-actual-chromium-linux.png"
+    },
+    {
+      "testName": "popover - Default",
+      "status": "failed",
+      "duration": 533.2999999999884,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×23px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/popover-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/popover-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/popover-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "radio - Default",
+      "status": "failed",
+      "duration": 549.1999999999825,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×19px, but received 1200×50px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/radio-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/radio-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/radio-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "reorder - Default",
+      "status": "failed",
+      "duration": 600.7000000000116,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×113px, but received 1200×259px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/reorder-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/reorder-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/reorder-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "select - Default",
+      "status": "failed",
+      "duration": 549.5,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×53px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/select-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "select - ManyOptions",
+      "status": "failed",
+      "duration": 533.7000000000116,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×53px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/select-manyoptions-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-manyoptions-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-manyoptions-actual-chromium-linux.png"
+    },
+    {
+      "testName": "select - WithDefaultValue",
+      "status": "failed",
+      "duration": 532.5,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×53px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/select-withdefaultvalue-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withdefaultvalue-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withdefaultvalue-actual-chromium-linux.png"
+    },
+    {
+      "testName": "select - WithOnValueChange",
+      "status": "failed",
+      "duration": 534.2999999999884,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×53px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/select-withonvaluechange-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withonvaluechange-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withonvaluechange-actual-chromium-linux.png"
+    },
+    {
+      "testName": "select - WithoutLabel",
+      "status": "failed",
+      "duration": 532.1000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×35px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/select-withoutlabel-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withoutlabel-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/select-withoutlabel-actual-chromium-linux.png"
+    },
+    {
+      "testName": "text-area - Default",
+      "status": "failed",
+      "duration": 550,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×38px, but received 1200×65px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/text-area-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/text-area-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/text-area-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "text-input - Default",
+      "status": "failed",
+      "duration": 550.1000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×46px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/text-input-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/text-input-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/text-input-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "toast - Default",
+      "status": "failed",
+      "duration": 532.6000000000058,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×23px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/toast-default-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/toast-default-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/toast-default-actual-chromium-linux.png"
+    },
+    {
+      "testName": "toast - LongMessage",
+      "status": "failed",
+      "duration": 533.5,
+      "error": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).\u001b[22mtoMatchScreenshot\u001b[2m()\u001b[22m\n\nScreenshot does not match the stored reference.\nExpected image dimensions to be 1200×20px, but received 1200×23px.\n\nReference screenshot:\n  \u001b[32m/home/runner/work/superbetter/superbetter/packages/ui/src/__visual-tests__/__screenshots__/all-stories.visual.test.tsx/toast-longmessage-chromium-linux.png\u001b[39m\n\nActual screenshot:\n  \u001b[31m/home/runner/work/superbetter/superbetter/packages/ui/.vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/toast-longmessage-actual-chromium-linux.png\u001b[39m\n",
+      "actualPath": ".vitest-attachments/src/__visual-tests__/all-stories.visual.test.tsx/toast-longmessage-actual-chromium-linux.png"
+    }
+  ],
+  "generatedAt": "2026-01-25T05:13:14.808Z"
+}
