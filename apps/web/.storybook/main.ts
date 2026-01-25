@@ -40,10 +40,19 @@ const config: StorybookConfig = {
           'react',
           'react-dom',
         ],
+        exclude: ['drizzle-orm', 'mysql2'],
       },
       build: {
         ...config.build,
         sourcemap: false, // ソースマップを無効化して高速化
+        rollupOptions: {
+          external: [
+            'drizzle-orm',
+            'drizzle-orm/mysql2',
+            'mysql2',
+            'mysql2/promise',
+          ],
+        },
       },
       server: {
         ...config.server,

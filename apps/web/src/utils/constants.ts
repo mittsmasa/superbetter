@@ -1,4 +1,4 @@
-import type { EntityType } from '@/db/types/mission';
+import type { EntityType } from '@/types/superbetter';
 
 export const ENTITY_ORDER = [
   'powerup',
