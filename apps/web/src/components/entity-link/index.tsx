@@ -1,7 +1,24 @@
-import { MotionLink } from '@superbetter/ui';
+'use client';
+
+import { IconButton, MotionLink } from '@superbetter/ui';
+import { ChevlonLeft } from '@superbetter/ui/icons';
+import { motion } from 'motion/react';
+import Link from 'next/link';
 import type { ComponentProps, ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu } from '@/assets/icons';
-import { css } from '@/styled-system/css';
+import { css, cx } from '@/styled-system/css';
+import { pixelBorder } from '@/styled-system/patterns';
+
+type EntityLinkProps = {
+  href: string;
+  disabled?: boolean;
+  title: ReactNode;
+  description?: string | null;
+  reorderHandleSlot?: ReactNode;
+  quickActionSlot?: ReactNode;
+  enableQuickAction?: boolean;
+};
 
 export const EntityLink = ({
   href,
@@ -9,13 +26,154 @@ export const EntityLink = ({
   title,
   description,
   reorderHandleSlot,
-}: {
-  href: string;
-  disabled?: boolean;
-  title: ReactNode;
-  description?: string | null;
-  reorderHandleSlot?: ReactNode;
-}) => {
+  quickActionSlot,
+  enableQuickAction = false,
+}: EntityLinkProps) => {
+  const [isQuickActionVisible, setIsQuickActionVisible] = useState(false);
+  const quickActionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isQuickActionVisible) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        quickActionRef.current &&
+        !quickActionRef.current.contains(event.target as Node)
+      ) {
+        setIsQuickActionVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isQuickActionVisible]);
+
+  const handleQuickActionComplete = () => {
+    setIsQuickActionVisible(false);
+  };
+
+  // クイックアクションが有効な場合はスライドUI
+  if (enableQuickAction && quickActionSlot && !disabled) {
+    return (
+      <div
+        className={css({
+          position: 'relative',
+          overflow: 'hidden',
+        })}
+        ref={quickActionRef}
+      >
+        <motion.button
+          layout
+          initial={false}
+          animate={{ x: isQuickActionVisible ? -96 : 0 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsQuickActionVisible(true);
+          }}
+          className={cx(
+            pixelBorder({
+              borderWidth: 2,
+              borderColor: 'interactive.border',
+            }),
+            css({
+              display: 'flex',
+              alignItems: 'center',
+              backgroundColor: 'interactive.background',
+              cursor: 'pointer',
+              width: '[100%]',
+              textAlign: 'left',
+            }),
+          )}
+        >
+          <div
+            className={css({
+              display: 'flex',
+              gap: '4px',
+              padding: '4px 4px 4px 8px',
+              flex: '1',
+              ...(reorderHandleSlot && { paddingRight: '32px' }),
+            })}
+          >
+            <div
+              className={css({
+                display: 'flex',
+                flex: '1',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                gap: '8px',
+              })}
+            >
+              {title}
+              {description && (
+                <p
+                  className={css({
+                    color: 'foreground.secondary',
+                    textStyle: 'Body.tertiary',
+                    lineClamp: 3,
+                  })}
+                >
+                  {description}
+                </p>
+              )}
+            </div>
+          </div>
+        </motion.button>
+
+        {isQuickActionVisible && (
+          <div
+            className={css({
+              position: 'absolute',
+              right: 0,
+              top: 0,
+              height: '[100%]',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              paddingRight: '8px',
+            })}
+          >
+            <Link
+              href={href as never}
+              className={css({
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              })}
+            >
+              <IconButton size="md">
+                <span
+                  className={css({ transform: 'scaleX(-1)', display: 'flex' })}
+                >
+                  <ChevlonLeft size={24} />
+                </span>
+              </IconButton>
+            </Link>
+            <button type="button" onClick={handleQuickActionComplete}>
+              {quickActionSlot}
+            </button>
+          </div>
+        )}
+
+        <span
+          className={css({
+            position: 'absolute',
+            top: '50%',
+            right: '0',
+            transform: 'translateY(-50%)',
+          })}
+        >
+          {reorderHandleSlot}
+        </span>
+      </div>
+    );
+  }
+
+  // 既存のMotionLinkベースのUI
   return (
     <div className={css({ position: 'relative' })}>
       <MotionLink
