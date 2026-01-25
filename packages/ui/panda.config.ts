@@ -8,7 +8,7 @@ import { tokens } from './src/styles/tokens';
 export default defineConfig({
   strictTokens: true,
   strictPropertyValues: true,
-  preflight: false,
+  preflight: true,
   include: ['./src/**/*.{js,jsx,ts,tsx}'],
   exclude: [],
   theme: {
