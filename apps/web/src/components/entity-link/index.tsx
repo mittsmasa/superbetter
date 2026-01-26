@@ -73,7 +73,7 @@ export const EntityLink = ({
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           onClick={(e) => {
             e.stopPropagation();
-            setIsQuickActionVisible(true);
+            setIsQuickActionVisible((prev) => !prev);
           }}
           className={cx(
             pixelBorder({
