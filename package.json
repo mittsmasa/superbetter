@@ -25,7 +25,7 @@
     "drizzle:seed": "turbo drizzle:seed"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.11",
+    "@biomejs/biome": "2.3.12",
     "lefthook": "2.0.15",
     "turbo": "2.7.5",
     "typescript": "catalog:"
