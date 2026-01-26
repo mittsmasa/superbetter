@@ -34,8 +34,8 @@ catalogs:
       specifier: 4.0.18
       version: 4.0.18
     motion:
-      specifier: 12.28.2
-      version: 12.28.2
+      specifier: 12.29.0
+      version: 12.29.0
     playwright:
       specifier: 1.57.0
       version: 1.57.0
@@ -103,7 +103,7 @@ importers:
         version: 0.45.1(@opentelemetry/api@1.9.0)(@tidbcloud/serverless@0.2.0)(gel@2.0.0)(kysely@0.28.8)(mysql2@3.16.1)
       motion:
         specifier: 'catalog:'
-        version: 12.28.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 12.29.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       mysql2:
         specifier: 3.16.1
         version: 3.16.1
@@ -209,7 +209,7 @@ importers:
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       motion:
         specifier: 'catalog:'
-        version: 12.28.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        version: 12.29.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react:
         specifier: 'catalog:'
         version: 19.2.3
@@ -3574,8 +3574,8 @@ packages:
   motion-utils@12.27.2:
     resolution: {integrity: sha512-B55gcoL85Mcdt2IEStY5EEAsrMSVE2sI14xQ/uAdPL+mfQxhKKFaEag9JmfxedJOR4vZpBGoPeC/Gm13I/4g5Q==}
 
-  motion@12.28.2:
-    resolution: {integrity: sha512-xxw8z0mMTcy4LWFC1iS4+pu7GJGT3P7+bmk7A3ABzPexuTCX+9sH4lCmZVTd3tSLjyHbFHgcJgNY2h9nOQlVqg==}
+  motion@12.29.0:
+    resolution: {integrity: sha512-rjB5CP2N9S2ESAyEFnAFMgTec6X8yvfxLNcz8n12gPq3M48R7ZbBeVYkDOTj8SPMwfvGIFI801SiPSr1+HCr9g==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -7836,7 +7836,7 @@ snapshots:
 
   motion-utils@12.27.2: {}
 
-  motion@12.28.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  motion@12.29.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       framer-motion: 12.29.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       tslib: 2.8.1
