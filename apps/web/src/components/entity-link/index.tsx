@@ -4,8 +4,15 @@ import { IconButton, MotionLink } from '@superbetter/ui';
 import { ChevlonLeft } from '@superbetter/ui/icons';
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import type { ComponentProps, ReactNode } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import {
+  type ComponentProps,
+  cloneElement,
+  isValidElement,
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Menu } from '@/assets/icons';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
@@ -153,9 +160,11 @@ export const EntityLink = ({
                 </span>
               </IconButton>
             </Link>
-            <button type="button" onClick={handleQuickActionComplete}>
-              {quickActionSlot}
-            </button>
+            {isValidElement<{ onComplete?: () => void }>(quickActionSlot)
+              ? cloneElement(quickActionSlot, {
+                  onComplete: handleQuickActionComplete,
+                })
+              : quickActionSlot}
           </div>
         )}
 
