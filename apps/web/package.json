@@ -70,6 +70,6 @@
     "vite": "catalog:",
     "vite-tsconfig-paths": "catalog:",
     "vitest": "catalog:",
-    "vitest-browser-react": "2.0.3"
+    "vitest-browser-react": "2.0.4"
   }
 }
