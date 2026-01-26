@@ -1,0 +1,9 @@
+import{r as y,j as a}from"./iframe-8PfW34ZG.js";import{a as x,I as g}from"./index-t8Ad9woq.js";import{A as _}from"./index-BbWNeX2n.js";import"./preload-helper-PPVm8Dsz.js";import"./index-FFRRUK6N.js";const f={quest:"クエストにいどんだ！",powerup:"パワーアップアイテムをつかった！",villain:"ヴィランとたたかった！"},o=({entityType:e,onExecute:c,onComplete:p})=>{const[u,d]=y.useTransition(),{add:n}=x(),l=m=>{m.stopPropagation(),d(async()=>{const i=await c();if(i?.type==="error"){n({message:i.error.message});return}n({message:f[e]}),p?.()})};return a.jsx(g,{onClick:l,disabled:u,size:"md",active:!0,children:a.jsx(_,{size:24})})};try{o.displayName="QuickExecuteButton",o.__docgenInfo={description:"",displayName:"QuickExecuteButton",props:{entityType:{defaultValue:null,description:"",name:"entityType",required:!0,type:{name:"any"}},onExecute:{defaultValue:null,description:"",name:"onExecute",required:!0,type:{name:"() => Promise<ExecuteResult>"}},onComplete:{defaultValue:null,description:"",name:"onComplete",required:!1,type:{name:"() => void"}}}}}catch{}const{fn:E}=__STORYBOOK_MODULE_TEST__,B={component:o,args:{entityType:"quest",onExecute:E(async()=>({type:"ok"}))},tags:["autodocs"],decorators:[e=>a.jsx("div",{style:{padding:"16px"},children:a.jsx(e,{})})]},t={},s={args:{entityType:"powerup"}},r={args:{entityType:"villain"}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:"{} satisfies Story",...t.parameters?.docs?.source}}};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+  args: {
+    entityType: 'powerup'
+  }
+} satisfies Story`,...s.parameters?.docs?.source}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  args: {
+    entityType: 'villain'
+  }
+} satisfies Story`,...r.parameters?.docs?.source}}};const k=["Quest","Powerup","Villain"];export{s as Powerup,t as Quest,r as Villain,k as __namedExportsOrder,B as default};
