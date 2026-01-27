@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { useSortable } from '@/app/_components/sortable/provider';
 import { postVillainHistory } from '@/app/(private)/_actions/post-villain-history';
 import { EntityLink, EntityLinkReorderHandle } from '@/components/entity-link';
-import { QuickExecuteButton } from '@/components/quick-execute-button';
 import { reorderVillains } from '../_actions/reorder-villains';
 
 export const VillainList = ({
@@ -44,12 +43,8 @@ export const VillainList = ({
               title={v.title}
               description={v.description}
               enableQuickAction={!sortable}
-              quickActionSlot={
-                <QuickExecuteButton
-                  entityType="villain"
-                  onExecute={() => postVillainHistory(v.id)}
-                />
-              }
+              entityType="villain"
+              onExecute={() => postVillainHistory(v.id)}
               reorderHandleSlot={
                 sortable && (
                   <EntityLinkReorderHandle

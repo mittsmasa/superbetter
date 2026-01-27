@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { IconButton } from '@superbetter/ui';
-import { AddBox } from '@superbetter/ui/icons';
 import { EntityLink } from '.';
 
 const meta = {
@@ -29,11 +27,8 @@ export const Default = {} satisfies Story;
 export const WithQuickAction = {
   args: {
     enableQuickAction: true,
-    quickActionSlot: (
-      <IconButton size="md" active>
-        <AddBox size={24} />
-      </IconButton>
-    ),
+    entityType: 'powerup',
+    onExecute: async () => ({ type: 'ok' }) as const,
   },
 } satisfies Story;
 
@@ -54,11 +49,8 @@ export const LongDescription = {
 export const WithQuickActionLongDescription = {
   args: {
     enableQuickAction: true,
-    quickActionSlot: (
-      <IconButton size="md" active>
-        <AddBox size={24} />
-      </IconButton>
-    ),
+    entityType: 'quest',
+    onExecute: async () => ({ type: 'ok' }) as const,
     title: '長いタイトルのテスト',
     description:
       'これは非常に長い説明文です。クイックアクションが有効な状態で複数行にわたって表示されるかどうかをテストしています。',

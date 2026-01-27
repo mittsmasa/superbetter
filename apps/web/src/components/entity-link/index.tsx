@@ -1,14 +1,25 @@
 'use client';
 
-import { IconButton, MotionLink } from '@superbetter/ui';
-import { ChevlonLeft } from '@superbetter/ui/icons';
+import { IconButton, MotionLink, useToast } from '@superbetter/ui';
+import { AddBox, ChevlonLeft } from '@superbetter/ui/icons';
 import { motion } from 'motion/react';
 import Link from 'next/link';
-import type { ComponentProps, ReactNode } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import {
+  type ComponentProps,
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+  useTransition,
+} from 'react';
 import { Menu } from '@/assets/icons';
 import { css, cx } from '@/styled-system/css';
 import { pixelBorder } from '@/styled-system/patterns';
+import type { EntityType } from '@/types/superbetter';
+
+type ExecuteResult =
+  | { type: 'ok' }
+  | { type: 'error'; error: { message: string } };
 
 type EntityLinkProps = {
   href: string;
@@ -16,8 +27,15 @@ type EntityLinkProps = {
   title: ReactNode;
   description?: string | null;
   reorderHandleSlot?: ReactNode;
-  quickActionSlot?: ReactNode;
   enableQuickAction?: boolean;
+  entityType?: Exclude<EntityType, 'epicwin'>;
+  onExecute?: () => Promise<ExecuteResult>;
+};
+
+const messages: Record<Exclude<EntityType, 'epicwin'>, string> = {
+  quest: 'クエストにいどんだ！',
+  powerup: 'パワーアップアイテムをつかった！',
+  villain: 'ヴィランとたたかった！',
 };
 
 export const EntityLink = ({
@@ -26,11 +44,14 @@ export const EntityLink = ({
   title,
   description,
   reorderHandleSlot,
-  quickActionSlot,
   enableQuickAction = false,
+  entityType,
+  onExecute,
 }: EntityLinkProps) => {
   const [isQuickActionVisible, setIsQuickActionVisible] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const quickActionRef = useRef<HTMLDivElement>(null);
+  const { add: toast } = useToast();
 
   useEffect(() => {
     if (!isQuickActionVisible) return;
@@ -52,12 +73,24 @@ export const EntityLink = ({
     };
   }, [isQuickActionVisible]);
 
-  const handleQuickActionComplete = () => {
-    setIsQuickActionVisible(false);
+  const handleExecute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!onExecute || !entityType) return;
+
+    startTransition(async () => {
+      const result = await onExecute();
+
+      if (result?.type === 'error') {
+        toast({ message: result.error.message });
+        return;
+      }
+      toast({ message: messages[entityType] });
+      setIsQuickActionVisible(false);
+    });
   };
 
   // クイックアクションが有効な場合はスライドUI
-  if (enableQuickAction && quickActionSlot && !disabled) {
+  if (enableQuickAction && entityType && onExecute && !disabled) {
     return (
       <div
         className={css({
@@ -153,9 +186,14 @@ export const EntityLink = ({
                 </span>
               </IconButton>
             </Link>
-            <button type="button" onClick={handleQuickActionComplete}>
-              {quickActionSlot}
-            </button>
+            <IconButton
+              onClick={handleExecute}
+              disabled={isPending}
+              size="md"
+              active
+            >
+              <AddBox size={24} />
+            </IconButton>
           </div>
         )}
 
