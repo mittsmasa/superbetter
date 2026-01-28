@@ -1,7 +1,7 @@
 'use client';
 
 import { IconButton, MotionLink, useToast } from '@superbetter/ui';
-import { AddBox, ChevlonLeft } from '@superbetter/ui/icons';
+import { ChevlonLeft, Zap } from '@superbetter/ui/icons';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import {
@@ -84,6 +84,12 @@ export const EntityLink = ({
         toast({ message: result.error.message });
         return;
       }
+
+      // 振動フィードバック（対応デバイスのみ）
+      if (navigator.vibrate) {
+        navigator.vibrate(100);
+      }
+
       toast({ message: messages[entityType] });
       setIsQuickActionVisible(false);
     });
@@ -192,7 +198,7 @@ export const EntityLink = ({
               size="md"
               active
             >
-              <AddBox size={24} />
+              <Zap size={24} />
             </IconButton>
           </div>
         )}
