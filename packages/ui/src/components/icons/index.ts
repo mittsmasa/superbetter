@@ -4,6 +4,7 @@ export { Android } from './Android';
 export { Archive } from './Archive';
 export { Calendar } from './Calendar';
 export { CalendarCheck } from './CalendarCheck';
+export { Check } from './Check';
 export { CheckGradient } from './CheckGradient';
 export { CheckList } from './CheckList';
 export { ChevlonLeft } from './ChevlonLeft';

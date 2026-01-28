@@ -1,7 +1,8 @@
 'use client';
 
 import { IconButton, MotionLink, useToast } from '@superbetter/ui';
-import { AddBox, ChevlonLeft } from '@superbetter/ui/icons';
+import { useVibration } from '@superbetter/ui/hooks';
+import { Check, ChevlonLeft } from '@superbetter/ui/icons';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import {
@@ -52,6 +53,7 @@ export const EntityLink = ({
   const [isPending, startTransition] = useTransition();
   const quickActionRef = useRef<HTMLDivElement>(null);
   const { add: toast } = useToast();
+  const { vibrate } = useVibration();
 
   useEffect(() => {
     if (!isQuickActionVisible) return;
@@ -84,6 +86,9 @@ export const EntityLink = ({
         toast({ message: result.error.message });
         return;
       }
+
+      vibrate(100);
+
       toast({ message: messages[entityType] });
       setIsQuickActionVisible(false);
     });
@@ -192,7 +197,7 @@ export const EntityLink = ({
               size="md"
               active
             >
-              <AddBox size={24} />
+              <Check size={24} />
             </IconButton>
           </div>
         )}
