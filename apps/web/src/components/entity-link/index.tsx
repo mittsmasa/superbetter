@@ -1,6 +1,7 @@
 'use client';
 
 import { IconButton, MotionLink, useToast } from '@superbetter/ui';
+import { useVibration } from '@superbetter/ui/hooks';
 import { ChevlonLeft, Zap } from '@superbetter/ui/icons';
 import { motion } from 'motion/react';
 import Link from 'next/link';
@@ -52,6 +53,7 @@ export const EntityLink = ({
   const [isPending, startTransition] = useTransition();
   const quickActionRef = useRef<HTMLDivElement>(null);
   const { add: toast } = useToast();
+  const { vibrate } = useVibration();
 
   useEffect(() => {
     if (!isQuickActionVisible) return;
@@ -85,10 +87,7 @@ export const EntityLink = ({
         return;
       }
 
-      // 振動フィードバック（対応デバイスのみ）
-      if (navigator.vibrate) {
-        navigator.vibrate(100);
-      }
+      vibrate(100);
 
       toast({ message: messages[entityType] });
       setIsQuickActionVisible(false);
