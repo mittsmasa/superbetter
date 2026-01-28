@@ -2,7 +2,7 @@
 
 import { IconButton, MotionLink, useToast } from '@superbetter/ui';
 import { useVibration } from '@superbetter/ui/hooks';
-import { ChevlonLeft, Zap } from '@superbetter/ui/icons';
+import { CheckGradient, ChevlonLeft } from '@superbetter/ui/icons';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import {
@@ -197,7 +197,7 @@ export const EntityLink = ({
               size="md"
               active
             >
-              <Zap size={24} />
+              <CheckGradient size={24} />
             </IconButton>
           </div>
         )}
