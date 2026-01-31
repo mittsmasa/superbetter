@@ -31,7 +31,7 @@
   "dependencies": {
     "@date-fns/tz": "1.4.1",
     "@floating-ui/react": "catalog:",
-    "@next/env": "16.1.5",
+    "@next/env": "16.1.6",
     "@superbetter/ui": "workspace:*",
     "better-auth": "1.4.17",
     "date-fns": "4.1.0",
