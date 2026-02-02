@@ -9,128 +9,128 @@
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 570.8999999999942
+      "duration": 568.3000000000029
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 382.6000000000058
+      "duration": 383.3999999999942
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 366.19999999998254
+      "duration": 366.3999999999942
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 365.79999999998836
+      "duration": 366.59999999999127
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 369.30000000001746
+      "duration": 384.5
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 365
+      "duration": 384.29999999998836
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 383
+      "duration": 383.79999999998836
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 388.1000000000058
+      "duration": 387.1000000000058
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 377
+      "duration": 377.4000000000233
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 368.6000000000058
+      "duration": 384.70000000001164
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 367.19999999998254
+      "duration": 389.4000000000233
     },
     {
       "testName": "entity-link - Disabled",
       "status": "passed",
-      "duration": 366.1000000000058
+      "duration": 379.3999999999942
     },
     {
       "testName": "entity-link - LongDescription",
       "status": "passed",
-      "duration": 369.79999999998836
+      "duration": 387.5
     },
     {
       "testName": "entity-link - WithQuickAction",
       "status": "passed",
-      "duration": 380.3999999999942
+      "duration": 378
     },
     {
       "testName": "entity-link - WithQuickActionLongDescription",
       "status": "passed",
-      "duration": 368.1000000000058
+      "duration": 384.3999999999942
     },
     {
       "testName": "entity-stats - Default",
       "status": "passed",
-      "duration": 386.29999999998836
+      "duration": 390.70000000001164
     },
     {
       "testName": "entity-stats - HighActivity",
       "status": "passed",
-      "duration": 382.8999999999942
+      "duration": 380.80000000001746
     },
     {
       "testName": "entity-stats - NeverExecuted",
       "status": "passed",
-      "duration": 383
+      "duration": 381.70000000001164
     },
     {
       "testName": "entity-stats - NewEntity",
       "status": "passed",
-      "duration": 383.69999999998254
+      "duration": 384.5
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 357
+      "duration": 369.9000000000233
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 367.30000000001746
+      "duration": 367.9000000000233
     },
     {
       "testName": "header - Default",
       "status": "passed",
-      "duration": 366.70000000001164
+      "duration": 368
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 371.3999999999942
+      "duration": 387.1000000000058
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 389.19999999998254
+      "duration": 383.29999999998836
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 374.5
+      "duration": 380.69999999998254
     }
   ],
-  "generatedAt": "2026-02-02T10:48:45.891Z"
+  "generatedAt": "2026-02-02T14:28:17.543Z"
 }
