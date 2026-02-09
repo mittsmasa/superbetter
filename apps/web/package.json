@@ -61,7 +61,7 @@
     "@vitest/browser-playwright": "catalog:",
     "drizzle-kit": "0.31.8",
     "drizzle-seed": "0.3.1",
-    "esbuild": "0.27.2",
+    "esbuild": "0.27.3",
     "execa": "9.6.1",
     "playwright": "catalog:",
     "serwist": "9.5.4",
