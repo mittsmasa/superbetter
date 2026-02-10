@@ -127,14 +127,14 @@ importers:
         specifier: 'catalog:'
         version: 1.8.1(hono@4.11.3)(typescript@5.9.3)
       '@serwist/build':
-        specifier: 9.5.4
-        version: 9.5.4(browserslist@4.28.1)(typescript@5.9.3)
+        specifier: 9.5.5
+        version: 9.5.5(browserslist@4.28.1)(typescript@5.9.3)
       '@serwist/cli':
-        specifier: 9.5.4
-        version: 9.5.4(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3)
+        specifier: 9.5.5
+        version: 9.5.5(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3)
       '@serwist/next':
-        specifier: 9.5.4
-        version: 9.5.4(@serwist/cli@9.5.4(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3))(next@16.1.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@5.9.3)(webpack@5.102.1(esbuild@0.27.3))
+        specifier: 9.5.5
+        version: 9.5.5(@serwist/cli@9.5.5(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3))(next@16.1.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@5.9.3)(webpack@5.102.1(esbuild@0.27.3))
       '@storybook/addon-docs':
         specifier: 'catalog:'
         version: 10.2.7(@types/react@19.2.13)(esbuild@0.27.3)(rollup@4.53.2)(storybook@10.2.7(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@24.10.11)(jiti@1.21.7)(lightningcss@1.30.2)(terser@5.37.0)(tsx@4.21.0))(webpack@5.102.1(esbuild@0.27.3))
@@ -181,8 +181,8 @@ importers:
         specifier: 'catalog:'
         version: 1.57.0
       serwist:
-        specifier: 9.5.4
-        version: 9.5.4(browserslist@4.28.1)(typescript@5.9.3)
+        specifier: 9.5.5
+        version: 9.5.5(browserslist@4.28.1)(typescript@5.9.3)
       storybook:
         specifier: 'catalog:'
         version: 10.2.7(@testing-library/dom@10.4.0)(prettier@3.2.5)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -1606,8 +1606,8 @@ packages:
   '@sec-ant/readable-stream@0.4.1':
     resolution: {integrity: sha512-831qok9r2t8AlxLko40y2ebgSDhenenCatLVeW/uBtnHPyhHOvG0C7TvfgecV+wHzIm5KUICgzmVpWS+IMEAeg==}
 
-  '@serwist/build@9.5.4':
-    resolution: {integrity: sha512-FTiNsNb3luKsLIxjKCvkPiqFZSbx7yVNOFGSUhp4lyfzgnelT1M3/lMC88kLiak90emkuFjSkQgwa6OnyhMZlQ==}
+  '@serwist/build@9.5.5':
+    resolution: {integrity: sha512-XrKpO2+vydp0pQr5iSwkg8xI4BiGjO+o0BakLRHeuaEmJj8mNqkziUKdoBTd4qtcblcvfg5jsW6jvhi72/zXkQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -1615,8 +1615,8 @@ packages:
       typescript:
         optional: true
 
-  '@serwist/cli@9.5.4':
-    resolution: {integrity: sha512-Fz1kCnTCM0XQcOLHCu7LyG+8JNFkw4ISf9JRFxxL+blPFOaWJd6xdSlqqJWHHNfb07hAVa7k16X5z0WutGIWlQ==}
+  '@serwist/cli@9.5.5':
+    resolution: {integrity: sha512-06/j3Gp8wC/QgWCWurKdzziTCk7hWaKo1BIByG9MPErK2B8CG/k8BIj5ub+8PkdESFuWTVi8OOLrjpqQaGCCTQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -1625,11 +1625,11 @@ packages:
       esbuild:
         optional: true
 
-  '@serwist/next@9.5.4':
-    resolution: {integrity: sha512-bkPkvMs4GfNV3C3tSZg9O5mb+B7Rq8zLpkZNF2hV96zep6d/ujA7yBp8o8bD1rmLb7I++ifsIMQzH2a+vVc/ag==}
+  '@serwist/next@9.5.5':
+    resolution: {integrity: sha512-07Pom4DqKz0E5asAHu1ak8MhuubAvBGcToFoIx/bk3e7q06ZPHcTNjZC1b+jMRYZTGFSlrkD6puw/5IIqqAV2g==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      '@serwist/cli': ^9.5.4
+      '@serwist/cli': ^9.5.5
       next: '>=14.0.0'
       react: '>=18.0.0'
       typescript: '>=5.0.0'
@@ -1639,16 +1639,16 @@ packages:
       typescript:
         optional: true
 
-  '@serwist/utils@9.5.4':
-    resolution: {integrity: sha512-uyriGQF1qjNEHXXfsd8XJ5kfK3/MezEaUw//XdHjZeJ0LvLamrgnLJGQQoyJqUfEPCiJ4jJwc4uYMB9LjLiHxA==}
+  '@serwist/utils@9.5.5':
+    resolution: {integrity: sha512-PJ96S9PXkWiiPK1+Czex5Lq5vhvp7yXBwtDOqPF2F1zVpoLga+do4kJZ+LrEWOr3IOiQ1WAfLvSMiK7aj/jrmg==}
     peerDependencies:
       browserslist: '>=4'
     peerDependenciesMeta:
       browserslist:
         optional: true
 
-  '@serwist/webpack-plugin@9.5.4':
-    resolution: {integrity: sha512-Zmrce/fuKIBYPOFlCSutIk2rE3949ihFjrXiiR3SNOhnBhxYDOcf6oz3zXFQDLAaih8wdjDL4PlzPEqKg1OmJA==}
+  '@serwist/webpack-plugin@9.5.5':
+    resolution: {integrity: sha512-m4BP7sJOLMkSRo9JuQhDBJiiM7mZyYbjgIshELO0H1+cjG/H0MmmSTMs/8p5yNSiZzNv4o0GkefGzMB1Ev2ZMQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       typescript: '>=5.0.0'
@@ -1659,8 +1659,8 @@ packages:
       webpack:
         optional: true
 
-  '@serwist/window@9.5.4':
-    resolution: {integrity: sha512-52t2G+TgiWDdRwGG0ArU28uy6/oQYICQfNLHs4ywybyS6mHy3BxHFl+JjB5vhg8znIG1LMpGvOmS5b7AuPVYDw==}
+  '@serwist/window@9.5.5':
+    resolution: {integrity: sha512-aX9gyS0QCJcUEAUgfWIbjEHQIfA4ljvq961XMHwdmWu5xeEBBYSAokc1+HqAukh9lRnzWPLa5T8HEhwWEOSFcg==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -4002,8 +4002,8 @@ packages:
   server-only@0.0.1:
     resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
 
-  serwist@9.5.4:
-    resolution: {integrity: sha512-uTHBzpIeA6rE3oyRt392MbtNQDs2JVZelKD1KkT18UkhX6HRwCeassoI1Nd1h52DqYqa7ZfBeldJ4awy+PYrnQ==}
+  serwist@9.5.5:
+    resolution: {integrity: sha512-qfyQpAR56KSYujr+47PqyDdxhK3GM3RVJxNjQm20KjB6vl5TbtEhtAxjl+aAQvzFQFcRlR12I2hCxuXyDTLHmQ==}
     peerDependencies:
       typescript: '>=5.0.0'
     peerDependenciesMeta:
@@ -5774,9 +5774,9 @@ snapshots:
 
   '@sec-ant/readable-stream@0.4.1': {}
 
-  '@serwist/build@9.5.4(browserslist@4.28.1)(typescript@5.9.3)':
+  '@serwist/build@9.5.5(browserslist@4.28.1)(typescript@5.9.3)':
     dependencies:
-      '@serwist/utils': 9.5.4(browserslist@4.28.1)
+      '@serwist/utils': 9.5.5(browserslist@4.28.1)
       common-tags: 1.8.2
       glob: 10.5.0
       pretty-bytes: 6.1.1
@@ -5787,11 +5787,11 @@ snapshots:
     transitivePeerDependencies:
       - browserslist
 
-  '@serwist/cli@9.5.4(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3)':
+  '@serwist/cli@9.5.5(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3)':
     dependencies:
       '@inquirer/prompts': 8.2.0(@types/node@24.10.11)
-      '@serwist/build': 9.5.4(browserslist@4.28.1)(typescript@5.9.3)
-      '@serwist/utils': 9.5.4(browserslist@4.28.1)
+      '@serwist/build': 9.5.5(browserslist@4.28.1)(typescript@5.9.3)
+      '@serwist/utils': 9.5.5(browserslist@4.28.1)
       chalk: 5.6.2
       chokidar: 5.0.0
       common-tags: 1.8.2
@@ -5808,34 +5808,34 @@ snapshots:
       - browserslist
       - typescript
 
-  '@serwist/next@9.5.4(@serwist/cli@9.5.4(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3))(next@16.1.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@5.9.3)(webpack@5.102.1(esbuild@0.27.3))':
+  '@serwist/next@9.5.5(@serwist/cli@9.5.5(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3))(next@16.1.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@5.9.3)(webpack@5.102.1(esbuild@0.27.3))':
     dependencies:
-      '@serwist/build': 9.5.4(browserslist@4.28.1)(typescript@5.9.3)
-      '@serwist/utils': 9.5.4(browserslist@4.28.1)
-      '@serwist/webpack-plugin': 9.5.4(browserslist@4.28.1)(typescript@5.9.3)(webpack@5.102.1(esbuild@0.27.3))
-      '@serwist/window': 9.5.4(browserslist@4.28.1)(typescript@5.9.3)
+      '@serwist/build': 9.5.5(browserslist@4.28.1)(typescript@5.9.3)
+      '@serwist/utils': 9.5.5(browserslist@4.28.1)
+      '@serwist/webpack-plugin': 9.5.5(browserslist@4.28.1)(typescript@5.9.3)(webpack@5.102.1(esbuild@0.27.3))
+      '@serwist/window': 9.5.5(browserslist@4.28.1)(typescript@5.9.3)
       browserslist: 4.28.1
       glob: 10.5.0
       kolorist: 1.8.0
       next: 16.1.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react: 19.2.4
       semver: 7.7.3
-      serwist: 9.5.4(browserslist@4.28.1)(typescript@5.9.3)
+      serwist: 9.5.5(browserslist@4.28.1)(typescript@5.9.3)
       zod: 4.3.6
     optionalDependencies:
-      '@serwist/cli': 9.5.4(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3)
+      '@serwist/cli': 9.5.5(@types/node@24.10.11)(browserslist@4.28.1)(esbuild@0.27.3)(typescript@5.9.3)
       typescript: 5.9.3
     transitivePeerDependencies:
       - webpack
 
-  '@serwist/utils@9.5.4(browserslist@4.28.1)':
+  '@serwist/utils@9.5.5(browserslist@4.28.1)':
     optionalDependencies:
       browserslist: 4.28.1
 
-  '@serwist/webpack-plugin@9.5.4(browserslist@4.28.1)(typescript@5.9.3)(webpack@5.102.1(esbuild@0.27.3))':
+  '@serwist/webpack-plugin@9.5.5(browserslist@4.28.1)(typescript@5.9.3)(webpack@5.102.1(esbuild@0.27.3))':
     dependencies:
-      '@serwist/build': 9.5.4(browserslist@4.28.1)(typescript@5.9.3)
-      '@serwist/utils': 9.5.4(browserslist@4.28.1)
+      '@serwist/build': 9.5.5(browserslist@4.28.1)(typescript@5.9.3)
+      '@serwist/utils': 9.5.5(browserslist@4.28.1)
       pretty-bytes: 6.1.1
       zod: 4.3.6
     optionalDependencies:
@@ -5844,10 +5844,10 @@ snapshots:
     transitivePeerDependencies:
       - browserslist
 
-  '@serwist/window@9.5.4(browserslist@4.28.1)(typescript@5.9.3)':
+  '@serwist/window@9.5.5(browserslist@4.28.1)(typescript@5.9.3)':
     dependencies:
       '@types/trusted-types': 2.0.7
-      serwist: 9.5.4(browserslist@4.28.1)(typescript@5.9.3)
+      serwist: 9.5.5(browserslist@4.28.1)(typescript@5.9.3)
     optionalDependencies:
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -8120,9 +8120,9 @@ snapshots:
 
   server-only@0.0.1: {}
 
-  serwist@9.5.4(browserslist@4.28.1)(typescript@5.9.3):
+  serwist@9.5.5(browserslist@4.28.1)(typescript@5.9.3):
     dependencies:
-      '@serwist/utils': 9.5.4(browserslist@4.28.1)
+      '@serwist/utils': 9.5.5(browserslist@4.28.1)
       idb: 8.0.3
     optionalDependencies:
       typescript: 5.9.3
