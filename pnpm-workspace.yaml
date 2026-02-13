@@ -11,7 +11,7 @@ catalog:
   typescript: 5.9.3
   '@types/react': 19.2.13
   '@types/react-dom': 19.2.3
-  '@types/node': 24.10.12
+  '@types/node': 24.10.13
 
   # PandaCSS
   '@pandacss/dev': 1.8.1
