@@ -9,128 +9,128 @@
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 569.5
+      "duration": 570.2999999999884
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 382.6000000000349
+      "duration": 378
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 366.29999999998836
+      "duration": 381.6000000000058
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 366.0999999999767
+      "duration": 366.3999999999942
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 370
+      "duration": 366.5
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 381.29999999998836
+      "duration": 370
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 366.29999999998836
+      "duration": 380.8999999999942
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 386.79999999998836
+      "duration": 386.8999999999942
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 377.20000000001164
+      "duration": 377
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 371.4000000000233
+      "duration": 370.4000000000233
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 383.5
+      "duration": 387.4000000000233
     },
     {
       "testName": "entity-link - Disabled",
       "status": "passed",
-      "duration": 381
+      "duration": 380.80000000001746
     },
     {
       "testName": "entity-link - LongDescription",
       "status": "passed",
-      "duration": 370.5
+      "duration": 386.3999999999942
     },
     {
       "testName": "entity-link - WithQuickAction",
       "status": "passed",
-      "duration": 379.69999999995343
+      "duration": 377.6000000000058
     },
     {
       "testName": "entity-link - WithQuickActionLongDescription",
       "status": "passed",
-      "duration": 368.4000000000233
+      "duration": 386.80000000001746
     },
     {
       "testName": "entity-stats - Default",
       "status": "passed",
-      "duration": 387.79999999998836
+      "duration": 388.30000000001746
     },
     {
       "testName": "entity-stats - HighActivity",
       "status": "passed",
-      "duration": 381.0999999999767
+      "duration": 379.5999999999767
     },
     {
       "testName": "entity-stats - NeverExecuted",
       "status": "passed",
-      "duration": 383.0999999999767
+      "duration": 382.1000000000058
     },
     {
       "testName": "entity-stats - NewEntity",
       "status": "passed",
-      "duration": 383.5
+      "duration": 382.8999999999942
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 374.0999999999767
+      "duration": 374.4000000000233
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 366.80000000004657
+      "duration": 366.9000000000233
     },
     {
       "testName": "header - Default",
       "status": "passed",
-      "duration": 367.5
+      "duration": 367.8999999999942
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 387.5999999999767
+      "duration": 394.70000000001164
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 381.8999999999651
+      "duration": 375.30000000001746
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 381.5999999999767
+      "duration": 399.29999999998836
     }
   ],
-  "generatedAt": "2026-02-15T09:07:52.145Z"
+  "generatedAt": "2026-02-15T13:50:40.075Z"
 }
