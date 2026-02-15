@@ -22,7 +22,7 @@ catalog:
 
   # Vite
   vite: 7.3.1
-  vite-tsconfig-paths: 6.0.5
+  vite-tsconfig-paths: 6.1.1
   '@vitejs/plugin-react': 5.1.4
 
   # UI Libraries
