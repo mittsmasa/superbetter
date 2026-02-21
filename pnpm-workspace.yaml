@@ -27,7 +27,7 @@ catalog:
 
   # UI Libraries
   '@floating-ui/react': 0.27.18
-  motion: 12.34.1
+  motion: 12.34.2
 
   # Testing
   vitest: 4.0.18
