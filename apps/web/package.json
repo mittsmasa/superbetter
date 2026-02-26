@@ -33,7 +33,7 @@
     "@floating-ui/react": "catalog:",
     "@next/env": "16.1.6",
     "@superbetter/ui": "workspace:*",
-    "better-auth": "1.4.18",
+    "better-auth": "1.4.19",
     "date-fns": "4.1.0",
     "drizzle-orm": "0.45.1",
     "motion": "catalog:",
