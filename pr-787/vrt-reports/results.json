@@ -9,128 +9,128 @@
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 560.7999999999884
+      "duration": 565.3999999999942
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 382.80000000004657
+      "duration": 382.40000000000873
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 366.5
+      "duration": 382
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 366.3999999999651
+      "duration": 366.1999999999971
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 366.5
+      "duration": 367.59999999999127
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 367.79999999998836
+      "duration": 368.3999999999942
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 383.5
+      "duration": 380.90000000000873
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 386.79999999998836
+      "duration": 386.6999999999971
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 377.1000000000349
+      "duration": 378.09999999999127
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 371.19999999995343
+      "duration": 369.3000000000029
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 381
+      "duration": 383.59999999999127
     },
     {
       "testName": "entity-link - Disabled",
       "status": "passed",
-      "duration": 366.29999999998836
+      "duration": 367.5
     },
     {
       "testName": "entity-link - LongDescription",
       "status": "passed",
-      "duration": 370.4000000000233
+      "duration": 385.79999999998836
     },
     {
       "testName": "entity-link - WithQuickAction",
       "status": "passed",
-      "duration": 379.6000000000349
+      "duration": 379.3999999999942
     },
     {
       "testName": "entity-link - WithQuickActionLongDescription",
       "status": "passed",
-      "duration": 368.0999999999767
+      "duration": 372.6999999999971
     },
     {
       "testName": "entity-stats - Default",
       "status": "passed",
-      "duration": 386.70000000001164
+      "duration": 403.8000000000029
     },
     {
       "testName": "entity-stats - HighActivity",
       "status": "passed",
-      "duration": 382.9000000000233
+      "duration": 377.5
     },
     {
       "testName": "entity-stats - NeverExecuted",
       "status": "passed",
-      "duration": 383.1000000000349
+      "duration": 384.3000000000029
     },
     {
       "testName": "entity-stats - NewEntity",
       "status": "passed",
-      "duration": 382.9000000000233
+      "duration": 384.1000000000058
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 358.29999999998836
+      "duration": 372
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 367.5
+      "duration": 366.6000000000058
     },
     {
       "testName": "header - Default",
       "status": "passed",
-      "duration": 366.29999999998836
+      "duration": 367.8000000000029
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 371.20000000001164
+      "duration": 429
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 382.20000000001164
+      "duration": 374.8999999999942
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 381.29999999998836
+      "duration": 399.6000000000058
     }
   ],
-  "generatedAt": "2026-03-01T21:09:47.146Z"
+  "generatedAt": "2026-03-02T10:14:24.135Z"
 }
