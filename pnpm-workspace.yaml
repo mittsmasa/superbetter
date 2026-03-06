@@ -26,7 +26,7 @@ catalog:
   '@vitejs/plugin-react': 5.1.4
 
   # UI Libraries
-  '@floating-ui/react': 0.27.18
+  '@floating-ui/react': 0.27.19
   motion: 12.34.4
 
   # Testing
