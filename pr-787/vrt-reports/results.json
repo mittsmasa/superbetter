@@ -9,32 +9,32 @@
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 570.3000000000175
+      "duration": 565.2999999999884
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 382.30000000001746
+      "duration": 379.29999999998836
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 365.20000000001164
+      "duration": 366.19999999998254
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 383.29999999998836
+      "duration": 366.29999999998836
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 366.3999999999942
+      "duration": 366.6000000000058
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 367.8999999999942
+      "duration": 367.3999999999942
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
@@ -44,93 +44,93 @@
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 385.8999999999942
+      "duration": 386.70000000001164
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 361.8999999999942
+      "duration": 361.80000000001746
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 370
+      "duration": 369.1000000000058
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 366.29999999998836
+      "duration": 366.80000000001746
     },
     {
       "testName": "entity-link - Disabled",
       "status": "passed",
-      "duration": 366.6000000000058
+      "duration": 367.3999999999942
     },
     {
       "testName": "entity-link - LongDescription",
       "status": "passed",
-      "duration": 386.19999999998254
+      "duration": 385.5
     },
     {
       "testName": "entity-link - WithQuickAction",
       "status": "passed",
-      "duration": 380.29999999998836
+      "duration": 381.5
     },
     {
       "testName": "entity-link - WithQuickActionLongDescription",
       "status": "passed",
-      "duration": 371
+      "duration": 383.69999999998254
     },
     {
       "testName": "entity-stats - Default",
       "status": "passed",
-      "duration": 405
+      "duration": 386
     },
     {
       "testName": "entity-stats - HighActivity",
       "status": "passed",
-      "duration": 380
+      "duration": 382.5
     },
     {
       "testName": "entity-stats - NeverExecuted",
       "status": "passed",
-      "duration": 380.3999999999942
+      "duration": 383.19999999998254
     },
     {
       "testName": "entity-stats - NewEntity",
       "status": "passed",
-      "duration": 404.8999999999942
+      "duration": 406.70000000001164
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 371.3999999999942
+      "duration": 368.6000000000058
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 365.1000000000058
+      "duration": 366
     },
     {
       "testName": "header - Default",
       "status": "passed",
-      "duration": 367
+      "duration": 367.70000000001164
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 371
+      "duration": 370.6000000000058
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 384.29999999998836
+      "duration": 381.9000000000233
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 382.19999999998254
+      "duration": 365.20000000001164
     }
   ],
-  "generatedAt": "2026-07-31T11:12:29.509Z"
+  "generatedAt": "2026-08-03T19:54:57.908Z"
 }
