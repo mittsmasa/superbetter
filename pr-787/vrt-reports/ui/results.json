@@ -9,27 +9,27 @@
     {
       "testName": "button - Default",
       "status": "passed",
-      "duration": 528.1000000000058
+      "duration": 530.9000000000087
     },
     {
       "testName": "button - Disabled",
       "status": "passed",
-      "duration": 362.8000000000029
+      "duration": 379.59999999999127
     },
     {
       "testName": "button - Secondary",
       "status": "passed",
-      "duration": 365.8999999999942
+      "duration": 365.5
     },
     {
       "testName": "button - SecondaryDisabled",
       "status": "passed",
-      "duration": 367.5
+      "duration": 366.6999999999971
     },
     {
       "testName": "counter-button - Default",
       "status": "passed",
-      "duration": 380.6000000000058
+      "duration": 381.8000000000029
     },
     {
       "testName": "dialog - Default",
@@ -39,42 +39,42 @@
     {
       "testName": "components-drawer - Default",
       "status": "passed",
-      "duration": 364
+      "duration": 364.1000000000058
     },
     {
       "testName": "glass-screen - Default",
       "status": "passed",
-      "duration": 367.79999999998836
+      "duration": 367.5
     },
     {
       "testName": "icon-button - Active",
       "status": "passed",
-      "duration": 365.3999999999942
+      "duration": 365.5
     },
     {
       "testName": "icon-button - Default",
       "status": "passed",
-      "duration": 365.90000000000873
+      "duration": 366.3000000000029
     },
     {
       "testName": "icon-button - Disabled",
       "status": "passed",
-      "duration": 366.5
+      "duration": 366.6999999999971
     },
     {
       "testName": "motion-link - Default",
       "status": "passed",
-      "duration": 366.6000000000058
+      "duration": 366.3999999999942
     },
     {
       "testName": "number-input - Disabled",
       "status": "passed",
-      "duration": 401
+      "duration": 383.8000000000029
     },
     {
       "testName": "number-input - Primary",
       "status": "passed",
-      "duration": 382.90000000000873
+      "duration": 383.3999999999942
     },
     {
       "testName": "number-input - Secondary",
@@ -89,73 +89,73 @@
     {
       "testName": "number-input - WithMinMax",
       "status": "passed",
-      "duration": 383
+      "duration": 382.79999999998836
     },
     {
       "testName": "number-input - WithStep",
       "status": "passed",
-      "duration": 383.3999999999942
+      "duration": 383.5
     },
     {
       "testName": "popover - Default",
       "status": "passed",
-      "duration": 365
+      "duration": 365.40000000000873
     },
     {
       "testName": "radio - Default",
       "status": "passed",
-      "duration": 387
+      "duration": 385.3000000000029
     },
     {
       "testName": "reorder - Default",
       "status": "passed",
-      "duration": 415.3000000000029
+      "duration": 399.6999999999971
     },
     {
       "testName": "select - Default",
       "status": "passed",
-      "duration": 368.6000000000058
+      "duration": 371.3999999999942
     },
     {
       "testName": "select - ManyOptions",
       "status": "passed",
-      "duration": 364
+      "duration": 361.8000000000029
     },
     {
       "testName": "select - WithDefaultValue",
       "status": "passed",
-      "duration": 366.79999999998836
+      "duration": 366.40000000000873
     },
     {
       "testName": "select - WithOnValueChange",
       "status": "passed",
-      "duration": 366.1999999999971
+      "duration": 387.6999999999971
     },
     {
       "testName": "select - WithoutLabel",
       "status": "passed",
-      "duration": 365.1999999999971
+      "duration": 361.8000000000029
     },
     {
       "testName": "text-area - Default",
       "status": "passed",
-      "duration": 385.3000000000029
+      "duration": 385.8999999999942
     },
     {
       "testName": "text-input - Default",
       "status": "passed",
-      "duration": 381.8999999999942
+      "duration": 380.8999999999942
     },
     {
       "testName": "toast - Default",
       "status": "passed",
-      "duration": 364.8000000000029
+      "duration": 364.1000000000058
     },
     {
       "testName": "toast - LongMessage",
       "status": "passed",
-      "duration": 366.3999999999942
+      "duration": 368.1000000000058
     }
   ],
-  "generatedAt": "2026-08-29T12:21:47.391Z"
+  "generatedAt": "2026-08-29T21:07:56.849Z"
 }
