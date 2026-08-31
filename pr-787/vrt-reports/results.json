@@ -9,128 +9,128 @@
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 577
+      "duration": 578.6999999999534
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 380
+      "duration": 380.69999999995343
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 368.5
+      "duration": 366.39999999990687
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 364.3999999999942
+      "duration": 366.19999999995343
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 366.5999999999767
+      "duration": 366.70000000006985
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 367
+      "duration": 367.9000000000233
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 383.19999999998254
+      "duration": 382.9000000000233
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 386.3999999999942
+      "duration": 386.70000000006985
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 378.29999999998836
+      "duration": 377.4000000000233
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 369.3999999999942
+      "duration": 369.79999999993015
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 383.1000000000058
+      "duration": 383.29999999993015
     },
     {
       "testName": "entity-link - Disabled",
       "status": "passed",
-      "duration": 367.19999999998254
+      "duration": 366.5
     },
     {
       "testName": "entity-link - LongDescription",
       "status": "passed",
-      "duration": 385.8999999999942
+      "duration": 386.60000000009313
     },
     {
       "testName": "entity-link - WithQuickAction",
       "status": "passed",
-      "duration": 380.3999999999942
+      "duration": 380.0999999999767
     },
     {
       "testName": "entity-link - WithQuickActionLongDescription",
       "status": "passed",
-      "duration": 385.19999999998254
+      "duration": 387.5
     },
     {
       "testName": "entity-stats - Default",
       "status": "passed",
-      "duration": 385.70000000001164
+      "duration": 383.5999999999767
     },
     {
       "testName": "entity-stats - HighActivity",
       "status": "passed",
-      "duration": 382.79999999998836
+      "duration": 382.5999999999767
     },
     {
       "testName": "entity-stats - NeverExecuted",
       "status": "passed",
-      "duration": 383.5
+      "duration": 384.39999999990687
     },
     {
       "testName": "entity-stats - NewEntity",
       "status": "passed",
-      "duration": 382.8999999999942
+      "duration": 402.4000000000233
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 376.19999999998254
+      "duration": 371.4000000000233
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 365.29999999998836
+      "duration": 365.89999999990687
     },
     {
       "testName": "header - Default",
       "status": "passed",
-      "duration": 368.5
+      "duration": 366.69999999995343
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 385.70000000001164
+      "duration": 371.19999999995343
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 382.29999999998836
+      "duration": 423.70000000006985
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 381.69999999998254
+      "duration": 373.39999999990687
     }
   ],
-  "generatedAt": "2026-08-30T21:15:47.953Z"
+  "generatedAt": "2026-08-31T16:08:46.779Z"
 }
