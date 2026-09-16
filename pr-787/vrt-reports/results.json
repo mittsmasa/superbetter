@@ -9,128 +9,128 @@
     {
       "testName": "adventure-log - Default",
       "status": "passed",
-      "duration": 566.1999999999825
+      "duration": 566.7000000000116
     },
     {
       "testName": "daily-achievement - Achieved",
       "status": "passed",
-      "duration": 382.4000000000233
+      "duration": 381.30000000004657
     },
     {
       "testName": "daily-achievement - Default",
       "status": "passed",
-      "duration": 365.5
+      "duration": 365.9000000000233
     },
     {
       "testName": "daily-achievement - NoData",
       "status": "passed",
-      "duration": 367.1000000000058
+      "duration": 366.5
     },
     {
       "testName": "daily-achievement - Today",
       "status": "passed",
-      "duration": 366.5
+      "duration": 367.0999999999767
     },
     {
       "testName": "date-navigation-date-navigation - Default",
       "status": "passed",
-      "duration": 367.1000000000058
+      "duration": 367.29999999998836
     },
     {
       "testName": "date-navigation-date-navigation - DifferentDate",
       "status": "passed",
-      "duration": 383.3999999999942
+      "duration": 366.29999999998836
     },
     {
       "testName": "entity-icon - AllTypes",
       "status": "passed",
-      "duration": 386.5999999999767
+      "duration": 385.79999999998836
     },
     {
       "testName": "entity-icon - Default",
       "status": "passed",
-      "duration": 360.80000000001746
+      "duration": 363.3999999999651
     },
     {
       "testName": "entity-icon - WithAnimation",
       "status": "passed",
-      "duration": 371.20000000001164
+      "duration": 366.8999999999651
     },
     {
       "testName": "entity-link - Default",
       "status": "passed",
-      "duration": 365
+      "duration": 368.1000000000349
     },
     {
       "testName": "entity-link - Disabled",
       "status": "passed",
-      "duration": 366.80000000001746
+      "duration": 365.9000000000233
     },
     {
       "testName": "entity-link - LongDescription",
       "status": "passed",
-      "duration": 386.19999999998254
+      "duration": 369.5999999999767
     },
     {
       "testName": "entity-link - WithQuickAction",
       "status": "passed",
-      "duration": 382
+      "duration": 380.5999999999767
     },
     {
       "testName": "entity-link - WithQuickActionLongDescription",
       "status": "passed",
-      "duration": 386.5999999999767
+      "duration": 369.79999999998836
     },
     {
       "testName": "entity-stats - Default",
       "status": "passed",
-      "duration": 383.20000000001164
+      "duration": 383.29999999998836
     },
     {
       "testName": "entity-stats - HighActivity",
       "status": "passed",
-      "duration": 382.5999999999767
+      "duration": 384
     },
     {
       "testName": "entity-stats - NeverExecuted",
       "status": "passed",
-      "duration": 383.5
+      "duration": 383
     },
     {
       "testName": "entity-stats - NewEntity",
       "status": "passed",
-      "duration": 441.30000000001746
+      "duration": 388.6000000000349
     },
     {
       "testName": "example - Default",
       "status": "passed",
-      "duration": 366.1000000000058
+      "duration": 371.5000000000582
     },
     {
       "testName": "example - WithIcon",
       "status": "passed",
-      "duration": 367
+      "duration": 366.0999999999767
     },
     {
       "testName": "header - Default",
       "status": "passed",
-      "duration": 366.5999999999767
+      "duration": 366.4000000000233
     },
     {
       "testName": "mission - Default",
       "status": "passed",
-      "duration": 370.80000000001746
+      "duration": 370.80000000004657
     },
     {
       "testName": "mission - Incomplete",
       "status": "passed",
-      "duration": 382.5
+      "duration": 364.80000000004657
     },
     {
       "testName": "navigation - Default",
       "status": "passed",
-      "duration": 365.29999999998836
+      "duration": 365
     }
   ],
-  "generatedAt": "2026-09-15T11:13:18.634Z"
+  "generatedAt": "2026-09-16T01:55:31.925Z"
 }
