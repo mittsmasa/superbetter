@@ -64,7 +64,7 @@
     "@vitest/browser-playwright": "catalog:",
     "playwright": "catalog:",
     "storybook": "catalog:",
-    "tsup": "8.5.1",
+    "tsup": "9.0.0",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-tsconfig-paths": "catalog:",
